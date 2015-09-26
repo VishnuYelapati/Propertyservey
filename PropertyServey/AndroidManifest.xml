@@ -45,6 +45,8 @@
        <activity android:name="com.versatilemobitech.servey.ETaxPayerMeasurementDetails"></activity>
        <activity android:name="com.versatilemobitech.servey.FLandBuildingDetailsActivity"></activity>
        <activity android:name="com.versatilemobitech.servey.GTaxPayerUsePropertyDetails"></activity>
+       <activity android:name="com.versatilemobitech.util.CaptureSignature" android:label="Signature Confirmation"  android:theme="@android:style/Theme.Dialog"></activity>
+       <activity android:name="com.versatilemobitech.util.CaptureSignatureActivity"></activity>
     </application>
 
 </manifest>

@@ -9,7 +9,7 @@
  <string name="pwd">Password</string>
  <string name="cannot">Cannot</string>
  
-
+  <string name="external_dir">GetSignature</string>
    <string-array name="tripFreq">
        
         <item >Daily</item>
@@ -365,7 +365,7 @@
 
 
 
-
+  
 
 
     </string-array>

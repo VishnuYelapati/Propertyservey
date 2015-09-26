@@ -11,14 +11,14 @@ import android.widget.Toast;
 public class LoginActivity extends BaserActinbBar {
 
 	Button btn_Login=null;
-	
-	
+
+
 	EditText et_UserName=null;
 	EditText et_Password=null;
 	String strUsername="", str_pref_UserName="";
 	String strPassword="", str_pref_Password;
 	SharedPreferences mypref=null;
-	 
+
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
@@ -35,31 +35,31 @@ public class LoginActivity extends BaserActinbBar {
 			btn_Login.setText("Register");
 		else
 			btn_Login.setText("Login");
-		*/ 
-		
+		 */ 
+
 		btn_Login.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				strUsername=et_UserName.getText().toString().trim();
 				strPassword=et_Password.getText().toString().trim();
-				
-			
-			if(strUsername.length()!=0 && strPassword.length()!=0){
-							if(strUsername.equalsIgnoreCase("Admin") && strPassword.equalsIgnoreCase("admin@123"))
-							{
-								//
-								
-								Intent mapIntent=new Intent(LoginActivity.this, MainActivity.class);
-							
-								startActivity(mapIntent);
-							}
-							else
-							{
-								Toast.makeText(LoginActivity.this, "Invalid credentials, please check and try again", Toast.LENGTH_LONG).show();
-							}
-							
+
+
+				if(strUsername.length()!=0 && strPassword.length()!=0){
+					if(strUsername.equalsIgnoreCase("Admin") && strPassword.equalsIgnoreCase("admin@123"))
+					{
+						//
+
+						Intent mapIntent=new Intent(LoginActivity.this, MainActivity.class);
+
+						startActivity(mapIntent);
+					}
+					else
+					{
+						Toast.makeText(LoginActivity.this, "Invalid credentials, please check and try again", Toast.LENGTH_LONG).show();
+					}
+
 				}else{
 					if(strUsername.length()==0)
 					{
@@ -70,13 +70,13 @@ public class LoginActivity extends BaserActinbBar {
 						et_Password.setError("Invalid");
 					}
 					Toast.makeText(LoginActivity.this, "Please enter Username and Password", Toast.LENGTH_LONG).show();
-					
+
 				}
-						}
-			 
+			}
+
 		});
-		
-		
+
+
 	}
- 
+
 }

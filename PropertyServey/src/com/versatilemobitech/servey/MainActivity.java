@@ -28,6 +28,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.ActionBar;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -37,6 +38,7 @@ import android.widget.Toast;
 
 import com.versatilemobitech.adapter.DatabaseHandler;
 import com.versatilemobitech.db.PlacesDatabaseHandler;
+import com.versatilemobitech.util.CaptureSignature;
 
 public class MainActivity extends BaserActinbBar{
 
@@ -53,6 +55,10 @@ public class MainActivity extends BaserActinbBar{
 	private Context _mainContext;
 	String toDay_DATE="";
 	private boolean isCanExportReport=false;
+	
+	
+	public static final int SIGNATURE_ACTIVITY = 1;
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
@@ -105,9 +111,14 @@ public class MainActivity extends BaserActinbBar{
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				Intent i=new Intent(getApplicationContext(),ADataProviderActivity.class);
+				/*Intent i=new Intent(getApplicationContext(),ADataProviderActivity.class);
 				startActivity(i);
-				finish();
+				finish();*/
+				
+				
+				Intent intent = new Intent(MainActivity.this, CaptureSignature.class); 
+                startActivityForResult(intent,SIGNATURE_ACTIVITY);
+
 			}
 		});
 
@@ -406,7 +417,7 @@ public class MainActivity extends BaserActinbBar{
 			public void onClick(DialogInterface dialog,int id) {
 
   
-				sendEmail();
+				//sendEmail();
 				 
 				 
 			}
@@ -448,4 +459,25 @@ public class MainActivity extends BaserActinbBar{
 		startActivity(Intent.createChooser(intent, "Send email..."));
 		
 	}
+	
+	
+	 protected void onActivityResult(int requestCode, int resultCode, Intent data)
+	    {
+	        switch(requestCode) {
+	        case SIGNATURE_ACTIVITY: 
+	            if (resultCode == RESULT_OK) {
+	 
+	                Bundle bundle = data.getExtras();
+	                String status  = bundle.getString("status");
+	                if(status.equalsIgnoreCase("done")){
+	                    Toast toast = Toast.makeText(this, "Signature capture successful!", Toast.LENGTH_SHORT);
+	                    toast.setGravity(Gravity.TOP, 105, 50);
+	                    toast.show();
+	                }
+	            }
+	            break;
+	        }
+	 
+	    }  
+
 }
