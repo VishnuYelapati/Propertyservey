@@ -1,4 +1,4 @@
-package com.versatilemobitech.survey.bean;
+package com.versatilemobitech.bean;
 
 public class BuildingDetails {
 	private String LandUse="";

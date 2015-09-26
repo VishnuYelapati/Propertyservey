@@ -1,4 +1,4 @@
-package com.versatilemobitech.survey.bean;
+package com.versatilemobitech.bean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
