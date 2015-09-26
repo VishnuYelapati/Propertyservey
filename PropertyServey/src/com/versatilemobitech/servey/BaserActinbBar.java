@@ -13,7 +13,7 @@ public class BaserActinbBar extends ActionBarActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		ActionBar actionBar = getSupportActionBar();
-		actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFBF00")));
+		actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#98495F")));
 		actionBar.setHomeButtonEnabled(true);
 		actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_SHOW_TITLE);
 		actionBar.setIcon(R.drawable.ic_launcher);

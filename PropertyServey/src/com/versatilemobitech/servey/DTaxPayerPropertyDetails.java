@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class DTaxPayerPropertyDetails extends Activity{
+public class DTaxPayerPropertyDetails extends BaserActinbBar{
 	Button btn_Next;
 	
 	@Override
