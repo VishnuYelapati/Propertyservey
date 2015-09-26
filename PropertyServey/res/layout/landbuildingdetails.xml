@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background2" >
+    
+    <TextView
+        android:id="@+id/completed_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:text="Government of Rajasthan"
+        android:textColor="@android:color/black"
+        android:textSize="20dp" />
+
+    <ScrollView
+        android:layout_below="@+id/completed_title"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/content_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/shadow_layer"
+                android:orientation="vertical" >
+
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="35dp"
+                      android:background="@color/title_bar_color"
+                     >
+
+                    <TextView
+
+                        android:textColor="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+ 						android:gravity="center"
+                        android:text="Land / Building Details" /></LinearLayout>
+
+              
+                
+                 <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                    android:id="@+id/ll_addview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <Button
+                        android:id="@+id/btn_addview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="Add Details" />
+
+                    
+                </LinearLayout>
+                
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                    android:id="@+id/ll_landbuildings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_landuse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="#000000"
+                        android:text="Land Use" />
+
+                    <Spinner
+                        android:id="@+id/spn_landuse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:textColor="#000000"
+                         />
+                </LinearLayout>
+
+				 <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                   
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_detailsfloor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="#000000"
+                        android:text="Floor Details" />
+
+                    <Spinner
+                        android:id="@+id/spn_detailsfloor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="#000000"
+                         />
+                </LinearLayout>
+                
+                 <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                   
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_totalareasft"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="#000000"
+                        android:text="Total Area(in Sq.ft)" />
+
+                    <EditText
+                        android:id="@+id/et_totalareasft"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="#000000"
+                         />
+                </LinearLayout>
+                    <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+                
+                  <LinearLayout
+                 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_totalaresft"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="Total Area(in yards)" 
+                        android:textColor="@color/black"/>
+
+                    <EditText
+                        android:id="@+id/et_totalareainyards"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                     />
+                </LinearLayout>
+               
+                  
+                   <LinearLayout 
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+                    
+                       
+    </LinearLayout>
+            </LinearLayout>
+            
+            
+            
+        </LinearLayout>
+        
+    </ScrollView>
+
+    
+                 <LinearLayout
+        android:id="@+id/buttom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+          <Button
+            android:id="@+id/btn_prev"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/sing_in_button"
+            android:text="Previous"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/sing_in_button"
+            android:text="Next"
+            android:textColor="@android:color/white" />
+
+       
+    </LinearLayout>
+    
+    
+
+
+   
+
+</RelativeLayout>

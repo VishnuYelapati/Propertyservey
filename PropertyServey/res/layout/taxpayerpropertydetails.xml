@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background2" >
+
+    <TextView
+        android:id="@+id/completed_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:text="Government of Rajasthan"
+        android:textColor="@android:color/black"
+        android:textSize="20dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/buttom_layout"
+        android:layout_below="@+id/completed_title"
+        android:layout_marginTop="10dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/content_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/shadow_layer"
+                android:orientation="vertical" >
+
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="35dp"
+                      android:background="@color/title_bar_color"
+                     >
+
+                    <TextView
+
+                        android:textColor="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+ 						android:gravity="center"
+                        android:text="Property Details" /></LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/dite_info_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_flatno"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:textColor="@color/black"
+                        android:text="Falt No*" />
+
+                    <EditText
+                        android:id="@+id/et_flatno"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                       
+                     />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                    android:id="@+id/loc_info_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_laneroad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                        android:text="Lane/Road*" />
+
+                    <EditText
+                        android:id="@+id/et_laneroad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                         android:textColor="@color/black"
+                        android:layout_weight="0.5"
+                         />
+                </LinearLayout>
+
+				 <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                   
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_zone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                        android:text="Zone*" />
+
+                    <Spinner
+                        android:id="@+id/spn_zone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                         android:textColor="@color/black"
+                        android:layout_weight="0.5"
+                         />
+                </LinearLayout>
+                
+                 <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                   
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_wardno"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                        android:text="Basic Phone*" />
+
+                    <Spinner
+                        android:id="@+id/spn_wardno"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                         />
+                </LinearLayout>
+                
+                  <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                   
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_colonyname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                        android:text="Colony Name*" />
+
+                    <EditText
+                        android:id="@+id/et_colonyname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                         android:textColor="@color/black"
+                        android:layout_weight="0.5"
+                         />
+                </LinearLayout>
+                
+                
+                
+                   <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                   
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_landmark"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                        android:text="Landmark*" />
+
+                    <EditText
+                        android:id="@+id/et_landmark"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                         android:textColor="@color/black"
+                        android:layout_weight="0.5"
+                         />
+                </LinearLayout>
+                
+                
+                    
+                
+                   <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                   
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                        android:text="City" />
+
+                    <EditText
+                        android:id="@+id/et_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                         android:textColor="@color/black"
+                         android:text="Jaipur"
+                        android:layout_weight="0.5"
+                         />
+                </LinearLayout>
+                
+                    
+                
+                   <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                   
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_district"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                        android:text="Disrict" />
+
+                    <EditText
+                        android:id="@+id/et_district"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                         android:textColor="@color/black"
+                         android:text="Jaipur"
+                        android:layout_weight="0.5"
+                         />
+                </LinearLayout>
+                
+                
+                    
+                
+                   <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                   
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_state"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                        android:text="Landmark*" />
+
+                    <EditText
+                        android:id="@+id/et_state"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                         android:textColor="@color/black"
+                         android:text="Rajasthan"
+                        android:layout_weight="0.5"
+                         />
+                </LinearLayout>
+                
+                
+                
+                    
+                
+                   <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                   
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_prebuildingname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                        android:text="Pre-Building Name" />
+
+                    <EditText
+                        android:id="@+id/et_prebuildingname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                         android:textColor="@color/black"
+                        android:layout_weight="0.5"
+                         />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+                 <LinearLayout
+                   
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_postbuildingname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                        android:text="Pre-Building Name" />
+
+                    <EditText
+                        android:id="@+id/et_postbuildingname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                         android:textColor="@color/black"
+                        android:layout_weight="0.5"
+                         />
+                </LinearLayout>
+                 <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+                <LinearLayout
+                   
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_builddesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                        android:text="Build Description" />
+
+                    <EditText
+                        android:id="@+id/et_buildingdesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                         android:textColor="@color/black"
+                        android:layout_weight="0.5"
+                         />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+                
+                 <LinearLayout
+                   
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_ownership"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                        android:text="Ownership Details" />
+
+                    <Spinner
+                        android:id="@+id/spn_ownershipsdetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                         android:textColor="@color/black"
+                        android:layout_weight="0.5"
+                         />
+                </LinearLayout>
+                
+                 
+                 
+                 <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+                
+                 <LinearLayout
+                   
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <CheckBox
+                        android:id="@+id/tv_details_ofownership"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                        android:text="Whether COnstruction on plot" />
+
+           
+                </LinearLayout>
+                
+                  <LinearLayout
+                   
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <EditText
+                        android:id="@+id/et_lengthfeets"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                        android:hint="Length in (ft)" />
+                    
+                     <EditText
+                        android:id="@+id/et_widthfeets"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                        android:hint="Width (in ft)" />
+
+           
+                </LinearLayout>
+                
+                  
+                  
+                    <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+                
+                 <LinearLayout
+                   
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_consttype"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                        android:text="Construction Type" />
+
+                    <Spinner
+                        android:id="@+id/spn_constype"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                         android:textColor="@color/black"
+                        android:layout_weight="0.5"
+                         />
+                </LinearLayout>
+                 
+            </LinearLayout>
+            
+            
+            
+        </LinearLayout>
+        
+    </ScrollView>
+
+ 
+                 <LinearLayout
+        android:id="@+id/buttom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+          <Button
+            android:id="@+id/btn_prev"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/sing_in_button"
+            android:text="Previous"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/sing_in_button"
+            android:text="Next"
+            android:textColor="@android:color/white" />
+
+       
+    </LinearLayout>
+   
+
+</RelativeLayout>

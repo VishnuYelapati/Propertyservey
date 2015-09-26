@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background2" >
+
+    <TextView
+        android:id="@+id/completed_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:text="Government of Rajasthan"
+        android:textColor="@android:color/black"
+        android:textSize="20dp" />
+
+    <ScrollView
+        android:layout_below="@+id/completed_title"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/content_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/shadow_layer"
+                android:orientation="vertical" >
+
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="35dp"
+                      android:background="@color/title_bar_color"
+                     >
+
+                    <TextView
+
+                        android:textColor="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+ android:gravity="center"
+                        android:text="Data Provider Details" /></LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/dite_info_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/dite_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:textColor="@color/black"
+                        android:text="Data Provide By*" />
+
+                    <Spinner
+                        android:id="@+id/spn_Dataprovder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                       
+                     />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                    android:id="@+id/loc_info_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/loc_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                        android:text="Provider Name*" />
+
+                    <EditText
+                        android:id="@+id/loc_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                         android:textColor="@color/black"
+                        android:layout_weight="0.5"
+                         />
+                </LinearLayout>
+
+				 <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                   
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_relationship"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                        android:text="Relationship*" />
+
+                    <EditText
+                        android:id="@+id/et_relationowner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                         android:textColor="@color/black"
+                        android:layout_weight="0.5"
+                         />
+                </LinearLayout>
+                
+                 <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                   
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_owneruidno"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                        android:text="Owner UID No*" />
+
+                    <EditText
+                        android:id="@+id/et_uidno"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                         />
+                </LinearLayout>
+                
+                  <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                   
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_mobileno"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                        android:text="Owner UID No*" />
+
+                    <EditText
+                        android:id="@+id/et_mobileno"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                         android:textColor="@color/black"
+                        android:layout_weight="0.5"
+                         />
+                </LinearLayout>
+                
+                   <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                   
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_basicphone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                         android:textColor="@color/black"
+                        android:layout_weight="0.5"
+                        android:text="Owner UID No*" />
+
+                    <EditText
+                        android:id="@+id/et_basicphone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                         android:textColor="@color/black"
+                        android:layout_weight="0.5"
+                         />
+                </LinearLayout>
+                
+                
+                  <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                   
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_emailiD"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                        android:text="Owner UID No*" />
+
+                    <EditText
+                        android:id="@+id/et_emaild"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                         android:textColor="@color/black"
+                         />
+                </LinearLayout>
+               
+            </LinearLayout>
+            
+            
+            
+        </LinearLayout>
+        
+    </ScrollView>
+
+ 
+                 <LinearLayout
+        android:id="@+id/buttom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:weightSum="1" >
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            
+            android:background="@color/sing_in_button"
+            android:text="Save &amp; Continue"
+            android:textColor="@android:color/white" />
+
+       
+    </LinearLayout>
+    
+
+
+
+   
+
+</RelativeLayout>

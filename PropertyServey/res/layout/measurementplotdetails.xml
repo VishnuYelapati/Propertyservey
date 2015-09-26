@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background2" >
+
+    <TextView
+        android:id="@+id/completed_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:text="Government of Rajasthan"
+        android:textColor="@android:color/black"
+        android:textSize="20dp" />
+
+    <ScrollView
+        android:layout_below="@+id/completed_title"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:id="@+id/content_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/shadow_layer"
+                android:orientation="vertical" >
+
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="35dp"
+                      android:background="@color/title_bar_color"
+                     >
+
+                    <TextView
+
+                        android:textColor="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+ android:gravity="center"
+                        android:text="Measurement Of Plot Details" /></LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_tv_plotarea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:weightSum="3" >
+
+                    <TextView
+                        android:id="@+id/tv_totalplotarea"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:textColor="@color/black"
+                        android:text="Total  Plot Area*" />
+
+                   
+                </LinearLayout>
+                
+                  <LinearLayout
+                    android:id="@+id/et_info_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:weightSum="3" >
+
+                 
+
+                    <EditText
+                        android:id="@+id/et_plotareainsqft"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="jj"
+                       
+                     />
+                     <EditText
+                        android:id="@+id/et_plotareainyardsss"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="kkk"
+                        android:layout_weight="0.5"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+                
+                
+                
+                   <LinearLayout
+                    android:id="@+id/ll_tv_plintarea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:weightSum="3" >
+
+                    <TextView
+                        android:id="@+id/tv_totalplintarea"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:textColor="@color/black"
+                        android:text="Total  Plint Area*" />
+
+                   
+                </LinearLayout>
+                
+                  <LinearLayout
+                    android:id="@+id/et_plint_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:weightSum="3" >
+
+                 
+
+                    <EditText
+                        android:id="@+id/et_plintareainsqft"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="jj"
+                       
+                     />
+                     <EditText
+                        android:id="@+id/et_plintareainyards"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="kkk"
+                        android:layout_weight="0.5"/>
+                </LinearLayout>
+                
+                  
+                  <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+                
+                
+                
+                   <LinearLayout
+                    android:id="@+id/ll_tv_vacantarea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:weightSum="3" >
+
+                    <TextView
+                        android:id="@+id/tv_vacantarea"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:textColor="@color/black"
+                        android:text="Total  Plint Area*" />
+
+                   
+                </LinearLayout>
+                
+                  <LinearLayout
+                    android:id="@+id/ll_et_vacant_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:weightSum="3" >
+
+                 
+
+                    <EditText
+                        android:id="@+id/et_vacantareainsqft"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="jj"
+                       
+                     />
+                     <EditText
+                        android:id="@+id/et_vacantareainyards"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="kkk"
+                        android:layout_weight="0.5"/>
+                </LinearLayout>
+                
+                
+                
+                     <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+                
+                
+                
+                   <LinearLayout
+                    android:id="@+id/ll_tv_constructionarea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:weightSum="3" >
+
+                    <TextView
+                        android:id="@+id/tv_constructionarea"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:textColor="@color/black"
+                        android:text="Total  Plint Area*" />
+
+                   
+                </LinearLayout>
+                
+                  <LinearLayout
+                    android:id="@+id/ll_et_construct_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:weightSum="3" >
+
+                 
+
+                    <EditText
+                        android:id="@+id/et_constructareainsqft"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="jj"
+                       
+                     />
+                     <EditText
+                        android:id="@+id/et_constructareainyards"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="kkk"
+                        android:layout_weight="0.5"/>
+                </LinearLayout>
+                  
+                  
+                  
+                     <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+                
+                
+                
+                   <LinearLayout
+                    android:id="@+id/ll_tv_nofloors"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_nofloors"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:textColor="@color/black"
+                        android:text="Total  Plint Area*" />
+
+                     <EditText
+                        android:id="@+id/et_nofloors"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="kkk"
+                        android:layout_weight="0.5"/>
+                   
+                </LinearLayout>
+                
+                  
+                
+                
+                
+
+               
+            </LinearLayout>
+            
+            
+            
+        </LinearLayout>
+        
+    </ScrollView>
+
+        <LinearLayout
+        android:id="@+id/buttom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+          <Button
+            android:id="@+id/btn_prev"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/sing_in_button"
+            android:text="Previous"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/sing_in_button"
+            android:text="Next"
+            android:textColor="@android:color/white" />
+
+     
+       
+    </LinearLayout>
+    
+
+
+
+   
+
+</RelativeLayout>
