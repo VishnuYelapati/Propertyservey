@@ -93,7 +93,6 @@
                     android:weightSum="1" >
 
                     <TextView
-                        android:id="@+id/loc_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
@@ -101,7 +100,7 @@
                         android:text="Provider Name*" />
 
                     <EditText
-                        android:id="@+id/loc_text"
+                        android:id="@+id/et_provider_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                          android:textColor="@color/black"
@@ -197,7 +196,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                          android:textColor="@color/black"
-                        android:text="Owner UID No*" />
+                        android:text="Mobile No*" />
 
                     <EditText
                         android:id="@+id/et_mobileno"
@@ -230,13 +229,14 @@
                         android:layout_height="wrap_content"
                          android:textColor="@color/black"
                         android:layout_weight="0.5"
-                        android:text="Owner UID No*" />
+                        android:text="Basic Phone No*" />
 
                     <EditText
                         android:id="@+id/et_basicphone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                          android:textColor="@color/black"
+                         android:inputType="phone"
                         android:layout_weight="0.5"
                          />
                 </LinearLayout>
@@ -264,13 +264,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                          android:textColor="@color/black"
-                        android:text="Owner UID No*" />
+                        android:text="Email ID" />
 
                     <EditText
                         android:id="@+id/et_emaild"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:inputType="textEmailAddress"
                          android:textColor="@color/black"
                          />
                 </LinearLayout>
