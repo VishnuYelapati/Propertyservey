@@ -58,6 +58,7 @@
                     android:weightSum="1" >
 
                     <CheckBox
+                       
                         android:id="@+id/chk_priHospital"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1159,6 +1160,39 @@
                     </RadioGroup>
                 </LinearLayout>
                 
+                   
+                                      <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_advhoarding_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="Advertisement Hoarding"
+                        android:textColor="@color/black" />
+
+                    <EditText
+                        android:id="@+id/et_advhoarding"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        
+                        android:background="#abf234"
+                         >
+
+                         
+                    </EditText>
+                </LinearLayout>
+                   
+                   
+                   
+                
                      <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
@@ -1273,7 +1307,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                       
+                        android:singleLine="true"
                      />
                 </LinearLayout>
                    
@@ -1338,6 +1372,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:singleLine="true"
                        
                      />
                 </LinearLayout>
