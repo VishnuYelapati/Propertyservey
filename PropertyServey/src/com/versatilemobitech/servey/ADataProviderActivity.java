@@ -83,6 +83,8 @@ public class ADataProviderActivity extends BaserActinbBar{
 
 				if(!dataProvider.equals("") && mRelationshipOfOwner.getText().toString().length()>0 && MobileNo.getText().toString().length()>0 &&   NameOfDataProvider.getText().toString().length()>0 && OwnerUIDNumber.getText().toString().length()>0 &&  BasicPhoneNo.getText().toString().length()>0)
 				{
+					
+					//Here we need to same all data in Bean class
 					Intent i=new Intent(getApplicationContext(),BtaxPayerDetailsActivity.class);
 					startActivity(i);
 				}

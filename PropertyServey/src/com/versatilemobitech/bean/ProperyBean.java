@@ -133,7 +133,7 @@ public class ProperyBean implements Serializable{
 	/**
 	 * Survey Details
 	 */
-	
+
 	private  String NameOfSurveyor="";
 	private  String  SurveyorAddress="";
 	private  String  IdCodeOfSurveyor="";
@@ -141,6 +141,17 @@ public class ProperyBean implements Serializable{
 	private  String  NameOfAttestingAuthority="";
 	private  String  DesignationOfAttestingAuthority="";
 	private  String  Date_Attesting ="";
+
+	static ProperyBean mProperyBean=null;
+	//Instance
+	static public ProperyBean getInstance() {
+
+		if(mProperyBean==null)
+			mProperyBean=new ProperyBean();
+		return mProperyBean;
+	}
+
+
 	public String getDataProvidedBy() {
 		return dataProvidedBy;
 	}
@@ -670,5 +681,5 @@ public class ProperyBean implements Serializable{
 	}
 
 
-	
+
 }
