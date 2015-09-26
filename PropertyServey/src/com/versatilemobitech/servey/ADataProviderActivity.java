@@ -91,13 +91,15 @@ public class ADataProviderActivity extends BaserActinbBar{
 					if(mRelationshipOfOwner.getText().toString().length()<=0)
 						mRelationshipOfOwner.setError("Invalid value");
 
-					if(MobileNo.getText().toString().length()>0)
+					if(MobileNo.getText().toString().length()<=0)
 						MobileNo.setError("Invalid value");
 
-					if( NameOfDataProvider.getText().toString().length()>0 )
+					if( NameOfDataProvider.getText().toString().length()<=0 )
 						NameOfDataProvider.setError("Invalid value");
-					if(OwnerUIDNumber.getText().toString().length()>0 &&  BasicPhoneNo.getText().toString().length()>0)
+					if(OwnerUIDNumber.getText().toString().length()<=0)
 						OwnerUIDNumber.setError("Invalid value");
+					if(  BasicPhoneNo.getText().toString().length()<=0)
+						BasicPhoneNo.setError("Invalid value");
 				}
 			}
 		});
