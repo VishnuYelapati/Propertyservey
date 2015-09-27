@@ -293,14 +293,14 @@ public class MyServey extends BaserActinbBar {
 		spinner_vehType = (Spinner)findViewById(R.id.spn_vehtype);
 		spn_commodity=(Spinner)findViewById(R.id.spn_commodity);
 		spn_tripfreq=(Spinner)findViewById(R.id.spn_tripfrq);
-		goodsTypeArray = getResources().getStringArray(R.array.gooodstype);
+/*//		goodsTypeArray = getResources().getStringArray(R.array.gooodstype);
 		passengerTypeArray= getResources().getStringArray(R.array.passengertype);
 		tripfrq=getResources().getStringArray(R.array.tripFreq);
 		goodsvehTypeArray = getResources().getStringArray(R.array.goodsvehArr);
 		goods_commodity=getResources().getStringArray(R.array.goods_commodity);
 		passenger_commodity=getResources().getStringArray(R.array.pass_commodity);
 		language=getResources().getStringArray(R.array.regno_Arr);
-		passengervehTypeArray = getResources().getStringArray(R.array.passengerVehArr);
+		passengervehTypeArray = getResources().getStringArray(R.array.passengerVehArr);*/
 		rg_vehtype=(RadioGroup)findViewById(R.id.myRadioGroup);
 		tv_date=(TextView)findViewById(R.id.tv_dateview);
 		trip_length=(EditText)findViewById(R.id.et_trip_lenght);

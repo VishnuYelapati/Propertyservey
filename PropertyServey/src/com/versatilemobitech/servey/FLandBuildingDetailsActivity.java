@@ -48,6 +48,14 @@ public class FLandBuildingDetailsActivity  extends BaserActinbBar{
 			startActivity(i);
 		}
 	});
+btn_Prev.setOnClickListener(new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			onBackPressed();
+		}
+	});
 		
 	
 		

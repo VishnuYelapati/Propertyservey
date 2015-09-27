@@ -10,7 +10,7 @@ import android.widget.EditText;
 public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 	
 	
-	Button btn_Next;
+	Button btn_Next,btn_prev;
 	
 	private EditText TotalPlotArea=null;
 	private EditText PlinthArea=null;
@@ -29,6 +29,7 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.measurementplotdetails);
 		btn_Next=(Button)findViewById(R.id.btn_next);
+		btn_prev=(Button)findViewById(R.id.btn_prev);
 		TotalPlotArea=(EditText)findViewById(R.id.et_plotareainsqft);
 		PlinthArea=(EditText)findViewById(R.id.et_plintareainsqft);
 		PlinthYard=(EditText)findViewById(R.id.et_plintareainyards);
@@ -47,6 +48,15 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 				startActivity(i);
 			}
 		});
+	
+	btn_prev.setOnClickListener(new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			onBackPressed();
+		}
+	});
 	}
 
 }

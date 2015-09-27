@@ -10,6 +10,8 @@ public class ProperyBean implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	//New Survey Application Form Bean
+	
+	private String buildingId;
 
 	/**
 	 * Data Provided By
@@ -82,24 +84,24 @@ public class ProperyBean implements Serializable{
 	 * Use Of Property(Please tick if applicable)
 	 */
 
-	private boolean PrivateHospitalClinic=false;
-	private boolean  Residentialcum_commercial=false;
-	private boolean  BeautyParlour=false;
-	private boolean  PrivateOffice=false;
-	private boolean  MarriageGardenHall=false;
-	private boolean  HotelRestaurant=false;
-	private boolean SemiGovtInstitute=false;
-	private boolean CentralGovPropertyOffice=false;
-	private boolean School=false;
-	private boolean ProfessionalCollege=false;
-	private boolean CompletelyReligiousProperty=false;
-	private boolean SituatedInRicoArea=false;
-	private boolean ExempteUnderclause107Act2009=false;
-	private boolean DharmashalaOfCommunitySociety=false;
-	private boolean CinemahallMultiplex=false;
-	private boolean GeneralDegreeCollege=false;
-	private boolean CoachingInstitute=false;
-	private boolean OutOfRicoIndustries=false;
+	private String PrivateHospitalClinic;
+	private String  Residentialcum_commercial;
+	private String  BeautyParlour;
+	private String  PrivateOffice;
+	private String  MarriageGardenHall;
+	private String  HotelRestaurant;
+	private String SemiGovtInstitute;
+	private String CentralGovPropertyOffice;
+	private String School;
+	private String ProfessionalCollege;
+	private String CompletelyReligiousProperty;
+	private String SituatedInRicoArea;
+	private String ExempteUnderclause107Act2009;
+	private String DharmashalaOfCommunitySociety;
+	private String CinemahallMultiplex;
+	private String GeneralDegreeCollege;
+	private String CoachingInstitute;
+	private String OutOfRicoIndustries;
 
 
 	private String StateGovtPropertyOffice="";
@@ -109,21 +111,21 @@ public class ProperyBean implements Serializable{
 
 
 	//Yes are no
-	private boolean SewerConnection=false;
-	private boolean  LightConnection=false;
-	private boolean  Boring=false;
-	private boolean  Parking=false;
-	private boolean  AdvertisementHoarding=false;
-	private boolean  StreetLight=false;
-	private boolean  PrivateToilet=false;
-	private boolean 	 MobileTower=false;
-	private boolean 	 OpenToilet=false;
-	private boolean 	 WhetherpayUdTax=false;
-	private boolean 	 WhetherpayLeaseTax=false;
-	private boolean 	 SewerLine=false;
-	private boolean  SepticTank=false;
-	private boolean 	 PipedWaterConnection=false;
-	private boolean 	 FireFightingSystem=false;
+	private String SewerConnection;
+	private String  LightConnection;
+	private String  Boring;
+	private String  Parking;
+	private String  AdvertisementHoarding;
+	private String  StreetLight;
+	private String  PrivateToilet;
+	private String 	 MobileTower;
+	private String 	 OpenToilet;
+	private String 	 WhetherpayUdTax;
+	private String 	 WhetherpayLeaseTax;
+	private String 	 SewerLine;
+	private String  SepticTank;
+	private String 	 PipedWaterConnection;
+	private String 	 FireFightingSystem;
 
 	private String  WhetherpayUdTax_ACNo="";
 	private String  WhetherpayLeaseTax_ACNo="";
@@ -143,6 +145,352 @@ public class ProperyBean implements Serializable{
 	private  String  Date_Attesting ="";
 
 	static ProperyBean mProperyBean=null;
+	
+	
+	
+	
+	
+	public String getBuildingId() {
+		return buildingId;
+	}
+
+
+	public void setBuildingId(String buildingId) {
+		this.buildingId = buildingId;
+	}
+
+
+	public String getPrivateHospitalClinic() {
+		return PrivateHospitalClinic;
+	}
+
+
+	public void setPrivateHospitalClinic(String privateHospitalClinic) {
+		PrivateHospitalClinic = privateHospitalClinic;
+	}
+
+
+	public String getResidentialcum_commercial() {
+		return Residentialcum_commercial;
+	}
+
+
+	public void setResidentialcum_commercial(String residentialcum_commercial) {
+		Residentialcum_commercial = residentialcum_commercial;
+	}
+
+
+	public String getBeautyParlour() {
+		return BeautyParlour;
+	}
+
+
+	public void setBeautyParlour(String beautyParlour) {
+		BeautyParlour = beautyParlour;
+	}
+
+
+	public String getPrivateOffice() {
+		return PrivateOffice;
+	}
+
+
+	public void setPrivateOffice(String privateOffice) {
+		PrivateOffice = privateOffice;
+	}
+
+
+	public String getMarriageGardenHall() {
+		return MarriageGardenHall;
+	}
+
+
+	public void setMarriageGardenHall(String marriageGardenHall) {
+		MarriageGardenHall = marriageGardenHall;
+	}
+
+
+	public String getHotelRestaurant() {
+		return HotelRestaurant;
+	}
+
+
+	public void setHotelRestaurant(String hotelRestaurant) {
+		HotelRestaurant = hotelRestaurant;
+	}
+
+
+	public String getSemiGovtInstitute() {
+		return SemiGovtInstitute;
+	}
+
+
+	public void setSemiGovtInstitute(String semiGovtInstitute) {
+		SemiGovtInstitute = semiGovtInstitute;
+	}
+
+
+	public String getCentralGovPropertyOffice() {
+		return CentralGovPropertyOffice;
+	}
+
+
+	public void setCentralGovPropertyOffice(String centralGovPropertyOffice) {
+		CentralGovPropertyOffice = centralGovPropertyOffice;
+	}
+
+
+	public String getSchool() {
+		return School;
+	}
+
+
+	public void setSchool(String school) {
+		School = school;
+	}
+
+
+	public String getProfessionalCollege() {
+		return ProfessionalCollege;
+	}
+
+
+	public void setProfessionalCollege(String professionalCollege) {
+		ProfessionalCollege = professionalCollege;
+	}
+
+
+	public String getCompletelyReligiousProperty() {
+		return CompletelyReligiousProperty;
+	}
+
+
+	public void setCompletelyReligiousProperty(String completelyReligiousProperty) {
+		CompletelyReligiousProperty = completelyReligiousProperty;
+	}
+
+
+	public String getSituatedInRicoArea() {
+		return SituatedInRicoArea;
+	}
+
+
+	public void setSituatedInRicoArea(String situatedInRicoArea) {
+		SituatedInRicoArea = situatedInRicoArea;
+	}
+
+
+	public String getExempteUnderclause107Act2009() {
+		return ExempteUnderclause107Act2009;
+	}
+
+
+	public void setExempteUnderclause107Act2009(String exempteUnderclause107Act2009) {
+		ExempteUnderclause107Act2009 = exempteUnderclause107Act2009;
+	}
+
+
+	public String getDharmashalaOfCommunitySociety() {
+		return DharmashalaOfCommunitySociety;
+	}
+
+
+	public void setDharmashalaOfCommunitySociety(
+			String dharmashalaOfCommunitySociety) {
+		DharmashalaOfCommunitySociety = dharmashalaOfCommunitySociety;
+	}
+
+
+	public String getCinemahallMultiplex() {
+		return CinemahallMultiplex;
+	}
+
+
+	public void setCinemahallMultiplex(String cinemahallMultiplex) {
+		CinemahallMultiplex = cinemahallMultiplex;
+	}
+
+
+	public String getGeneralDegreeCollege() {
+		return GeneralDegreeCollege;
+	}
+
+
+	public void setGeneralDegreeCollege(String generalDegreeCollege) {
+		GeneralDegreeCollege = generalDegreeCollege;
+	}
+
+
+	public String getCoachingInstitute() {
+		return CoachingInstitute;
+	}
+
+
+	public void setCoachingInstitute(String coachingInstitute) {
+		CoachingInstitute = coachingInstitute;
+	}
+
+
+	public String getOutOfRicoIndustries() {
+		return OutOfRicoIndustries;
+	}
+
+
+	public void setOutOfRicoIndustries(String outOfRicoIndustries) {
+		OutOfRicoIndustries = outOfRicoIndustries;
+	}
+
+
+	public String getSewerConnection() {
+		return SewerConnection;
+	}
+
+
+	public void setSewerConnection(String sewerConnection) {
+		SewerConnection = sewerConnection;
+	}
+
+
+	public String getLightConnection() {
+		return LightConnection;
+	}
+
+
+	public void setLightConnection(String lightConnection) {
+		LightConnection = lightConnection;
+	}
+
+
+	public String getBoring() {
+		return Boring;
+	}
+
+
+	public void setBoring(String boring) {
+		Boring = boring;
+	}
+
+
+	public String getParking() {
+		return Parking;
+	}
+
+
+	public void setParking(String parking) {
+		Parking = parking;
+	}
+
+
+	public String getAdvertisementHoarding() {
+		return AdvertisementHoarding;
+	}
+
+
+	public void setAdvertisementHoarding(String advertisementHoarding) {
+		AdvertisementHoarding = advertisementHoarding;
+	}
+
+
+	public String getStreetLight() {
+		return StreetLight;
+	}
+
+
+	public void setStreetLight(String streetLight) {
+		StreetLight = streetLight;
+	}
+
+
+	public String getPrivateToilet() {
+		return PrivateToilet;
+	}
+
+
+	public void setPrivateToilet(String privateToilet) {
+		PrivateToilet = privateToilet;
+	}
+
+
+	public String getMobileTower() {
+		return MobileTower;
+	}
+
+
+	public void setMobileTower(String mobileTower) {
+		MobileTower = mobileTower;
+	}
+
+
+	public String getOpenToilet() {
+		return OpenToilet;
+	}
+
+
+	public void setOpenToilet(String openToilet) {
+		OpenToilet = openToilet;
+	}
+
+
+	public String getWhetherpayUdTax() {
+		return WhetherpayUdTax;
+	}
+
+
+	public void setWhetherpayUdTax(String whetherpayUdTax) {
+		WhetherpayUdTax = whetherpayUdTax;
+	}
+
+
+	public String getWhetherpayLeaseTax() {
+		return WhetherpayLeaseTax;
+	}
+
+
+	public void setWhetherpayLeaseTax(String whetherpayLeaseTax) {
+		WhetherpayLeaseTax = whetherpayLeaseTax;
+	}
+
+
+	public String getSewerLine() {
+		return SewerLine;
+	}
+
+
+	public void setSewerLine(String sewerLine) {
+		SewerLine = sewerLine;
+	}
+
+
+	public String getSepticTank() {
+		return SepticTank;
+	}
+
+
+	public void setSepticTank(String septicTank) {
+		SepticTank = septicTank;
+	}
+
+
+	public String getPipedWaterConnection() {
+		return PipedWaterConnection;
+	}
+
+
+	public void setPipedWaterConnection(String pipedWaterConnection) {
+		PipedWaterConnection = pipedWaterConnection;
+	}
+
+
+	public String getFireFightingSystem() {
+		return FireFightingSystem;
+	}
+
+
+	public void setFireFightingSystem(String fireFightingSystem) {
+		FireFightingSystem = fireFightingSystem;
+	}
+
+
 	//Instance
 	static public ProperyBean getInstance() {
 
@@ -392,7 +740,7 @@ public class ProperyBean implements Serializable{
 	public void setBulidList(ArrayList<BuildingDetails> bulidList) {
 		this.bulidList = bulidList;
 	}
-	public boolean isPrivateHospitalClinic() {
+	/*public boolean isPrivateHospitalClinic() {
 		return PrivateHospitalClinic;
 	}
 	public void setPrivateHospitalClinic(boolean privateHospitalClinic) {
@@ -500,7 +848,7 @@ public class ProperyBean implements Serializable{
 	}
 	public void setOutOfRicoIndustries(boolean outOfRicoIndustries) {
 		OutOfRicoIndustries = outOfRicoIndustries;
-	}
+	}*/
 	public String getStateGovtPropertyOffice() {
 		return StateGovtPropertyOffice;
 	}
@@ -525,7 +873,7 @@ public class ProperyBean implements Serializable{
 	public void setOthers(String others) {
 		Others = others;
 	}
-	public boolean isSewerConnection() {
+/*	public boolean isSewerConnection() {
 		return SewerConnection;
 	}
 	public void setSewerConnection(boolean sewerConnection) {
@@ -614,7 +962,7 @@ public class ProperyBean implements Serializable{
 	}
 	public void setFireFightingSystem(boolean fireFightingSystem) {
 		FireFightingSystem = fireFightingSystem;
-	}
+	}*/
 	public String getWhetherpayUdTax_ACNo() {
 		return WhetherpayUdTax_ACNo;
 	}

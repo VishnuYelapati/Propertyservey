@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 public class DTaxPayerPropertyDetails extends BaserActinbBar{
-	Button btn_Next;
+	Button btn_Next,btn_Prev;
 	
 	EditText PlotORFlatNo=null;
 	String Zone="";
@@ -52,7 +52,26 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 		  District=(EditText)findViewById(R.id.et_district);
 		  NameOfBuilding_Pre=(EditText)findViewById(R.id.et_prebuildingname);
 		  MultistoreyBuildigNameofBuilding=(EditText)findViewById(R.id.et_postbuildingname);
+		  btn_Next=(Button)findViewById(R.id.btn_next);
+		  btn_Prev=(Button)findViewById(R.id.btn_prev);
+		  btn_Next.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					Intent i=new Intent(getApplicationContext(),ETaxPayerMeasurementDetails.class);
+					startActivity(i);
+				}
+			});
 		
+		  btn_Prev.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				onBackPressed();
+			}
+		});
 		  
 		  Spinner ward_spinner=(Spinner)findViewById(R.id.spn_wardno);
 		
