@@ -26,7 +26,6 @@ public class ADataProviderActivity extends BaserActinbBar{
 	private Button btn_save;
 	public static ArrayList<SpinnerItemBean> arr_itemBean=new ArrayList<SpinnerItemBean>();
 	
-	public static ArrayList<ProperyBean> arr_PB=new ArrayList<ProperyBean>();
 	
 	String outFilePath;
 
@@ -96,32 +95,7 @@ public class ADataProviderActivity extends BaserActinbBar{
 				
 				ProperyBean pb_model=new ProperyBean();
 				
-			/*	private EditText mRelationshipOfOwner=null;
-				private EditText MobileNo=null;
-				private EditText EmailID=null;
-				private EditText NameOfDataProvider=null;
-				private EditText OwnerUIDNumber=null;
-				private EditText BasicPhoneNo=null;*/
-				/*+ dataProvidedBy 	+ " TEXT," 
-				+ relationshipOfOwner 	+ " TEXT,"
-				+ EmailID 	+ " TEXT," 
-				+ mobileNo 	+ " TEXT," 
-				+ NameOfDataProvider	+ " TEXT," 
-				+ OwnerUIDNumber 	+ " TEXT," 
-				+ BasicPhoneNo 		+ " TEXT,"
-				+ CREATED_DATE + " DATE"
-			*/
-			/*DatabaseHandler dbhandler=new DatabaseHandler(getApplicationContext());
-			ContentValues cv=new ContentValues();
-			cv.put(dbhandler.dataProvidedBy, NameOfDataProvider.getText().toString());
-			cv.put(dbhandler.relationshipOfOwner, mRelationshipOfOwner.getText().toString());
-			cv.put(dbhandler.mobileNo, MobileNo.getText().toString());
-			cv.put(dbhandler.EmailID, EmailID.getText().toString());
-			cv.put(dbhandler.OwnerUIDNumber, OwnerUIDNumber.getText().toString());
-			cv.put(dbhandler.BasicPhoneNo, BasicPhoneNo.getText().toString());
-		//	cv.put(dbhandler.CREATED_DATE, toDay_DATE);
-			dbhandler.insert(dbhandler.TABLE_servey_Data, cv);*/
-			
+				
 				ProperyBean pbean=ProperyBean.getInstance();
 				pbean.setDataProvidedBy(NameOfDataProvider.getText().toString());
 				pbean.setRelationshipOfOwner(mRelationshipOfOwner.getText().toString());
@@ -131,7 +105,7 @@ public class ADataProviderActivity extends BaserActinbBar{
 				pbean.setBasicPhoneNo(BasicPhoneNo.getText().toString());
 				
 
-				arr_PB.add(pbean);
+				 
 			
 				if(!dataProvider.equals("") && mRelationshipOfOwner.getText().toString().length()>0 && MobileNo.getText().toString().length()>0 &&   NameOfDataProvider.getText().toString().length()>0 && OwnerUIDNumber.getText().toString().length()>0 &&  BasicPhoneNo.getText().toString().length()>0)
 				{
@@ -139,7 +113,7 @@ public class ADataProviderActivity extends BaserActinbBar{
 					//Here we need to same all data in Bean class
 					
 					
-					Intent i=new Intent(getApplicationContext(),BtaxPayerDetailsActivity.class);
+					Intent i=new Intent(getApplicationContext(),BTaxPayerAddDetailsActivity.class);
 					startActivity(i);
 				}
 				else{

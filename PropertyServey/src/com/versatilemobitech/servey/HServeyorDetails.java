@@ -38,7 +38,7 @@ public class HServeyorDetails extends BaserActinbBar{
 		et_sDate=(EditText)findViewById(R.id.et_state);
 		 pbean=ProperyBean.getInstance();
 		
-		
+		System.out.println("result:"+ProperyBean.getInstance().getDataProvidedBy());
 		
 		et_aaName=(EditText)findViewById(R.id.et_attastauthName);
 		et_aaDesig=(EditText)findViewById(R.id.et_attastauthdisig);
@@ -51,6 +51,8 @@ public class HServeyorDetails extends BaserActinbBar{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				
+				
 				
 				ContentValues cv_Values=new ContentValues();
 				cv_Values.put(dbHandler.AddressforCommunication,pbean.getAddressforCommunication());

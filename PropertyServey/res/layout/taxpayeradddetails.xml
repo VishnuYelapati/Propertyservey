@@ -2,13 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-  >
-
+    android:background="@drawable/background2" >
+   
     <ScrollView
+        android:layout_below="@+id/completed_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp" >
-
+        android:layout_marginTop="10dp"
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -21,8 +21,22 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/shadow_layer"
                 android:orientation="vertical" >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="35dp"
+                      android:background="@color/title_bar_color"
+                     >
 
+                    <TextView
 
+                        android:textColor="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+ 						android:gravity="center"
+                        android:text="Taxpayer/Owner Details" /></LinearLayout>
+
+              
                 
                  <View
                     android:layout_width="match_parent"
@@ -41,11 +55,11 @@
                     android:weightSum="1" >
 
                     <Button
-                        android:id="@+id/btn_removeview"
+                        android:id="@+id/btn_addview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="remove Details" />
+                        android:text="Add Details" />
 
                     
                 </LinearLayout>
@@ -58,13 +72,13 @@
                     android:background="@android:color/darker_gray" />
 
                 <LinearLayout
-                    android:id="@+id/ll_taxpayerdetails"
+                    android:id="@+id/ll_landbuildings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:weightSum="1" >
 
                     <TextView
@@ -73,15 +87,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                          android:textColor="#000000"
-                        android:text="Name*" />
+                        android:text="Name" />
 
                     <EditText
-                        android:id="@+id/etxt_name"
+                        android:id="@+id/et_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:background="@drawable/textfiled"
-                         android:textColor="#000000"
+                        android:textColor="#000000"
                          />
                 </LinearLayout>
 
@@ -98,19 +111,19 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="10dp"
                     android:weightSum="1" >
 
                     <TextView
                         android:id="@+id/tv_fathername"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:layout_weight="0.5"
                          android:textColor="#000000"
-                        android:text="Father/Husband Name*" />
+                        android:text="Father/Husband Name" />
 
-                    <TextView
-                        android:id="@+id/etxt_fatherhusbandname"
+                    <EditText
+                        android:id="@+id/et_fathername"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
@@ -130,8 +143,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:weightSum="1" >
 
                     <TextView
@@ -140,29 +153,29 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                          android:textColor="#000000"
-                        android:text="Owner UID No*" />
+                        android:text="Age" />
 
-                    <TextView
-                        android:id="@+id/etxt_age"
+                    <EditText
+                        android:id="@+id/et_age"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                          android:textColor="#000000"
+                         android:background="@drawable/textfiled"
+                         android:singleLine="true"
                          />
                 </LinearLayout>
-                <View
+                    <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_margin="10dp"
                     android:background="@android:color/darker_gray" />
                   <LinearLayout
-                    android:id="@+id/dite_info_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="10dp"
                     android:weightSum="1" >
 
                     <TextView
@@ -170,32 +183,65 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                         android:textColor="#000000"
-                        android:text="Data Provide By*" />
+                        android:text="Profession" 
+                        android:textColor="@color/black"/>
 
-                    <TextView
-                        android:id="@+id/etxt_proffesion"
+                    <EditText
+                        android:id="@+id/et_profession"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                         android:textColor="#000000"
+                        android:background="@drawable/textfiled"
+                        android:singleLine="true"
                      />
                 </LinearLayout>
                
+                  
+                   <LinearLayout 
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+                    
+                       
+    </LinearLayout>
             </LinearLayout>
-            
             
             
             
         </LinearLayout>
         
-        
     </ScrollView>
 
- 
-
-
-
-   
+    
+                 <LinearLayout
+        android:id="@+id/buttom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+          <Button
+            android:id="@+id/btn_prev"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/sing_in_button"
+            android:text="Previous"
+            android:textColor="@android:color/white" />
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/sing_in_button"
+            android:text="Next"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
 
 </RelativeLayout>

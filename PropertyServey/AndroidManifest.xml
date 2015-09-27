@@ -40,7 +40,7 @@
      
          <activity android:name="com.versatilemobitech.servey.MyServey" />
        <activity android:name="com.versatilemobitech.servey.ADataProviderActivity"></activity>
-       <activity android:name="com.versatilemobitech.servey.BtaxPayerDetailsActivity"></activity>
+       <activity android:name="com.versatilemobitech.servey.BTaxPayerAddDetailsActivity"></activity>
        <activity android:name="com.versatilemobitech.servey.CTaxPayerAddressDetails"></activity>
        <activity android:name="com.versatilemobitech.servey.DTaxPayerPropertyDetails"></activity>
        <activity android:name="com.versatilemobitech.servey.ETaxPayerMeasurementDetails"></activity>
