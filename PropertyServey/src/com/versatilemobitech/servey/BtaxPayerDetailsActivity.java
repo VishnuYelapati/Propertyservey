@@ -21,6 +21,7 @@ public class BtaxPayerDetailsActivity  extends BaserActinbBar{
 	Spinner spn_profession;
 	Button btn_addview,btn_Next,btn_Prev;
 	LinearLayout ll_container;
+	View addView ;
 	//String[] strArr_dp={"<- Service ->","Business","HouseWife","Other"};
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,15 +38,23 @@ public class BtaxPayerDetailsActivity  extends BaserActinbBar{
 		CustomAdapter adapter = new CustomAdapter(getApplicationContext(), R.layout.spinner_rows, ADataProviderActivity.arr_itemBean,res);
 		
      
-		spn_profession.setAdapter(adapter);
+//	spn_profession.setAdapter(adapter);
 		
 	btn_Next.setOnClickListener(new OnClickListener() {
-		
+		     
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			Intent i=new Intent(getApplicationContext(),CTaxPayerAddressDetails.class);
 			startActivity(i);
+		}
+	});
+btn_Prev.setOnClickListener(new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			onBackPressed();
 		}
 	});
 		
@@ -59,15 +68,12 @@ public class BtaxPayerDetailsActivity  extends BaserActinbBar{
 				// TODO Auto-generated method stub
 				LayoutInflater layoutInflater = 
 					      (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-					    final View addView = layoutInflater.inflate(R.layout.taxpayerdetails, null);
+					      addView = layoutInflater.inflate(R.layout.taxpayerdetails, null);
 					    TextView etxtName = (TextView)addView.findViewById(R.id.etxt_name);
 					    TextView etxtfatherName = (TextView)addView.findViewById(R.id.etxt_fatherhusbandname);
 					    TextView etxtAge = (TextView)addView.findViewById(R.id.etxt_age);
 					    TextView etxtProffesion = (TextView)addView.findViewById(R.id.etxt_proffesion);
-					    etxtName.setText(et_name.getText().toString());
-					    etxtfatherName.setText(et_fathername.getText().toString());
-					    etxtAge.setText(et_age.getText().toString());
-					   etxtProffesion.setText(spn_profession.getSelectedItem().toString());
+				
 					    Button buttonRemove = (Button)addView.findViewById(R.id.btn_removeview);
 					    buttonRemove.setOnClickListener(new OnClickListener(){
 
@@ -80,5 +86,4 @@ public class BtaxPayerDetailsActivity  extends BaserActinbBar{
 					   }});
 		
 	}
-
 }

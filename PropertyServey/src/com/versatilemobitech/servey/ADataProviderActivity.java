@@ -38,12 +38,13 @@ public class ADataProviderActivity extends BaserActinbBar{
 	private EditText BasicPhoneNo=null;
 	private String dataProvider="";
 	String toDay_DATE="";
+	Spinner mSpn_dataProvider;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.dataproviderdetails);
 		btn_save=(Button)findViewById(R.id.btn_save);
-		Spinner mSpn_dataProvider=(Spinner)findViewById(R.id.spn_Dataprovder);
+		 mSpn_dataProvider=(Spinner)findViewById(R.id.spn_Dataprovder);
 		
 		ProperyBean pb=ProperyBean.getInstance();
 		
@@ -110,7 +111,7 @@ public class ADataProviderActivity extends BaserActinbBar{
 				+ BasicPhoneNo 		+ " TEXT,"
 				+ CREATED_DATE + " DATE"
 			*/
-			DatabaseHandler dbhandler=new DatabaseHandler(getApplicationContext());
+			/*DatabaseHandler dbhandler=new DatabaseHandler(getApplicationContext());
 			ContentValues cv=new ContentValues();
 			cv.put(dbhandler.dataProvidedBy, NameOfDataProvider.getText().toString());
 			cv.put(dbhandler.relationshipOfOwner, mRelationshipOfOwner.getText().toString());
@@ -119,7 +120,7 @@ public class ADataProviderActivity extends BaserActinbBar{
 			cv.put(dbhandler.OwnerUIDNumber, OwnerUIDNumber.getText().toString());
 			cv.put(dbhandler.BasicPhoneNo, BasicPhoneNo.getText().toString());
 		//	cv.put(dbhandler.CREATED_DATE, toDay_DATE);
-			dbhandler.insert(dbhandler.TABLE_servey_Data, cv);
+			dbhandler.insert(dbhandler.TABLE_servey_Data, cv);*/
 			
 				ProperyBean pbean=ProperyBean.getInstance();
 				pbean.setDataProvidedBy(NameOfDataProvider.getText().toString());
