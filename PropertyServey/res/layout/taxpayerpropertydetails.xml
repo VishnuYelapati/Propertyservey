@@ -51,7 +51,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
  						android:gravity="center"
-                        android:text="Property Details" /></LinearLayout>
+                        android:text="Details Of Property/Building" /></LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/dite_info_layout"
@@ -147,6 +147,7 @@
                         android:layout_height="wrap_content"
                          android:textColor="@color/black"
                         android:layout_weight="0.5"
+                        
                          />
                 </LinearLayout>
                 

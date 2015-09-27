@@ -4,22 +4,43 @@
     android:layout_height="match_parent"
     android:background="@drawable/background2" >
 
-    <TextView
-        android:id="@+id/completed_title"
+    <LinearLayout
+        android:id="@+id/buttom_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
-        android:text="Government of Rajasthan"
-        android:textColor="@android:color/black"
-        android:textSize="20dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+
+        <Button
+            android:id="@+id/btn_prev"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/sing_in_button"
+            android:text="Previous"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/sing_in_button"
+            android:text="Next"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/completed_title"
-        android:layout_marginTop="10dp" >
+        android:layout_above="@id/buttom_layout"
+        android:layout_marginTop="5dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,12 +79,11 @@
                     android:weightSum="1" >
 
                     <CheckBox
-                       
                         android:id="@+id/chk_priHospital"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ccc"
-                        android:text="Private Hospital/Clinic" />
+                        android:text="Private Hospital/Clinic"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <View
@@ -84,8 +104,8 @@
                         android:id="@+id/chk_semigov"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ccc"
-                        android:text="Semi Govt. Institute" />
+                        android:text="Semi Govt. Institute"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <View
@@ -106,8 +126,8 @@
                         android:id="@+id/chk_underclause"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ccc"
-                        android:text="Exempted Under clause 107 of RM Act 2009" />
+                        android:text="Exempted Under clause 107 of RM Act 2009"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <View
@@ -128,8 +148,8 @@
                         android:id="@+id/chk_resi_cum_commercial"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ccc"
-                        android:text="Residential cum-commercial" />
+                        android:text="Residential cum-commercial"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <View
@@ -150,8 +170,8 @@
                         android:id="@+id/chk_govtprtyoffice"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ccc"
-                        android:text="Central Govt. Property Office" />
+                        android:text="Central Govt. Property Office"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <View
@@ -172,8 +192,8 @@
                         android:id="@+id/chk_commsocty"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ccc"
-                        android:text="Dharmashala of community society" />
+                        android:text="Dharmashala of community society"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <View
@@ -194,8 +214,8 @@
                         android:id="@+id/chk_beautypaurler"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ccc"
-                        android:text="Beauty Parlour" />
+                        android:text="Beauty Parlour"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <View
@@ -216,8 +236,8 @@
                         android:id="@+id/chk_school"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ccc"
-                        android:text="School" />
+                        android:text="School"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <View
@@ -238,8 +258,8 @@
                         android:id="@+id/chk_cinimahall"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ccc"
-                        android:text="Cinemahall/Multiplex" />
+                        android:text="Cinemahall/Multiplex"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <View
@@ -260,8 +280,8 @@
                         android:id="@+id/chk_privateoffice"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ccc"
-                        android:text="Private Office" />
+                        android:text="Private Office"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <View
@@ -282,8 +302,8 @@
                         android:id="@+id/chk_proffcollege"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ccc"
-                        android:text="Professional College" />
+                        android:text="Professional College"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <View
@@ -304,8 +324,8 @@
                         android:id="@+id/chk_gendegreecollege"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ccc"
-                        android:text="General Degree College" />
+                        android:text="General Degree College"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <View
@@ -326,8 +346,8 @@
                         android:id="@+id/chk_marriagehall"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ccc"
-                        android:text="Marriage Garden/Hall" />
+                        android:text="Marriage Garden/Hall"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <View
@@ -348,8 +368,8 @@
                         android:id="@+id/chk_religiousproperty"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ccc"
-                        android:text="Completely Religious Property" />
+                        android:text="Completely Religious Property"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <View
@@ -370,8 +390,8 @@
                         android:id="@+id/chk_coaching_inst"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ccc"
-                        android:text="Coaching Institute" />
+                        android:text="Coaching Institute"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <View
@@ -392,8 +412,8 @@
                         android:id="@+id/chk_restaurent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ccc"
-                        android:text="Hotel/Restaurant" />
+                        android:text="Hotel/Restaurant"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <View
@@ -414,8 +434,8 @@
                         android:id="@+id/chk_rechoarea"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ccc"
-                        android:text="Situated in Rico Area" />
+                        android:text="Situated in Rico Area"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <View
@@ -436,8 +456,8 @@
                         android:id="@+id/chk_ricoindustreesoutof"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ccc"
-                        android:text="Out Of Rico Industries" />
+                        android:text="Out Of Rico Industries"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -462,6 +482,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:entries="@array/str_arr_residetial"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -493,6 +514,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:entries="@array/str_arr_religious"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -524,6 +546,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:entries="@array/str_arr_state_govt"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -573,14 +596,14 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
                     android:orientation="vertical"
-                    android:background="#ccc"
-                    android:weightSum="1" >
+                    android:textColor="@color/black"
+                    >
 
                     <TextView
                         android:id="@+id/tv_sewerconn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        
                         android:text="Sewer Connection"
                         android:textColor="@color/black" />
 
@@ -589,14 +612,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text"
-                        android:background="#ccc"
+                        android:checkedButton="@+id/sewer_connection"
                         android:orientation="horizontal"
-                        android:checkedButton="@+id/sewer_connection" >
+                        android:textColor="@color/black" >
 
-                        <RadioButton
-                            android:id="@+id/sewer_connection"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                       
 
                         <RadioButton
                             android:id="@+id/sewerconn_yes"
@@ -625,14 +645,14 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                      android:orientation="vertical"
-                    android:weightSum="1" >
+                    android:orientation="vertical"
+                     >
 
                     <TextView
                         android:id="@+id/tv_streetlight"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                         
                         android:text="Street Light"
                         android:textColor="@color/black" />
 
@@ -641,12 +661,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text"
-                        android:background="#ccc"
-                          android:orientation="horizontal"
-                        android:checkedButton="@+id/rb_sl_yes" >
+                        android:checkedButton="@+id/rb_sl_yes"
+                        android:orientation="horizontal"
+                        android:textColor="@color/black" >
 
                         <RadioButton
                             android:id="@+id/rb_sl_yes"
+                            android:text="No"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
@@ -671,13 +692,12 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:weightSum="1" >
+                    android:orientation="vertical" >
 
                     <TextView
                         android:id="@+id/tv_sewerline"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
                         android:text="Sewer Line"
                         android:textColor="@color/black" />
 
@@ -686,12 +706,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text"
-                        android:background="#abf234"
+                        android:orientation="horizontal"
                         android:checkedButton="@+id/rb_sline_yes" >
 
                         <RadioButton
                             android:id="@+id/rb_sline_yes"
                             android:layout_width="wrap_content"
+                            android:text="No"
                             android:layout_height="wrap_content" />
 
                         <RadioButton
@@ -715,13 +736,12 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:weightSum="1" >
+                    android:orientation="vertical" >
 
                     <TextView
                         android:id="@+id/tv_lightconn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
                         android:text="Light Connection"
                         android:textColor="@color/black" />
 
@@ -730,12 +750,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text"
-                        android:background="#abf234"
+                        android:orientation="horizontal"
                         android:checkedButton="@+id/rb_lightcon_yes" >
 
                         <RadioButton
                             android:id="@+id/rb_lightcon_yes"
                             android:layout_width="wrap_content"
+                            android:text="No"
                             android:layout_height="wrap_content" />
 
                         <RadioButton
@@ -759,13 +780,12 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:weightSum="1" >
+                   android:orientation="vertical" >
 
                     <TextView
                         android:id="@+id/tv_pvt_toilet"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
                         android:text="Private Toilet"
                         android:textColor="@color/black" />
 
@@ -774,12 +794,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text"
-                        android:background="#abf234"
+                        android:orientation="horizontal"
                         android:checkedButton="@+id/rb_pvttoilet_yes" >
 
                         <RadioButton
                             android:id="@+id/rb_pvttoilet_yes"
                             android:layout_width="wrap_content"
+                            android:text="No"
                             android:layout_height="wrap_content" />
 
                         <RadioButton
@@ -789,10 +810,8 @@
                             android:text="Yes" />
                     </RadioGroup>
                 </LinearLayout>
-                
-                
-                
-                 <View
+
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_margin="10dp"
@@ -805,13 +824,12 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:weightSum="1" >
+                    android:orientation="vertical" >
 
                     <TextView
                         android:id="@+id/tv_septictank"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
                         android:text="Septic Tank"
                         android:textColor="@color/black" />
 
@@ -820,12 +838,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text"
-                        android:background="#abf234"
+                        android:orientation="horizontal"
                         android:checkedButton="@+id/rb_septictank_yes" >
 
                         <RadioButton
                             android:id="@+id/rb_septictank_yes"
                             android:layout_width="wrap_content"
+                            android:text="No"
                             android:layout_height="wrap_content" />
 
                         <RadioButton
@@ -835,27 +854,26 @@
                             android:text="Yes" />
                     </RadioGroup>
                 </LinearLayout>
-                 <View
+
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_margin="10dp"
                     android:background="@android:color/darker_gray" />
-                
-                
-                   <LinearLayout
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:weightSum="1" >
+                   android:orientation="vertical" >
 
                     <TextView
                         android:id="@+id/tv_boring"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
                         android:text="Boring"
                         android:textColor="@color/black" />
 
@@ -864,12 +882,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text"
-                        android:background="#abf234"
+                        android:orientation="horizontal"
                         android:checkedButton="@+id/rb_boring_yes" >
 
                         <RadioButton
                             android:id="@+id/rb_boring_yes"
                             android:layout_width="wrap_content"
+                            android:text="No"
                             android:layout_height="wrap_content" />
 
                         <RadioButton
@@ -879,27 +898,26 @@
                             android:text="Yes" />
                     </RadioGroup>
                 </LinearLayout>
-                   <View
+
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_margin="10dp"
                     android:background="@android:color/darker_gray" />
-                
-                
-                   <LinearLayout
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:weightSum="1" >
+                    android:orientation="vertical" >
 
                     <TextView
                         android:id="@+id/tv_mobtower"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
                         android:text="Mobile Tower"
                         android:textColor="@color/black" />
 
@@ -908,12 +926,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text"
-                        android:background="#abf234"
+                       android:orientation="horizontal"
                         android:checkedButton="@+id/rb_mobtower_yes" >
 
                         <RadioButton
                             android:id="@+id/rb_mobtower_yes"
                             android:layout_width="wrap_content"
+                            android:text="No"
                             android:layout_height="wrap_content" />
 
                         <RadioButton
@@ -923,30 +942,26 @@
                             android:text="Yes" />
                     </RadioGroup>
                 </LinearLayout>
-                
-                   
-                   
-                    <View
+
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_margin="10dp"
                     android:background="@android:color/darker_gray" />
-                
-                
-                   <LinearLayout
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:weightSum="1" >
+                    android:orientation="vertical" >
 
                     <TextView
                         android:id="@+id/tv_pipedwater"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
                         android:text="Piped Water Connection"
                         android:textColor="@color/black" />
 
@@ -955,12 +970,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text"
-                        android:background="#abf234"
+                       android:orientation="horizontal"
                         android:checkedButton="@+id/rb_pipedwater_yes" >
 
                         <RadioButton
                             android:id="@+id/rb_pipedwater_yes"
                             android:layout_width="wrap_content"
+                             android:text="No" 
                             android:layout_height="wrap_content" />
 
                         <RadioButton
@@ -970,31 +986,26 @@
                             android:text="Yes" />
                     </RadioGroup>
                 </LinearLayout>
-                
-                   
-                   
-                     
-                    <View
+
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_margin="10dp"
                     android:background="@android:color/darker_gray" />
-                
-                
-                   <LinearLayout
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:weightSum="1" >
+                  android:orientation="vertical" >
 
                     <TextView
                         android:id="@+id/tv_parking"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
                         android:text="Parking"
                         android:textColor="@color/black" />
 
@@ -1003,12 +1014,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text"
-                        android:background="#abf234"
+                        android:orientation="horizontal"
                         android:checkedButton="@+id/rb_parking_yes" >
 
                         <RadioButton
                             android:id="@+id/rb_parking_yes"
                             android:layout_width="wrap_content"
+                            android:text="No" 
                             android:layout_height="wrap_content" />
 
                         <RadioButton
@@ -1018,31 +1030,28 @@
                             android:text="Yes" />
                     </RadioGroup>
                 </LinearLayout>
-                
-                   
-                   
-                      <View
+
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_margin="10dp"
                     android:background="@android:color/darker_gray" />
-                
-                
-                   <LinearLayout
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:weightSum="1" >
+                    android:orientation="vertical" >
 
                     <TextView
                         android:id="@+id/tv_opentoilet"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
                         android:text="Open Toilet"
+                        
                         android:textColor="@color/black" />
 
                     <RadioGroup
@@ -1050,11 +1059,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text"
-                        android:background="#abf234"
-                        android:checkedButton="@+id/rb_parking_yes" >
+                       android:orientation="horizontal"
+                        android:checkedButton="@+id/rb_opentoilet_yes" >
 
                         <RadioButton
                             android:id="@+id/rb_opentoilet_yes"
+                            android:text="No" 
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
@@ -1065,32 +1075,26 @@
                             android:text="Yes" />
                     </RadioGroup>
                 </LinearLayout>
-                
-                   
-                   
-                   
-                    
-                      <View
+
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_margin="10dp"
                     android:background="@android:color/darker_gray" />
-                
-                
-                   <LinearLayout
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:weightSum="1" >
+                    android:orientation="vertical" >
 
                     <TextView
                         android:id="@+id/tv_firefittingsystem"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
                         android:text="Fire Fighting System"
                         android:textColor="@color/black" />
 
@@ -1099,12 +1103,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text"
-                        android:background="#abf234"
-                        android:checkedButton="@+id/rb_parking_yes" >
+                        android:orientation="horizontal"
+                        android:checkedButton="@+id/rb_firefsystem_yes" >
 
                         <RadioButton
                             android:id="@+id/rb_firefsystem_yes"
                             android:layout_width="wrap_content"
+                            android:text="No" 
                             android:layout_height="wrap_content" />
 
                         <RadioButton
@@ -1114,29 +1119,26 @@
                             android:text="Yes" />
                     </RadioGroup>
                 </LinearLayout>
-                
-                   
-                       <View
+
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_margin="10dp"
                     android:background="@android:color/darker_gray" />
-                
-                
-                   <LinearLayout
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:weightSum="1" >
+                     android:orientation="vertical" >
 
                     <TextView
                         android:id="@+id/tv_advhoarding"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
                         android:text="Advertisement Hoarding"
                         android:textColor="@color/black" />
 
@@ -1145,12 +1147,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text"
-                        android:background="#abf234"
-                        android:checkedButton="@+id/rb_parking_yes" >
+                        android:orientation="horizontal"
+                        android:checkedButton="@+id/rb_adv_yes" >
 
                         <RadioButton
                             android:id="@+id/rb_adv_yes"
                             android:layout_width="wrap_content"
+                            android:text="No" 
                             android:layout_height="wrap_content" />
 
                         <RadioButton
@@ -1160,22 +1163,20 @@
                             android:text="Yes" />
                     </RadioGroup>
                 </LinearLayout>
-                
-                   
-                                      <LinearLayout
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:weightSum="1" >
+                    android:orientation="vertical" >
 
                     <TextView
                         android:id="@+id/tv_advhoarding_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
                         android:text="Advertisement Hoarding"
                         android:textColor="@color/black" />
 
@@ -1183,38 +1184,31 @@
                         android:id="@+id/et_advhoarding"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/textfiled"
-                        
-                         >
-
-                         
+                        android:layout_weight="0.5"
+                        android:background="@drawable/textfiled" >
                     </EditText>
                 </LinearLayout>
-                   
-                   
-                   
-                
-                     <View
+
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_margin="10dp"
                     android:background="@android:color/darker_gray" />
-                
-                
-                   <LinearLayout
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:weightSum="1" >
+                    android:orientation="vertical" >
 
                     <TextView
                         android:id="@+id/tv_writesize"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        
                         android:text="Please write size of Board if more than 7x1 Sq.ft."
                         android:textColor="@color/black" />
 
@@ -1223,12 +1217,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text"
-                        android:background="#abf234"
-                        android:checkedButton="@+id/rb_parking_yes" >
+                        android:orientation="horizontal"
+                        android:checkedButton="@+id/rb_writesize_yes" >
 
                         <RadioButton
                             android:id="@+id/rb_writesize_yes"
                             android:layout_width="wrap_content"
+                            android:text="No" 
                             android:layout_height="wrap_content" />
 
                         <RadioButton
@@ -1238,29 +1233,27 @@
                             android:text="Yes" />
                     </RadioGroup>
                 </LinearLayout>
-                   
-                   
-                        <View
+
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_margin="10dp"
                     android:background="@android:color/darker_gray" />
-                
-                
-                   <LinearLayout
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:weightSum="1" >
+                    android:orientation="vertical" >
 
                     <TextView
                         android:id="@+id/tv_payudtax"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        
                         android:text="Whether pay Ud Tax"
                         android:textColor="@color/black" />
 
@@ -1269,12 +1262,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text"
-                        android:background="#abf234"
-                        android:checkedButton="@+id/rb_parking_yes" >
+                        android:orientation="horizontal"
+                        android:checkedButton="@+id/rb_payudtax_yes" >
 
                         <RadioButton
                             android:id="@+id/rb_payudtax_yes"
                             android:layout_width="wrap_content"
+                            android:text="No" 
                             android:layout_height="wrap_content" />
 
                         <RadioButton
@@ -1285,8 +1279,13 @@
                     </RadioGroup>
                 </LinearLayout>
                 
-                   
-                      <LinearLayout
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
                     android:id="@+id/ll_udtaxaccount_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -1300,34 +1299,32 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:textColor="@color/black"
-                        android:text="Falt No*" />
+                        android:text="Falt No*"
+                        android:textColor="@color/black" />
 
                     <EditText
                         android:id="@+id/et_udtaxaccunt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:singleLine="true"
                         android:background="@drawable/textfiled"
-                     />
+                        android:singleLine="true" />
                 </LinearLayout>
-                   
-                    <View
+
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_margin="10dp"
                     android:background="@android:color/darker_gray" />
-                
-                
-                   <LinearLayout
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:weightSum="1" >
+                    android:orientation="vertical" >
 
                     <TextView
                         android:id="@+id/tv_wheatherleasetax"
@@ -1342,12 +1339,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text"
-                        android:background="#abf234"
-                        android:checkedButton="@+id/rb_parking_yes" >
+                       android:orientation="horizontal"
+                        android:checkedButton="@+id/rb_paylease_yes" >
 
                         <RadioButton
                             android:id="@+id/rb_paylease_yes"
                             android:layout_width="wrap_content"
+                            android:text="No" 
                             android:layout_height="wrap_content" />
 
                         <RadioButton
@@ -1356,66 +1354,27 @@
                             android:layout_height="wrap_content"
                             android:text="Yes" />
                     </RadioGroup>
-                    
-                    
-                      <LinearLayout
-                    android:id="@+id/ll_payleasetax_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:weightSum="1" >
 
-                   
-
-                    <EditText
-                        android:id="@+id/et_payleasetaxaccountno"
+                    <LinearLayout
+                        android:id="@+id/ll_payleasetax_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:singleLine="true"
-                       android:background="@drawable/textfiled"
-                     />
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="10dp"
+                        android:weightSum="1" >
+
+                        <EditText
+                            android:id="@+id/et_payleasetaxaccountno"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:background="@drawable/textfiled"
+                            android:singleLine="true" />
+                    </LinearLayout>
                 </LinearLayout>
-                   
-                </LinearLayout>
-                   
-                   
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/buttom_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:orientation="horizontal"
-        android:weightSum="2" >
-        
-         <Button
-            android:id="@+id/btn_prev"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:layout_weight="1"
-            android:background="@color/sing_in_button"
-            android:text="Previous"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:id="@+id/btn_next"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:layout_weight="1"
-            android:background="@color/sing_in_button"
-            android:text="Next"
-            android:textColor="@android:color/white" />
-    </LinearLayout>
 
 </RelativeLayout>

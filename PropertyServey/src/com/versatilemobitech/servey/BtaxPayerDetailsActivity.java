@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -70,12 +71,15 @@ public class BtaxPayerDetailsActivity  extends BaserActinbBar{
 					    TextView etxtAge = (TextView)addView.findViewById(R.id.etxt_age);
 					    TextView etxtProffesion = (TextView)addView.findViewById(R.id.etxt_proffesion);
 					    Button buttonRemove = (Button)addView.findViewById(R.id.btn_removeview);
+					    buttonRemove.setTag(addView);
 					    buttonRemove.setOnClickListener(new OnClickListener(){
 					     @Override
 					     public void onClick(View v) {
-					      ((LinearLayout)addView.getParent()).removeView(addView);
+					      ((LinearLayout)addView.getParent()).removeView((View)v.getTag());
 					     }});
-					    ll_container.addView(addView);
+					    LayoutParams params=new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
+					    ll_container.addView(addView,params);
+					    System.out.println("TEST Adeedddddddddd");
 					   }});
 		
 	}

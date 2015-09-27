@@ -5,24 +5,68 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="login">Login</string>
- <string name="uname">User Name</string>
- <string name="pwd">Password</string>
- <string name="cannot">Cannot</string>
- 
-  <string name="external_dir">GetSignature</string>
-  
-    
-    <string-array name="str_arr_profession">
-       
-     
-        <item >Service</item>
-        <item >Business</item>
-        <item >HouseWife</item>
-        <item >Other</item>
-    </string-array>
- 
+    <string name="uname">User Name</string>
+    <string name="pwd">Password</string>
+    <string name="cannot">Cannot</string>
+    <string name="external_dir">GetSignature</string>
 
- 
-   
+    <string-array name="str_arr_profession">
+        <item>Service</item>
+        <item>Business</item>
+        <item>HouseWife</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="str_arr_state_govt">
+        <item> Govt. Autonomous Board</item>
+        <item>Govt. Company</item>
+        <item> Corporation</item>
+    </string-array>
+    <string-array name="str_arr_religious">
+        <item>Temple</item>
+        <item> Mosque</item>
+        <item> Gurudwara</item>
+        <item> Church</item>
+    </string-array>
+    <string-array name="str_arr_residetial">
+        <item>Individual House</item>
+        <item> Apartment</item>
+    </string-array>
+    <string-array name="str_arr_detils_floor">
+        <item> Under Ground</item>
+        <item> Ground Floor</item>
+        <item> First Floor</item>
+        <item> Second Floor</item>
+        <item>Third Floor</item>
+        <item> Fourth Floor</item>
+        <item> Others</item>
+    </string-array>
+    <string-array name="str_arr_land_use">
+        <item> dential</item>
+        <item> Commercial</item>
+        <item> Institutional</item>
+        <item> Industrial</item>
+        <item> Others</item>
+    </string-array>
+    <string-array name="str_type_of_construction">
+        <item>R.C.C</item>
+        <item>Teen Shed</item>
+        <item> Kaccha House</item>
+        <item>Semi(R.C.C+Kaccha)</item>
+    </string-array>
+    <string-array name="str_details_ownership">
+        <item> Allotment Land/House</item>
+        <item>Ancestral</item>
+        <item> Possession</item>
+    </string-array>
+    <string-array name="str_data_provide_by">
+        <item>  Owner</item>
+        <item>  Family Member</item>
+        <item>  Tenant</item>
+        <item>  Occupier</item>
+        <item>  Care Taker</item>
+        <item>  Neighbour </item>
+        <item>  Guard</item>
+        <item>  Others </item>
+    </string-array>
 
 </resources>
