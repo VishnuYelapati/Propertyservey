@@ -433,7 +433,7 @@ public class MyServey extends BaserActinbBar {
 							&& et_tons.getText().toString().length()!=0 &&trip_length.getText().toString().length()!=0){
 
 						ContentValues cv_values=new ContentValues();
-						cv_values.put(DatabaseHandler.VEH_REG_NO,vehregno);
+				/*		cv_values.put(DatabaseHandler.VEH_REG_NO,vehregno);
 						cv_values.put(DatabaseHandler.ORIGIN,et_origin.getText().toString());
 						cv_values.put(DatabaseHandler.DESTINATION,et_destination.getText().toString());
 						cv_values.put(DatabaseHandler.COMMODITY,veh_comd);
@@ -446,8 +446,8 @@ public class MyServey extends BaserActinbBar {
 						cv_values.put(DatabaseHandler.WEIGHT_IN_TONS,et_tons.getText().toString());
 						cv_values.put(DatabaseHandler.PAY_TOLL,rb_sel_paytoll.getText().toString());
 						cv_values.put(DatabaseHandler.LATITUDE_LONGITUDE,"http://maps.google.com/?q="+latitude+","+longitude); 
-						//cv_values.put(DatabaseHandler.LONGITUDE,longitude);
-						cv_values.put(DatabaseHandler.IMAGEPATH,photoPath);
+						*///cv_values.put(DatabaseHandler.LONGITUDE,longitude);
+					//	cv_values.put(DatabaseHandler.IMAGEPATH,photoPath);
 						cv_values.put(DatabaseHandler.CREATED_DATE,toDay_DATE);
 						db_Handler.insert(DatabaseHandler.TABLE_servey_Data, cv_values);
 
@@ -467,7 +467,7 @@ public class MyServey extends BaserActinbBar {
 							){
 
 						ContentValues cv_values=new ContentValues();
-						cv_values.put(DatabaseHandler.VEH_REG_NO,vehregno);
+					/*	cv_values.put(DatabaseHandler.VEH_REG_NO,vehregno);
 						cv_values.put(DatabaseHandler.ORIGIN,et_origin.getText().toString());
 						cv_values.put(DatabaseHandler.DESTINATION,et_destination.getText().toString());
 						cv_values.put(DatabaseHandler.OCCUPANCY,et_occupancy.getText().toString());
@@ -480,8 +480,8 @@ public class MyServey extends BaserActinbBar {
 						cv_values.put(DatabaseHandler.PAY_TOLL,rb_sel_paytoll.getText().toString());
 						cv_values.put(DatabaseHandler.LATITUDE_LONGITUDE,"http://maps.google.com/?q="+latitude+","+longitude);
 						//   cv_values.put(DatabaseHandler.LONGITUDE,longitude);
-						cv_values.put(DatabaseHandler.TRIP_LENGTH,"-NA-");
-						cv_values.put(DatabaseHandler.IMAGEPATH,mCurrentPhotoPath);
+						cv_values.put(DatabaseHandler.TRIP_LENGTH,"-NA-");*/
+					//	cv_values.put(DatabaseHandler.IMAGEPATH,mCurrentPhotoPath);
 						cv_values.put(DatabaseHandler.CREATED_DATE,toDay_DATE);
 						db_Handler.insert(DatabaseHandler.TABLE_servey_Data, cv_values);
 

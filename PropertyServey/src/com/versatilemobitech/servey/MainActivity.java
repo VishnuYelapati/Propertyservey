@@ -158,7 +158,7 @@ public class MainActivity extends BaserActinbBar{
 				try {
 
 					//  where player_id='"+TournamentMainFragment.loginPreferences.getString(Util.intent_userId, "")+"'");
-					cursor = sqldb.rawQuery("select * from SERVEY_DATA WHERE CREATED_DATE >='"+toDay_DATE+"_00:00:00'", null);
+					cursor = sqldb.rawQuery("select * from SERVEY_DATA",null);//WHERE CREATED_DATE >='"+toDay_DATE+"_00:00:00'", null);
 					int rowcount = 0;
 					int colcount = 0;
 					File sdCardDir = Environment.getExternalStorageDirectory();
