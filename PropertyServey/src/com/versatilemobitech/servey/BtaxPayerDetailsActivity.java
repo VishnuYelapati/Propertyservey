@@ -49,7 +49,7 @@ public class BtaxPayerDetailsActivity  extends BaserActinbBar{
 			startActivity(i);
 		}
 	});
-btn_Prev.setOnClickListener(new OnClickListener() {
+	btn_Prev.setOnClickListener(new OnClickListener() {
 		
 		@Override
 		public void onClick(View v) {
@@ -57,12 +57,8 @@ btn_Prev.setOnClickListener(new OnClickListener() {
 			onBackPressed();
 		}
 	});
-		
-	
-		
 		btn_addview=(Button)findViewById(R.id.btn_addview);
 		btn_addview.setOnClickListener(new OnClickListener() {
-			
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
@@ -73,15 +69,12 @@ btn_Prev.setOnClickListener(new OnClickListener() {
 					    TextView etxtfatherName = (TextView)addView.findViewById(R.id.etxt_fatherhusbandname);
 					    TextView etxtAge = (TextView)addView.findViewById(R.id.etxt_age);
 					    TextView etxtProffesion = (TextView)addView.findViewById(R.id.etxt_proffesion);
-				
 					    Button buttonRemove = (Button)addView.findViewById(R.id.btn_removeview);
 					    buttonRemove.setOnClickListener(new OnClickListener(){
-
 					     @Override
 					     public void onClick(View v) {
 					      ((LinearLayout)addView.getParent()).removeView(addView);
 					     }});
-					    
 					    ll_container.addView(addView);
 					   }});
 		
