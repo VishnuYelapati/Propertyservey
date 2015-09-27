@@ -185,6 +185,8 @@
                 android:hint="Enter Occupancy"
                 android:inputType="number"
                 android:maxLength="4"
+                android:singleLine="true"
+                android:background="@drawable/textfiled"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -266,6 +268,8 @@
                 android:layout_marginLeft="5dp"
                 android:layout_toRightOf="@+id/spn_tripfrq"
                 android:ems="10"
+                android:singleLine="true"
+                android:background="@drawable/textfiled"
                 android:inputType="number"
                 android:textColor="@color/white" />
 
@@ -447,6 +451,8 @@
                         android:hint="Enter weight"
                         android:inputType="number"
                         android:maxLength="8"
+                        android:background="@drawable/textfiled"
+                        android:singleLine="true"
                         android:textColor="@color/white"
                         android:textSize="20sp" android:layout_gravity="left"
                         android:textStyle="bold" />
@@ -536,6 +542,8 @@
                         android:hint="Enter length"
                         android:inputType="number"
                         android:maxLength="8"
+                        android:background="@drawable/textfiled"
+                        android:singleLine="true"
                         android:textColor="@color/white"
                         android:textSize="20sp" android:layout_gravity="left"
                         android:textStyle="bold" />

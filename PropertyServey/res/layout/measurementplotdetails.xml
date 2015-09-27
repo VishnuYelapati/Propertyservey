@@ -80,6 +80,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:background="@drawable/textfiled"
                         android:singleLine="true" />
 
                     <EditText
@@ -87,6 +88,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:background="@drawable/textfiled"
                         android:singleLine="true" />
                 </LinearLayout>
 
@@ -127,6 +129,7 @@
                         android:id="@+id/et_plintareainsqft"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/textfiled"
                         android:layout_weight="0.5"
                         android:singleLine="true" />
 
@@ -135,6 +138,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:background="@drawable/textfiled"
                         android:singleLine="true" />
                 </LinearLayout>
 
@@ -176,6 +180,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:background="@drawable/textfiled"
                         android:singleLine="true" />
 
                     <EditText
@@ -183,6 +188,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:background="@drawable/textfiled"
                         android:singleLine="true" />
                 </LinearLayout>
 
@@ -224,14 +230,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="jj" />
+                        android:background="@drawable/textfiled"
+                         />
 
                     <EditText
                         android:id="@+id/et_constructareainyards"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="kkk" />
+                        android:background="@drawable/textfiled" />
                 </LinearLayout>
 
                 <View
@@ -262,7 +269,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="kkk" />
+                        android:background="@drawable/textfiled"
+                         />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

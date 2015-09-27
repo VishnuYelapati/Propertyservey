@@ -96,7 +96,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:background="@drawable/et_corner_shape"
+                        android:background="@drawable/textfiled"
                        
                      />
                 </LinearLayout>
@@ -131,7 +131,7 @@
                          android:textColor="@color/black"
                          android:singleLine="true"
                         android:layout_weight="0.5"
-                        android:background="@drawable/et_corner_shape"
+                       android:background="@drawable/textfiled"
                          />
                 </LinearLayout>
 
@@ -166,7 +166,7 @@
                          android:textColor="@color/black"
                         android:layout_weight="0.5"
                         android:singleLine="true"
-                        android:background="@drawable/et_corner_shape"
+                      android:background="@drawable/textfiled"
                          />
                 </LinearLayout>
                 
@@ -201,7 +201,7 @@
                         android:layout_weight="0.5"
                          android:textColor="@color/black"
                          android:singleLine="true"
-                         android:background="@drawable/et_corner_shape"
+                        android:background="@drawable/textfiled"
                          />
                 </LinearLayout>
                 
@@ -266,7 +266,7 @@
                         android:layout_weight="0.5"
                          android:textColor="@color/black"
                          android:singleLine="true"
-                         android:background="@drawable/et_corner_shape"
+                       android:background="@drawable/textfiled"
                          />
                 </LinearLayout>
                 
@@ -302,7 +302,7 @@
                         android:layout_weight="0.5"
                          android:textColor="@color/black"
                          android:singleLine="true"
-                         android:background="@drawable/et_corner_shape"
+                        android:background="@drawable/textfiled"
                          />
                 </LinearLayout>
                 
@@ -338,7 +338,7 @@
                         android:layout_weight="0.5"
                          android:textColor="@color/black"
                          android:singleLine="true"
-                         android:background="@drawable/et_corner_shape"
+                        android:background="@drawable/textfiled"
                          />
                 </LinearLayout>
                

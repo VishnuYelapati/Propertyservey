@@ -75,6 +75,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:background="@drawable/textfiled"
+                        android:singleLine="true"
                         android:textColor="@color/black"
                        
                      />
@@ -109,6 +111,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                          android:textColor="@color/black"
+                         android:background="@drawable/textfiled"
+                         android:singleLine="true"
                         android:layout_weight="0.5"
                          />
                 </LinearLayout>
@@ -208,6 +212,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                          android:textColor="@color/black"
+                         android:background="@drawable/textfiled"
+                         android:singleLine="true"
                         android:layout_weight="0.5"
                          />
                 </LinearLayout>
@@ -244,6 +250,7 @@
                         android:layout_height="wrap_content"
                          android:textColor="@color/black"
                         android:layout_weight="0.5"
+                        android:background="@drawable/textfiled"
                          />
                 </LinearLayout>
                 
@@ -281,6 +288,7 @@
                          android:textColor="@color/black"
                          android:text="Jaipur"
                         android:layout_weight="0.5"
+                        android:background="@drawable/textfiled"
                          />
                 </LinearLayout>
                 
@@ -317,6 +325,8 @@
                          android:textColor="@color/black"
                          android:text="Jaipur"
                         android:layout_weight="0.5"
+                        android:background="@drawable/textfiled"
+                        android:singleLine="true"
                          />
                 </LinearLayout>
                 
@@ -353,6 +363,7 @@
                         android:layout_height="wrap_content"
                          android:textColor="@color/black"
                          android:text="Rajasthan"
+                         android:background="@drawable/textfiled"
                         android:layout_weight="0.5"
                          />
                 </LinearLayout>
@@ -391,6 +402,7 @@
                         android:layout_height="wrap_content"
                          android:textColor="@color/black"
                         android:layout_weight="0.5"
+                        android:background="@drawable/textfiled"
                          />
                 </LinearLayout>
                 <View
@@ -422,6 +434,7 @@
                         android:layout_height="wrap_content"
                          android:textColor="@color/black"
                         android:layout_weight="0.5"
+                        android:background="@drawable/textfiled"
                          />
                 </LinearLayout>
                  <View
@@ -453,6 +466,7 @@
                         android:layout_height="wrap_content"
                          android:textColor="@color/black"
                         android:layout_weight="0.5"
+                        android:background="@drawable/textfiled"
                          />
                 </LinearLayout>
                 <View
@@ -540,6 +554,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:background="@drawable/textfiled"
+                        android:singleLine="true"
                          android:textColor="@color/black"
                         android:hint="Width (in ft)" />
 
