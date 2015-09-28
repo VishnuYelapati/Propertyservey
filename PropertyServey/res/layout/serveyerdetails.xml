@@ -4,52 +4,62 @@
     android:layout_height="match_parent"
     android:background="@drawable/background2" >
 
-    <TextView
-        android:id="@+id/completed_title"
+    
+    <LinearLayout
+        android:id="@+id/buttom_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
-        android:layout_alignParentTop="true"
-        android:text="Government of Rajasthan"
-        android:textColor="@android:color/black"
-        android:textSize="20dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:weightSum="1" >
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/sing_in_button"
+            android:text="Submit"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
 
     <ScrollView
-        android:layout_below="@+id/completed_title"
         android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+       android:layout_above="@id/buttom_layout"
+        android:layout_marginTop="5dp" >
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" >
 
             <LinearLayout
                 android:id="@+id/content_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 android:background="@drawable/shadow_layer"
                 android:orientation="vertical" >
 
-
                 <LinearLayout
-
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="35dp"
-                      android:background="@color/title_bar_color"
-                     >
+                    android:background="@color/title_bar_color"
+                    android:minHeight="35dp" >
 
                     <TextView
-
-                        android:textColor="@color/white"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
- android:gravity="center"
-                        android:text="Survey Details)" /></LinearLayout>
-                
+                        android:gravity="center"
+                        android:text="Survey Details)"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/dite_info_layout"
                     android:layout_width="match_parent"
@@ -57,8 +67,8 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:weightSum="1" 
-                    android:background="@drawable/et_corner_shape">
+                    android:background="@drawable/et_corner_shape"
+                    android:weightSum="1" >
 
                     <TextView
                         android:id="@+id/tv_servyerdetails"
@@ -66,12 +76,10 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:gravity="center"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
+                        android:text="Surveyor"
                         android:textColor="@color/black"
-                        android:text="Surveyor" />
-
-                  
+                        android:textSize="20sp"
+                          />
                 </LinearLayout>
 
                 <LinearLayout
@@ -88,17 +96,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:textColor="@color/black"
-                        android:text="Name Of Surveyor*" />
+                        android:text="Name Of Surveyor*"
+                        android:textColor="@color/black" />
 
                     <EditText
                         android:id="@+id/et_servyerName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:background="@drawable/textfiled"
-                       
-                     />
+                        android:singleLine="true"
+                        android:background="@drawable/textfiled" />
                 </LinearLayout>
 
                 <View
@@ -111,44 +118,42 @@
                     android:id="@+id/ll_serveyorAdd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
                     android:weightSum="1" >
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                         android:textColor="@color/black"
-                        android:text="Surveyor Address*" />
+                        android:text="Surveyor Address*"
+                        android:textColor="@color/black" />
 
                     <EditText
                         android:id="@+id/et_serveyoradd"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                         android:textColor="@color/black"
-                         android:singleLine="true"
                         android:layout_weight="0.5"
-                       android:background="@drawable/textfiled"
-                         />
+                        android:background="@drawable/textfiled"
+                        android:singleLine="true"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
-				 <View
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_margin="10dp"
                     android:background="@android:color/darker_gray" />
 
                 <LinearLayout
-                   
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
                     android:weightSum="1" >
 
                     <TextView
@@ -156,34 +161,32 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                         android:textColor="@color/black"
-                        android:text="Serveyor Id" />
+                        android:text="Serveyor Id"
+                        android:textColor="@color/black" />
 
                     <EditText
                         android:id="@+id/et_serveyorId"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                         android:textColor="@color/black"
                         android:layout_weight="0.5"
+                        android:background="@drawable/textfiled"
                         android:singleLine="true"
-                      android:background="@drawable/textfiled"
-                         />
+                        android:textColor="@color/black" />
                 </LinearLayout>
-                
-                 <View
+
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_margin="10dp"
                     android:background="@android:color/darker_gray" />
 
                 <LinearLayout
-                   
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
                     android:weightSum="1" >
 
                     <TextView
@@ -191,35 +194,34 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                         android:textColor="@color/black"
-                        android:text="Date*" />
+                        android:text="Date*"
+                        android:textColor="@color/black" />
 
                     <EditText
                         android:id="@+id/et_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                         android:textColor="@color/black"
-                         android:singleLine="true"
                         android:background="@drawable/textfiled"
-                         />
+                        android:singleLine="true"
+                        android:textColor="@color/black" />
                 </LinearLayout>
-                
-                  <View
+
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_margin="10dp"
                     android:background="@android:color/darker_gray" />
-                  
-                    <LinearLayout
+
+                <LinearLayout
                     android:id="@+id/ll_attastingauthority"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:weightSum="1" 
-                    android:background="@drawable/et_corner_shape">
+                    android:background="@drawable/et_corner_shape"
+                    android:weightSum="1" >
 
                     <TextView
                         android:id="@+id/tv_attastinfauthority"
@@ -227,28 +229,25 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:gravity="center"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
+                        android:text="Attesting Authority"
                         android:textColor="@color/black"
-                        android:text="Attesting Authority" />
-
-                  
+                        android:textSize="20sp"
+                         />
                 </LinearLayout>
 
-                 <View
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_margin="10dp"
                     android:background="@android:color/darker_gray" />
 
                 <LinearLayout
-                   
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
                     android:weightSum="1" >
 
                     <TextView
@@ -256,35 +255,32 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                         android:textColor="@color/black"
-                        android:text="Name Of Attesting Authority*" />
+                        android:text="Name Of Attesting Authority*"
+                        android:textColor="@color/black" />
 
                     <EditText
                         android:id="@+id/et_attastauthName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                         android:textColor="@color/black"
-                         android:singleLine="true"
-                       android:background="@drawable/textfiled"
-                         />
+                        android:background="@drawable/textfiled"
+                        android:singleLine="true"
+                        android:textColor="@color/black" />
                 </LinearLayout>
-                
-                
-                  <View
+
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_margin="10dp"
                     android:background="@android:color/darker_gray" />
 
                 <LinearLayout
-                   
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
                     android:weightSum="1" >
 
                     <TextView
@@ -292,35 +288,32 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                         android:textColor="@color/black"
-                        android:text="Attesting Authority Designation*" />
+                        android:text="Attesting Authority Designation*"
+                        android:textColor="@color/black" />
 
                     <EditText
                         android:id="@+id/et_attastauthdisig"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                         android:textColor="@color/black"
-                         android:singleLine="true"
                         android:background="@drawable/textfiled"
-                         />
+                        android:singleLine="true"
+                        android:textColor="@color/black" />
                 </LinearLayout>
-                
-                
-                 <View
+
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_margin="10dp"
                     android:background="@android:color/darker_gray" />
 
                 <LinearLayout
-                   
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
                     android:weightSum="1" >
 
                     <TextView
@@ -328,57 +321,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                         android:textColor="@color/black"
-                        android:text="Date*" />
+                        android:text="Date*"
+                        android:textColor="@color/black" />
 
                     <EditText
                         android:id="@+id/et_attastauthdate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                         android:textColor="@color/black"
-                         android:singleLine="true"
                         android:background="@drawable/textfiled"
-                         />
+                        android:singleLine="true"
+                        android:textColor="@color/black" />
                 </LinearLayout>
-               
             </LinearLayout>
-            
-            
-            
         </LinearLayout>
-        
     </ScrollView>
 
- 
-                 <LinearLayout
-        android:id="@+id/buttom_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:orientation="horizontal"
-        android:weightSum="1" >
-
-        <Button
-            android:id="@+id/btn_submit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:layout_weight="1"
-            
-            android:background="@color/sing_in_button"
-            android:text="Submit"
-            android:textColor="@android:color/white" />
-
-       
-    </LinearLayout>
     
-
-
-
-   
 
 </RelativeLayout>

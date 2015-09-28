@@ -12,7 +12,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.versatilemobitech.adapter.CustomAdapter;
@@ -22,7 +21,7 @@ import com.versatilemobitech.bean.ProperyBean;
 public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 	
 	EditText et_name,et_fathername,et_age;
-	Spinner spn_profession;
+	//Spinner spn_profession;
 	Button btn_addview,btn_Next,btn_Prev;
 	LinearLayout ll_container;
 	ArrayList<NameBean> beanList=new ArrayList<NameBean>();
@@ -36,7 +35,7 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 		et_name=(EditText)findViewById(R.id.et_name);
 		et_fathername=(EditText)findViewById(R.id.et_fatherhusbandname);
 		et_age=(EditText)findViewById(R.id.et_age);
-		spn_profession=(Spinner)findViewById(R.id.spn_proffesion);
+		//spn_profession=(Spinner)findViewById(R.id.spn_proffesion);
 		btn_Next=(Button)findViewById(R.id.btn_next);
 		btn_Prev=(Button)findViewById(R.id.btn_prev);
 		Resources res = getResources(); 
@@ -44,7 +43,7 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 		
     
 		
-	spn_profession.setAdapter(adapter);
+	//spn_profession.setAdapter(adapter);
 		
 	btn_Next.setOnClickListener(new OnClickListener() {
 		
@@ -76,8 +75,8 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 			}
 			
 			ProperyBean.getInstance().setNameList(beanList);
-			/*Intent i=new Intent(getApplicationContext(),GTaxPayerUsePropertyDetails.class);
-			startActivity(i);*/
+			 Intent i=new Intent(getApplicationContext(),GTaxPayerUsePropertyDetails.class);
+			startActivity(i); 
 		}
 	});
 btn_Prev.setOnClickListener(new OnClickListener() {
