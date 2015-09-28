@@ -4,21 +4,42 @@
     android:layout_height="match_parent"
     android:background="@drawable/background2" >
 
-    <TextView
-        android:id="@+id/completed_title"
+     <LinearLayout
+        android:id="@+id/buttom_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
-        android:text="Government of Rajasthan"
-        android:textColor="@android:color/black"
-        android:textSize="20dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+
+        <Button
+            android:id="@+id/btn_prev"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/sing_in_button"
+            android:text="Previous"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/sing_in_button"
+            android:text="Next"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/completed_title"
+        android:layout_above="@id/buttom_layout"
         android:layout_marginTop="10dp" >
 
         <LinearLayout
@@ -30,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 android:background="@drawable/shadow_layer"
                 android:orientation="vertical" >
 
@@ -62,7 +83,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Total  Plot Area*"
+                        android:text="Total  Plot Area"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -80,6 +101,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                         android:inputType="numberDecimal"
                         android:background="@drawable/textfiled"
                         android:singleLine="true" />
 
@@ -88,6 +110,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                         android:inputType="numberDecimal"
                         android:background="@drawable/textfiled"
                         android:singleLine="true" />
                 </LinearLayout>
@@ -112,7 +135,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Total  Plint Area*"
+                        android:text="Total  Plint Area"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -131,6 +154,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/textfiled"
                         android:layout_weight="0.5"
+                         android:inputType="numberDecimal"
                         android:singleLine="true" />
 
                     <EditText
@@ -138,6 +162,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                         android:inputType="numberDecimal"
                         android:background="@drawable/textfiled"
                         android:singleLine="true" />
                 </LinearLayout>
@@ -162,7 +187,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Total  Plint Area*"
+                        android:text="Total  Plint Area"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -180,6 +205,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                         android:inputType="numberDecimal"
                         android:background="@drawable/textfiled"
                         android:singleLine="true" />
 
@@ -188,6 +214,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                         android:inputType="numberDecimal"
                         android:background="@drawable/textfiled"
                         android:singleLine="true" />
                 </LinearLayout>
@@ -212,7 +239,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Total  Plint Area*"
+                        android:text="Total  Plint Area"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -223,13 +250,15 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:weightSum="3" >
+                    android:weightSum="1" >
 
                     <EditText
                         android:id="@+id/et_constructareainsqft"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:singleLine="true"
+                         android:inputType="numberDecimal"
                         android:background="@drawable/textfiled"
                          />
 
@@ -237,7 +266,9 @@
                         android:id="@+id/et_constructareainyards"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                         android:inputType="numberDecimal"
                         android:layout_weight="0.5"
+                        android:singleLine="true"
                         android:background="@drawable/textfiled" />
                 </LinearLayout>
 
@@ -261,13 +292,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Total  Plint Area*"
+                        android:text="Total  Plint Area"
                         android:textColor="@color/black" />
 
                     <EditText
                         android:id="@+id/et_nofloors"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                         android:inputType="numberDecimal"
+                         android:singleLine="true"
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
                          />
@@ -276,36 +309,6 @@
         </LinearLayout>
     </ScrollView>
 
-    <LinearLayout
-        android:id="@+id/buttom_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:orientation="horizontal"
-        android:weightSum="2" >
-
-        <Button
-            android:id="@+id/btn_prev"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:layout_weight="1"
-            android:background="@color/sing_in_button"
-            android:text="Previous"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:id="@+id/btn_next"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:layout_weight="1"
-            android:background="@color/sing_in_button"
-            android:text="Next"
-            android:textColor="@android:color/white" />
-    </LinearLayout>
+   
 
 </RelativeLayout>

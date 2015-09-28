@@ -1,9 +1,5 @@
 package com.versatilemobitech.servey;
 
-import org.apache.poi.poifs.storage.PropertyBlock;
-
-import com.versatilemobitech.bean.ProperyBean;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +7,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.versatilemobitech.bean.ProperyBean;
 
 public class CTaxPayerAddressDetails extends BaserActinbBar{
 	private Button btn_Next;
@@ -50,6 +48,7 @@ public class CTaxPayerAddressDetails extends BaserActinbBar{
 					pbean.setMobileNo(MobileNo.getText().toString());
 					pbean.setPermanentAddress(PermanentAddress.getText().toString());
 					pbean.setBasicPhoneNo(BasicPhoneNo.getText().toString());
+					pbean.setEmailID_Address(EmailID.getText().toString()); //added
 					
 					Intent i=new Intent(getApplicationContext(),DTaxPayerPropertyDetails.class);
 					startActivity(i);

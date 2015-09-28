@@ -204,6 +204,7 @@
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
                         android:singleLine="true"
+                        android:inputType="date"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -331,6 +332,7 @@
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
                         android:singleLine="true"
+                        android:inputType="date"
                         android:textColor="@color/black" />
                 </LinearLayout>
             </LinearLayout>

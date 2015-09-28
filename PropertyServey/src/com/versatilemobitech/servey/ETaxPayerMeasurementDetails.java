@@ -42,7 +42,7 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 		TotalPlotYard=(EditText)findViewById(R.id.et_constructareainyards);
 		VacantYard=(EditText)findViewById(R.id.et_vacantareainyards);
 		
-	btn_Next.setOnClickListener(new OnClickListener() {
+	      btn_Next.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {

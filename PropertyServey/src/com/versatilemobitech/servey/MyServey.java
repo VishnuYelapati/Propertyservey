@@ -43,23 +43,24 @@ public class MyServey extends BaserActinbBar {
 	double latitude;
 	double longitude;
 	String toDay_DATE;
-	
+
 	MyServey activity = null;
-	
+
 	GPSTracker gpsTracker;
 
 	//private TextView batinfo=null;
 	DatabaseHandler db_Handler;
 
 
-	private static final int ACTION_TAKE_PHOTO_B = 1;
+	private static final int ACTION_TAKE_PHOTO_A = 1;
+	private static final int ACTION_TAKE_PHOTO_B = 2;
 	//private static final int ACTION_TAKE_PHOTO_S = 2;
 	//private static final int ACTION_TAKE_VIDEO = 3;
 
-	private ImageView mImageView;
+	//private ImageView mImageView;
 	//	private Bitmap mImageBitmap;
-DatabaseHandler dbHandler;
-	 
+	DatabaseHandler dbHandler;
+
 
 	private String mCurrentPhotoPath;
 	//private final String USER_PREF_FILE_NAME="user_time";
@@ -69,7 +70,7 @@ DatabaseHandler dbHandler;
 
 	private AlbumStorageDirFactory mAlbumStorageDirFactory = null;
 
-	
+
 
 	/* Photo album for this application */
 	private String getAlbumName() {
@@ -142,14 +143,14 @@ DatabaseHandler dbHandler;
 		return f;
 	}
 
-	private void setPic() {
+	private void setPic(ImageView img) {
 
 		/* There isn't enough memory to open up more than a couple camera photos */
 		/* So pre-scale the target bitmap into which the file is decoded */
 
 		/* Get the size of the ImageView */
-		int targetW = mImageView.getWidth();
-		int targetH = mImageView.getHeight();
+		int targetW = img.getWidth();
+		int targetH = img.getHeight();
 
 		/* Get the size of the image */
 		BitmapFactory.Options bmOptions = new BitmapFactory.Options();
@@ -175,12 +176,12 @@ DatabaseHandler dbHandler;
 		System.out.println("CURRENT PATH PHOTO"+mCurrentPhotoPath);
 		photoPath=mCurrentPhotoPath;
 		/* Associate the Bitmap to the ImageView */										
-		mImageView.setVisibility(View.VISIBLE);
-		mImageView.setImageBitmap(bitmap);
+		img.setVisibility(View.VISIBLE);
+		img.setImageBitmap(bitmap);
 		//mVideoUri = null;
 	}
 
-	 
+
 
 	private void dispatchTakePictureIntent(int actionCode) {
 
@@ -201,6 +202,22 @@ DatabaseHandler dbHandler;
 				//	mCurrentPhotoPath = null;
 			}
 			break;
+			
+			
+		case ACTION_TAKE_PHOTO_A:
+			File f2 = null;
+
+			try {
+				f2 = setUpPhotoFile();
+				mCurrentPhotoPath = f2.getAbsolutePath();
+				takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f2));
+				System.out.println("");
+			} catch (IOException e) {
+				e.printStackTrace();
+				//	f = null;
+				//	mCurrentPhotoPath = null;
+			}
+			break;
 
 		default:
 			break;			
@@ -211,10 +228,10 @@ DatabaseHandler dbHandler;
 
 
 
-	private void handleBigCameraPhoto() {
+	private void handleBigCameraPhoto(ImageView img) {
 
 		if (mCurrentPhotoPath != null) {
-			setPic();
+			setPic(img);
 			//galleryAddPic();
 			mCurrentPhotoPath = null;
 		}
@@ -229,6 +246,15 @@ DatabaseHandler dbHandler;
 			dispatchTakePictureIntent(ACTION_TAKE_PHOTO_B);
 		}
 	};
+	
+	
+	Button.OnClickListener mTakePicTwoOnClickListener = 
+			new Button.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			dispatchTakePictureIntent(ACTION_TAKE_PHOTO_A);
+		}
+	};
 
 	Geocoder geocoder;
 	private EditText trip_length=null;
@@ -240,28 +266,38 @@ DatabaseHandler dbHandler;
 		setContentView(R.layout.activity_servey);
 
 		dbHandler=new DatabaseHandler(getApplicationContext());
-		
-		 //setupActionBar();
-		
 
-		
+		//setupActionBar();
+
+
+
 		//	et_tripLength=(EditText)findViewById(R.id.et_triplength);
 		//tv_occupation=(TextView)findViewById(R.id.txt_occupancy);
 		btn_save=(Button) findViewById(R.id.btn_save);
-	
+
 		Date dNow = new Date( );
 		SimpleDateFormat ft = 
 				new SimpleDateFormat ("dd-MM-yyyy hh:mm");
 		activity  = this;
 		geocoder = new Geocoder(this, Locale.ENGLISH);
-		mImageView = (ImageView) findViewById(R.id.catute_image);
 		
+
 		TextView picBtn = (TextView) findViewById(R.id.btn_camera);
 		setBtnListenerOrDisable( 
 				picBtn, 
 				mTakePicOnClickListener,
 				MediaStore.ACTION_IMAGE_CAPTURE
 				);
+		
+		
+		TextView picBtn2 = (TextView) findViewById(R.id.btn_camera1);
+		
+		setBtnListenerOrDisable( 
+				picBtn2, 
+				mTakePicTwoOnClickListener,
+				MediaStore.ACTION_IMAGE_CAPTURE
+				);
+		
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
 			mAlbumStorageDirFactory = new FroyoAlbumDirFactory();
 		} else {
@@ -276,10 +312,10 @@ DatabaseHandler dbHandler;
 				SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy_HH:mm:ss");
 				toDay_DATE= sdf.format(new Date());
 
-					ProperyBean pbean=ProperyBean.getInstance();
-	
-				
-				
+				ProperyBean pbean=ProperyBean.getInstance();
+
+
+
 				ContentValues cv_Values=new ContentValues();
 				cv_Values.put(dbHandler.AddressforCommunication,pbean.getAddressforCommunication());
 				//cv_Values.put(dbHandler.AdvertisementHoarding,pbean.get);
@@ -303,8 +339,8 @@ DatabaseHandler dbHandler;
 				cv_Values.put(dbHandler.EmailID,pbean.getEmailID());
 				cv_Values.put(dbHandler.EmailID_Address,pbean.getEmailID_Address());
 				cv_Values.put(dbHandler.ExempteUnderclause107Act2009,pbean.getExempteUnderclause107Act2009());
-				
-			
+
+
 				//cv_Values.put(dbHandler.father_name,pbean.get);
 				cv_Values.put(dbHandler.FireFightingSystem,pbean.getFireFightingSystem());
 				//cv_Values.put(dbHandler.Floor_No,pbean.get);
@@ -325,14 +361,14 @@ DatabaseHandler dbHandler;
 				cv_Values.put(dbHandler.NameOfSurveyor,pbean.getNameOfSurveyor());
 				cv_Values.put(dbHandler.No_Of_Floors,pbean.getNo_Of_Floors());
 				cv_Values.put(dbHandler.OpenToilet,pbean.getOpenToilet());
-			//	cv_Values.put(dbHandler.ownerId,pbean.geto);
+				//	cv_Values.put(dbHandler.ownerId,pbean.geto);
 				cv_Values.put(dbHandler.OwnerUIDNumber,pbean.getOwnerUIDNumber());
 				//cv_Values.put(dbHandler.OwnerUIDNumber,pbean.getAddressforCommunication());
 				cv_Values.put(dbHandler.Others,pbean.getOthers());
 				cv_Values.put(dbHandler.OutOfRicoIndustries,pbean.getOutOfRicoIndustries());
-			//	cv_Values.put(dbHandler.owner_name,pbean.getO);
+				//	cv_Values.put(dbHandler.owner_name,pbean.getO);
 				cv_Values.put(dbHandler.OutOfRicoIndustries,pbean.getAddressforCommunication());
-		//		cv_Values.put(dbHandler.profession,pbean.getpr);
+				//		cv_Values.put(dbHandler.profession,pbean.getpr);
 				cv_Values.put(dbHandler.Parking,pbean.getParking());
 				cv_Values.put(dbHandler.PermanentAddress,pbean.getPermanentAddress());
 				//cv_Values.put(dbHandler.PermanentAddress_Address,pbean.getAddressforCommunication());
@@ -363,14 +399,15 @@ DatabaseHandler dbHandler;
 				cv_Values.put(dbHandler.SurveyorAddress,pbean.getAddressforCommunication());
 				cv_Values.put(dbHandler.Total_Area_sft,pbean.getAddressforCommunication());
 				cv_Values.put(dbHandler.Total_Area_Yard,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.TotalConstructionArea,pbean.getAddressforCommunication());
+				//cv_Values.put(dbHandler.TotalConstructionArea,pbean.getAddressforCommunication()); //
 				cv_Values.put(dbHandler.TotalPlotArea,pbean.getAddressforCommunication());
 				cv_Values.put(dbHandler.TotalPlotYard,pbean.getAddressforCommunication());
 				cv_Values.put(dbHandler.TypOfConstruction,pbean.getAddressforCommunication());
 				cv_Values.put(dbHandler.VacantArea,pbean.getAddressforCommunication());
 				cv_Values.put(dbHandler.VacantYard,pbean.getAddressforCommunication());
-				dbHandler.insert("SERVEY_DATA", cv_Values);
-				
+				long insterResult=dbHandler.insert(dbHandler.TABLE_servey_Data, cv_Values);
+
+				System.out.println("Test insert ::::"+insterResult);
 				pbean=null;
 				Intent i=new Intent(getApplicationContext(),MainActivity.class);
 				startActivity(i);
@@ -418,14 +455,20 @@ DatabaseHandler dbHandler;
 		switch (requestCode) {
 		case ACTION_TAKE_PHOTO_B: {
 			if (resultCode == RESULT_OK) {
-				handleBigCameraPhoto();
+				 
+				
+				handleBigCameraPhoto((ImageView) findViewById(R.id.catute_image));
 			}
 			break;
+			
 		} // ACTION_TAKE_PHOTO_B
 
-		} // switch
+		case ACTION_TAKE_PHOTO_A:
+			handleBigCameraPhoto((ImageView) findViewById(R.id.catute_image2));
+			break;
+		}// switch
 	}
-	
+
 	@Override
 	public void onBackPressed() {
 

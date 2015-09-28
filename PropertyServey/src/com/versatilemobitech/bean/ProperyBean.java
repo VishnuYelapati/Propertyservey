@@ -53,6 +53,7 @@ public class ProperyBean implements Serializable{
 	private String DetailsOfOwnership="";
 	private String WhetherConstructionOnPlot="";
 	private String NameOfLane_Road="";
+	private String Landmark="";
 	private String Ward="";
 	private String District="Jaipur";
 	private String Name_No_OfBuilding_pre="";
@@ -1026,6 +1027,16 @@ public class ProperyBean implements Serializable{
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+
+	public String getLandmark() {
+		return Landmark;
+	}
+
+
+	public void setLandmark(String landmark) {
+		Landmark = landmark;
 	}
 
 

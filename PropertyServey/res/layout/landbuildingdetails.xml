@@ -3,18 +3,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background2" >
-    <TextView
-        android:id="@+id/completed_title"
+    <LinearLayout
+        android:id="@+id/buttom_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
-        android:layout_alignParentTop="true"
-        android:text="Government of Rajasthan"
-        android:textColor="@android:color/black"
-        android:textSize="20dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+          <Button
+            android:id="@+id/btn_prev"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/sing_in_button"
+            android:text="Previous"
+            android:textColor="@android:color/white" />
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/sing_in_button"
+            android:text="Next"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
     <ScrollView
-        android:layout_below="@+id/completed_title"
+        android:layout_above="@id/buttom_layout"
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
         android:layout_height="match_parent">
@@ -27,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 android:background="@drawable/shadow_layer"
                 android:orientation="vertical" >
                 <LinearLayout
@@ -42,8 +61,8 @@
                         android:textColor="@color/white"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
- 						android:gravity="center"
-                        android:text="Land / Building Details" /></LinearLayout>
+ 						android:gravity="center" android:singleLine="true"
+                        android:text="Use Of Land/Building and Details Of Floor Areas" /></LinearLayout>
 
               
                 
@@ -138,7 +157,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:entries="@array/str_arr_detils_floor"
-                         android:textColor="#000000"
+                         android:textColor="@color/black"
                          />
                 </LinearLayout>
                 
@@ -172,6 +191,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                          android:textColor="#000000"
+                          android:inputType="numberDecimal"
                          android:background="@drawable/textfiled"
                          android:singleLine="true"
                          />
@@ -202,6 +222,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                         android:inputType="numberDecimal"
                         android:background="@drawable/textfiled"
                         android:singleLine="true"
                      />
@@ -225,34 +246,6 @@
     </ScrollView>
 
     
-                 <LinearLayout
-        android:id="@+id/buttom_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:orientation="horizontal"
-        android:weightSum="2" >
-          <Button
-            android:id="@+id/btn_prev"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:layout_weight="1"
-            android:background="@color/sing_in_button"
-            android:text="Previous"
-            android:textColor="@android:color/white" />
-        <Button
-            android:id="@+id/btn_next"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:layout_weight="1"
-            android:background="@color/sing_in_button"
-            android:text="Next"
-            android:textColor="@android:color/white" />
-    </LinearLayout>
+                
 
 </RelativeLayout>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-  >
+    android:layout_height="match_parent" >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -11,7 +10,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" >
 
             <LinearLayout
                 android:id="@+id/content_layout"
@@ -22,9 +21,7 @@
                 android:background="@drawable/shadow_layer"
                 android:orientation="vertical" >
 
-
-                
-                 <View
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_margin="10dp"
@@ -34,10 +31,10 @@
                     android:id="@+id/ll_addview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="5dp"
                     android:weightSum="1" >
 
                     <Button
@@ -46,10 +43,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:text="remove Details" />
-
-                    
                 </LinearLayout>
-                
 
                 <View
                     android:layout_width="match_parent"
@@ -58,145 +52,129 @@
                     android:background="@android:color/darker_gray" />
 
                 <LinearLayout
-                    android:id="@+id/ll_taxpayerdetails"
+                    android:id="@+id/ll_landbuildings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="10dp"
                     android:weightSum="1" >
 
                     <TextView
-                        android:id="@+id/tv_name"
+                        android:id="@+id/tv_landuse"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                         android:textColor="#000000"
-                        android:text="Name*" />
+                        android:text="Land Use"
+                        android:textColor="#000000" />
+
+                    <Spinner
+                        android:id="@+id/spn_landuse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:entries="@array/str_arr_land_use"
+                        android:textColor="#000000" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_detailsfloor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="Floor Details"
+                        android:textColor="#000000" />
+
+                    <Spinner
+                        android:id="@+id/spn_detailsfloor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:entries="@array/str_arr_detils_floor"
+                        android:textColor="#000000" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/tv_totalareasft"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="Total Area(in Sq.ft)"
+                        android:textColor="#000000" />
 
                     <EditText
-                        android:id="@+id/etxt_name"
+                        android:id="@+id/et_totalareasft"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                         android:textColor="#000000"
-                         android:background="@drawable/textfiled"
-                         android:singleLine="true"
-                         />
+                        android:background="@drawable/textfiled"
+                        android:singleLine="true"
+                        android:textColor="#000000" />
                 </LinearLayout>
 
-				 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_margin="10dp"
-                    android:background="@android:color/darker_gray" />
-
-                <LinearLayout
-                   
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:weightSum="1" >
-
-                    <TextView
-                        android:id="@+id/tv_fathername"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                         android:textColor="#000000"
-                        android:text="Father/Husband Name*" />
-
-                    <TextView
-                        android:id="@+id/etxt_fatherhusbandname"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                         android:textColor="#000000"
-                         />
-                </LinearLayout>
-                
-                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_margin="10dp"
-                    android:background="@android:color/darker_gray" />
-
-                <LinearLayout
-                   
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:weightSum="1" >
-
-                    <TextView
-                        android:id="@+id/tv_age"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                         android:textColor="#000000"
-                        android:text="Owner UID No*" />
-
-                    <TextView
-                        android:id="@+id/etxt_age"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                         android:textColor="#000000"
-                         />
-                </LinearLayout>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_margin="10dp"
                     android:background="@android:color/darker_gray" />
-                  <LinearLayout
-                    android:id="@+id/dite_info_layout"
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="10dp"
                     android:weightSum="1" >
 
                     <TextView
-                        android:id="@+id/tv_profession"
+                        android:id="@+id/tv_totalaresft"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                         android:textColor="#000000"
-                        android:text="Data Provide By*" />
+                        android:text="Total Area(in yards)"
+                        android:textColor="@color/black" />
 
-                    <TextView
-                        android:id="@+id/etxt_proffesion"
+                    <EditText
+                        android:id="@+id/et_totalareainyards"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                         android:textColor="#000000"
-                     />
+                        android:background="@drawable/textfiled"
+                        android:singleLine="true" />
                 </LinearLayout>
-               
             </LinearLayout>
-            
-            
-            
-            
         </LinearLayout>
-        
-        
     </ScrollView>
-
- 
-
-
-
-   
 
 </RelativeLayout>

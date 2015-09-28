@@ -65,20 +65,12 @@ public class CustomAdapter extends ArrayAdapter<String>{
      //   TextView sub          = (TextView)row.findViewById(R.id.sub);
       //  ImageView companyLogo = (ImageView)row.findViewById(R.id.image);
         
-        if(position==0){
-        	
-        	// Default selected Spinner item 
-        	label.setText("Select");
-        //	sub.setText("");
-        }
-        else
-        {
+         
             // Set values for spinner each row 
             label.setText(tempValues.getStrItem());
         //    sub.setText(tempValues.getUrl());
          //   companyLogo.setImageResource(res.getIdentifier("com.tgs.servey:drawable/"+tempValues.getImage(),null,null));
-            
-        }   
+        
 
         return row;
       }

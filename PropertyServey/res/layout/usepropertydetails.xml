@@ -1308,6 +1308,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
+                        android:inputType="number"
                         android:singleLine="true" />
                 </LinearLayout>
 
@@ -1370,6 +1371,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
+                             android:inputType="number"
                             android:background="@drawable/textfiled"
                             android:singleLine="true" />
                     </LinearLayout>

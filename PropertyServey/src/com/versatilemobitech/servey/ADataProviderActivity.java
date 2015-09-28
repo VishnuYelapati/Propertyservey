@@ -25,8 +25,8 @@ public class ADataProviderActivity extends BaserActinbBar{
 
 	private Button btn_save;
 	public static ArrayList<SpinnerItemBean> arr_itemBean=new ArrayList<SpinnerItemBean>();
-	
-	
+
+
 	String outFilePath;
 
 	private EditText mRelationshipOfOwner=null;
@@ -43,10 +43,8 @@ public class ADataProviderActivity extends BaserActinbBar{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.dataproviderdetails);
 		btn_save=(Button)findViewById(R.id.btn_save);
-		 mSpn_dataProvider=(Spinner)findViewById(R.id.spn_Dataprovder);
-		
-		ProperyBean pb=ProperyBean.getInstance();
-		
+		mSpn_dataProvider=(Spinner)findViewById(R.id.spn_Dataprovder);
+
 
 		mRelationshipOfOwner=(EditText)findViewById(R.id.et_relationowner);
 		MobileNo=(EditText)findViewById(R.id.et_mobileno);
@@ -70,7 +68,8 @@ public class ADataProviderActivity extends BaserActinbBar{
 
 			@Override
 			public void onNothingSelected(AdapterView<?> parent) {
-				// TODO Auto-generated method stub
+
+				dataProvider="";
 
 			}
 		});
@@ -91,28 +90,23 @@ public class ADataProviderActivity extends BaserActinbBar{
 
 			@Override
 			public void onClick(View arg0) {
-				
-				
-				ProperyBean pb_model=new ProperyBean();
-				
-				
-				ProperyBean pbean=ProperyBean.getInstance();
-				pbean.setDataProvidedBy(NameOfDataProvider.getText().toString());
-				pbean.setRelationshipOfOwner(mRelationshipOfOwner.getText().toString());
-				pbean.setMobileNo(MobileNo.getText().toString());
-				pbean.setEmailID(EmailID.getText().toString());
-				pbean.setOwnerUIDNumber(OwnerUIDNumber.getText().toString());
-				pbean.setBasicPhoneNo(BasicPhoneNo.getText().toString());
-				
 
-				 
-			
 				if(!dataProvider.equals("") && mRelationshipOfOwner.getText().toString().length()>0 && MobileNo.getText().toString().length()>0 &&   NameOfDataProvider.getText().toString().length()>0 && OwnerUIDNumber.getText().toString().length()>0 &&  BasicPhoneNo.getText().toString().length()>0)
 				{
-					
+
 					//Here we need to same all data in Bean class
-					
-					
+
+
+					ProperyBean pbean=ProperyBean.getInstance();
+					pbean.setDataProvidedBy(dataProvider);
+					pbean.setNameOfDataProvider(NameOfDataProvider.getText().toString());
+					pbean.setRelationshipOfOwner(mRelationshipOfOwner.getText().toString());
+					pbean.setMobileNo(MobileNo.getText().toString());
+					pbean.setEmailID(EmailID.getText().toString());
+					pbean.setOwnerUIDNumber(OwnerUIDNumber.getText().toString());
+					pbean.setBasicPhoneNo(BasicPhoneNo.getText().toString());
+
+
 					Intent i=new Intent(getApplicationContext(),BTaxPayerAddDetailsActivity.class);
 					startActivity(i);
 				}
@@ -131,21 +125,21 @@ public class ADataProviderActivity extends BaserActinbBar{
 					if(  BasicPhoneNo.getText().toString().length()<=0)
 						BasicPhoneNo.setError("Invalid value");
 				}
-			
-			
-			
+
+
+
 			}
 		});
 
 
 
 	}
-	
-	
-	
 
 
 
-	
+
+
+
+
 
 }

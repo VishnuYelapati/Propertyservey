@@ -2,14 +2,17 @@ package com.versatilemobitech.servey;
 
 import com.versatilemobitech.adapter.DatabaseHandler;
 import com.versatilemobitech.bean.ProperyBean;
+import com.versatilemobitech.util.CaptureSignature;
 
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class HServeyorDetails extends BaserActinbBar{
 	
@@ -25,6 +28,8 @@ public class HServeyorDetails extends BaserActinbBar{
 	Button btn_submit;
 	DatabaseHandler dbHandler;
 	ProperyBean pbean;
+	
+	public static final int SIGNATURE_ACTIVITY = 1;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -53,13 +58,37 @@ public class HServeyorDetails extends BaserActinbBar{
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				
-				ProperyBean pbean=ProperyBean.getInstance();
-				
-			Intent i=new Intent(getApplicationContext(),MyServey.class);
-			startActivity(i);
+				Intent intent = new Intent(HServeyorDetails.this, CaptureSignature.class); 
+                startActivityForResult(intent,SIGNATURE_ACTIVITY);
+			
 			}
 		});
 		
 		
 	}
+	
+
+	 protected void onActivityResult(int requestCode, int resultCode, Intent data)
+	    {
+	        switch(requestCode) {
+	        case SIGNATURE_ACTIVITY: 
+	            if (resultCode == RESULT_OK) {
+	 
+	                Bundle bundle = data.getExtras();
+	                String status  = bundle.getString("status");
+	                if(status.equalsIgnoreCase("done")){
+	                    Toast toast = Toast.makeText(this, "Signature capture successful!", Toast.LENGTH_SHORT);
+	                    toast.setGravity(Gravity.TOP, 105, 50);
+	                    toast.show();
+	                    
+	                    finish();
+	                	
+	        			Intent i=new Intent(getApplicationContext(),MyServey.class);
+	        			startActivity(i);
+	                }
+	            }
+	            break;
+	        }
+	 
+	    }  
 }

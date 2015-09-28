@@ -4,7 +4,7 @@
  android:layout_height="wrap_content"
  android:orientation="vertical"
  android:padding="3dip"
- android:background="@color/app_bg_color"
+  
 >
     <ImageView
          android:id="@+id/image"
@@ -36,7 +36,7 @@
         android:layout_toRightOf="@+id/image"
         android:padding="3dip"
         android:text="vgvgvg"
-        android:textColor="@color/white"
-        android:textStyle="bold" />
+        android:textColor="@color/black"
+         />
 
 </RelativeLayout>
