@@ -74,7 +74,8 @@
          
         android:background="@color/sing_in_button"
         android:text="Servey Report"
-        android:visibility="visible"
+        android:visibility="gone"
+     
         android:textColor="@color/white" />
 
     <Button

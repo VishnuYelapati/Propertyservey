@@ -3,80 +3,49 @@ package com.versatilemobitech.servey;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
 import android.app.AlertDialog;
-import android.content.BroadcastReceiver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.RadioGroup.OnCheckedChangeListener;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.versatilemobitech.adapter.CustomAdapter;
 import com.versatilemobitech.adapter.DatabaseHandler;
-import com.versatilemobitech.bean.SpinnerModel;
-import com.versatilemobitech.db.PlacesDatabaseHandler;
+import com.versatilemobitech.bean.ProperyBean;
 
 public class MyServey extends BaserActinbBar {
-	String[] goodsTypeArray ;
-	String[] passengerTypeArray ;
-
-	String[] passengervehTypeArray ;
-	String[] goodsvehTypeArray ;
-
 	String photoPath="";
 	Button btn_save;
 	String str_adress="";
-	AutoCompleteTextView et_origin,et_destination;
-	EditText et_times,et_tons,et_occupancy;
+
 	double latitude;
 	double longitude;
 	String toDay_DATE;
-	String[] language;
-	String[] goods_commodity;
-	String[] passenger_commodity;
-	String[] tripfrq;
-	public  ArrayList<SpinnerModel> CustomListViewValuesArr = new ArrayList<SpinnerModel>();
-	TextView output = null,tv_occupation,tv_commoditytype,tv_wtons,txt_occupancy,tv_date;
-	CustomAdapter adapter;
+	
 	MyServey activity = null;
-	RadioGroup rg_vehtype,rg_roundTrip,rg_monthlypass,rg_willpaytoll;
-	Spinner  spinner_vehType,spn_tripfreq,spn_commodity;
-	EditText et_UserName=null;
-	EditText et_Password=null;
+	
 	GPSTracker gpsTracker;
 
 	//private TextView batinfo=null;
@@ -87,11 +56,9 @@ public class MyServey extends BaserActinbBar {
 	//private static final int ACTION_TAKE_PHOTO_S = 2;
 	//private static final int ACTION_TAKE_VIDEO = 3;
 
-	RadioGroup rg_goods_Passengers;
-
 	private ImageView mImageView;
 	//	private Bitmap mImageBitmap;
-
+DatabaseHandler dbHandler;
 	 
 
 	private String mCurrentPhotoPath;
@@ -102,8 +69,7 @@ public class MyServey extends BaserActinbBar {
 
 	private AlbumStorageDirFactory mAlbumStorageDirFactory = null;
 
-	final PlacesDatabaseHandler dbObj = new PlacesDatabaseHandler(this);
-
+	
 
 	/* Photo album for this application */
 	private String getAlbumName() {
@@ -273,129 +239,29 @@ public class MyServey extends BaserActinbBar {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_servey);
 
-		
+		dbHandler=new DatabaseHandler(getApplicationContext());
 		
 		 //setupActionBar();
 		
-		db_Handler=new DatabaseHandler(getApplicationContext());
 
-		txt_occupancy=(TextView)findViewById(R.id.txt_occupancy);
-		et_origin=(AutoCompleteTextView)findViewById(R.id.et_origin);
-		et_destination=(AutoCompleteTextView)findViewById(R.id.et_destination);
-		et_times=(EditText)findViewById(R.id.et_times);
-		tv_wtons=(TextView)findViewById(R.id.tv_wtons);
-		et_tons=(EditText)findViewById(R.id.et_wtons);
+		
 		//	et_tripLength=(EditText)findViewById(R.id.et_triplength);
 		//tv_occupation=(TextView)findViewById(R.id.txt_occupancy);
-		et_occupancy=(EditText)findViewById(R.id.et_occupancy);
-		tv_commoditytype=(TextView)findViewById(R.id.tv_commoditytype);
 		btn_save=(Button) findViewById(R.id.btn_save);
-		spinner_vehType = (Spinner)findViewById(R.id.spn_vehtype);
-		spn_commodity=(Spinner)findViewById(R.id.spn_commodity);
-		spn_tripfreq=(Spinner)findViewById(R.id.spn_tripfrq);
-/*//		goodsTypeArray = getResources().getStringArray(R.array.gooodstype);
-		passengerTypeArray= getResources().getStringArray(R.array.passengertype);
-		tripfrq=getResources().getStringArray(R.array.tripFreq);
-		goodsvehTypeArray = getResources().getStringArray(R.array.goodsvehArr);
-		goods_commodity=getResources().getStringArray(R.array.goods_commodity);
-		passenger_commodity=getResources().getStringArray(R.array.pass_commodity);
-		language=getResources().getStringArray(R.array.regno_Arr);
-		passengervehTypeArray = getResources().getStringArray(R.array.passengerVehArr);*/
-		rg_vehtype=(RadioGroup)findViewById(R.id.myRadioGroup);
-		tv_date=(TextView)findViewById(R.id.tv_dateview);
-		trip_length=(EditText)findViewById(R.id.et_trip_lenght);
-		
-		trip_layout=(LinearLayout)findViewById(R.id.trip_laout);
-
+	
 		Date dNow = new Date( );
 		SimpleDateFormat ft = 
 				new SimpleDateFormat ("dd-MM-yyyy hh:mm");
-		 
-		// System.out.println("Current Date: " + ft.format(dNow));
-		//tv_date.setText(ft.format(dNow));
-		//batinfo.setText(ft.format(dNow));
-
-		rg_roundTrip=(RadioGroup)findViewById(R.id.rg_roundtrip);
-		rg_monthlypass=(RadioGroup)findViewById(R.id.rg_mpass);
-		rg_willpaytoll=(RadioGroup)findViewById(R.id.rg_wptoll);
-		rg_goods_Passengers=(RadioGroup)findViewById(R.id.myRadioGroup);
-		txt_occupancy.setVisibility(View.GONE);
-		et_occupancy.setVisibility(View.GONE);
-		registerReceiver(mbcr,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-
 		activity  = this;
 		geocoder = new Geocoder(this, Locale.ENGLISH);
-		//  gpsTracker = new GPSTracker(MyServey.this);
-		ArrayAdapter<String> acadapter = new ArrayAdapter<String>  
-		(this,android.R.layout.select_dialog_item,language);  
-		//Getting the instance of AutoCompleteTextView  
-		AutoCompleteTextView actv= (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView1);  
-		actv.setThreshold(1);//will start working from first character  
-		actv.setAdapter(acadapter);//setting the adapter data into the AutoCompleteTextView  
-		actv.setTextColor(Color.WHITE);  
-		setGoodsListData();
-
-		Resources res = getResources(); 
-	//	adapter = new CustomAdapter(activity, R.layout.spinner_rows, CustomListViewValuesArr,res);
-		spinner_vehType.setAdapter(adapter);
-
-		ArrayAdapter<String> adapter_tripfreq = new ArrayAdapter<String>(this,  android.R.layout.simple_dropdown_item_1line, tripfrq);
-
-		ArrayAdapter<String> adapter_commodity = new ArrayAdapter<String>(this,  android.R.layout.simple_dropdown_item_1line, goods_commodity);
-
-		spn_commodity.setAdapter(adapter_commodity);
-		spn_tripfreq.setAdapter(adapter_tripfreq);
-
-		rg_vehtype.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-
-
-			@Override
-
-			public void onCheckedChanged(RadioGroup group, int checkedId) {
-
-				// find which radio button is selected
-
-				if(checkedId == R.id.goods) {
-					CustomListViewValuesArr.clear();
-					setGoodsListData();
-					Resources res = getResources(); 
-				//	adapter = new CustomAdapter(activity, R.layout.spinner_rows, CustomListViewValuesArr,res);
-					spinner_vehType.setAdapter(adapter);
-
-				} else if(checkedId == R.id.passengers) {
-					CustomListViewValuesArr.clear();
-					setPassengerListData();
-					Resources res = getResources(); 
-					//adapter = new CustomAdapter(activity, R.layout.spinner_rows, CustomListViewValuesArr,res);
-					spinner_vehType.setAdapter(adapter);
-
-
-				}
-
-
-
-
-			}
-
-		});
-
-
-
 		mImageView = (ImageView) findViewById(R.id.catute_image);
-		//mVideoView = (VideoView) findViewById(R.id.videoView1);
-		//mImageBitmap = null;
-		//	mVideoUri = null;
-
+		
 		TextView picBtn = (TextView) findViewById(R.id.btn_camera);
 		setBtnListenerOrDisable( 
 				picBtn, 
 				mTakePicOnClickListener,
 				MediaStore.ACTION_IMAGE_CAPTURE
 				);
-
-
-
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
 			mAlbumStorageDirFactory = new FroyoAlbumDirFactory();
 		} else {
@@ -407,106 +273,113 @@ public class MyServey extends BaserActinbBar {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-
-				String vehregno =CustomListViewValuesArr.get(spinner_vehType.getSelectedItemPosition()).getCompanyName().toString();
-				String veh_comd = spn_commodity.getSelectedItem().toString();
-				String veh_frq = spn_tripfreq.getSelectedItem().toString();
-				System.out.println("veh reg no"+vehregno);
-
-				int selected_vehType=rg_goods_Passengers.getCheckedRadioButtonId();
-				int selected_roundtrip = rg_roundTrip.getCheckedRadioButtonId();
-				int selected_monthlypass = rg_monthlypass.getCheckedRadioButtonId();
-				int selected_paytoll = rg_willpaytoll.getCheckedRadioButtonId();
-
-				RadioButton rb_sel_roundtrip = (RadioButton) findViewById(selected_roundtrip);
-				RadioButton rb_sel_monthlypass = (RadioButton) findViewById(selected_monthlypass);
-				RadioButton rb_sel_paytoll = (RadioButton) findViewById(selected_paytoll);
-				RadioButton rb_sel_goods = (RadioButton) findViewById(selected_vehType);
-
-
 				SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy_HH:mm:ss");
 				toDay_DATE= sdf.format(new Date());
 
-				if(rb_sel_goods.getText().toString().equalsIgnoreCase("\tGoods")){
-					if(vehregno.length()!=0 && et_origin.getText().toString().length()!=0 && et_destination.getText().toString().length()!=0
-							&& veh_comd.length()!=0 && et_times.length()!=0 && veh_frq.length()!=0 
-							&& et_tons.getText().toString().length()!=0 &&trip_length.getText().toString().length()!=0){
-
-						ContentValues cv_values=new ContentValues();
-				/*		cv_values.put(DatabaseHandler.VEH_REG_NO,vehregno);
-						cv_values.put(DatabaseHandler.ORIGIN,et_origin.getText().toString());
-						cv_values.put(DatabaseHandler.DESTINATION,et_destination.getText().toString());
-						cv_values.put(DatabaseHandler.COMMODITY,veh_comd);
-						cv_values.put(DatabaseHandler.OCCUPANCY,"-NA-");
-						cv_values.put(DatabaseHandler.TRIP_TIME,et_times.getText().toString());
-						cv_values.put(DatabaseHandler.TRIP_FREQ,veh_frq);
-						cv_values.put(DatabaseHandler.TRIP_LENGTH,trip_length.getText().toString());
-						cv_values.put(DatabaseHandler.RETURN_TRIP,rb_sel_roundtrip.getText().toString());
-						cv_values.put(DatabaseHandler.MONTHLY_PASS,rb_sel_monthlypass.getText().toString());
-						cv_values.put(DatabaseHandler.WEIGHT_IN_TONS,et_tons.getText().toString());
-						cv_values.put(DatabaseHandler.PAY_TOLL,rb_sel_paytoll.getText().toString());
-						cv_values.put(DatabaseHandler.LATITUDE_LONGITUDE,"http://maps.google.com/?q="+latitude+","+longitude); 
-						*///cv_values.put(DatabaseHandler.LONGITUDE,longitude);
-					//	cv_values.put(DatabaseHandler.IMAGEPATH,photoPath);
-						cv_values.put(DatabaseHandler.CREATED_DATE,toDay_DATE);
-						db_Handler.insert(DatabaseHandler.TABLE_servey_Data, cv_values);
-
-						//   finish();
-						Intent i=new Intent(getApplicationContext(), MainActivity.class);
-						startActivity(i);
-						finish();
-
-						Toast.makeText(getApplicationContext(), "Goods Data saved Successfully", Toast.LENGTH_LONG).show();
-
-					}else{
-						Toast.makeText(getApplicationContext(), "Please enter all fields!", Toast.LENGTH_LONG).show();
-					}
-				}else if(rb_sel_goods.getText().toString().equalsIgnoreCase("\tPassenger")){
-					if(vehregno.length()!=0 && et_origin.getText().toString().length()!=0 && et_destination.getText().toString().length()!=0
-							&& veh_comd.length()!=0 && et_times.length()!=0 && veh_frq.length()!=0 && et_occupancy.getText().toString().length()!=0
-							){
-
-						ContentValues cv_values=new ContentValues();
-					/*	cv_values.put(DatabaseHandler.VEH_REG_NO,vehregno);
-						cv_values.put(DatabaseHandler.ORIGIN,et_origin.getText().toString());
-						cv_values.put(DatabaseHandler.DESTINATION,et_destination.getText().toString());
-						cv_values.put(DatabaseHandler.OCCUPANCY,et_occupancy.getText().toString());
-						cv_values.put(DatabaseHandler.COMMODITY,veh_comd);
-						cv_values.put(DatabaseHandler.TRIP_TIME,et_times.getText().toString());
-						cv_values.put(DatabaseHandler.TRIP_FREQ,veh_frq);
-						cv_values.put(DatabaseHandler.RETURN_TRIP,rb_sel_roundtrip.getText().toString());
-						cv_values.put(DatabaseHandler.MONTHLY_PASS,rb_sel_monthlypass.getText().toString());
-						cv_values.put(DatabaseHandler.WEIGHT_IN_TONS,"-NA-");
-						cv_values.put(DatabaseHandler.PAY_TOLL,rb_sel_paytoll.getText().toString());
-						cv_values.put(DatabaseHandler.LATITUDE_LONGITUDE,"http://maps.google.com/?q="+latitude+","+longitude);
-						//   cv_values.put(DatabaseHandler.LONGITUDE,longitude);
-						cv_values.put(DatabaseHandler.TRIP_LENGTH,"-NA-");*/
-					//	cv_values.put(DatabaseHandler.IMAGEPATH,mCurrentPhotoPath);
-						cv_values.put(DatabaseHandler.CREATED_DATE,toDay_DATE);
-						db_Handler.insert(DatabaseHandler.TABLE_servey_Data, cv_values);
-
-						//   finish();
-						Intent i=new Intent(getApplicationContext(), MainActivity.class);
-						startActivity(i);
-						finish();
-						Toast.makeText(getApplicationContext(), "Passengers Data saved Successfully", Toast.LENGTH_LONG).show();
-
-					}else{
-						Toast.makeText(getApplicationContext(), "Please enter all fields!", Toast.LENGTH_LONG).show();
-					}
-				}
+					ProperyBean pbean=ProperyBean.getInstance();
+	
+				
+				
+				ContentValues cv_Values=new ContentValues();
+				cv_Values.put(dbHandler.AddressforCommunication,pbean.getAddressforCommunication());
+				//cv_Values.put(dbHandler.AdvertisementHoarding,pbean.get);
+				cv_Values.put(dbHandler.FormID,"RJ/JPR/ZONE1/WARD1/Tablet1/Seq1");
+				cv_Values.put(dbHandler.BasicPhoneNo,pbean.getBasicPhoneNo());
+				cv_Values.put(dbHandler.BasicPhoneNo_Address,pbean.getBasicPhoneNo_Address());
+				cv_Values.put(dbHandler.BeautyParlour,pbean.getBeautyParlour());
+				cv_Values.put(dbHandler.Boring,pbean.getBoring());
+				cv_Values.put(dbHandler.building_id,pbean.getBuildingId());
+				cv_Values.put(dbHandler.CentralGovPropertyOffice,pbean.getCentralGovPropertyOffice());
+				cv_Values.put(dbHandler.CinemahallMultiplex,pbean.getCinemahallMultiplex());
+				cv_Values.put(dbHandler.City,pbean.getCity());
+				cv_Values.put(dbHandler.Colony_Name,pbean.getColony_Name());
+				cv_Values.put(dbHandler.CompletelyReligiousProperty,pbean.getCompletelyReligiousProperty());
+				cv_Values.put(dbHandler.dataProvidedBy,pbean.getDataProvidedBy());
+				cv_Values.put(dbHandler.Date_Attesting,pbean.getDate_Attesting());
+				cv_Values.put(dbHandler.Date_Surveyor,pbean.getDate_Surveyor());
+				cv_Values.put(dbHandler.DesignationOfAttestingAuthority,pbean.getDesignationOfAttestingAuthority());
+				cv_Values.put(dbHandler.DetailsOfOwnership,pbean.getDetailsOfOwnership());
+				cv_Values.put(dbHandler.District,pbean.getDistrict());
+				cv_Values.put(dbHandler.EmailID,pbean.getEmailID());
+				cv_Values.put(dbHandler.EmailID_Address,pbean.getEmailID_Address());
+				cv_Values.put(dbHandler.ExempteUnderclause107Act2009,pbean.getExempteUnderclause107Act2009());
+				
+			
+				//cv_Values.put(dbHandler.father_name,pbean.get);
+				cv_Values.put(dbHandler.FireFightingSystem,pbean.getFireFightingSystem());
+				//cv_Values.put(dbHandler.Floor_No,pbean.get);
+				cv_Values.put(dbHandler.HotelRestaurant,pbean.getHotelRestaurant());
+				cv_Values.put(dbHandler.IdCodeOfSurveyor,pbean.getIdCodeOfSurveyor());
+				//cv_Values.put(dbHandler.Land_Use,pbean.getl);
+				cv_Values.put(dbHandler.Length,pbean.getLength());
+				cv_Values.put(dbHandler.LightConnection,pbean.getLightConnection());
+				cv_Values.put(dbHandler.mobileNo,pbean.getMobileNo());
+				cv_Values.put(dbHandler.MarriageGardenHall,pbean.getMarriageGardenHall());
+				cv_Values.put(dbHandler.MobileNo_Address,pbean.getMobileNo_Address());
+				cv_Values.put(dbHandler.MobileTower,pbean.getMobileTower());
+				cv_Values.put(dbHandler.Name_No_OfBuilding_post,pbean.getName_No_OfBuilding());
+				cv_Values.put(dbHandler.Name_No_OfBuilding_pre,pbean.getName_No_OfBuilding_pre());
+				cv_Values.put(dbHandler.NameOfAttestingAuthority,pbean.getNameOfAttestingAuthority());
+				cv_Values.put(dbHandler.NameOfDataProvider,pbean.getNameOfDataProvider());
+				cv_Values.put(dbHandler.NameOfLane_Road,pbean.getNameOfLane_Road());
+				cv_Values.put(dbHandler.NameOfSurveyor,pbean.getNameOfSurveyor());
+				cv_Values.put(dbHandler.No_Of_Floors,pbean.getNo_Of_Floors());
+				cv_Values.put(dbHandler.OpenToilet,pbean.getOpenToilet());
+			//	cv_Values.put(dbHandler.ownerId,pbean.geto);
+				cv_Values.put(dbHandler.OwnerUIDNumber,pbean.getOwnerUIDNumber());
+				//cv_Values.put(dbHandler.OwnerUIDNumber,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.Others,pbean.getOthers());
+				cv_Values.put(dbHandler.OutOfRicoIndustries,pbean.getOutOfRicoIndustries());
+			//	cv_Values.put(dbHandler.owner_name,pbean.getO);
+				cv_Values.put(dbHandler.OutOfRicoIndustries,pbean.getAddressforCommunication());
+		//		cv_Values.put(dbHandler.profession,pbean.getpr);
+				cv_Values.put(dbHandler.Parking,pbean.getParking());
+				cv_Values.put(dbHandler.PermanentAddress,pbean.getPermanentAddress());
+				//cv_Values.put(dbHandler.PermanentAddress_Address,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.PipedWaterConnection,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.PleaseWriteSizefBoardSqft,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.PlinthArea,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.PlinthYard,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.Plot_Flat_ShopNo,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.PrivateHospitalClinic,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.PrivateOffice,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.PrivateOffice,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.PrivateToilet,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.PrivateOffice,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.ProfessionalCollege,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.relationshipOfOwner,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.ReligiousPlace,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.Residential,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.Residentialcum_commercial,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.School,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.SemiGovtInstitute,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.SepticTank,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.SewerConnection,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.SewerLine,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.SituatedInRicoArea,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.State,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.StateGovtPropertyOffice,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.StreetLight,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.SurveyorAddress,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.Total_Area_sft,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.Total_Area_Yard,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.TotalConstructionArea,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.TotalPlotArea,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.TotalPlotYard,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.TypOfConstruction,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.VacantArea,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.VacantYard,pbean.getAddressforCommunication());
+				dbHandler.insert("SERVEY_DATA", cv_Values);
+				
+				pbean=null;
+				Intent i=new Intent(getApplicationContext(),MainActivity.class);
+				startActivity(i);
+				finish();
 
 
 			}  
 		});
 
-
-
-		 /*final ActionBar actionBar = getSupportActionBar();
-		actionBar.setTitle(getString(R.string.app_name)+"\t"+ft.format(dNow));
-		 actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.iconbg)); */
-		
-	
 
 
 		gpsTracker = new GPSTracker(MyServey.this);
@@ -518,100 +391,7 @@ public class MyServey extends BaserActinbBar {
 			gpsTracker.showSettingsAlert();
 			Toast.makeText(MyServey.this, "Please turn on GPS", Toast.LENGTH_LONG).show();
 		} 
-
-
-
-
-		et_origin.addTextChangedListener(new TextWatcher() {
-
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count,
-					int after) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before,
-					int count) {
-
-				try{
-					ArrayList<String> list=dbObj.getDetails((new StringBuilder("SELECT town,district,state FROM india_master WHERE town LIKE '")).append(s.toString()).append("%' LIMIT 10").toString());
-
-					ArrayAdapter<String> acadapter = new ArrayAdapter<String>  
-					(MyServey.this,android.R.layout.select_dialog_item,list); 
-					et_origin.setThreshold(0);
-					et_origin.setAdapter(acadapter);
-				}catch(Exception e)
-				{
-					e.printStackTrace();
-				}
-
-			}
-
-			@Override
-			public void afterTextChanged(Editable s) {
-				// TODO Auto-generated method stub
-
-			}
-
-
-		});
-
-		et_destination.addTextChangedListener(new TextWatcher() {
-
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				// TODO Auto-generated method stub
-				try{
-					ArrayList<String> list=dbObj.getDetails((new StringBuilder("SELECT town,district,state FROM india_master WHERE town LIKE '")).append(s.toString()).append("%' LIMIT 10").toString());
-
-					ArrayAdapter<String> acadapter = new ArrayAdapter<String>  
-					(MyServey.this,android.R.layout.select_dialog_item,list); 
-					et_destination.setThreshold(0);
-					et_destination.setAdapter(acadapter);
-				}catch(Exception e)
-				{
-					e.printStackTrace();
-				}
-			}
-
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count,
-					int after) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void afterTextChanged(Editable s) {
-				// TODO Auto-generated method stub
-
-			}
-		});
-
-
 	}
-	
-	
- /*	private void setupActionBar() {
-        ActionBar ab = getSupportActionBar();
-        ab.setDisplayShowCustomEnabled(true);
-        ab.setDisplayShowTitleEnabled(false);
-        ab.setIcon(R.drawable.ic_launcher);
-        LayoutInflater inflator = (LayoutInflater) this
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = inflator.inflate(R.layout.action_bar_title, null);
-
-       // TextView titleTV = (TextView) v.findViewById(R.id.title);
-        
-        //batinfo=(TextView) v.findViewById(R.id.batt_info);
-        ab.setCustomView(v);
-       // ab.seth
-
-          //  ab.setHomeAsUpEnabled(true);
-    } */
-
 	public static boolean isIntentAvailable(Context context, String action) {
 		final PackageManager packageManager = context.getPackageManager();
 		final Intent intent = new Intent(action);
@@ -620,7 +400,6 @@ public class MyServey extends BaserActinbBar {
 						PackageManager.MATCH_DEFAULT_ONLY);
 		return list.size() > 0;
 	}
-
 	private void setBtnListenerOrDisable( 
 			TextView btn, 
 			TextView.OnClickListener onClickListener,
@@ -634,67 +413,6 @@ public class MyServey extends BaserActinbBar {
 			btn.setClickable(false);
 		}
 	}
-
-	public void startSurvey()
-
-	{
-		Intent mapIntent=new Intent(getApplicationContext(), MyServey.class);
-
-		startActivity(mapIntent);
-	}
-	public void setGoodsListData()
-	{
-
-		tv_commoditytype.setText("Commodity Type");
-
-		ArrayAdapter<String> adapter_commodity = new ArrayAdapter<String>(this,  android.R.layout.simple_dropdown_item_1line, goods_commodity);
-
-		spn_commodity.setAdapter(adapter_commodity);
-		tv_wtons.setVisibility(View.VISIBLE);
-		et_tons.setVisibility(View.VISIBLE);
-		trip_layout.setVisibility(View.VISIBLE);
-
-		txt_occupancy.setVisibility(View.GONE);
-		et_occupancy.setVisibility(View.GONE);
-		for (int i =0; i < goodsTypeArray.length; i++) {
-
-			final SpinnerModel sched = new SpinnerModel();
-
-
-			sched.setCompanyName(goodsTypeArray[i]);
-
-			sched.setImage(goodsvehTypeArray[i]);
-			CustomListViewValuesArr.add(sched);
-		}
-
-
-
-
-	}
-	public void setPassengerListData()
-	{
-		ArrayAdapter<String> adapter_commodity = new ArrayAdapter<String>(this,  android.R.layout.simple_dropdown_item_1line, passenger_commodity);
-		tv_wtons.setVisibility(View.GONE);
-		et_tons.setVisibility(View.GONE);
-		trip_layout.setVisibility(View.GONE);
-		spn_commodity.setAdapter(adapter_commodity);
-		tv_commoditytype.setText("Purpose");
-
-		txt_occupancy.setVisibility(View.VISIBLE);
-		et_occupancy.setVisibility(View.VISIBLE);
-		for (int i = 0; i <passengerTypeArray.length; i++) {
-
-			final SpinnerModel sched = new SpinnerModel();
-
-			sched.setCompanyName(passengerTypeArray[i]);
-			sched.setImage(passengervehTypeArray[i]);
-
-			CustomListViewValuesArr.add(sched);
-		}
-
-	}
-
-
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		switch (requestCode) {
@@ -707,26 +425,6 @@ public class MyServey extends BaserActinbBar {
 
 		} // switch
 	}
-
- 
-	 
-
-	private BroadcastReceiver mbcr=new BroadcastReceiver()
-	{
-		public void onReceive(Context c, Intent i)
-		{
-			tv_date.setText("");
-			//batinfo.setText("");
-			int level=i.getIntExtra("level", 0);
-
-			//Date dNow = new Date( );
-			/*SimpleDateFormat ft = 
-					new SimpleDateFormat ("dd-MM-yyyy hh:mm");*/
-			tv_date.setText( "Battery remaining:"+Integer.toString(level)+"%");
-			 
-		}
-	};
-
 	
 	@Override
 	public void onBackPressed() {
@@ -764,9 +462,5 @@ public class MyServey extends BaserActinbBar {
 
 		// show it
 		alertDialog.show();
-
-
 	}
-
-
 }

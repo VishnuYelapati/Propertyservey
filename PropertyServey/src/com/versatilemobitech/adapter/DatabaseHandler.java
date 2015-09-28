@@ -11,6 +11,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	// All Static variables
 	// Database Version
 	public static final int DATABASE_VERSION = 2;
+	
+	
 
 	// Database Name
 	public static final String DATABASE_NAME = "Servey";
@@ -31,6 +33,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public static final String NameOfDataProvider="Data_Provider_Name";
 	public static final String OwnerUIDNumber="Owner_UID_Number_Minimun_12_digits";
 	public static final String BasicPhoneNo="Data_Providers_Basic_Phone_No";
+	public static final String FormID="FormID";
 	
 	
 	public static final String ID="S_NO";
@@ -208,6 +211,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ TABLE_servey_Data 
 				+ " (" 
 				+ ID 		+ " INTEGER PRIMARY KEY,"
+				+ FormID 		+ " TEXT,"
 				+ dataProvidedBy 	+ " TEXT," 
 				+ relationshipOfOwner 	+ " TEXT,"
 				+ EmailID 	+ " TEXT," 
