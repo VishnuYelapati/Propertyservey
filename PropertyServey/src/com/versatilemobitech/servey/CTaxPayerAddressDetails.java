@@ -1,5 +1,9 @@
 package com.versatilemobitech.servey;
 
+import org.apache.poi.poifs.storage.PropertyBlock;
+
+import com.versatilemobitech.bean.ProperyBean;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,11 +20,13 @@ public class CTaxPayerAddressDetails extends BaserActinbBar{
 	private EditText EmailID=null;
 	private EditText PermanentAddress=null;
 	private EditText BasicPhoneNo=null;
+	ProperyBean pbean;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.taxpayeraddressdetails);
+		 pbean=ProperyBean.getInstance();
 		
 		btn_Next=(Button)findViewById(R.id.btn_next);
 		
@@ -35,9 +41,15 @@ public class CTaxPayerAddressDetails extends BaserActinbBar{
 			
 			@Override
 			public void onClick(View v) {
+				
+		
 				 
 				if(AddressforCommunication.getText().toString().length()>0 && MobileNo.getText().toString().length()>0 &&  PermanentAddress.getText().toString().length()>0 && BasicPhoneNo.getText().toString().length()>0 )
 				{
+					pbean.setAddressforCommunication(AddressforCommunication.getText().toString());
+					pbean.setMobileNo(MobileNo.getText().toString());
+					pbean.setPermanentAddress(PermanentAddress.getText().toString());
+					pbean.setBasicPhoneNo(BasicPhoneNo.getText().toString());
 					
 					Intent i=new Intent(getApplicationContext(),DTaxPayerPropertyDetails.class);
 					startActivity(i);

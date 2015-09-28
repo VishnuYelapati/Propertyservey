@@ -1,5 +1,7 @@
 package com.versatilemobitech.servey;
 
+import com.versatilemobitech.bean.ProperyBean;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -22,12 +24,13 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 	private EditText PlinthYard=null;
 	private EditText VacantYard=null;
 	private EditText TotalConstructionYard=null;
-	
+	ProperyBean pbean;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.measurementplotdetails);
+		pbean=ProperyBean.getInstance();
 		btn_Next=(Button)findViewById(R.id.btn_next);
 		btn_prev=(Button)findViewById(R.id.btn_prev);
 		TotalPlotArea=(EditText)findViewById(R.id.et_plotareainsqft);
@@ -44,6 +47,14 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				pbean.setTotalPlotArea(TotalPlotArea.getText().toString());
+				pbean.setPlinthArea(PlinthArea.getText().toString());
+				pbean.setPlinthYard(PlinthYard.getText().toString());
+				pbean.setVacantArea(VacantArea.getText().toString());
+				pbean.setTotalConstructionArea(TotalConstructionArea.getText().toString());
+				pbean.setTotalConstructionYard(TotalConstructionYard.getText().toString());
+				pbean.setTotalPlotYard(TotalPlotYard.getText().toString());
+				pbean.setVacantYard(VacantYard.getText().toString());
 				Intent i=new Intent(getApplicationContext(),FLandBuildingDetailsActivity.class);
 				startActivity(i);
 			}

@@ -77,6 +77,18 @@ public class HServeyorDetails extends BaserActinbBar{
 				cv_Values.put(dbHandler.EmailID,pbean.getEmailID());
 				cv_Values.put(dbHandler.EmailID_Address,pbean.getEmailID_Address());
 				cv_Values.put(dbHandler.ExempteUnderclause107Act2009,pbean.getExempteUnderclause107Act2009());
+				
+				/**
+				 * Need loop for Names
+				 * 
+				 */
+				
+				/*// Idname 1_w need to sqlil surevaytabel count 
+				for (int i = 0; i < ProperyBean.getInstance().getNameList().size(); i++) {
+					//These values need to store in Name list table 
+					1_W
+					
+				}*/
 				//cv_Values.put(dbHandler.father_name,pbean.get);
 				cv_Values.put(dbHandler.FireFightingSystem,pbean.getFireFightingSystem());
 				//cv_Values.put(dbHandler.Floor_No,pbean.get);

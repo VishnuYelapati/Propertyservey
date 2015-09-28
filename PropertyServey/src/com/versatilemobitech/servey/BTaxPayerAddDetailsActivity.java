@@ -1,5 +1,7 @@
 package com.versatilemobitech.servey;
 
+import java.util.ArrayList;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -14,6 +16,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.versatilemobitech.adapter.CustomAdapter;
+import com.versatilemobitech.bean.NameBean;
+import com.versatilemobitech.bean.ProperyBean;
 
 public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 	
@@ -21,6 +25,8 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 	Spinner spn_profession;
 	Button btn_addview,btn_Next,btn_Prev;
 	LinearLayout ll_container;
+	ArrayList<NameBean> beanList=new ArrayList<NameBean>();
+	
 	//String[] strArr_dp={"<- Service ->","Business","HouseWife","Other"};
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,16 +42,42 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 		Resources res = getResources(); 
 		CustomAdapter adapter = new CustomAdapter(getApplicationContext(), R.layout.spinner_rows, ADataProviderActivity.arr_itemBean,res);
 		
-     
-//	spn_profession.setAdapter(adapter);
+    
+		
+	spn_profession.setAdapter(adapter);
 		
 	btn_Next.setOnClickListener(new OnClickListener() {
 		
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			Intent i=new Intent(getApplicationContext(),GTaxPayerUsePropertyDetails.class);
-			startActivity(i);
+			
+			NameBean nameBean=null;
+			for (int i = 0; i < ll_container.getChildCount(); i++) {
+				//Values
+				
+				nameBean=new NameBean();
+				View addView=ll_container.getChildAt(i);
+				
+				
+				TextView etxtName = (TextView)addView.findViewById(R.id.etxt_name);
+			    TextView etxtfatherName = (TextView)addView.findViewById(R.id.etxt_fatherhusbandname);
+			    TextView etxtAge = (TextView)addView.findViewById(R.id.etxt_age);
+			    TextView etxtProffesion = (TextView)addView.findViewById(R.id.etxt_proffesion);
+				
+			    System.out.println("TEST Values :"+etxtName.getText().toString());
+			    
+			    nameBean.setName(etxtName.getText().toString());
+			    nameBean.setAge(etxtAge.getText().toString());
+			    nameBean.setNameOfFatherorHusband(etxtfatherName.getText().toString());
+			    nameBean.setProfession(etxtProffesion.getText().toString());
+			    
+			    beanList.add(nameBean);
+			}
+			
+			ProperyBean.getInstance().setNameList(beanList);
+			/*Intent i=new Intent(getApplicationContext(),GTaxPayerUsePropertyDetails.class);
+			startActivity(i);*/
 		}
 	});
 btn_Prev.setOnClickListener(new OnClickListener() {

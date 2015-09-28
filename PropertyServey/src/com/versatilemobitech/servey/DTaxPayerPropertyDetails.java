@@ -1,5 +1,7 @@
 package com.versatilemobitech.servey;
 
+import com.versatilemobitech.bean.ProperyBean;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,13 +31,14 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 	EditText District=null;
 	EditText NameOfBuilding_Pre=null;
 	EditText MultistoreyBuildigNameofBuilding=null;
+	ProperyBean pbean;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.taxpayerpropertydetails);
-		
+		pbean=ProperyBean.getInstance();
 		
 		  PlotORFlatNo=(EditText)findViewById(R.id.et_flatno);
 		  ColonyName=(EditText)findViewById(R.id.et_colonyname);
@@ -59,6 +62,21 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
+					pbean.setPlot_Flat_ShopNo(PlotORFlatNo.getText().toString());
+					pbean.setColony_Name(ColonyName.getText().toString());
+					pbean.setCity(City.getText().toString());
+					pbean.setState(state.getText().toString());
+				//	pbean.setName_No_OfBuilding(NameOfBuildin_Post.getText().toString());
+					pbean.setLength(WhetherConstructionOnPlot_lenth.getText().toString());
+					pbean.setWidth(WhetherConstructionOnPlot_width.getText().toString());
+					pbean.setNameOfLane_Road(NameOfLaneOrRoad.getText().toString());
+					pbean.setDistrict(District.getText().toString());
+					pbean.setName_No_OfBuilding_pre(NameOfBuilding_Pre.getText().toString());
+					pbean.setName_No_OfBuilding(NameOfBuildin_Post.getText().toString());
+					
+				//	pbean.setDetailsOfOwnership(detailsOfOwnership)
+					
+					
 					Intent i=new Intent(getApplicationContext(),ETaxPayerMeasurementDetails.class);
 					startActivity(i);
 				}
