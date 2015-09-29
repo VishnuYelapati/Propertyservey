@@ -1,6 +1,8 @@
 package com.versatilemobitech.servey;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,6 +22,7 @@ import android.content.pm.ResolveInfo;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.location.Geocoder;
 import android.net.Uri;
@@ -36,7 +39,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -62,17 +64,12 @@ public class MyServey extends BaserActinbBar {
 
 	private static final int ACTION_TAKE_PHOTO_A = 1;
 	private static final int ACTION_TAKE_PHOTO_B = 2;
-	//private static final int ACTION_TAKE_PHOTO_S = 2;
-	//private static final int ACTION_TAKE_VIDEO = 3;
-
-	//private ImageView mImageView;
-	//	private Bitmap mImageBitmap;
-	DatabaseHandler dbHandler;
-
+	 
+	private DatabaseHandler dbHandler;
 
 	private String mCurrentPhotoPath;
 	private String mCurrentPhotoPath2;
-	//private final String USER_PREF_FILE_NAME="user_time";
+	 
 
 	private static final String JPEG_FILE_PREFIX = "IMG_";
 	private static final String JPEG_FILE_SUFFIX = ".jpg";
@@ -99,8 +96,10 @@ public class MyServey extends BaserActinbBar {
 			minutFrame="30-59";
 		}
 
+		String path= getResources().getString(R.string.external_dir) + "/";
 
-		return prefixDate;
+		return path;
+		//return prefixDate;
 	}
 
 
@@ -152,7 +151,7 @@ public class MyServey extends BaserActinbBar {
 		return f;
 	}
 
-	private void setPic(ImageView img) {
+	private void setPic(ImageView img, String imageName) {
 
 		/* There isn't enough memory to open up more than a couple camera photos */
 		/* So pre-scale the target bitmap into which the file is decoded */
@@ -182,6 +181,55 @@ public class MyServey extends BaserActinbBar {
 		/* Decode the JPEG file into a Bitmap */
 		Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
 
+		
+		
+		File exportDir = new File(Environment.getExternalStorageDirectory(), "/"+getResources().getString(R.string.external_dir));        
+		if (!exportDir.exists()) 
+		{
+			exportDir.mkdirs();
+		}  
+		
+		
+		
+		String android_id = Secure.getString(getApplicationContext().getContentResolver(), Secure.ANDROID_ID); 
+		SharedPreferences preferences=getSharedPreferences("TAB_DATA",MODE_PRIVATE);
+		int existingRow=  preferences.getInt("ROW_ID", 0);
+
+		
+      File f=new File(Environment.getExternalStorageDirectory(), "/"+getResources().getString(R.string.external_dir)+"/"+"RJ_JPR"+"_"+ProperyBean.getInstance().getZone()+"_"+ProperyBean.getInstance().getWard()+"_"+android_id.substring(0, 3)+"_"+(existingRow+1)+"_"+imageName);
+
+      //System.out.println("TEST path of image"+f.getAbsolutePath());
+		//create a file to write bitmap data
+		 
+      if(imageName.equalsIgnoreCase("property_img.png"))
+      {
+    	  ProperyBean.getInstance().setPhotoOfPropertyImgPath(f.getAbsolutePath());
+      }
+      else{
+    	  ProperyBean.getInstance().setPhotoOfSitePlanImgPath(f.getAbsolutePath());
+      }
+		try {
+			f.createNewFile();
+			ByteArrayOutputStream bos = new ByteArrayOutputStream();
+			bitmap.compress(CompressFormat.PNG, 0 /*ignored for PNG*/, bos);
+			byte[] bitmapdata = bos.toByteArray();
+
+			//write the bytes in file
+			FileOutputStream fos = new FileOutputStream(f);
+			fos.write(bitmapdata);
+			fos.flush();
+			fos.close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		//Convert bitmap to byte array
+		 
+		
+		
+		 
 		System.out.println("CURRENT PATH PHOTO"+mCurrentPhotoPath);
 		photoPath=mCurrentPhotoPath;
 		/* Associate the Bitmap to the ImageView */										
@@ -191,6 +239,8 @@ public class MyServey extends BaserActinbBar {
 	}
 
 
+	
+ 
 
 	private void dispatchTakePictureIntent(int actionCode) {
 
@@ -204,7 +254,7 @@ public class MyServey extends BaserActinbBar {
 				f = setUpPhotoFile();
 				mCurrentPhotoPath2= f.getAbsolutePath();
 				takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
-				System.out.println("");
+				System.out.println("TEST img"+mCurrentPhotoPath2);
 			} catch (IOException e) {
 				e.printStackTrace();
 				//	f = null;
@@ -220,7 +270,7 @@ public class MyServey extends BaserActinbBar {
 				f2 = setUpPhotoFile();
 				mCurrentPhotoPath = f2.getAbsolutePath();
 				takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f2));
-				System.out.println("");
+				 
 			} catch (IOException e) {
 				e.printStackTrace();
 				//	f = null;
@@ -237,10 +287,10 @@ public class MyServey extends BaserActinbBar {
 
 
 
-	private void handleBigCameraPhoto(ImageView img) {
+	private void handleBigCameraPhoto(ImageView img, String imageName) {
 
 		if (mCurrentPhotoPath != null) {
-			setPic(img);
+			setPic(img,imageName);
 			//galleryAddPic();
 			mCurrentPhotoPath = null;
 		}
@@ -363,14 +413,14 @@ public class MyServey extends BaserActinbBar {
 			if (resultCode == RESULT_OK) {
 
 
-				handleBigCameraPhoto((ImageView) findViewById(R.id.catute_image));
+				handleBigCameraPhoto((ImageView) findViewById(R.id.catute_image),"property_img.png");
 			}
 			break;
 
 		} // ACTION_TAKE_PHOTO_B
 
 		case ACTION_TAKE_PHOTO_A:
-			handleBigCameraPhoto((ImageView) findViewById(R.id.catute_image2));
+			handleBigCameraPhoto((ImageView) findViewById(R.id.catute_image2),"sitePlan_img.png");
 			break;
 		}// switch
 	}
@@ -514,6 +564,14 @@ public class MyServey extends BaserActinbBar {
 			cv_Values.put(dbHandler.CREATED_DATE,toDay_DATE);   
 			//“RJ/JPR/(ZONE)/(WARD)/Tablet No./Sequence No.”
 
+			/**
+			 * Image insert
+			 */
+			cv_Values.put(dbHandler.signatureIMG,pbean.getSignatureImgPath());  
+			cv_Values.put(dbHandler.propertyIMG,pbean.getPhotoOfPropertyImgPath());  
+			cv_Values.put(dbHandler.siteImage,pbean.getPhotoOfSitePlanImgPath());  
+			
+			
 			String android_id = Secure.getString(getApplicationContext().getContentResolver(), Secure.ANDROID_ID); 
 			SharedPreferences preferences=getSharedPreferences("TAB_DATA",MODE_PRIVATE);
 			int existingRow=  preferences.getInt("ROW_ID", 0);

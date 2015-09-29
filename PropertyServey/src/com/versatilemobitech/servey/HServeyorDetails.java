@@ -86,22 +86,11 @@ public class HServeyorDetails extends BaserActinbBar{
 	                    toast.setGravity(Gravity.TOP, 105, 50);
 	                    toast.show();
 	                    
+	                    ProperyBean.getInstance().setSignatureImgPath(path);
+	                    
 	                    finish();
 	                	
-	                    /** 
-	                     * TEST data
-	                     */
-	                    
-	                    ArrayList<BuildingDetails> bd=new ArrayList<BuildingDetails>();
-	                    bd.add(new BuildingDetails());
-	                    bd.add(new BuildingDetails());
-	                    
-	                    ArrayList<NameBean> nb=new ArrayList<NameBean>(); 
-	                    nb.add(new NameBean());
-	                    nb.add(new NameBean());
-	                    
-	                    ProperyBean.getInstance().setBulidList(bd);
-	                    ProperyBean.getInstance().setNameList(nb);
+	                   
 	                    
 	        			Intent i=new Intent(getApplicationContext(),MyServey.class);
 	        			startActivity(i);

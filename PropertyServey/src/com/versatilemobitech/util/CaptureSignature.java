@@ -65,7 +65,7 @@ public class CaptureSignature extends Activity {
       int existingRow=  preferences.getInt("ROW_ID", 0);
         
         
-        String NameOfSignature="RJ/JPR/"+bean.getZone()+"/"+bean.getWard()+"/"+android_id.substring(0, 3)+"/"+(existingRow+1);
+        String NameOfSignature="RJ_JPR_"+bean.getZone()+"_"+bean.getWard()+"_"+android_id.substring(0, 3)+"_"+(existingRow+1);
         
         tempDir = Environment.getExternalStorageDirectory() + "/" + getResources().getString(R.string.external_dir) + "/";
         ContextWrapper cw = new ContextWrapper(getApplicationContext());
@@ -75,7 +75,7 @@ public class CaptureSignature extends Activity {
         //uniqueId = getTodaysDate() + "_" + getCurrentTime() + "_" + Math.random();
         uniqueId=NameOfSignature;
         current = uniqueId + ".png";
-        mypath= new File(directory,current);
+        mypath= new File(tempDir,current);
  
  
         mContent = (LinearLayout) findViewById(R.id.linearLayout);
@@ -255,6 +255,8 @@ public class CaptureSignature extends Activity {
             Canvas canvas = new Canvas(mBitmap);
             try
             {
+            	
+            	System.out.println("TEST path :::"+mypath);
                 FileOutputStream mFileOutStream = new FileOutputStream(mypath);
  
                 v.draw(canvas); 

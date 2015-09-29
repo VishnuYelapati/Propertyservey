@@ -15,11 +15,10 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
@@ -36,11 +35,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.versatilemobitech.adapter.DatabaseHandler;
-import com.versatilemobitech.util.CaptureSignature;
 
 public class MainActivity extends BaserActinbBar{
 
-	Button btn_startservey,btn_serveyreport,btn_export;
+	Button btn_startservey,btn_reset_master,btn_export;
 
 
 	EditText et_UserName=null;
@@ -63,12 +61,18 @@ public class MainActivity extends BaserActinbBar{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
+		
+		
+		SharedPreferences preferences=getSharedPreferences("TAB_DATA",MODE_PRIVATE);
+	      int existingRow=  preferences.getInt("ROW_ID", 0);
 
 		_mainContext=this;
 		btn_startservey=(Button) findViewById(R.id.btn_startservey);
-		btn_serveyreport=(Button)findViewById(R.id.btn_report);
+		btn_reset_master=(Button)findViewById(R.id.btn_reset_master);
 		btn_export=(Button)findViewById(R.id.btn_export);
 		txt_noserveys=(TextView)findViewById(R.id.txt_noserveys);
+		
+		txt_noserveys.setText("No of Survey's :"+existingRow);
 		db=new DatabaseHandler(getApplicationContext());
 		final ActionBar actionBar = getSupportActionBar();
 		actionBar.setTitle("Home");
@@ -103,14 +107,23 @@ public class MainActivity extends BaserActinbBar{
 			public void onClick(View v) {  //main code begins here
 			
 				  mainForm();
-				 OwnerdetailsForm();
+				  OwnerdetailsForm();
 				  buildingdetailsForm();
 				
 			}
 			
-				
-
+ 
 			
+		});
+		
+		btn_reset_master.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				//Need to reset master data.
+				
+				
+			}
 		});
 
 	}
@@ -141,11 +154,11 @@ public class MainActivity extends BaserActinbBar{
 					if (i != colcount - 1) {
 
 						bw.write(""+cursor.getColumnName(i) + ",");
-						System.out.println("names22:"+cursor.getString(i));
+						
 					} else {
 
 						bw.write(""+cursor.getColumnName(i));
-						System.out.println("names22:"+cursor.getString(i));
+						
 
 					}
 				}
@@ -157,10 +170,10 @@ public class MainActivity extends BaserActinbBar{
 					for (int j = 0; j < colcount; j++) {
 						if (j != colcount - 1){
 							bw.write(""+cursor.getString(j) + ",");
-						System.out.println("names:"+cursor.getString(j));
+						
 						}else{
 							bw.write(""+cursor.getString(j));
-							System.out.println("names1:"+cursor.getString(j));
+							
 						}
 					}
 					bw.newLine();
@@ -368,6 +381,7 @@ public class MainActivity extends BaserActinbBar{
 		@Override
 		protected void onPreExecute()
 		{
+			dialog.setCanceledOnTouchOutside(false);
 			this.dialog.setMessage("Exporting to excel...");
 		this.dialog.show();}
 
@@ -375,11 +389,7 @@ public class MainActivity extends BaserActinbBar{
 		protected Boolean doInBackground(String... params) {
 			ArrayList arList=null;
 			ArrayList al=null;
-
-			//File dbFile= new File(getDatabasePath("database_name").toString());
-			//File dbFile=getDatabasePath(DatabaseHandler.DATABASE_NAME);
-			//String yes= dbFile.getAbsolutePath();
-
+ 
 
 
 			File exportDir = new File(Environment.getExternalStorageDirectory(), "/serveyforms");        
@@ -388,9 +398,9 @@ public class MainActivity extends BaserActinbBar{
 				exportDir.mkdirs();
 			}  
 
-			System.out.println("TEST main dir"+exportDir.getAbsolutePath());
+			//System.out.println("TEST main dir"+exportDir.getAbsolutePath());
 			
-			//  tv_date.setText(ft.format(dNow)+"-"+Integer.toString(level)+"%");
+			 
 			String inFilePath = Environment.getExternalStorageDirectory().toString()+"/MainSurveyForm.csv";
 			outFilePath =     Environment.getExternalStorageDirectory().toString()+"/serveyforms/MainSurveyForm"+toDay_DATE+".xls";
 			String thisLine;
@@ -398,7 +408,7 @@ public class MainActivity extends BaserActinbBar{
 
 			try {
 
-				System.out.println("TEST file path :"+inFilePath);
+			 
 				FileInputStream fis = new FileInputStream(inFilePath);
 				DataInputStream myInput = new DataInputStream(fis);
 				int i=0;
@@ -498,8 +508,6 @@ public class MainActivity extends BaserActinbBar{
 
 	}
 	
-	
-	
 	public class CSVToExcelConverter2 extends AsyncTask<String, Void, Boolean> {
 
 
@@ -508,7 +516,8 @@ public class MainActivity extends BaserActinbBar{
 		@Override
 		protected void onPreExecute()
 		{
-			this.dialog.setMessage("Exporting to excel...");
+			dialog.setCanceledOnTouchOutside(false);
+			this.dialog.setMessage("Exporting to excel-2...");
 		this.dialog.show();}
 
 		@Override
@@ -640,8 +649,10 @@ public class MainActivity extends BaserActinbBar{
 		@Override
 		protected void onPreExecute()
 		{
-			this.dialog.setMessage("Exporting to excel...");
-		this.dialog.show();}
+			dialog.setCanceledOnTouchOutside(false);
+			this.dialog.setMessage("Exporting to excel-1...");
+		this.dialog.show();
+		}
 
 		@Override
 		protected Boolean doInBackground(String... params) {

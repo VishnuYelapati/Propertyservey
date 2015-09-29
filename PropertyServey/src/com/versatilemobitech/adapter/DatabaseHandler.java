@@ -10,7 +10,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	// All Static variables
 	// Database Version
-	public static final int DATABASE_VERSION = 2;
+	public static final int DATABASE_VERSION = 3;
 	
 	
 //09-29 06:16:50.280: E/SQLiteLog(3712): (1) table SERVEY_DATA has no column named Building_Id_like_1_b_2_b_3_b_so_on
@@ -153,9 +153,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public static final String Date_Attesting="Date";
 
 	
-	public static final String photoofProperty_MAGEPATH="propertyimagepath";
+	/*public static final String photoofProperty_MAGEPATH="propertyimagepath";
 	public static final String photoofSiteplan_IMAGEPATH="siteplanimagepath";
-	public static final String signature_IMAGEPATH="signatureimagepath";
+	public static final String signature_IMAGEPATH="signatureimagepath";*/
 	public static final String CREATED_DATE="CREATED_DATE";
 	
 	//Building_table_data
@@ -173,7 +173,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		public static final String age="Age";
 		public static final String profession="Profession";
 	
-
+		public static final String propertyIMG="property_img";
+		public static final String siteImage="site_image";
+		public static final String signatureIMG="singnature_img";
 
 	public DatabaseHandler(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -273,6 +275,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ Date_Surveyor 		+ " TEXT,"
 				+ NameOfAttestingAuthority 		+ " TEXT,"
 				+ DesignationOfAttestingAuthority 		+ " TEXT,"
+				+ propertyIMG 		+ " TEXT,"
+				+ siteImage 		+ " TEXT,"
+				+ signatureIMG 		+ " TEXT,"
 				+ CREATED_DATE + " TEXT"
 				+ ")";
 		

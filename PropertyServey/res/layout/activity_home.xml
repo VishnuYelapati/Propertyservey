@@ -37,7 +37,7 @@
          
         android:textColor="@color/black"
          
-        android:text="No of Servey&apos;s :" />
+        android:text="No of Survey&apos;s :" />
     </LinearLayout>
     
      <RelativeLayout
@@ -66,7 +66,7 @@
         android:textColor="@color/white" />
 
     <Button
-        android:id="@+id/btn_report"
+        android:id="@+id/btn_reset_master"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_below="@id/btn_startservey"
@@ -83,7 +83,7 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_margin="5dp"
-           android:layout_below="@id/btn_report"
+           android:layout_below="@id/btn_reset_master"
         android:layout_marginTop="25dp"
         android:background="@color/sing_in_button"
         android:text="Export to sdcard"
