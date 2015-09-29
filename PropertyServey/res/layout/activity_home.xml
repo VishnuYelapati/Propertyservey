@@ -24,7 +24,7 @@
       
         android:textColor="@color/black"
          
-        android:text="No of Servey&apos;s :" />
+        android:text="No of Survey&apos;s :" />
 
     <TextView
         android:id="@+id/txt_noserveys"
@@ -73,7 +73,7 @@
        android:layout_margin="5dp"
          
         android:background="@color/sing_in_button"
-        android:text="Servey Report"
+        android:text="Survey Report"
         android:visibility="gone"
      
         android:textColor="@color/white" />
@@ -86,7 +86,7 @@
            android:layout_below="@id/btn_report"
         android:layout_marginTop="25dp"
         android:background="@color/sing_in_button"
-        android:text="Exoprt to sdcard"
+        android:text="Export to sdcard"
         android:textColor="@color/white" />
     </RelativeLayout>
 

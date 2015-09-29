@@ -20,7 +20,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
@@ -37,7 +36,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.versatilemobitech.adapter.DatabaseHandler;
-import com.versatilemobitech.db.PlacesDatabaseHandler;
 import com.versatilemobitech.util.CaptureSignature;
 
 public class MainActivity extends BaserActinbBar{
@@ -57,7 +55,7 @@ public class MainActivity extends BaserActinbBar{
 	private boolean isCanExportReport=false;
 	
 	String csvFile="";
-	String xlsFIle="";
+	//String xlsFIle="";
 	
 	
 	public static final int SIGNATURE_ACTIVITY = 1;
@@ -109,7 +107,7 @@ public class MainActivity extends BaserActinbBar{
 		
 		
 
-		btn_serveyreport.setOnClickListener(new OnClickListener() {
+	/*	btn_serveyreport.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
@@ -120,18 +118,18 @@ public class MainActivity extends BaserActinbBar{
 
 			}
 		});
-
+*/
 
 		btn_export.setOnClickListener(new View.OnClickListener() {
-			SQLiteDatabase sqldb = db.getReadableDatabase();
-			Cursor cursor = null;
+			//SQLiteDatabase sqldb = db.getReadableDatabase();
+			//Cursor cursor = null;
 
 			@Override
-			public void onClick(View v) { //main code begins here
+			public void onClick(View v) {  //main code begins here
 			
-				mainForm();
-				OwnerdetailsForm();
-				buildingdetailsForm();
+				 //mainForm();
+				 OwnerdetailsForm();
+				 //buildingdetailsForm();
 				
 			}
 			
@@ -147,8 +145,8 @@ public class MainActivity extends BaserActinbBar{
 		Cursor cursor = null;
 		try {
 			 //My Database class
-			csvFile="MyBackUpowner.csv";
-			xlsFIle="ownerServeyForm";
+			csvFile="/OwnerDetails.csv";
+			 
 			cursor = sqldb.rawQuery("select * from SERVEY_Owner_Details",null);//WHERE CREATED_DATE >='"+toDay_DATE+"_00:00:00'", null);
 			int rowcount = 0;
 			int colcount = 0;
@@ -222,9 +220,15 @@ public class MainActivity extends BaserActinbBar{
 		SQLiteDatabase sqldb = db.getReadableDatabase();
 		Cursor cursor = null;
 		try {
+			
+			File exportDir = new File(Environment.getExternalStorageDirectory(), "/serveyforms");        
+			if (!exportDir.exists()) 
+			{
+				exportDir.mkdirs();
+			}  
 			 //My Database class
-			csvFile="MyBackUpBuild.csv";
-			xlsFIle="BuidingServeyForm";
+			csvFile="/BuildingDetails.csv";
+		 
 			cursor = sqldb.rawQuery("select * from SERVEY_Building_Details",null);//WHERE CREATED_DATE >='"+toDay_DATE+"_00:00:00'", null);
 			int rowcount = 0;
 			int colcount = 0;
@@ -304,15 +308,19 @@ public class MainActivity extends BaserActinbBar{
 		Cursor cursor = null;
 		try {
 			 //My Database class
-			csvFile="MyBackUpOwner.csv";
-			xlsFIle="MainServeyForm";
+			csvFile="/MainSurveyForm.csv";
+		 
 			cursor = sqldb.rawQuery("select * from SERVEY_DATA",null);//WHERE CREATED_DATE >='"+toDay_DATE+"_00:00:00'", null);
 			int rowcount = 0;
 			int colcount = 0;
 			File sdCardDir = Environment.getExternalStorageDirectory();
-			String filename = csvFile;//"MyBackUpOwner.csv";
+			String filename = csvFile;//"MainSurveyForm.csv";
 			// the name of the file to export with
 			File saveFile = new File(sdCardDir, filename);
+			
+			if(!saveFile.exists())
+			saveFile.createNewFile();
+			
 			FileWriter fw = new FileWriter(saveFile);
 
 			BufferedWriter bw = new BufferedWriter(fw);
@@ -352,7 +360,7 @@ public class MainActivity extends BaserActinbBar{
 				bw.flush();
 				//   infotext.setText("Exported Successfully.");
 
-				new CSVToExcelConverter().execute();
+				new CSVToExcelConverterMainData().execute();
 			}
 			if(!cursor.isClosed())
 				cursor.close();
@@ -366,7 +374,7 @@ public class MainActivity extends BaserActinbBar{
 					if(!cursor.isClosed())
 						cursor.close();
 				}
-				//     infotext.setText(ex.getMessage().toString());
+				 
 			}
 
 		} finally {
@@ -377,7 +385,7 @@ public class MainActivity extends BaserActinbBar{
 	}
 
 
-	public class CSVToExcelConverter extends AsyncTask<String, Void, Boolean> {
+	public class CSVToExcelConverterMainData extends AsyncTask<String, Void, Boolean> {
 
 
 		private final ProgressDialog dialog = new ProgressDialog(MainActivity.this);
@@ -405,14 +413,17 @@ public class MainActivity extends BaserActinbBar{
 				exportDir.mkdirs();
 			}  
 
+			System.out.println("TEST main dir"+exportDir.getAbsolutePath());
+			
 			//  tv_date.setText(ft.format(dNow)+"-"+Integer.toString(level)+"%");
-			String inFilePath = Environment.getExternalStorageDirectory().toString()+"MyBackUpBuild.csv";
-			outFilePath = Environment.getExternalStorageDirectory().toString()+"/serveyforms/MainServey"+toDay_DATE+".xls";
+			String inFilePath = Environment.getExternalStorageDirectory().toString()+"/MainSurveyForm.csv";
+			outFilePath =     Environment.getExternalStorageDirectory().toString()+"/serveyforms/MainSurveyForm"+toDay_DATE+".xls";
 			String thisLine;
 			int count=0;
 
 			try {
 
+				System.out.println("TEST file path :"+inFilePath);
 				FileInputStream fis = new FileInputStream(inFilePath);
 				DataInputStream myInput = new DataInputStream(fis);
 				int i=0;
@@ -435,7 +446,7 @@ public class MainActivity extends BaserActinbBar{
 			try
 			{
 				HSSFWorkbook hwb = new HSSFWorkbook();
-				HSSFSheet sheet = hwb.createSheet("OD Survey "+toDay_DATE);
+				HSSFSheet sheet = hwb.createSheet(getString(R.string.app_name)+toDay_DATE);
 				for(int k=0;k<arList.size();k++)
 				{
 					ArrayList ardata = (ArrayList)arList.get(k);
@@ -494,7 +505,7 @@ public class MainActivity extends BaserActinbBar{
 
 				Toast.makeText(MainActivity.this, "File exported successfully :"+outFilePath, Toast.LENGTH_LONG).show();
 				
-				 showCutomDialog();
+				// showCutomDialog();
 
 			}
 
@@ -543,8 +554,8 @@ public class MainActivity extends BaserActinbBar{
 			}  
 
 			//  tv_date.setText(ft.format(dNow)+"-"+Integer.toString(level)+"%");
-			String inFilePath = Environment.getExternalStorageDirectory().toString()+csvFile;
-			outFilePath = Environment.getExternalStorageDirectory().toString()+"/serveyforms/"+xlsFIle+"_"+toDay_DATE+".xls";
+			String inFilePath = Environment.getExternalStorageDirectory().toString()+"/BuildingDetails.csv";
+			outFilePath = Environment.getExternalStorageDirectory().toString()+"/serveyforms/BuildingDetails"+"_"+toDay_DATE+".xls";
 			String thisLine;
 			int count=0;
 
@@ -675,8 +686,8 @@ public class MainActivity extends BaserActinbBar{
 			}  
 
 			//  tv_date.setText(ft.format(dNow)+"-"+Integer.toString(level)+"%");
-			String inFilePath = Environment.getExternalStorageDirectory().toString()+csvFile;
-			outFilePath = Environment.getExternalStorageDirectory().toString()+"/serveyforms/"+xlsFIle+"_"+toDay_DATE+".xls";
+			String inFilePath = Environment.getExternalStorageDirectory().toString()+"/OwnerDetails.csv";
+			outFilePath = Environment.getExternalStorageDirectory().toString()+"/serveyforms/OwnerDetails"+"_"+toDay_DATE+".xls";
 			String thisLine;
 			int count=0;
 
@@ -704,7 +715,7 @@ public class MainActivity extends BaserActinbBar{
 			try
 			{
 				HSSFWorkbook hwb = new HSSFWorkbook();
-				HSSFSheet sheet = hwb.createSheet("OD Survey "+toDay_DATE);
+				HSSFSheet sheet = hwb.createSheet(getString(R.string.app_name)+toDay_DATE);
 				for(int k=0;k<arList.size();k++)
 				{
 					ArrayList ardata = (ArrayList)arList.get(k);
@@ -760,7 +771,7 @@ public class MainActivity extends BaserActinbBar{
 
 				Toast.makeText(MainActivity.this, "File exported successfully :"+outFilePath, Toast.LENGTH_LONG).show();
 				
-				 showCutomDialog();
+				 //showCutomDialog();
 
 			}
 
@@ -780,7 +791,7 @@ public class MainActivity extends BaserActinbBar{
 
 	private void showCutomDialog() {
 		 
-		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+		/*AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 				MainActivity.this);
 
 		// set title
@@ -814,7 +825,7 @@ public class MainActivity extends BaserActinbBar{
 		AlertDialog alertDialog = alertDialogBuilder.create();
 
 		// show it
-		alertDialog.show();
+		alertDialog.show();*/
 		
 	}
 	

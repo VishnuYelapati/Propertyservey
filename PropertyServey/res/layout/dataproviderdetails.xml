@@ -190,6 +190,7 @@
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
                         android:singleLine="true"
+                        android:inputType="phone"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
