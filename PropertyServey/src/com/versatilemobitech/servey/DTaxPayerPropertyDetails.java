@@ -227,7 +227,7 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
  
 			}
 		});
-		btn_Next=(Button)findViewById(R.id.btn_next);
+		/*btn_Next=(Button)findViewById(R.id.btn_next);
 
 
 		btn_Next.setOnClickListener(new OnClickListener() {
@@ -245,7 +245,7 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 				startActivity(i);
 			}
 		});
-
+*/
 	}
 
 }

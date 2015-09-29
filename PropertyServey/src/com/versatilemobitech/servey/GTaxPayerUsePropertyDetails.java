@@ -1,5 +1,10 @@
 package com.versatilemobitech.servey;
 
+import org.apache.poi.hssf.util.HSSFColor.GOLD;
+import org.apache.poi.poifs.property.Child;
+
+import com.versatilemobitech.bean.ProperyBean;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +14,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
@@ -135,6 +141,61 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				
+				
+				ProperyBean  bean=ProperyBean.getInstance();
+				bean.setPrivateHospitalClinic((PrivateHospitalClinic.isChecked()==true)?"1":"0");
+				
+				bean.setResidentialcum_commercial((Residentialcum_commercial.isChecked()==true)?"1":"0");
+				
+				bean.setBeautyParlour((BeautyParlour.isChecked()==true)?"1":"0");
+				bean.setPrivateOffice((PrivateOffice.isChecked()==true)?"1":"0");
+				bean.setMarriageGardenHall((MarriageGardenHall.isChecked()==true)?"1":"0");
+				bean.setHotelRestaurant((HotelRestaurant.isChecked()==true)?"1":"0");
+				bean.setSemiGovtInstitute((SemiGovtInstitute.isChecked()==true)?"1":"0");
+				bean.setCentralGovPropertyOffice((CentralGovPropertyOffice.isChecked()==true)?"1":"0");
+				bean.setSchool((School.isChecked()==true)?"1":"0");
+				bean.setProfessionalCollege((ProfessionalCollege.isChecked()==true)?"1":"0");
+				bean.setCompletelyReligiousProperty((CompletelyReligiousProperty.isChecked()==true)?"1":"0");
+				bean.setSituatedInRicoArea((SituatedInRicoArea.isChecked()==true)?"1":"0");
+				bean.setExempteUnderclause107Act2009((ExempteUnderclause107Act2009.isChecked()==true)?"1":"0");
+				bean.setDharmashalaOfCommunitySociety((DharmashalaOfCommunitySociety.isChecked()==true)?"1":"0");
+				bean.setCinemahallMultiplex((CinemahallMultiplex.isChecked()==true)?"1":"0");
+				bean.setGeneralDegreeCollege((GeneralDegreeCollege.isChecked()==true)?"1":"0");
+				bean.setCoachingInstitute((CoachingInstitute.isChecked()==true)?"1":"0");
+				bean.setOutOfRicoIndustries((OutOfRicoIndustries.isChecked()==true)?"1":"0");
+				
+				
+				bean.setStateGovtPropertyOffice(StateGovtPropertyOffice);
+				bean.setReligiousPlace(ReligiousPlace);
+				bean.setResidential(Residential);
+				bean.setOthers(otherEdit.getText().toString());
+				
+				
+				System.out.println("TEST Radio "+getCheckValue(SewerConnection));
+				bean.setSewerConnection(getCheckValue(SewerConnection));
+				bean.setLightConnection(getCheckValue(LightConnection));
+				bean.setBoring(getCheckValue(Boring));
+				bean.setParking(getCheckValue(Parking));
+				bean.setAdvertisementHoarding(getCheckValue(AdvertisementHoarding));
+				bean.setStreetLight(getCheckValue(StreetLight));
+				bean.setPrivateToilet(getCheckValue(PrivateToilet));
+				bean.setMobileTower(getCheckValue(MobileTower));
+				bean.setOpenToilet(getCheckValue(OpenToilet));
+				bean.setWhetherpayUdTax(getCheckValue(WhetherpayUdTax));
+				 
+				bean.setWhetherpayLeaseTax(getCheckValue(WhetherpayLeaseTax));
+				bean.setSewerLine(getCheckValue(SewerLine));
+				bean.setSepticTank(getCheckValue(SepticTank));
+				bean.setPipedWaterConnection(getCheckValue(PipedWaterConnection));
+				bean.setFireFightingSystem(getCheckValue(FireFightingSystem));
+
+				bean.setWhetherpayUdTax_ACNo(et_udtaxaccunt.getText().toString());
+				bean.setWhetherpayLeaseTax_ACNo(et_payleasetaxaccountno.getText().toString());
+				bean.setPleaseWriteSizefBoardSqft(et_advhoarding.getText().toString());
+				
+				
+				
+				
 				Intent i=new Intent(getApplicationContext(),HServeyorDetails.class);
 				startActivity(i);
 				
@@ -149,6 +210,8 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 				
 			}
 		});
+		
+		
 		
 		
 
@@ -208,5 +271,17 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 
 	}
 	
+	private String getCheckValue(RadioGroup rg1)
+	{
+		String selection="No";
+		if(rg1.getCheckedRadioButtonId()!=-1){
+		    int id= rg1.getCheckedRadioButtonId();
+		    View radioButton = rg1.findViewById(id);
+		    int radioId = rg1.indexOfChild(radioButton);
+		    RadioButton btn = (RadioButton) rg1.getChildAt(radioId);
+		     selection = (String) btn.getText();
+		}
+		return selection;
+	}
 
 }

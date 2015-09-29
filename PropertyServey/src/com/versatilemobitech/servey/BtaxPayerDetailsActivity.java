@@ -1,5 +1,8 @@
 package com.versatilemobitech.servey;
 
+import java.util.ArrayList;
+import java.util.jar.Attributes.Name;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -15,6 +18,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.versatilemobitech.adapter.CustomAdapter;
+import com.versatilemobitech.bean.NameBean;
+import com.versatilemobitech.bean.ProperyBean;
 
 public class BtaxPayerDetailsActivity  extends BaserActinbBar{
 	
@@ -47,8 +52,23 @@ public class BtaxPayerDetailsActivity  extends BaserActinbBar{
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			
-			
-			
+			NameBean bean=null;
+			ArrayList<NameBean> beanArray=new ArrayList<NameBean>();
+			for (int i = 0; i <ll_container.getChildCount(); i++) {
+				bean=new NameBean();
+				 View chiled = ll_container.getChildAt(i);
+				    TextView etxtName = (TextView)chiled.findViewById(R.id.etxt_name);
+				    TextView etxtfatherName = (TextView)chiled.findViewById(R.id.etxt_fatherhusbandname);
+				    TextView etxtAge = (TextView)chiled.findViewById(R.id.etxt_age);
+				    TextView etxtProffesion = (TextView)chiled.findViewById(R.id.etxt_proffesion);
+				    
+				    bean.setAge(etxtAge.getText().toString());
+				    bean.setProfession(etxtProffesion.getText().toString());
+				    bean.setName(etxtName.getText().toString());
+				    bean.setNameOfFatherorHusband(etxtfatherName.getText().toString());
+				    beanArray.add(bean);
+			}
+			ProperyBean.getInstance().setNameList(beanArray);
 			Intent i=new Intent(getApplicationContext(),CTaxPayerAddressDetails.class);
 			startActivity(i);
 		}
@@ -69,10 +89,10 @@ public class BtaxPayerDetailsActivity  extends BaserActinbBar{
 				LayoutInflater layoutInflater = 
 					      (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 					      addView = layoutInflater.inflate(R.layout.taxpayerdetails, null);
-					    TextView etxtName = (TextView)addView.findViewById(R.id.etxt_name);
+					  /*  TextView etxtName = (TextView)addView.findViewById(R.id.etxt_name);
 					    TextView etxtfatherName = (TextView)addView.findViewById(R.id.etxt_fatherhusbandname);
 					    TextView etxtAge = (TextView)addView.findViewById(R.id.etxt_age);
-					    TextView etxtProffesion = (TextView)addView.findViewById(R.id.etxt_proffesion);
+					    TextView etxtProffesion = (TextView)addView.findViewById(R.id.etxt_proffesion);*/
 					    Button buttonRemove = (Button)addView.findViewById(R.id.btn_removeview);
 					    buttonRemove.setTag(addView);
 					    buttonRemove.setOnClickListener(new OnClickListener(){

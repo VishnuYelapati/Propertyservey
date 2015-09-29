@@ -150,21 +150,21 @@ public class ProperyBean implements Serializable{
 
 
 	//Yes are no
-	private String SewerConnection="";
-	private String  LightConnection="";
-	private String  Boring="";
-	private String  Parking="";
-	private String  AdvertisementHoarding="";
-	private String  StreetLight="";
-	private String  PrivateToilet="";
-	private String 	 MobileTower="";
-	private String 	 OpenToilet="";
-	private String 	 WhetherpayUdTax="";
-	private String 	 WhetherpayLeaseTax="";
-	private String 	 SewerLine="";
-	private String  SepticTank="";
-	private String 	 PipedWaterConnection="";
-	private String 	 FireFightingSystem="";
+	private String SewerConnection="No";
+	private String  LightConnection="No";
+	private String  Boring="No";
+	private String  Parking="No";
+	private String  AdvertisementHoarding="No";
+	private String  StreetLight="No";
+	private String  PrivateToilet="No";
+	private String 	 MobileTower="No";
+	private String 	 OpenToilet="No";
+	private String 	 WhetherpayUdTax="No";
+	private String 	 WhetherpayLeaseTax="No";
+	private String 	 SewerLine="No";
+	private String  SepticTank="No";
+	private String 	 PipedWaterConnection="No";
+	private String 	 FireFightingSystem="No";
 
 	private String  WhetherpayUdTax_ACNo="";
 	private String  WhetherpayLeaseTax_ACNo="";
