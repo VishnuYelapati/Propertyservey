@@ -317,9 +317,9 @@ public class MyServey extends BaserActinbBar {
 
 
 				ContentValues cv_Values=new ContentValues();
-				cv_Values.put(dbHandler.AddressforCommunication,pbean.getAddressforCommunication());
+				//cv_Values.put(dbHandler.AddressforCommunication,pbean.getAddressforCommunication());
 				//cv_Values.put(dbHandler.AdvertisementHoarding,pbean.get);
-				cv_Values.put(dbHandler.FormID,"RJ/JPR/ZONE1/WARD1/Tablet1/Seq1");
+				
 				cv_Values.put(dbHandler.BasicPhoneNo,pbean.getBasicPhoneNo());
 				cv_Values.put(dbHandler.BasicPhoneNo_Address,pbean.getBasicPhoneNo_Address());
 				cv_Values.put(dbHandler.BeautyParlour,pbean.getBeautyParlour());
@@ -362,56 +362,55 @@ public class MyServey extends BaserActinbBar {
 				cv_Values.put(dbHandler.No_Of_Floors,pbean.getNo_Of_Floors());
 				cv_Values.put(dbHandler.OpenToilet,pbean.getOpenToilet());
 				//	cv_Values.put(dbHandler.ownerId,pbean.geto);
-				cv_Values.put(dbHandler.OwnerUIDNumber,pbean.getOwnerUIDNumber());
+				//cv_Values.put(dbHandler.OwnerUIDNumber,pbean.getOwnerUIDNumber());
 				//cv_Values.put(dbHandler.OwnerUIDNumber,pbean.getAddressforCommunication());
 				cv_Values.put(dbHandler.Others,pbean.getOthers());
 				cv_Values.put(dbHandler.OutOfRicoIndustries,pbean.getOutOfRicoIndustries());
 				//	cv_Values.put(dbHandler.owner_name,pbean.getO);
-				cv_Values.put(dbHandler.OutOfRicoIndustries,pbean.getAddressforCommunication());
 				//		cv_Values.put(dbHandler.profession,pbean.getpr);
 				cv_Values.put(dbHandler.Parking,pbean.getParking());
 				cv_Values.put(dbHandler.PermanentAddress,pbean.getPermanentAddress());
 				//cv_Values.put(dbHandler.PermanentAddress_Address,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.PipedWaterConnection,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.PleaseWriteSizefBoardSqft,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.PlinthArea,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.PlinthYard,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.Plot_Flat_ShopNo,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.PrivateHospitalClinic,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.PrivateOffice,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.PrivateOffice,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.PrivateToilet,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.PrivateOffice,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.ProfessionalCollege,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.relationshipOfOwner,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.ReligiousPlace,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.Residential,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.Residentialcum_commercial,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.School,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.SemiGovtInstitute,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.SepticTank,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.SewerConnection,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.SewerLine,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.SituatedInRicoArea,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.State,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.StateGovtPropertyOffice,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.StreetLight,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.SurveyorAddress,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.Total_Area_sft,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.Total_Area_Yard,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.PipedWaterConnection,pbean.getPipedWaterConnection());
+				//cv_Values.put(dbHandler.PleaseWriteSizefBoardSqft,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.PlinthArea,pbean.getPlinthArea());
+				cv_Values.put(dbHandler.PlinthYard,pbean.getPlinthYard());
+				cv_Values.put(dbHandler.Plot_Flat_ShopNo,pbean.getPlot_Flat_ShopNo());
+				cv_Values.put(dbHandler.PrivateHospitalClinic,pbean.getPrivateHospitalClinic());
+				cv_Values.put(dbHandler.PrivateOffice,pbean.getPrivateOffice());
+				cv_Values.put(dbHandler.PrivateToilet,pbean.getPrivateToilet());
+				cv_Values.put(dbHandler.ProfessionalCollege,pbean.getProfessionalCollege());
+				cv_Values.put(dbHandler.relationshipOfOwner,pbean.getRelationshipOfOwner());
+				cv_Values.put(dbHandler.ReligiousPlace,pbean.getReligiousPlace());
+				cv_Values.put(dbHandler.Residential,pbean.getResidential());
+				cv_Values.put(dbHandler.Residentialcum_commercial,pbean.getResidentialcum_commercial());
+				cv_Values.put(dbHandler.School,pbean.getSchool());
+				cv_Values.put(dbHandler.SemiGovtInstitute,pbean.getSemiGovtInstitute());
+				cv_Values.put(dbHandler.SepticTank,pbean.getSepticTank());
+				cv_Values.put(dbHandler.SewerConnection,pbean.getSewerConnection());
+				cv_Values.put(dbHandler.SewerLine,pbean.getSewerLine());
+				cv_Values.put(dbHandler.SituatedInRicoArea,pbean.getSituatedInRicoArea());
+				cv_Values.put(dbHandler.State,pbean.getState());
+				cv_Values.put(dbHandler.StateGovtPropertyOffice,pbean.getStateGovtPropertyOffice());
+				cv_Values.put(dbHandler.StreetLight,pbean.getStreetLight());
+				cv_Values.put(dbHandler.SurveyorAddress,pbean.getSurveyorAddress());
+			/*	cv_Values.put(dbHandler.Total_Area_sft,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.Total_Area_Yard,pbean.gett);*/
 				//cv_Values.put(dbHandler.TotalConstructionArea,pbean.getAddressforCommunication()); //
-				cv_Values.put(dbHandler.TotalPlotArea,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.TotalPlotYard,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.TypOfConstruction,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.VacantArea,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.VacantYard,pbean.getAddressforCommunication());
+				cv_Values.put(dbHandler.TotalPlotArea,pbean.getTotalPlotArea());
+				cv_Values.put(dbHandler.TotalPlotYard,pbean.getTotalPlotYard());
+				cv_Values.put(dbHandler.TypOfConstruction,pbean.getTypOfConstruction());
+				cv_Values.put(dbHandler.VacantArea,pbean.getVacantArea());
+				cv_Values.put(dbHandler.VacantYard,pbean.getVacantYard());
+				cv_Values.put(dbHandler.FormID,"RJ/JPR/ZONE1/WARD1/Tablet1/Seq1");
 				long insterResult=dbHandler.insert(dbHandler.TABLE_servey_Data, cv_Values);
 
 				System.out.println("Test insert ::::"+insterResult);
-				pbean=null;
+			
 				Intent i=new Intent(getApplicationContext(),MainActivity.class);
 				startActivity(i);
 				finish();
+//09-29 06:16:50.280: E/SQLiteLog(3712): (1) table SERVEY_DATA has no column named Building_Id_like_1_b_2_b_3_b_so_on
 
 
 			}  

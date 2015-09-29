@@ -13,6 +13,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public static final int DATABASE_VERSION = 2;
 	
 	
+//09-29 06:16:50.280: E/SQLiteLog(3712): (1) table SERVEY_DATA has no column named Building_Id_like_1_b_2_b_3_b_so_on
 
 	// Database Name
 	public static final String DATABASE_NAME = "Servey";
@@ -165,7 +166,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public static final String Total_Area_Yard="Total_Area_in_Yard";
 	//Owner_table_data
 	
-		public static final String Owner_id="Building_Id_like_1_b_2_b_3_b_so_on";
+		public static final String Owner_id="Owner_Id_like_1_b_2_b_3_b_so_on";
 		public static final String owner_name="Owner_Name";
 		public static final String father_name="Name_of_Father_Husband";
 		public static final String age="Age";
@@ -179,31 +180,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	// Creating Tables
 	
-/*	
 
-	//Yes are no
-	private String 	 OpenToilet="Open Toilet (Write 1 if applicable else 0)";
-	private String 	 WhetherpayUdTax="Whether pay UD Tax (Write 1 if applicable else 0)";
-	private String 	 WhetherpayLeaseTax="Whether pay Lease  Tax (Write 1 if applicable else 0)";
-	private String 	 SewerLine="Sewer Line (Write 1 if applicable else 0)";
-	private String  SepticTank="Septic Tank (Write 1 if applicable else 0)";
-	private String 	 PipedWaterConnection="Piped Water Connection (Write 1 if applicable else 0)";
-	private String 	 FireFightingSystem="Fire Fighting System(Write 1 if applicable else 0)";
-
-	private String  WhetherpayUdTax_ACNo="If paid UD Tax Account No.";
-	private String  WhetherpayLeaseTax_ACNo="If paid Lease Tax Account No.";
-	private  String  PleaseWriteSizefBoardSqft="";
-
-
-
-	private  String NameOfSurveyor="Name of the Surveyor";
-	private  String  SurveyorAddress="Surveyor Address";
-	private  String  IdCodeOfSurveyor="ID code of the surveyor";
-	private  String  Date_Surveyor="Date";
-	private  String  NameOfAttestingAuthority="Name of the Attesting Authority";
-	private  String  DesignationOfAttestingAuthority="Designation of the Attesting Authority";
-	private  String  Date_Attesting ="Date";
-*/
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 
@@ -224,7 +201,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ EmailID_Address 		+ " TEXT,"
 				+ PermanentAddress 		+ " TEXT,"
 				+ BasicPhoneNo_Address 		+ " TEXT,"
-				+ ownerId 		+ " TEXT,"
 		
 				+ Plot_Flat_ShopNo 		+ " TEXT,"
 				+ Zone 		+ " TEXT,"
@@ -247,7 +223,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ PlinthArea 		+ " TEXT,"
 				+ VacantArea 		+ " TEXT,"
 				+ TotalConstructionArea 		+ " TEXT,"
-				+ TotalPlotYard 		+ " TEXT,"
+			+ TotalPlotYard 		+ " TEXT,"
 				+ PlinthYard 		+ " TEXT,"
 				+ VacantYard 		+ " TEXT,"
 				+ PrivateHospitalClinic 		+ " TEXT,"
@@ -271,6 +247,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ ReligiousPlace 		+ " TEXT,"
 				+ Residential 		+ " TEXT,"
 				+ Others 		+ " TEXT,"
+				+ building_id 	+ " TEXT," 
+				+ ownerId 	+ " TEXT," 
 				+ SewerConnection 		+ " TEXT,"
 				+ LightConnection 		+ " TEXT,"
 				+ Boring 		+ " TEXT,"
@@ -294,7 +272,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ Date_Surveyor 		+ " TEXT,"
 				+ NameOfAttestingAuthority 		+ " TEXT,"
 				+ DesignationOfAttestingAuthority 		+ " TEXT,"
-				+ CREATED_DATE + " DATE"
+				+ CREATED_DATE + " TEXT"
 				+ ")";
 		
 		
