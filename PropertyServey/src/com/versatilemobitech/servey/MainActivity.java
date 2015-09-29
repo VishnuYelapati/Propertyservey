@@ -57,6 +57,7 @@ public class MainActivity extends BaserActinbBar{
 	
 	
 	public static final int SIGNATURE_ACTIVITY = 1;
+	 int existingRow=0;
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -64,7 +65,7 @@ public class MainActivity extends BaserActinbBar{
 		
 		
 		SharedPreferences preferences=getSharedPreferences("TAB_DATA",MODE_PRIVATE);
-	      int existingRow=  preferences.getInt("ROW_ID", 0);
+	      existingRow=  preferences.getInt("ROW_ID", 0);
 
 		_mainContext=this;
 		btn_startservey=(Button) findViewById(R.id.btn_startservey);
@@ -106,9 +107,15 @@ public class MainActivity extends BaserActinbBar{
 			@Override
 			public void onClick(View v) {  //main code begins here
 			
-				  mainForm();
-				  OwnerdetailsForm();
-				  buildingdetailsForm();
+				
+				if(existingRow!=0){
+					 mainForm();
+					  OwnerdetailsForm();
+					  buildingdetailsForm();
+				}else{
+					Toast.makeText(getApplicationContext(), "Servey Records not found",Toast.LENGTH_LONG).show();
+				}
+				 
 				
 			}
 			

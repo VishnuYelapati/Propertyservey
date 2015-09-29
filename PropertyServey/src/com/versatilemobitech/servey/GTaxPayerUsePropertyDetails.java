@@ -16,6 +16,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
 
 public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
@@ -132,8 +133,32 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 		Spinner stateGovt_spinner=(Spinner)findViewById(R.id.spn_govmentproperty);
 		Spinner religious_spinner=(Spinner)findViewById(R.id.spn_religiousplace);
 		Spinner residential_spinner=(Spinner)findViewById(R.id.spn_residential);
+	
+		AdvertisementHoarding.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			
+			@Override
+			public void onCheckedChanged(RadioGroup arg0, int arg1) {
+				// TODO Auto-generated method stub
+				if(getCheckValue(AdvertisementHoarding).equalsIgnoreCase("Yes")){
+					et_advhoarding.setEnabled(true);
+				}else{
+					et_advhoarding.setEnabled(false);
+				}
+			}
+		});
 		
-		
+		WhetherpayLeaseTax.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			
+			@Override
+			public void onCheckedChanged(RadioGroup arg0, int arg1) {
+				// TODO Auto-generated method stub
+				if(getCheckValue(WhetherpayLeaseTax).equalsIgnoreCase("Yes")){
+					et_payleasetaxaccountno.setEnabled(true);
+				}else{
+					et_payleasetaxaccountno.setEnabled(false);
+				}
+			}
+		});
 		
 		btn_next.setOnClickListener(new OnClickListener() {
 			
@@ -246,7 +271,7 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 			public void onNothingSelected(AdapterView<?> parent) {
 				// TODO Auto-generated method stub
 
-			}
+			}   
 		});
 
 
@@ -279,7 +304,7 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 		    View radioButton = rg1.findViewById(id);
 		    int radioId = rg1.indexOfChild(radioButton);
 		    RadioButton btn = (RadioButton) rg1.getChildAt(radioId);
-		     selection = (String) btn.getText();
+		  //   selection = (String) btn.getText();
 		}
 		return selection;
 	}

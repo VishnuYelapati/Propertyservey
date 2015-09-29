@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.versatilemobitech.bean.ProperyBean;
 
 public class CTaxPayerAddressDetails extends BaserActinbBar{
-	private Button btn_Next;
+	private Button btn_Next,btn_prev;
 	
 	private EditText AddressforCommunication=null;
 	private EditText MobileNo=null;
@@ -27,7 +27,7 @@ public class CTaxPayerAddressDetails extends BaserActinbBar{
 		 pbean=ProperyBean.getInstance();
 		
 		btn_Next=(Button)findViewById(R.id.btn_next);
-		
+		btn_prev=(Button)findViewById(R.id.btn_prev);
 		
 		 AddressforCommunication=(EditText)findViewById(R.id.et_presentadd);
 		  MobileNo=(EditText)findViewById(R.id.et_mobileno);
@@ -57,6 +57,15 @@ public class CTaxPayerAddressDetails extends BaserActinbBar{
 					Toast.makeText(getApplicationContext(), "Please provide required fields.",Toast.LENGTH_LONG).show();
 					
 				}
+			}
+		});
+		
+		btn_prev.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				onBackPressed();
 			}
 		});
 	}

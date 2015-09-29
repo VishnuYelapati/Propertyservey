@@ -88,7 +88,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Perminent Address*"
+                        android:text="Permanent Address*"
                         android:textColor="@color/black" />
 
                     <EditText
@@ -121,7 +121,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Mobile Number"
+                        android:text="Mobile Number*"
                         android:textColor="@color/black" />
 
                     <EditText

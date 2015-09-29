@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 	
@@ -47,16 +48,22 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				pbean.setTotalPlotArea(TotalPlotArea.getText().toString());
-				pbean.setPlinthArea(PlinthArea.getText().toString());
-				pbean.setPlinthYard(PlinthYard.getText().toString());
-				pbean.setVacantArea(VacantArea.getText().toString());
-				pbean.setTotalConstructionArea(TotalConstructionArea.getText().toString());
-				pbean.setTotalConstructionYard(TotalConstructionYard.getText().toString());
-				pbean.setTotalPlotYard(TotalPlotYard.getText().toString());
-				pbean.setVacantYard(VacantYard.getText().toString());
-				Intent i=new Intent(getApplicationContext(),FLandBuildingDetailsActivity.class);
-				startActivity(i);
+				
+				if(!TotalPlotArea.getText().toString().equals("")& !PlinthArea.getText().toString().equals("")&!PlinthYard.getText().toString().equals("")&!VacantArea.getText().toString().equals("")&!TotalConstructionArea.getText().toString().equals("")& !TotalPlotArea.getText().toString().equals("")& !TotalPlotYard.getText().toString().equals("")&!VacantYard.getText().toString().equals("")){
+					pbean.setTotalPlotArea(TotalPlotArea.getText().toString());
+					pbean.setPlinthArea(PlinthArea.getText().toString());
+					pbean.setPlinthYard(PlinthYard.getText().toString());
+					pbean.setVacantArea(VacantArea.getText().toString());
+					pbean.setTotalConstructionArea(TotalConstructionArea.getText().toString());
+					pbean.setTotalConstructionYard(TotalConstructionYard.getText().toString());
+					pbean.setTotalPlotYard(TotalPlotYard.getText().toString());
+					pbean.setVacantYard(VacantYard.getText().toString());
+					Intent i=new Intent(getApplicationContext(),FLandBuildingDetailsActivity.class);
+					startActivity(i);
+				}else{
+					Toast.makeText(getApplicationContext(), "Please enter all the fields", Toast.LENGTH_LONG).show();
+				}
+				
 			}
 		});
 	

@@ -35,7 +35,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="Data Provider Details"
+                        android:text="Use Of Property"
                         android:textColor="@color/white" />
                 </LinearLayout>
 
@@ -444,7 +444,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Residential*"
+                        android:text="Residential"
                         android:textColor="@color/black" />
 
                     <Spinner

@@ -13,6 +13,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.versatilemobitech.adapter.CustomAdapter;
 import com.versatilemobitech.bean.ProperyBean;
@@ -21,7 +22,7 @@ import com.versatilemobitech.bean.SpinnerItemBean;
 public class DTaxPayerPropertyDetails extends BaserActinbBar{
 	Button btn_Next,btn_Prev;
 
-	EditText PlotORFlatNo=null;
+	//EditText PlotORFlatNo=null;
 	String Zone="";
 	EditText ColonyName=null;
 	EditText City=null;
@@ -37,6 +38,7 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 	EditText District=null;
 	EditText NameOfBuilding_Pre=null;
 	EditText MultistoreyBuildigNameofBuilding=null;
+	EditText flatno;
 
 
 	@Override
@@ -60,7 +62,7 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 		wardMaping.put("Amer","	74,75,76,77");
 
 
-		PlotORFlatNo=(EditText)findViewById(R.id.et_flatno);
+		flatno=(EditText)findViewById(R.id.et_flatno);
 		ColonyName=(EditText)findViewById(R.id.et_colonyname);
 		City=(EditText)findViewById(R.id.et_city);
 		state=(EditText)findViewById(R.id.et_state);
@@ -81,29 +83,35 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 
 			@Override
 			public void onClick(View v) {
+				
+				if(!flatno.getText().toString().equals("") && !NameOfLaneOrRoad.getText().toString().equals("")&& !ColonyName.getText().toString().equals("") && !Landmark.getText().toString().equals("")){
+					ProperyBean pbean=ProperyBean.getInstance();
+					//	pbean.setPlot_Flat_ShopNo(PlotORFlatNo.getText().toString());
+						pbean.setColony_Name(ColonyName.getText().toString());
+						pbean.setCity(City.getText().toString());
+						pbean.setState(state.getText().toString());
+						//	pbean.setName_No_OfBuilding(NameOfBuildin_Post.getText().toString());
+						pbean.setLength(WhetherConstructionOnPlot_lenth.getText().toString());
+						pbean.setWidth(WhetherConstructionOnPlot_width.getText().toString());
+						pbean.setNameOfLane_Road(NameOfLaneOrRoad.getText().toString());
+						pbean.setLandmark(Landmark.getText().toString());;
+						pbean.setDistrict(District.getText().toString());
+						pbean.setName_No_OfBuilding_pre(NameOfBuilding_Pre.getText().toString());
+						pbean.setName_No_OfBuilding(NameOfBuildin_Post.getText().toString());
+		 
+						pbean.setDetailsOfOwnership(DetailsOfOwnership);
+						 pbean.setZone(Zone);
+						 pbean.setWard(Ward);
+						 pbean.setTypOfConstruction(TypeOfConstruction);
 
-				ProperyBean pbean=ProperyBean.getInstance();
-				pbean.setPlot_Flat_ShopNo(PlotORFlatNo.getText().toString());
-				pbean.setColony_Name(ColonyName.getText().toString());
-				pbean.setCity(City.getText().toString());
-				pbean.setState(state.getText().toString());
-				//	pbean.setName_No_OfBuilding(NameOfBuildin_Post.getText().toString());
-				pbean.setLength(WhetherConstructionOnPlot_lenth.getText().toString());
-				pbean.setWidth(WhetherConstructionOnPlot_width.getText().toString());
-				pbean.setNameOfLane_Road(NameOfLaneOrRoad.getText().toString());
-				pbean.setLandmark(Landmark.getText().toString());;
-				pbean.setDistrict(District.getText().toString());
-				pbean.setName_No_OfBuilding_pre(NameOfBuilding_Pre.getText().toString());
-				pbean.setName_No_OfBuilding(NameOfBuildin_Post.getText().toString());
- 
-				pbean.setDetailsOfOwnership(DetailsOfOwnership);
-				 pbean.setZone(Zone);
-				 pbean.setWard(Ward);
-				 pbean.setTypOfConstruction(TypeOfConstruction);
 
+						Intent i=new Intent(getApplicationContext(),ETaxPayerMeasurementDetails.class);
+						startActivity(i);
+				}else{
+					Toast.makeText(getApplicationContext(), "Please enter required fields", Toast.LENGTH_LONG).show();
+				}
 
-				Intent i=new Intent(getApplicationContext(),ETaxPayerMeasurementDetails.class);
-				startActivity(i);
+				
 			}
 		});
 

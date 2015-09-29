@@ -104,7 +104,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Total  Plint Area"
+                        android:text="Plinth Area"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -156,7 +156,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Total  Plint Area"
+                        android:text="Vacant Area"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -208,7 +208,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Total  Plint Area"
+                        android:text="Total Construction Area"
                         android:textColor="@color/black" />
                 </LinearLayout>
 

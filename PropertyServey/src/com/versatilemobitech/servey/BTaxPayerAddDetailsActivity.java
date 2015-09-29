@@ -49,32 +49,35 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				
+					NameBean nameBean=null;
+					for (int i = 0; i < ll_container.getChildCount(); i++) {
+						//Values
 
-				NameBean nameBean=null;
-				for (int i = 0; i < ll_container.getChildCount(); i++) {
-					//Values
-
-					nameBean=new NameBean();
-					View addView=ll_container.getChildAt(i);
-
-
-					TextView etxtName = (TextView)addView.findViewById(R.id.etxt_name);
-					TextView etxtfatherName = (TextView)addView.findViewById(R.id.etxt_fatherhusbandname);
-					TextView etxtAge = (TextView)addView.findViewById(R.id.etxt_age);
-					TextView etxtProffesion = (TextView)addView.findViewById(R.id.etxt_proffesion);
+						nameBean=new NameBean();
+						View addView=ll_container.getChildAt(i);
 
 
-					nameBean.setName(etxtName.getText().toString());
-					nameBean.setAge(etxtAge.getText().toString());
-					nameBean.setNameOfFatherorHusband(etxtfatherName.getText().toString());
-					nameBean.setProfession(etxtProffesion.getText().toString());
-					
-					beanList.add(nameBean);
-				}
+						TextView etxtName = (TextView)addView.findViewById(R.id.etxt_name);
+						TextView etxtfatherName = (TextView)addView.findViewById(R.id.etxt_fatherhusbandname);
+						TextView etxtAge = (TextView)addView.findViewById(R.id.etxt_age);
+						TextView etxtProffesion = (TextView)addView.findViewById(R.id.etxt_proffesion);
 
-				ProperyBean.getInstance().setNameList(beanList);
-				Intent i=new Intent(getApplicationContext(),CTaxPayerAddressDetails.class);
-				startActivity(i); 
+
+						nameBean.setName(etxtName.getText().toString());
+						nameBean.setAge(etxtAge.getText().toString());
+						nameBean.setNameOfFatherorHusband(etxtfatherName.getText().toString());
+						nameBean.setProfession(etxtProffesion.getText().toString());
+						
+						beanList.add(nameBean);
+					}
+
+					ProperyBean.getInstance().setNameList(beanList);
+					Intent i=new Intent(getApplicationContext(),CTaxPayerAddressDetails.class);
+					startActivity(i);
+				
+
+				 
 			}
 		});
 		btn_Prev.setOnClickListener(new OnClickListener() {
@@ -94,7 +97,7 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				LayoutInflater layoutInflater = 
+				LayoutInflater layoutInflater =
 						(LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				final View addView = layoutInflater.inflate(R.layout.taxpayerdetails_addrow, null);
 				TextView etxtName = (TextView)addView.findViewById(R.id.etxt_name);
