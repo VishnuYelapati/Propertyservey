@@ -157,7 +157,6 @@ public class MainActivity extends BaserActinbBar{
 			public void onClick(View v) { //main code begins here
 				try {
 
-					//  where player_id='"+TournamentMainFragment.loginPreferences.getString(Util.intent_userId, "")+"'");
 					cursor = sqldb.rawQuery("select * from SERVEY_DATA",null);//WHERE CREATED_DATE >='"+toDay_DATE+"_00:00:00'", null);
 					int rowcount = 0;
 					int colcount = 0;
@@ -176,11 +175,12 @@ public class MainActivity extends BaserActinbBar{
 						for (int i = 0; i < colcount; i++) {
 							if (i != colcount - 1) {
 
-								bw.write(cursor.getColumnName(i) + ",");
-
+								bw.write(""+cursor.getColumnName(i) + ",");
+								System.out.println("names22:"+cursor.getString(i));
 							} else {
 
-								bw.write(cursor.getColumnName(i));
+								bw.write(""+cursor.getColumnName(i));
+								System.out.println("names22:"+cursor.getString(i));
 
 							}
 						}
@@ -190,10 +190,13 @@ public class MainActivity extends BaserActinbBar{
 							cursor.moveToPosition(i);
 
 							for (int j = 0; j < colcount; j++) {
-								if (j != colcount - 1)
-									bw.write(cursor.getString(j) + ",");
-								else
-									bw.write(cursor.getString(j));
+								if (j != colcount - 1){
+									bw.write(""+cursor.getString(j) + ",");
+								System.out.println("names:"+cursor.getString(j));
+								}else{
+									bw.write(""+cursor.getString(j));
+									System.out.println("names1:"+cursor.getString(j));
+								}
 							}
 							bw.newLine();
 						}
@@ -202,9 +205,11 @@ public class MainActivity extends BaserActinbBar{
 
 						new CSVToExcelConverter().execute();
 					}
-					if(!cursor.isClosed())
-						cursor.close();
+					/*if(!cursor.isClosed())
+						cursor.close();*/
 				} catch (Exception ex) {
+					
+					System.out.println("exception:"+ex.getMessage());
 					if (sqldb.isOpen()) {
 						sqldb.close();
 						if(cursor!=null )
