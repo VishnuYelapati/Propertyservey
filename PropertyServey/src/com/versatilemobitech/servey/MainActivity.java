@@ -129,75 +129,9 @@ public class MainActivity extends BaserActinbBar{
 			@Override
 			public void onClick(View v) { //main code begins here
 			
-				try {
-				
-					cursor = sqldb.rawQuery("select * from SERVEY_DATA",null);//WHERE CREATED_DATE >='"+toDay_DATE+"_00:00:00'", null);
-					int rowcount = 0;
-					int colcount = 0;
-					File sdCardDir = Environment.getExternalStorageDirectory();
-					String filename = "MyBackUpBuild.csv";
-					// the name of the file to export with
-					File saveFile = new File(sdCardDir, filename);
-					FileWriter fw = new FileWriter(saveFile);
-
-					BufferedWriter bw = new BufferedWriter(fw);
-					rowcount = cursor.getCount();
-					colcount = cursor.getColumnCount();
-					if (rowcount > 0) {
-						cursor.moveToFirst();
-
-						for (int i = 0; i < colcount; i++) {
-							if (i != colcount - 1) {
-
-								bw.write(""+cursor.getColumnName(i) + ",");
-								System.out.println("names22:"+cursor.getString(i));
-							} else {
-
-								bw.write(""+cursor.getColumnName(i));
-								System.out.println("names22:"+cursor.getString(i));
-
-							}
-						}
-						bw.newLine();
-
-						for (int i = 0; i < rowcount; i++) {
-							cursor.moveToPosition(i);
-
-							for (int j = 0; j < colcount; j++) {
-								if (j != colcount - 1){
-									bw.write(""+cursor.getString(j) + ",");
-								System.out.println("names:"+cursor.getString(j));
-								}else{
-									bw.write(""+cursor.getString(j));
-									System.out.println("names1:"+cursor.getString(j));
-								}
-							}
-							bw.newLine();
-						}
-						bw.flush();
-						//   infotext.setText("Exported Successfully.");
-
-						new CSVToExcelConverter().execute();
-					}
-					if(!cursor.isClosed())
-						cursor.close();
-				} catch (Exception ex) {
-					
-					System.out.println("exception:"+ex.getMessage());
-					if (sqldb.isOpen()) {
-						sqldb.close();
-						if(cursor!=null )
-						{
-							if(!cursor.isClosed())
-								cursor.close();
-						}
-						//     infotext.setText(ex.getMessage().toString());
-					}
-
-				} finally {
-
-				}
-				
+				mainForm();
+				OwnerdetailsForm();
+				buildingdetailsForm();
 				
 			}
 			
@@ -465,7 +399,7 @@ public class MainActivity extends BaserActinbBar{
 
 
 
-			File exportDir = new File(Environment.getExternalStorageDirectory(), "/servey");        
+			File exportDir = new File(Environment.getExternalStorageDirectory(), "/serveyforms");        
 			if (!exportDir.exists()) 
 			{
 				exportDir.mkdirs();
@@ -473,7 +407,7 @@ public class MainActivity extends BaserActinbBar{
 
 			//  tv_date.setText(ft.format(dNow)+"-"+Integer.toString(level)+"%");
 			String inFilePath = Environment.getExternalStorageDirectory().toString()+"MyBackUpBuild.csv";
-			outFilePath = Environment.getExternalStorageDirectory().toString()+"/servey/MainServey"+toDay_DATE+".xls";
+			outFilePath = Environment.getExternalStorageDirectory().toString()+"/serveyforms/MainServey"+toDay_DATE+".xls";
 			String thisLine;
 			int count=0;
 
@@ -602,7 +536,7 @@ public class MainActivity extends BaserActinbBar{
 
 
 
-			File exportDir = new File(Environment.getExternalStorageDirectory(), "/servey");        
+			File exportDir = new File(Environment.getExternalStorageDirectory(), "/serveyforms");        
 			if (!exportDir.exists()) 
 			{
 				exportDir.mkdirs();
@@ -610,7 +544,7 @@ public class MainActivity extends BaserActinbBar{
 
 			//  tv_date.setText(ft.format(dNow)+"-"+Integer.toString(level)+"%");
 			String inFilePath = Environment.getExternalStorageDirectory().toString()+csvFile;
-			outFilePath = Environment.getExternalStorageDirectory().toString()+"/servey/"+xlsFIle+"_"+toDay_DATE+".xls";
+			outFilePath = Environment.getExternalStorageDirectory().toString()+"/serveyforms/"+xlsFIle+"_"+toDay_DATE+".xls";
 			String thisLine;
 			int count=0;
 
@@ -734,7 +668,7 @@ public class MainActivity extends BaserActinbBar{
 
 
 
-			File exportDir = new File(Environment.getExternalStorageDirectory(), "/servey");        
+			File exportDir = new File(Environment.getExternalStorageDirectory(), "/serveyforms");        
 			if (!exportDir.exists()) 
 			{
 				exportDir.mkdirs();
@@ -742,7 +676,7 @@ public class MainActivity extends BaserActinbBar{
 
 			//  tv_date.setText(ft.format(dNow)+"-"+Integer.toString(level)+"%");
 			String inFilePath = Environment.getExternalStorageDirectory().toString()+csvFile;
-			outFilePath = Environment.getExternalStorageDirectory().toString()+"/servey/"+xlsFIle+"_"+toDay_DATE+".xls";
+			outFilePath = Environment.getExternalStorageDirectory().toString()+"/serveyforms/"+xlsFIle+"_"+toDay_DATE+".xls";
 			String thisLine;
 			int count=0;
 
