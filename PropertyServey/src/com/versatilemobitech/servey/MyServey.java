@@ -442,14 +442,14 @@ public class MyServey extends BaserActinbBar {
 			
 				for (int i = 0; i < ProperyBean.getInstance().getNameList().size(); i++) {
 					
-					ContentValues cvbld=new ContentValues();
-					cvbld.put(dbHandler.Owner_id, ""+rowcount+"_W"+rowcount);
-					cvbld.put(dbHandler.age, ProperyBean.getInstance().getNameList().get(i).getAge());
-					cvbld.put(dbHandler.owner_name, ProperyBean.getInstance().getNameList().get(i).getName());
-					cvbld.put(dbHandler.OwnerFatherName,ProperyBean.getInstance().getNameList().get(i).getNameOfFatherorHusband());
+					ContentValues cvowner=new ContentValues();
+					cvowner.put(dbHandler.Owner_id, ""+rowcount+"_W"+rowcount);
+					cvowner.put(dbHandler.age, ProperyBean.getInstance().getNameList().get(i).getAge());
+					cvowner.put(dbHandler.owner_name, ProperyBean.getInstance().getNameList().get(i).getName());
+					cvowner.put(dbHandler.OwnerFatherName,ProperyBean.getInstance().getNameList().get(i).getNameOfFatherorHusband());
 					
 					
-					dbHandler.insert(dbHandler.TABLE_Owner_Data, cvbld);
+					dbHandler.insert(dbHandler.TABLE_Owner_Data, cvowner);
 					
 				}
 				
