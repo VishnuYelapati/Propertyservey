@@ -46,6 +46,9 @@ public class BtaxPayerDetailsActivity  extends BaserActinbBar{
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
+			
+			
+			
 			Intent i=new Intent(getApplicationContext(),CTaxPayerAddressDetails.class);
 			startActivity(i);
 		}

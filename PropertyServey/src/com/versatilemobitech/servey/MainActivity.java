@@ -56,6 +56,9 @@ public class MainActivity extends BaserActinbBar{
 	String toDay_DATE="";
 	private boolean isCanExportReport=false;
 	
+	String csvFile="";
+	String xlsFIle="";
+	
 	
 	public static final int SIGNATURE_ACTIVITY = 1;
 	
@@ -111,10 +114,6 @@ public class MainActivity extends BaserActinbBar{
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				/*Intent i=new Intent(getApplicationContext(),ADataProviderActivity.class);
-				startActivity(i);
-				finish();*/
-				
 				
 				Intent intent = new Intent(MainActivity.this, CaptureSignature.class); 
                 startActivityForResult(intent,SIGNATURE_ACTIVITY);
@@ -123,45 +122,20 @@ public class MainActivity extends BaserActinbBar{
 		});
 
 
-		//Master data adding.
-	/*	SharedPreferences preferences=getSharedPreferences(prf_name, MODE_PRIVATE);
-		boolean isMasterCreated =preferences.getBoolean("IS_MASTER_DB_CREATED", false);
-
-		if(!isMasterCreated)
-		{
-			MyInserTask inserTask=new MyInserTask();
-			inserTask.execute();
-		}
-		else{
-			Log.d(getClass().getName(), "Master data created!");
-		}
-
-
-		
-		if(!isCanExportReport)
-		{
-			 btn_export.setBackgroundColor(getResources().getColor(R.color.app_bg_color));
-		 
-			btn_export.setEnabled(false);
-		}
-		else
-		{
-			btn_export.setEnabled(true);
-		}*/
-
 		btn_export.setOnClickListener(new View.OnClickListener() {
-			SQLiteDatabase sqldb = db.getReadableDatabase(); //My Database class
+			SQLiteDatabase sqldb = db.getReadableDatabase();
 			Cursor cursor = null;
 
 			@Override
 			public void onClick(View v) { //main code begins here
+			
 				try {
-
+				
 					cursor = sqldb.rawQuery("select * from SERVEY_DATA",null);//WHERE CREATED_DATE >='"+toDay_DATE+"_00:00:00'", null);
 					int rowcount = 0;
 					int colcount = 0;
 					File sdCardDir = Environment.getExternalStorageDirectory();
-					String filename = "MyBackUp.csv";
+					String filename = "MyBackUpBuild.csv";
 					// the name of the file to export with
 					File saveFile = new File(sdCardDir, filename);
 					FileWriter fw = new FileWriter(saveFile);
@@ -205,8 +179,8 @@ public class MainActivity extends BaserActinbBar{
 
 						new CSVToExcelConverter().execute();
 					}
-					/*if(!cursor.isClosed())
-						cursor.close();*/
+					if(!cursor.isClosed())
+						cursor.close();
 				} catch (Exception ex) {
 					
 					System.out.println("exception:"+ex.getMessage());
@@ -223,53 +197,249 @@ public class MainActivity extends BaserActinbBar{
 				} finally {
 
 				}
-
+				
+				
 			}
+			
+				
+
+			
 		});
 
 	}
 
+	public void OwnerdetailsForm(){
+		SQLiteDatabase sqldb = db.getReadableDatabase();
+		Cursor cursor = null;
+		try {
+			 //My Database class
+			csvFile="MyBackUpowner.csv";
+			xlsFIle="ownerServeyForm";
+			cursor = sqldb.rawQuery("select * from SERVEY_Owner_Details",null);//WHERE CREATED_DATE >='"+toDay_DATE+"_00:00:00'", null);
+			int rowcount = 0;
+			int colcount = 0;
+			File sdCardDir = Environment.getExternalStorageDirectory();
+			String filename = csvFile;
+			// the name of the file to export with
+			File saveFile = new File(sdCardDir, filename);
+			FileWriter fw = new FileWriter(saveFile);
 
+			BufferedWriter bw = new BufferedWriter(fw);
+			rowcount = cursor.getCount();
+			colcount = cursor.getColumnCount();
+			if (rowcount > 0) {
+				cursor.moveToFirst();
 
-	class MyInserTask extends AsyncTask<Void, Void, Void>
-	{
-		ProgressDialog progess=null;
-		@Override
-		protected void onPreExecute() {
-			// TODO Auto-generated method stub
-			super.onPreExecute();
-			progess=new ProgressDialog(_mainContext);
-			progess.setCancelable(false);
-			progess.setTitle(getString(R.string.app_name));
-			progess.setIcon(R.drawable.ic_launcher);
-			progess.setMessage("Loading master data...");
-			progess.show();
+				for (int i = 0; i < colcount; i++) {
+					if (i != colcount - 1) {
+
+						bw.write(""+cursor.getColumnName(i) + ",");
+						System.out.println("names22:"+cursor.getString(i));
+					} else {
+
+						bw.write(""+cursor.getColumnName(i));
+						System.out.println("names22:"+cursor.getString(i));
+
+					}
+				}
+				bw.newLine();
+
+				for (int i = 0; i < rowcount; i++) {
+					cursor.moveToPosition(i);
+
+					for (int j = 0; j < colcount; j++) {
+						if (j != colcount - 1){
+							bw.write(""+cursor.getString(j) + ",");
+						System.out.println("names:"+cursor.getString(j));
+						}else{
+							bw.write(""+cursor.getString(j));
+							System.out.println("names1:"+cursor.getString(j));
+						}
+					}
+					bw.newLine();
+				}
+				bw.flush();
+				//   infotext.setText("Exported Successfully.");
+
+				new CSVToExcelConverter1().execute();
+			}
+			if(!cursor.isClosed())
+				cursor.close();
+		} catch (Exception ex) {
+			
+			System.out.println("exception:"+ex.getMessage());
+			if (sqldb.isOpen()) {
+				sqldb.close();
+				if(cursor!=null )
+				{
+					if(!cursor.isClosed())
+						cursor.close();
+				}
+				//     infotext.setText(ex.getMessage().toString());
+			}
+
+		} finally {
 
 		}
+		
+	}
 
-		@Override
-		protected Void doInBackground(Void... params) {
-			// TODO Auto-generated method stub
-			PlacesDatabaseHandler databaseHandler=new PlacesDatabaseHandler(getApplicationContext());
-			databaseHandler.insertDefaultData();
-			System.out.println("Master data ready!");
-			return null;
+	public void buildingdetailsForm(){
+		SQLiteDatabase sqldb = db.getReadableDatabase();
+		Cursor cursor = null;
+		try {
+			 //My Database class
+			csvFile="MyBackUpBuild.csv";
+			xlsFIle="BuidingServeyForm";
+			cursor = sqldb.rawQuery("select * from SERVEY_Building_Details",null);//WHERE CREATED_DATE >='"+toDay_DATE+"_00:00:00'", null);
+			int rowcount = 0;
+			int colcount = 0;
+			File sdCardDir = Environment.getExternalStorageDirectory();
+			String filename = csvFile;
+			// the name of the file to export with
+			File saveFile = new File(sdCardDir, filename);
+			FileWriter fw = new FileWriter(saveFile);
+
+			BufferedWriter bw = new BufferedWriter(fw);
+			rowcount = cursor.getCount();
+			colcount = cursor.getColumnCount();
+			if (rowcount > 0) {
+				cursor.moveToFirst();
+
+				for (int i = 0; i < colcount; i++) {
+					if (i != colcount - 1) {
+
+						bw.write(""+cursor.getColumnName(i) + ",");
+						System.out.println("names22:"+cursor.getString(i));
+					} else {
+
+						bw.write(""+cursor.getColumnName(i));
+						System.out.println("names22:"+cursor.getString(i));
+
+					}
+				}
+				bw.newLine();
+
+				for (int i = 0; i < rowcount; i++) {
+					cursor.moveToPosition(i);
+
+					for (int j = 0; j < colcount; j++) {
+						if (j != colcount - 1){
+							bw.write(""+cursor.getString(j) + ",");
+						System.out.println("names:"+cursor.getString(j));
+						}else{
+							bw.write(""+cursor.getString(j));
+							System.out.println("names1:"+cursor.getString(j));
+						}
+					}
+					bw.newLine();
+				}
+				bw.flush();
+				//   infotext.setText("Exported Successfully.");
+
+				new CSVToExcelConverter2().execute();
+			}
+			if(!cursor.isClosed())
+				cursor.close();
+		} catch (Exception ex) {
+			
+			System.out.println("exception:"+ex.getMessage());
+			if (sqldb.isOpen()) {
+				sqldb.close();
+				if(cursor!=null )
+				{
+					if(!cursor.isClosed())
+						cursor.close();
+				}
+				//     infotext.setText(ex.getMessage().toString());
+			}
+
+		} finally {
+
 		}
+		
+		
+	}
+	
+	
+	
 
-		@Override
-		protected void onPostExecute(Void result) {
-			// TODO Auto-generated method stub
-			super.onPostExecute(result);
+	
+	public void mainForm(){
+		SQLiteDatabase sqldb = db.getReadableDatabase();
+		Cursor cursor = null;
+		try {
+			 //My Database class
+			csvFile="MyBackUpOwner.csv";
+			xlsFIle="MainServeyForm";
+			cursor = sqldb.rawQuery("select * from SERVEY_DATA",null);//WHERE CREATED_DATE >='"+toDay_DATE+"_00:00:00'", null);
+			int rowcount = 0;
+			int colcount = 0;
+			File sdCardDir = Environment.getExternalStorageDirectory();
+			String filename = csvFile;//"MyBackUpOwner.csv";
+			// the name of the file to export with
+			File saveFile = new File(sdCardDir, filename);
+			FileWriter fw = new FileWriter(saveFile);
 
-			SharedPreferences preferences=getSharedPreferences(prf_name,MODE_PRIVATE);
-			SharedPreferences.Editor edit=preferences.edit();
+			BufferedWriter bw = new BufferedWriter(fw);
+			rowcount = cursor.getCount();
+			colcount = cursor.getColumnCount();
+			if (rowcount > 0) {
+				cursor.moveToFirst();
 
-			edit.putBoolean("IS_MASTER_DB_CREATED", true);
-			edit.commit();
+				for (int i = 0; i < colcount; i++) {
+					if (i != colcount - 1) {
 
+						bw.write(""+cursor.getColumnName(i) + ",");
+						System.out.println("names22:"+cursor.getString(i));
+					} else {
 
-			progess.dismiss();
+						bw.write(""+cursor.getColumnName(i));
+						System.out.println("names22:"+cursor.getString(i));
+
+					}
+				}
+				bw.newLine();
+
+				for (int i = 0; i < rowcount; i++) {
+					cursor.moveToPosition(i);
+
+					for (int j = 0; j < colcount; j++) {
+						if (j != colcount - 1){
+							bw.write(""+cursor.getString(j) + ",");
+						System.out.println("names:"+cursor.getString(j));
+						}else{
+							bw.write(""+cursor.getString(j));
+							System.out.println("names1:"+cursor.getString(j));
+						}
+					}
+					bw.newLine();
+				}
+				bw.flush();
+				//   infotext.setText("Exported Successfully.");
+
+				new CSVToExcelConverter().execute();
+			}
+			if(!cursor.isClosed())
+				cursor.close();
+		} catch (Exception ex) {
+			
+			System.out.println("exception:"+ex.getMessage());
+			if (sqldb.isOpen()) {
+				sqldb.close();
+				if(cursor!=null )
+				{
+					if(!cursor.isClosed())
+						cursor.close();
+				}
+				//     infotext.setText(ex.getMessage().toString());
+			}
+
+		} finally {
+
 		}
+		
+		
 	}
 
 
@@ -302,8 +472,145 @@ public class MainActivity extends BaserActinbBar{
 			}  
 
 			//  tv_date.setText(ft.format(dNow)+"-"+Integer.toString(level)+"%");
-			String inFilePath = Environment.getExternalStorageDirectory().toString()+"/MyBackUp.csv";
-			outFilePath = Environment.getExternalStorageDirectory().toString()+"/servey/"+toDay_DATE+".xls";
+			String inFilePath = Environment.getExternalStorageDirectory().toString()+"MyBackUpBuild.csv";
+			outFilePath = Environment.getExternalStorageDirectory().toString()+"/servey/MainServey"+toDay_DATE+".xls";
+			String thisLine;
+			int count=0;
+
+			try {
+
+				FileInputStream fis = new FileInputStream(inFilePath);
+				DataInputStream myInput = new DataInputStream(fis);
+				int i=0;
+				arList = new ArrayList();
+				while ((thisLine = myInput.readLine()) != null)
+				{
+					al = new ArrayList();
+					String strar[] = thisLine.split(",");
+					for(int j=0;j<strar.length;j++)
+					{
+						al.add(strar[j]);
+					}
+					arList.add(al);
+
+					i++;
+				}} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+			try
+			{
+				HSSFWorkbook hwb = new HSSFWorkbook();
+				HSSFSheet sheet = hwb.createSheet("OD Survey "+toDay_DATE);
+				for(int k=0;k<arList.size();k++)
+				{
+					ArrayList ardata = (ArrayList)arList.get(k);
+					HSSFRow row = sheet.createRow((short) 0+k);
+					for(int p=0;p<ardata.size();p++)
+					{
+						HSSFCell cell = row.createCell((short) p);
+						String data = ardata.get(p).toString();
+						if(data.startsWith("=")){
+							cell.setCellType(cell.CELL_TYPE_STRING);
+							data=data.replaceAll("\"", "");
+							data=data.replaceAll("=", "");
+							cell.setCellValue(data);
+						}else if(data.startsWith("\"")){
+							data=data.replaceAll("\"", "");
+							cell.setCellType(cell.CELL_TYPE_STRING);
+							cell.setCellValue(data);
+						}else{
+							data=data.replaceAll("\"", "");
+							cell.setCellType(cell.CELL_TYPE_NUMERIC);
+							cell.setCellValue(data);
+						}
+
+					}
+
+				}
+				FileOutputStream fileOut = new FileOutputStream(outFilePath);
+				hwb.write(fileOut);
+				fileOut.close();
+				System.out.println("Your excel file has been generated");
+			} catch ( Exception ex ) {
+				ex.printStackTrace();
+			} //main method ends
+			return true;
+		}
+
+		@Override
+		protected void onPostExecute(final Boolean success)
+
+		{
+
+			if (this.dialog.isShowing())
+
+			{
+				
+				
+				//OwnerdetailsForm();
+
+				this.dialog.dismiss();
+
+			}
+
+			if (success)
+
+			{
+
+				Toast.makeText(MainActivity.this, "File exported successfully :"+outFilePath, Toast.LENGTH_LONG).show();
+				
+				 showCutomDialog();
+
+			}
+
+			else
+
+			{
+
+				Toast.makeText(MainActivity.this, "File export failed", Toast.LENGTH_SHORT).show();
+
+			}
+
+		}
+
+
+
+	}
+	
+	
+	
+	public class CSVToExcelConverter2 extends AsyncTask<String, Void, Boolean> {
+
+
+		private final ProgressDialog dialog = new ProgressDialog(MainActivity.this);
+
+		@Override
+		protected void onPreExecute()
+		{
+			this.dialog.setMessage("Exporting to excel...");
+		this.dialog.show();}
+
+		@Override
+		protected Boolean doInBackground(String... params) {
+			ArrayList arList=null;
+			ArrayList al=null;
+
+			//File dbFile= new File(getDatabasePath("database_name").toString());
+			//File dbFile=getDatabasePath(DatabaseHandler.DATABASE_NAME);
+			//String yes= dbFile.getAbsolutePath();
+
+
+
+			File exportDir = new File(Environment.getExternalStorageDirectory(), "/servey");        
+			if (!exportDir.exists()) 
+			{
+				exportDir.mkdirs();
+			}  
+
+			//  tv_date.setText(ft.format(dNow)+"-"+Integer.toString(level)+"%");
+			String inFilePath = Environment.getExternalStorageDirectory().toString()+csvFile;
+			outFilePath = Environment.getExternalStorageDirectory().toString()+"/servey/"+xlsFIle+"_"+toDay_DATE+".xls";
 			String thisLine;
 			int count=0;
 
@@ -377,6 +684,138 @@ public class MainActivity extends BaserActinbBar{
 
 			{
 
+				this.dialog.dismiss();
+
+			}
+
+			if (success)
+
+			{
+
+				Toast.makeText(MainActivity.this, "File exported successfully :"+outFilePath, Toast.LENGTH_LONG).show();
+				
+				 showCutomDialog();
+
+			}
+
+			else
+
+			{
+
+				Toast.makeText(MainActivity.this, "File export failed", Toast.LENGTH_SHORT).show();
+
+			}
+
+		}
+
+
+
+	}
+	
+	public class CSVToExcelConverter1 extends AsyncTask<String, Void, Boolean> {
+
+
+		private final ProgressDialog dialog = new ProgressDialog(MainActivity.this);
+
+		@Override
+		protected void onPreExecute()
+		{
+			this.dialog.setMessage("Exporting to excel...");
+		this.dialog.show();}
+
+		@Override
+		protected Boolean doInBackground(String... params) {
+			ArrayList arList=null;
+			ArrayList al=null;
+
+			//File dbFile= new File(getDatabasePath("database_name").toString());
+			//File dbFile=getDatabasePath(DatabaseHandler.DATABASE_NAME);
+			//String yes= dbFile.getAbsolutePath();
+
+
+
+			File exportDir = new File(Environment.getExternalStorageDirectory(), "/servey");        
+			if (!exportDir.exists()) 
+			{
+				exportDir.mkdirs();
+			}  
+
+			//  tv_date.setText(ft.format(dNow)+"-"+Integer.toString(level)+"%");
+			String inFilePath = Environment.getExternalStorageDirectory().toString()+csvFile;
+			outFilePath = Environment.getExternalStorageDirectory().toString()+"/servey/"+xlsFIle+"_"+toDay_DATE+".xls";
+			String thisLine;
+			int count=0;
+
+			try {
+
+				FileInputStream fis = new FileInputStream(inFilePath);
+				DataInputStream myInput = new DataInputStream(fis);
+				int i=0;
+				arList = new ArrayList();
+				while ((thisLine = myInput.readLine()) != null)
+				{
+					al = new ArrayList();
+					String strar[] = thisLine.split(",");
+					for(int j=0;j<strar.length;j++)
+					{
+						al.add(strar[j]);
+					}
+					arList.add(al);
+
+					i++;
+				}} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+			try
+			{
+				HSSFWorkbook hwb = new HSSFWorkbook();
+				HSSFSheet sheet = hwb.createSheet("OD Survey "+toDay_DATE);
+				for(int k=0;k<arList.size();k++)
+				{
+					ArrayList ardata = (ArrayList)arList.get(k);
+					HSSFRow row = sheet.createRow((short) 0+k);
+					for(int p=0;p<ardata.size();p++)
+					{
+						HSSFCell cell = row.createCell((short) p);
+						String data = ardata.get(p).toString();
+						if(data.startsWith("=")){
+							cell.setCellType(cell.CELL_TYPE_STRING);
+							data=data.replaceAll("\"", "");
+							data=data.replaceAll("=", "");
+							cell.setCellValue(data);
+						}else if(data.startsWith("\"")){
+							data=data.replaceAll("\"", "");
+							cell.setCellType(cell.CELL_TYPE_STRING);
+							cell.setCellValue(data);
+						}else{
+							data=data.replaceAll("\"", "");
+							cell.setCellType(cell.CELL_TYPE_NUMERIC);
+							cell.setCellValue(data);
+						}
+
+					}
+
+				}
+				FileOutputStream fileOut = new FileOutputStream(outFilePath);
+				hwb.write(fileOut);
+				fileOut.close();
+				System.out.println("Your excel file has been generated");
+			} catch ( Exception ex ) {
+				ex.printStackTrace();
+			} //main method ends
+			return true;
+		}
+
+		@Override
+		protected void onPostExecute(final Boolean success)
+
+		{
+
+			if (this.dialog.isShowing())
+
+			{
+			//	buildingdetailsForm();
 				this.dialog.dismiss();
 
 			}

@@ -24,7 +24,7 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 	//Spinner spn_profession;
 	Button btn_addview,btn_Next,btn_Prev;
 	LinearLayout ll_container;
-	ArrayList<NameBean> beanList=new ArrayList<NameBean>();
+	public static ArrayList<NameBean> beanList=new ArrayList<NameBean>();
 
 	//String[] strArr_dp={"<- Service ->","Business","HouseWife","Other"};
 	@Override
@@ -69,7 +69,7 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 					nameBean.setAge(etxtAge.getText().toString());
 					nameBean.setNameOfFatherorHusband(etxtfatherName.getText().toString());
 					nameBean.setProfession(etxtProffesion.getText().toString());
-
+					
 					beanList.add(nameBean);
 				}
 

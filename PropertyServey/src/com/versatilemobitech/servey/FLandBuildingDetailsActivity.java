@@ -1,5 +1,7 @@
 package com.versatilemobitech.servey;
 
+import java.util.ArrayList;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 
 import com.versatilemobitech.adapter.CustomAdapter;
 import com.versatilemobitech.bean.BuildingDetails;
+import com.versatilemobitech.bean.ProperyBean;
 
 public class FLandBuildingDetailsActivity  extends BaserActinbBar{
 
@@ -23,6 +26,8 @@ public class FLandBuildingDetailsActivity  extends BaserActinbBar{
 	Button btn_addview,btn_Next,btn_Prev;
 	LinearLayout ll_container;
 	//String[] strArr_dp={"<- Service ->","Business","HouseWife","Other"};
+	
+	public static ArrayList<BuildingDetails> arr_bld=new ArrayList<BuildingDetails>();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -47,25 +52,25 @@ public class FLandBuildingDetailsActivity  extends BaserActinbBar{
 
 
 				if(ll_container!=null)
-				{ 
+				{
 					BuildingDetails buildingDetails=null;
 					for (int i = 0; i <ll_container.getChildCount(); i++) {
 
 						buildingDetails=new BuildingDetails();
 						View addView=ll_container.getChildAt(i);
-						//
+					
 						EditText totalAraeSFT = (EditText)addView.findViewById(R.id.et_totalareasft);
 						EditText totalAraeYard = (EditText)addView.findViewById(R.id.et_totalareainyards);
 						Spinner landUse = (Spinner)addView.findViewById(R.id.spn_landuse);
 
 						Spinner floordetails = (Spinner)addView.findViewById(R.id.spn_detailsfloor);
-
+		
 						buildingDetails.setTotalAreaInSqFt(totalAraeSFT.getText().toString());
 
 						buildingDetails.setTotalAreaInYard(totalAraeYard.getText().toString());
 						buildingDetails.setLandUse( landUse.getSelectedItem().toString());
 						buildingDetails.setDetailsoffloor(floordetails.getSelectedItem().toString());
-						System.out.println("TEST flor"+floordetails);
+						arr_bld.add(buildingDetails);
 					}
 				}
 				Intent i=new Intent(getApplicationContext(),GTaxPayerUsePropertyDetails.class);

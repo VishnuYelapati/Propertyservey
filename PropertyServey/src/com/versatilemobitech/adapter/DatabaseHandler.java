@@ -35,6 +35,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public static final String OwnerUIDNumber="Owner_UID_Number_Minimun_12_digits";
 	public static final String BasicPhoneNo="Data_Providers_Basic_Phone_No";
 	public static final String FormID="FormID";
+	public static final String OwnerFatherName="OwnerFatherName";
 	
 	
 	public static final String ID="S_NO";
@@ -296,6 +297,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ ID 		+ " INTEGER PRIMARY KEY,"
 				+ ownerId 	+ " TEXT," 
 				+ owner_name 	+ " TEXT," 
+				+ OwnerFatherName + " TEXT,"
 				+ age 	+ " TEXT," 
 				+ profession 	+ " TEXT" 
 			

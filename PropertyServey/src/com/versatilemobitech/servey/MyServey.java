@@ -14,6 +14,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.Geocoder;
@@ -63,6 +65,7 @@ public class MyServey extends BaserActinbBar {
 
 
 	private String mCurrentPhotoPath;
+	private String mCurrentPhotoPath2;
 	//private final String USER_PREF_FILE_NAME="user_time";
 
 	private static final String JPEG_FILE_PREFIX = "IMG_";
@@ -193,7 +196,7 @@ public class MyServey extends BaserActinbBar {
 
 			try {
 				f = setUpPhotoFile();
-				mCurrentPhotoPath = f.getAbsolutePath();
+				mCurrentPhotoPath2= f.getAbsolutePath();
 				takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
 				System.out.println("");
 			} catch (IOException e) {
@@ -308,14 +311,19 @@ public class MyServey extends BaserActinbBar {
 
 			@Override
 			public void onClick(View arg0) {
+				
+				SQLiteDatabase sqldb = dbHandler.getReadableDatabase(); //My Database class
+				Cursor cursor = null;
 				// TODO Auto-generated method stub
 				SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy_HH:mm:ss");
 				toDay_DATE= sdf.format(new Date());
 
 				ProperyBean pbean=ProperyBean.getInstance();
 
+				cursor = sqldb.rawQuery("select * from SERVEY_Owner_Details",null);//WHERE CREATED_DATE >='"+toDay_DATE+"_00:00:00'", null);
+				
 
-
+				int rowcount=cursor.getCount();
 				ContentValues cv_Values=new ContentValues();
 				//cv_Values.put(dbHandler.AddressforCommunication,pbean.getAddressforCommunication());
 				//cv_Values.put(dbHandler.AdvertisementHoarding,pbean.get);
@@ -324,7 +332,7 @@ public class MyServey extends BaserActinbBar {
 				cv_Values.put(dbHandler.BasicPhoneNo_Address,pbean.getBasicPhoneNo_Address());
 				cv_Values.put(dbHandler.BeautyParlour,pbean.getBeautyParlour());
 				cv_Values.put(dbHandler.Boring,pbean.getBoring());
-				cv_Values.put(dbHandler.building_id,pbean.getBuildingId());
+				cv_Values.put(dbHandler.building_id,""+rowcount+"_b"+rowcount);//pbean.getBuildingId());
 				cv_Values.put(dbHandler.CentralGovPropertyOffice,pbean.getCentralGovPropertyOffice());
 				cv_Values.put(dbHandler.CinemahallMultiplex,pbean.getCinemahallMultiplex());
 				cv_Values.put(dbHandler.City,pbean.getCity());
@@ -402,16 +410,54 @@ public class MyServey extends BaserActinbBar {
 				cv_Values.put(dbHandler.TypOfConstruction,pbean.getTypOfConstruction());
 				cv_Values.put(dbHandler.VacantArea,pbean.getVacantArea());
 				cv_Values.put(dbHandler.VacantYard,pbean.getVacantYard());
-				cv_Values.put(dbHandler.FormID,"RJ/JPR/ZONE1/WARD1/Tablet1/Seq1");
+				cv_Values.put(dbHandler.FormID,pbean.getLandmark()+"/"+pbean.getCity()+"/"+pbean.getZone()+"/"+pbean.getWard());//RJ/JPR/ZONE1/WARD1/Tablet1/Seq1");
 				long insterResult=dbHandler.insert(dbHandler.TABLE_servey_Data, cv_Values);
 
 				System.out.println("Test insert ::::"+insterResult);
+				
+				/*buildingDetails.setTotalAreaInSqFt(totalAraeSFT.getText().toString());
+
+				buildingDetails.setTotalAreaInYard(totalAraeYard.getText().toString());
+				buildingDetails.setLandUse( landUse.getSelectedItem().toString());
+				buildingDetails.setDetailsoffloor(floordetails.getSelectedItem().toString());
+				
+				+ building_id 	+ " TEXT," 
+				+ Land_Use 	+ " TEXT," 
+				+ Floor_No 	+ " TEXT," 
+				+ Total_Area_sft 	+ " TEXT," 
+				+ Total_Area_Yard 	+ " TEXT" */
+				for (int i = 0; i < FLandBuildingDetailsActivity.arr_bld.size(); i++) {
+					
+					ContentValues cvbld=new ContentValues();
+					cvbld.put(dbHandler.building_id, ""+rowcount+"_b"+rowcount);
+					cvbld.put(dbHandler.Total_Area_sft, FLandBuildingDetailsActivity.arr_bld.get(i).getTotalAreaInSqFt());
+					cvbld.put(dbHandler.Total_Area_Yard, FLandBuildingDetailsActivity.arr_bld.get(i).getTotalAreaInYard());
+					cvbld.put(dbHandler.Floor_No, FLandBuildingDetailsActivity.arr_bld.get(i).getDetailsoffloor());
+					cvbld.put(dbHandler.Land_Use, FLandBuildingDetailsActivity.arr_bld.get(i).getLandUse());
+					
+					
+					dbHandler.insert(dbHandler.TABLE_Building_Data, cvbld);
+					
+				}
+			
+				for (int i = 0; i < ProperyBean.getInstance().getNameList().size(); i++) {
+					
+					ContentValues cvbld=new ContentValues();
+					cvbld.put(dbHandler.Owner_id, ""+rowcount+"_W"+rowcount);
+					cvbld.put(dbHandler.age, ProperyBean.getInstance().getNameList().get(i).getAge());
+					cvbld.put(dbHandler.owner_name, ProperyBean.getInstance().getNameList().get(i).getName());
+					cvbld.put(dbHandler.OwnerFatherName,ProperyBean.getInstance().getNameList().get(i).getNameOfFatherorHusband());
+					
+					
+					dbHandler.insert(dbHandler.TABLE_Owner_Data, cvbld);
+					
+				}
+				
+			
 			
 				Intent i=new Intent(getApplicationContext(),MainActivity.class);
 				startActivity(i);
 				finish();
-//09-29 06:16:50.280: E/SQLiteLog(3712): (1) table SERVEY_DATA has no column named Building_Id_like_1_b_2_b_3_b_so_on
-
 
 			}  
 		});
