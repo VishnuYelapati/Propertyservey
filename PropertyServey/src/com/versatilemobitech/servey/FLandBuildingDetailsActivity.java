@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -27,7 +28,7 @@ public class FLandBuildingDetailsActivity  extends BaserActinbBar{
 	LinearLayout ll_container;
 	//String[] strArr_dp={"<- Service ->","Business","HouseWife","Other"};
 	
-	public static ArrayList<BuildingDetails> arr_bld=new ArrayList<BuildingDetails>();
+	 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -53,6 +54,7 @@ public class FLandBuildingDetailsActivity  extends BaserActinbBar{
 
 				if(ll_container!=null)
 				{
+					ArrayList<BuildingDetails> arr_bld=new ArrayList<BuildingDetails>();
 					BuildingDetails buildingDetails=null;
 					for (int i = 0; i <ll_container.getChildCount(); i++) {
 
@@ -70,8 +72,12 @@ public class FLandBuildingDetailsActivity  extends BaserActinbBar{
 						buildingDetails.setTotalAreaInYard(totalAraeYard.getText().toString());
 						buildingDetails.setLandUse( landUse.getSelectedItem().toString());
 						buildingDetails.setDetailsoffloor(floordetails.getSelectedItem().toString());
+						
 						arr_bld.add(buildingDetails);
 					}
+					
+					ProperyBean.getInstance().setBulidList(arr_bld);
+					
 				}
 				Intent i=new Intent(getApplicationContext(),GTaxPayerUsePropertyDetails.class);
 				startActivity(i);

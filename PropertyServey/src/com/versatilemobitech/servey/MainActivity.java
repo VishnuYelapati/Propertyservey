@@ -80,19 +80,7 @@ public class MainActivity extends BaserActinbBar{
 		TextView dateView=(TextView)findViewById(R.id.date_info);
 		dateView.setText("Date:"+toDay_DATE);
 
-		//exportCSV();
-		/*Cursor c=db.RetriveData("Select * from SERVEY_DATA WHERE CREATED_DATE >='"+toDay_DATE+"_00:00:00'");
-
-		if(c!=null){
-			txt_noserveys.setText("Number of serveys: "+c.getCount());
-			
-			if(c.getCount()>0)
-			isCanExportReport=true;
-		}else{
-			txt_noserveys.setText("Number of serveys: 0");
-			isCanExportReport=false;
-		}
-		c.close();*/
+		 
 
 		btn_startservey.setOnClickListener(new OnClickListener() {
 
@@ -106,20 +94,7 @@ public class MainActivity extends BaserActinbBar{
 		});
 		
 		
-
-	/*	btn_serveyreport.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				
-				Intent intent = new Intent(MainActivity.this, CaptureSignature.class); 
-                startActivityForResult(intent,SIGNATURE_ACTIVITY);
-
-			}
-		});
-*/
-
+ 
 		btn_export.setOnClickListener(new View.OnClickListener() {
 			//SQLiteDatabase sqldb = db.getReadableDatabase();
 			//Cursor cursor = null;
@@ -127,9 +102,9 @@ public class MainActivity extends BaserActinbBar{
 			@Override
 			public void onClick(View v) {  //main code begins here
 			
-				 //mainForm();
+				  mainForm();
 				 OwnerdetailsForm();
-				 //buildingdetailsForm();
+				  buildingdetailsForm();
 				
 			}
 			

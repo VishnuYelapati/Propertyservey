@@ -1,10 +1,7 @@
 package com.versatilemobitech.servey;
 
-import com.versatilemobitech.adapter.DatabaseHandler;
-import com.versatilemobitech.bean.ProperyBean;
-import com.versatilemobitech.util.CaptureSignature;
+import java.util.ArrayList;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -13,6 +10,12 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.versatilemobitech.adapter.DatabaseHandler;
+import com.versatilemobitech.bean.BuildingDetails;
+import com.versatilemobitech.bean.NameBean;
+import com.versatilemobitech.bean.ProperyBean;
+import com.versatilemobitech.util.CaptureSignature;
 
 public class HServeyorDetails extends BaserActinbBar{
 	
@@ -76,13 +79,30 @@ public class HServeyorDetails extends BaserActinbBar{
 	 
 	                Bundle bundle = data.getExtras();
 	                String status  = bundle.getString("status");
+	                String path=bundle.getString("path");
 	                if(status.equalsIgnoreCase("done")){
-	                    Toast toast = Toast.makeText(this, "Signature capture successful!", Toast.LENGTH_SHORT);
+	                	System.out.println("TEST signatur path"+path);
+	                    Toast toast = Toast.makeText(this, "Signature capture successful!"+path, Toast.LENGTH_SHORT);
 	                    toast.setGravity(Gravity.TOP, 105, 50);
 	                    toast.show();
 	                    
 	                    finish();
 	                	
+	                    /** 
+	                     * TEST data
+	                     */
+	                    
+	                    ArrayList<BuildingDetails> bd=new ArrayList<BuildingDetails>();
+	                    bd.add(new BuildingDetails());
+	                    bd.add(new BuildingDetails());
+	                    
+	                    ArrayList<NameBean> nb=new ArrayList<NameBean>(); 
+	                    nb.add(new NameBean());
+	                    nb.add(new NameBean());
+	                    
+	                    ProperyBean.getInstance().setBulidList(bd);
+	                    ProperyBean.getInstance().setNameList(nb);
+	                    
 	        			Intent i=new Intent(getApplicationContext(),MyServey.class);
 	        			startActivity(i);
 	                }

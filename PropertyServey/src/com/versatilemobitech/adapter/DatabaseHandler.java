@@ -32,7 +32,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public static final String mobileNo="Data_Providers_Mobile_No";
 	public static final String EmailID="Data_Providers_mail_Id";
 	public static final String NameOfDataProvider="Data_Provider_Name";
-	public static final String OwnerUIDNumber="Owner_UID_Number_Minimun_12_digits";
+	public static final String OwnerUIDNumber="Owner_UID_Number";
 	public static final String BasicPhoneNo="Data_Providers_Basic_Phone_No";
 	public static final String FormID="FormID";
 	public static final String OwnerFatherName="OwnerFatherName";
@@ -47,8 +47,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public static final String EmailID_Address="Owner_mail_Id";
 	public static final String PermanentAddress="Owner_Permanent_Address";
 	public static final String BasicPhoneNo_Address="Owner_Basic_Phone_No";
-	public static final String ownerId="Owner_Id_like_1_w_2_w_3_w_so_on";
-//	public static final String ownerUId="Owner_UID_Number_Minimun_12_digits";
+	 
+ 
 	
 	
 	/**
@@ -107,7 +107,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public static final String ExempteUnderclause107Act2009="Excempted_under_clause_107_of_RM_Act_2009_Write_1_if_applicable_else_0";
 //	public static final String DharmashalaOfCommunitySociety=false;
 	public static final String CinemahallMultiplex="Cinema_Hall_Multiplex_Write_1_if_applicable_else_0";
-	public static final String GeneralDegreeCollege="General_Degree_college_Write_1_if_applicable_else_0";
+	public static final String GeneralDegreeCollege="General_Degree_college";
 	public static final String CoachingInstitute="Coaching_Institute_Write_1_if_applicable_else_0";
 	public static final String OutOfRicoIndustries="Out_of_RICO_industries_Write_1_if_applicable_else_0";
 
@@ -160,14 +160,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	
 	//Building_table_data
 	
-	public static final String building_id="Building_Id_like_1_b_2_b_3_b_so_on";
+	public static final String building_id="Building_Id";
 	public static final String Land_Use="Land_Use";
 	public static final String Floor_No="Floor_No";
 	public static final String Total_Area_sft="Total_Area_in_sqft";
 	public static final String Total_Area_Yard="Total_Area_in_Yard";
 	//Owner_table_data
 	
-		public static final String Owner_id="Owner_Id_like_1_b_2_b_3_b_so_on";
+		public static final String Owner_id="Owner_Id";
 		public static final String owner_name="Owner_Name";
 		public static final String father_name="Name_of_Father_Husband";
 		public static final String age="Age";
@@ -249,7 +249,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ Residential 		+ " TEXT,"
 				+ Others 		+ " TEXT,"
 				+ building_id 	+ " TEXT," 
-				+ ownerId 	+ " TEXT," 
+				+ Owner_id 	+ " TEXT," 
 				+ SewerConnection 		+ " TEXT,"
 				+ LightConnection 		+ " TEXT,"
 				+ Boring 		+ " TEXT,"
@@ -295,7 +295,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ TABLE_Owner_Data 
 				+ " (" 
 				+ ID 		+ " INTEGER PRIMARY KEY,"
-				+ ownerId 	+ " TEXT," 
+				+ Owner_id 	+ " TEXT," 
 				+ owner_name 	+ " TEXT," 
 				+ OwnerFatherName + " TEXT,"
 				+ age 	+ " TEXT," 

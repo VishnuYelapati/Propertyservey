@@ -16,13 +16,13 @@ public class ProperyBean implements Serializable{
 	/**
 	 * Data Provided By
 	 */
-	private String  dataProvidedBy="";
-	private String relationshipOfOwner="";
-	private String mobileNo="";
-	private String EmailID="";
-	private String NameOfDataProvider="";
-	private String OwnerUIDNumber="";
-	private String BasicPhoneNo="";
+	private String  dataProvidedBy="Test data in";
+	private String relationshipOfOwner="Test data in";
+	private String mobileNo="Test data in";
+	private String EmailID="Test data in";
+	private String NameOfDataProvider="Test data in";
+	private String OwnerUIDNumber="Test data in";
+	private String BasicPhoneNo="Test data in";
 
 	/**
 	 * Taxpayer/Occupier/Owner's Detail
@@ -33,47 +33,47 @@ public class ProperyBean implements Serializable{
 	 * Address for communication
 	 */
 
-	private String AddressforCommunication="";
-	private String PermanentAddress_Address="";
-	private String MobileNo_Address="";
-	private String EmailID_Address="";
-	private String PermanentAddress="";
-	private String BasicPhoneNo_Address="";
+	private String AddressforCommunication="Test data in";
+	private String PermanentAddress_Address="Test data in";
+	private String MobileNo_Address="Test data in";
+	private String EmailID_Address="Test data in";
+	private String PermanentAddress="Test data in";
+	private String BasicPhoneNo_Address="Test data in";
 
 	/**
 	 * Details Of Property/Building
 	 */
 
-	private String Plot_Flat_ShopNo="";
-	private String Zone="";
-	private String Colony_Name="";
+	private String Plot_Flat_ShopNo="Test data in";
+	private String Zone="Test data in";
+	private String Colony_Name="Test data in";
 	private String City="Jaipur";
 	private String State="Rajasthan";
-	private String Name_No_OfBuilding="";
-	private String DetailsOfOwnership="";
-	private String WhetherConstructionOnPlot="";
-	private String NameOfLane_Road="";
-	private String Landmark="";
-	private String Ward="";
+	private String Name_No_OfBuilding="Test data in";
+	private String DetailsOfOwnership="Test data in";
+	private String WhetherConstructionOnPlot="Test data in";
+	private String NameOfLane_Road="Test data in";
+	private String Landmark="Test data in";
+	private String Ward="Test data in";
 	private String District="Jaipur";
-	private String Name_No_OfBuilding_pre="";
-	private String IncaseofMultistoreyBuilding="";
-	private String Length="";
-	private String Width="";
-	private String TypOfConstruction="";
+	private String Name_No_OfBuilding_pre="Test data in";
+	private String IncaseofMultistoreyBuilding="Test data in";
+	private String Length="Test data in";
+	private String Width="Test data in";
+	private String TypOfConstruction="Test data in";
 
-	private String No_Of_Floors="";
+	private String No_Of_Floors="Test data in";
 	// Area 
-	private String TotalPlotArea="";
-	private String PlinthArea="";
-	private String VacantArea="";
-	private String TotalConstructionArea="";
+	private String TotalPlotArea="Test data in";
+	private String PlinthArea="Test data in";
+	private String VacantArea="Test data in";
+	private String TotalConstructionArea="Test data in";
 
 	// Yard
-	private String TotalPlotYard="";
-	private String PlinthYard="";
-	private String VacantYard="";
-	private String TotalConstructionYard="";
+	private String TotalPlotYard="Test data in";
+	private String PlinthYard="Test data in";
+	private String VacantYard="Test data in";
+	private String TotalConstructionYard="Test data in";
 
 	/*
 	 * Use Of Land/Building & Details Of Floor Areas
@@ -85,65 +85,65 @@ public class ProperyBean implements Serializable{
 	 * Use Of Property(Please tick if applicable)
 	 */
 
-	private String PrivateHospitalClinic;
-	private String  Residentialcum_commercial;
-	private String  BeautyParlour;
-	private String  PrivateOffice;
-	private String  MarriageGardenHall;
-	private String  HotelRestaurant;
-	private String SemiGovtInstitute;
-	private String CentralGovPropertyOffice;
-	private String School;
-	private String ProfessionalCollege;
-	private String CompletelyReligiousProperty;
-	private String SituatedInRicoArea;
-	private String ExempteUnderclause107Act2009;
-	private String DharmashalaOfCommunitySociety;
-	private String CinemahallMultiplex;
-	private String GeneralDegreeCollege;
-	private String CoachingInstitute;
-	private String OutOfRicoIndustries;
+	private String PrivateHospitalClinic="Test data in";
+	private String  Residentialcum_commercial="Test data in";
+	private String  BeautyParlour="Test data in";
+	private String  PrivateOffice="Test data in";
+	private String  MarriageGardenHall="Test data in";
+	private String  HotelRestaurant="Test data in";
+	private String SemiGovtInstitute="Test data in";
+	private String CentralGovPropertyOffice="Test data in";
+	private String School="Test data in";
+	private String ProfessionalCollege="Test data in";
+	private String CompletelyReligiousProperty="Test data in";
+	private String SituatedInRicoArea="Test data in";
+	private String ExempteUnderclause107Act2009="Test data in";
+	private String DharmashalaOfCommunitySociety="Test data in";
+	private String CinemahallMultiplex="Test data in";
+	private String GeneralDegreeCollege="Test data in";
+	private String CoachingInstitute="Test data in";
+	private String OutOfRicoIndustries="Test data in";
 
 
-	private String StateGovtPropertyOffice="";
-	private String ReligiousPlace="";
-	private String Residential="";
-	private String  Others=""; //Other valu only when accept click okay
+	private String StateGovtPropertyOffice="Test data in";
+	private String ReligiousPlace="Test data in";
+	private String Residential="Test data in";
+	private String  Others="Test data in"; //Other valu only when accept click okay
 
 
 	//Yes are no
-	private String SewerConnection;
-	private String  LightConnection;
-	private String  Boring;
-	private String  Parking;
-	private String  AdvertisementHoarding;
-	private String  StreetLight;
-	private String  PrivateToilet;
-	private String 	 MobileTower;
-	private String 	 OpenToilet;
-	private String 	 WhetherpayUdTax;
-	private String 	 WhetherpayLeaseTax;
-	private String 	 SewerLine;
-	private String  SepticTank;
-	private String 	 PipedWaterConnection;
-	private String 	 FireFightingSystem;
+	private String SewerConnection="Test data in";
+	private String  LightConnection="Test data in";
+	private String  Boring="Test data in";
+	private String  Parking="Test data in";
+	private String  AdvertisementHoarding="Test data in";
+	private String  StreetLight="Test data in";
+	private String  PrivateToilet="Test data in";
+	private String 	 MobileTower="Test data in";
+	private String 	 OpenToilet="Test data in";
+	private String 	 WhetherpayUdTax="Test data in";
+	private String 	 WhetherpayLeaseTax="Test data in";
+	private String 	 SewerLine="Test data in";
+	private String  SepticTank="Test data in";
+	private String 	 PipedWaterConnection="Test data in";
+	private String 	 FireFightingSystem="Test data in";
 
-	private String  WhetherpayUdTax_ACNo="";
-	private String  WhetherpayLeaseTax_ACNo="";
-	private  String  PleaseWriteSizefBoardSqft="";
+	private String  WhetherpayUdTax_ACNo="Test data in";
+	private String  WhetherpayLeaseTax_ACNo="Test data in";
+	private  String  PleaseWriteSizefBoardSqft="Test data in";
 
 
 	/**
 	 * Survey Details
 	 */
 
-	private  String NameOfSurveyor="";
-	private  String  SurveyorAddress="";
-	private  String  IdCodeOfSurveyor="";
-	private  String  Date_Surveyor="";
-	private  String  NameOfAttestingAuthority="";
-	private  String  DesignationOfAttestingAuthority="";
-	private  String  Date_Attesting ="";
+	private  String NameOfSurveyor="Test data in";
+	private  String  SurveyorAddress="Test data in";
+	private  String  IdCodeOfSurveyor="Test data in";
+	private  String  Date_Surveyor="Test data in";
+	private  String  NameOfAttestingAuthority="Test data in";
+	private  String  DesignationOfAttestingAuthority="Test data in";
+	private  String  Date_Attesting ="Test data in";
 
 	static ProperyBean mProperyBean=null;
 	

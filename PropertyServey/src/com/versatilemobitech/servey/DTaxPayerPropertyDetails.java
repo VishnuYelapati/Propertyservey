@@ -224,8 +224,7 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 			@Override
 			public void onNothingSelected(AdapterView<?> parent) {
 				// TODO Auto-generated method stub
-
-				System.out.println("TEST Nothing select "+Zone);
+ 
 			}
 		});
 		btn_Next=(Button)findViewById(R.id.btn_next);
@@ -237,6 +236,11 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 			public void onClick(View v) {
 
 
+				ProperyBean bean=ProperyBean.getInstance();
+				
+				bean.setWard(Ward);
+				bean.setZone(Zone);
+				
 				Intent i=new Intent(getApplicationContext(),ETaxPayerMeasurementDetails.class);
 				startActivity(i);
 			}

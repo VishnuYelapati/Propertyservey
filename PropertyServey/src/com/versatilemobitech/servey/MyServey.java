@@ -7,11 +7,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.database.Cursor;
@@ -20,10 +23,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.Geocoder;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.provider.Settings.Secure;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -31,6 +36,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,9 +52,9 @@ public class MyServey extends BaserActinbBar {
 	double longitude;
 	String toDay_DATE;
 
-	MyServey activity = null;
+	Activity activity = null;
 
-	GPSTracker gpsTracker;
+	//GPSTracker gpsTracker;
 
 	//private TextView batinfo=null;
 	DatabaseHandler db_Handler;
@@ -205,8 +211,8 @@ public class MyServey extends BaserActinbBar {
 				//	mCurrentPhotoPath = null;
 			}
 			break;
-			
-			
+
+
 		case ACTION_TAKE_PHOTO_A:
 			File f2 = null;
 
@@ -249,8 +255,8 @@ public class MyServey extends BaserActinbBar {
 			dispatchTakePictureIntent(ACTION_TAKE_PHOTO_B);
 		}
 	};
-	
-	
+
+
 	Button.OnClickListener mTakePicTwoOnClickListener = 
 			new Button.OnClickListener() {
 		@Override
@@ -283,7 +289,7 @@ public class MyServey extends BaserActinbBar {
 				new SimpleDateFormat ("dd-MM-yyyy hh:mm");
 		activity  = this;
 		geocoder = new Geocoder(this, Locale.ENGLISH);
-		
+
 
 		TextView picBtn = (TextView) findViewById(R.id.btn_camera);
 		setBtnListenerOrDisable( 
@@ -291,16 +297,16 @@ public class MyServey extends BaserActinbBar {
 				mTakePicOnClickListener,
 				MediaStore.ACTION_IMAGE_CAPTURE
 				);
-		
-		
+
+
 		TextView picBtn2 = (TextView) findViewById(R.id.btn_camera1);
-		
+
 		setBtnListenerOrDisable( 
 				picBtn2, 
 				mTakePicTwoOnClickListener,
 				MediaStore.ACTION_IMAGE_CAPTURE
 				);
-		
+
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
 			mAlbumStorageDirFactory = new FroyoAlbumDirFactory();
 		} else {
@@ -311,160 +317,15 @@ public class MyServey extends BaserActinbBar {
 
 			@Override
 			public void onClick(View arg0) {
-				
-				SQLiteDatabase sqldb = dbHandler.getReadableDatabase(); //My Database class
-				Cursor cursor = null;
-				// TODO Auto-generated method stub
-				SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy_HH:mm:ss");
-				toDay_DATE= sdf.format(new Date());
 
-				ProperyBean pbean=ProperyBean.getInstance();
-
-				cursor = sqldb.rawQuery("select * from SERVEY_Owner_Details",null);//WHERE CREATED_DATE >='"+toDay_DATE+"_00:00:00'", null);
-				
-
-				int rowcount=cursor.getCount();
-				ContentValues cv_Values=new ContentValues();
-				//cv_Values.put(dbHandler.AddressforCommunication,pbean.getAddressforCommunication());
-				//cv_Values.put(dbHandler.AdvertisementHoarding,pbean.get);
-				
-				cv_Values.put(dbHandler.BasicPhoneNo,pbean.getBasicPhoneNo());
-				cv_Values.put(dbHandler.BasicPhoneNo_Address,pbean.getBasicPhoneNo_Address());
-				cv_Values.put(dbHandler.BeautyParlour,pbean.getBeautyParlour());
-				cv_Values.put(dbHandler.Boring,pbean.getBoring());
-				cv_Values.put(dbHandler.building_id,""+rowcount+"_b"+rowcount);//pbean.getBuildingId());
-				cv_Values.put(dbHandler.CentralGovPropertyOffice,pbean.getCentralGovPropertyOffice());
-				cv_Values.put(dbHandler.CinemahallMultiplex,pbean.getCinemahallMultiplex());
-				cv_Values.put(dbHandler.City,pbean.getCity());
-				cv_Values.put(dbHandler.Colony_Name,pbean.getColony_Name());
-				cv_Values.put(dbHandler.CompletelyReligiousProperty,pbean.getCompletelyReligiousProperty());
-				cv_Values.put(dbHandler.dataProvidedBy,pbean.getDataProvidedBy());
-				cv_Values.put(dbHandler.Date_Attesting,pbean.getDate_Attesting());
-				cv_Values.put(dbHandler.Date_Surveyor,pbean.getDate_Surveyor());
-				cv_Values.put(dbHandler.DesignationOfAttestingAuthority,pbean.getDesignationOfAttestingAuthority());
-				cv_Values.put(dbHandler.DetailsOfOwnership,pbean.getDetailsOfOwnership());
-				cv_Values.put(dbHandler.District,pbean.getDistrict());
-				cv_Values.put(dbHandler.EmailID,pbean.getEmailID());
-				cv_Values.put(dbHandler.EmailID_Address,pbean.getEmailID_Address());
-				cv_Values.put(dbHandler.ExempteUnderclause107Act2009,pbean.getExempteUnderclause107Act2009());
-
-
-				//cv_Values.put(dbHandler.father_name,pbean.get);
-				cv_Values.put(dbHandler.FireFightingSystem,pbean.getFireFightingSystem());
-				//cv_Values.put(dbHandler.Floor_No,pbean.get);
-				cv_Values.put(dbHandler.HotelRestaurant,pbean.getHotelRestaurant());
-				cv_Values.put(dbHandler.IdCodeOfSurveyor,pbean.getIdCodeOfSurveyor());
-				//cv_Values.put(dbHandler.Land_Use,pbean.getl);
-				cv_Values.put(dbHandler.Length,pbean.getLength());
-				cv_Values.put(dbHandler.LightConnection,pbean.getLightConnection());
-				cv_Values.put(dbHandler.mobileNo,pbean.getMobileNo());
-				cv_Values.put(dbHandler.MarriageGardenHall,pbean.getMarriageGardenHall());
-				cv_Values.put(dbHandler.MobileNo_Address,pbean.getMobileNo_Address());
-				cv_Values.put(dbHandler.MobileTower,pbean.getMobileTower());
-				cv_Values.put(dbHandler.Name_No_OfBuilding_post,pbean.getName_No_OfBuilding());
-				cv_Values.put(dbHandler.Name_No_OfBuilding_pre,pbean.getName_No_OfBuilding_pre());
-				cv_Values.put(dbHandler.NameOfAttestingAuthority,pbean.getNameOfAttestingAuthority());
-				cv_Values.put(dbHandler.NameOfDataProvider,pbean.getNameOfDataProvider());
-				cv_Values.put(dbHandler.NameOfLane_Road,pbean.getNameOfLane_Road());
-				cv_Values.put(dbHandler.NameOfSurveyor,pbean.getNameOfSurveyor());
-				cv_Values.put(dbHandler.No_Of_Floors,pbean.getNo_Of_Floors());
-				cv_Values.put(dbHandler.OpenToilet,pbean.getOpenToilet());
-				//	cv_Values.put(dbHandler.ownerId,pbean.geto);
-				//cv_Values.put(dbHandler.OwnerUIDNumber,pbean.getOwnerUIDNumber());
-				//cv_Values.put(dbHandler.OwnerUIDNumber,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.Others,pbean.getOthers());
-				cv_Values.put(dbHandler.OutOfRicoIndustries,pbean.getOutOfRicoIndustries());
-				//	cv_Values.put(dbHandler.owner_name,pbean.getO);
-				//		cv_Values.put(dbHandler.profession,pbean.getpr);
-				cv_Values.put(dbHandler.Parking,pbean.getParking());
-				cv_Values.put(dbHandler.PermanentAddress,pbean.getPermanentAddress());
-				//cv_Values.put(dbHandler.PermanentAddress_Address,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.PipedWaterConnection,pbean.getPipedWaterConnection());
-				//cv_Values.put(dbHandler.PleaseWriteSizefBoardSqft,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.PlinthArea,pbean.getPlinthArea());
-				cv_Values.put(dbHandler.PlinthYard,pbean.getPlinthYard());
-				cv_Values.put(dbHandler.Plot_Flat_ShopNo,pbean.getPlot_Flat_ShopNo());
-				cv_Values.put(dbHandler.PrivateHospitalClinic,pbean.getPrivateHospitalClinic());
-				cv_Values.put(dbHandler.PrivateOffice,pbean.getPrivateOffice());
-				cv_Values.put(dbHandler.PrivateToilet,pbean.getPrivateToilet());
-				cv_Values.put(dbHandler.ProfessionalCollege,pbean.getProfessionalCollege());
-				cv_Values.put(dbHandler.relationshipOfOwner,pbean.getRelationshipOfOwner());
-				cv_Values.put(dbHandler.ReligiousPlace,pbean.getReligiousPlace());
-				cv_Values.put(dbHandler.Residential,pbean.getResidential());
-				cv_Values.put(dbHandler.Residentialcum_commercial,pbean.getResidentialcum_commercial());
-				cv_Values.put(dbHandler.School,pbean.getSchool());
-				cv_Values.put(dbHandler.SemiGovtInstitute,pbean.getSemiGovtInstitute());
-				cv_Values.put(dbHandler.SepticTank,pbean.getSepticTank());
-				cv_Values.put(dbHandler.SewerConnection,pbean.getSewerConnection());
-				cv_Values.put(dbHandler.SewerLine,pbean.getSewerLine());
-				cv_Values.put(dbHandler.SituatedInRicoArea,pbean.getSituatedInRicoArea());
-				cv_Values.put(dbHandler.State,pbean.getState());
-				cv_Values.put(dbHandler.StateGovtPropertyOffice,pbean.getStateGovtPropertyOffice());
-				cv_Values.put(dbHandler.StreetLight,pbean.getStreetLight());
-				cv_Values.put(dbHandler.SurveyorAddress,pbean.getSurveyorAddress());
-			/*	cv_Values.put(dbHandler.Total_Area_sft,pbean.getAddressforCommunication());
-				cv_Values.put(dbHandler.Total_Area_Yard,pbean.gett);*/
-				//cv_Values.put(dbHandler.TotalConstructionArea,pbean.getAddressforCommunication()); //
-				cv_Values.put(dbHandler.TotalPlotArea,pbean.getTotalPlotArea());
-				cv_Values.put(dbHandler.TotalPlotYard,pbean.getTotalPlotYard());
-				cv_Values.put(dbHandler.TypOfConstruction,pbean.getTypOfConstruction());
-				cv_Values.put(dbHandler.VacantArea,pbean.getVacantArea());
-				cv_Values.put(dbHandler.VacantYard,pbean.getVacantYard());
-				cv_Values.put(dbHandler.FormID,pbean.getLandmark()+"/"+pbean.getCity()+"/"+pbean.getZone()+"/"+pbean.getWard());//RJ/JPR/ZONE1/WARD1/Tablet1/Seq1");
-				long insterResult=dbHandler.insert(dbHandler.TABLE_servey_Data, cv_Values);
-
-				System.out.println("Test insert ::::"+insterResult);
-				
-				/*buildingDetails.setTotalAreaInSqFt(totalAraeSFT.getText().toString());
-
-				buildingDetails.setTotalAreaInYard(totalAraeYard.getText().toString());
-				buildingDetails.setLandUse( landUse.getSelectedItem().toString());
-				buildingDetails.setDetailsoffloor(floordetails.getSelectedItem().toString());
-				
-				+ building_id 	+ " TEXT," 
-				+ Land_Use 	+ " TEXT," 
-				+ Floor_No 	+ " TEXT," 
-				+ Total_Area_sft 	+ " TEXT," 
-				+ Total_Area_Yard 	+ " TEXT" */
-				for (int i = 0; i < FLandBuildingDetailsActivity.arr_bld.size(); i++) {
-					
-					ContentValues cvbld=new ContentValues();
-					cvbld.put(dbHandler.building_id, ""+rowcount+"_b"+rowcount);
-					cvbld.put(dbHandler.Total_Area_sft, FLandBuildingDetailsActivity.arr_bld.get(i).getTotalAreaInSqFt());
-					cvbld.put(dbHandler.Total_Area_Yard, FLandBuildingDetailsActivity.arr_bld.get(i).getTotalAreaInYard());
-					cvbld.put(dbHandler.Floor_No, FLandBuildingDetailsActivity.arr_bld.get(i).getDetailsoffloor());
-					cvbld.put(dbHandler.Land_Use, FLandBuildingDetailsActivity.arr_bld.get(i).getLandUse());
-					
-					
-					dbHandler.insert(dbHandler.TABLE_Building_Data, cvbld);
-					
-				}
-			
-				for (int i = 0; i < ProperyBean.getInstance().getNameList().size(); i++) {
-					
-					ContentValues cvowner=new ContentValues();
-					cvowner.put(dbHandler.Owner_id, ""+rowcount+"_W"+rowcount);
-					cvowner.put(dbHandler.age, ProperyBean.getInstance().getNameList().get(i).getAge());
-					cvowner.put(dbHandler.owner_name, ProperyBean.getInstance().getNameList().get(i).getName());
-					cvowner.put(dbHandler.OwnerFatherName,ProperyBean.getInstance().getNameList().get(i).getNameOfFatherorHusband());
-					
-					
-					dbHandler.insert(dbHandler.TABLE_Owner_Data, cvowner);
-					
-				}
-				
-			
-			
-				Intent i=new Intent(getApplicationContext(),MainActivity.class);
-				startActivity(i);
-				finish();
-
+				MyDBTask dbTask=new MyDBTask();
+				dbTask.execute();
 			}  
 		});
 
 
 
-		gpsTracker = new GPSTracker(MyServey.this);
+		/*	gpsTracker = new GPSTracker(MyServey.this);
 		// check if GPS enabled		
 		if(gpsTracker.canGetLocation()){
 			latitude = gpsTracker.getLatitude();
@@ -472,7 +333,7 @@ public class MyServey extends BaserActinbBar {
 		}else{
 			gpsTracker.showSettingsAlert();
 			Toast.makeText(MyServey.this, "Please turn on GPS", Toast.LENGTH_LONG).show();
-		} 
+		} */
 	}
 	public static boolean isIntentAvailable(Context context, String action) {
 		final PackageManager packageManager = context.getPackageManager();
@@ -500,18 +361,240 @@ public class MyServey extends BaserActinbBar {
 		switch (requestCode) {
 		case ACTION_TAKE_PHOTO_B: {
 			if (resultCode == RESULT_OK) {
-				 
-				
+
+
 				handleBigCameraPhoto((ImageView) findViewById(R.id.catute_image));
 			}
 			break;
-			
+
 		} // ACTION_TAKE_PHOTO_B
 
 		case ACTION_TAKE_PHOTO_A:
 			handleBigCameraPhoto((ImageView) findViewById(R.id.catute_image2));
 			break;
 		}// switch
+	}
+
+
+	class MyDBTask extends AsyncTask<Void, Void, Boolean>
+	{
+		ProgressDialog progrssDialog=null;
+		@Override
+		protected void onPreExecute() {
+			// TODO Auto-generated method stub
+			super.onPreExecute();
+
+			progrssDialog=new ProgressDialog(activity);
+			progrssDialog.setMessage("Saving...");
+			progrssDialog.show();
+		}
+
+		@Override
+		protected Boolean doInBackground(Void... params) {
+
+
+
+
+
+
+			boolean isSucess=false;
+
+			SQLiteDatabase sqldb = dbHandler.getReadableDatabase(); //My Database class
+			Cursor cursor = null;
+			// TODO Auto-generated method stub
+			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy_HH:mm:ss");
+			toDay_DATE= sdf.format(new Date());
+
+			ProperyBean pbean=ProperyBean.getInstance();
+
+			cursor = sqldb.rawQuery("select * from SERVEY_Owner_Details",null);//WHERE CREATED_DATE >='"+toDay_DATE+"_00:00:00'", null);
+
+
+			int rowcount=cursor.getCount();
+			ContentValues cv_Values=new ContentValues();
+			//cv_Values.put(dbHandler.AddressforCommunication,pbean.getAddressforCommunication());
+			//cv_Values.put(dbHandler.AdvertisementHoarding,pbean.get);
+
+			cv_Values.put(dbHandler.BasicPhoneNo,pbean.getBasicPhoneNo());
+			cv_Values.put(dbHandler.BasicPhoneNo_Address,pbean.getBasicPhoneNo_Address());
+			cv_Values.put(dbHandler.BeautyParlour,pbean.getBeautyParlour());
+			cv_Values.put(dbHandler.Boring,pbean.getBoring());
+			cv_Values.put(dbHandler.building_id,""+rowcount+"_b");//pbean.getBuildingId());
+			cv_Values.put(dbHandler.Owner_id, ""+rowcount+"_W");
+			cv_Values.put(dbHandler.CentralGovPropertyOffice,pbean.getCentralGovPropertyOffice());
+			cv_Values.put(dbHandler.CinemahallMultiplex,pbean.getCinemahallMultiplex());
+			cv_Values.put(dbHandler.City,pbean.getCity());
+			cv_Values.put(dbHandler.Colony_Name,pbean.getColony_Name());
+			cv_Values.put(dbHandler.CompletelyReligiousProperty,pbean.getCompletelyReligiousProperty());
+			cv_Values.put(dbHandler.dataProvidedBy,pbean.getDataProvidedBy());
+			cv_Values.put(dbHandler.Date_Attesting,pbean.getDate_Attesting());
+			cv_Values.put(dbHandler.Date_Surveyor,pbean.getDate_Surveyor());
+			cv_Values.put(dbHandler.DesignationOfAttestingAuthority,pbean.getDesignationOfAttestingAuthority());
+			cv_Values.put(dbHandler.DetailsOfOwnership,pbean.getDetailsOfOwnership());
+			cv_Values.put(dbHandler.District,pbean.getDistrict());
+			cv_Values.put(dbHandler.EmailID,pbean.getEmailID());
+			cv_Values.put(dbHandler.EmailID_Address,pbean.getEmailID_Address());
+			cv_Values.put(dbHandler.ExempteUnderclause107Act2009,pbean.getExempteUnderclause107Act2009());
+
+
+			//cv_Values.put(dbHandler.father_name,pbean.get);
+			cv_Values.put(dbHandler.FireFightingSystem,pbean.getFireFightingSystem());
+			//cv_Values.put(dbHandler.Floor_No,pbean.get);
+			cv_Values.put(dbHandler.HotelRestaurant,pbean.getHotelRestaurant());
+			cv_Values.put(dbHandler.IdCodeOfSurveyor,pbean.getIdCodeOfSurveyor());
+			//cv_Values.put(dbHandler.Land_Use,pbean.getl);
+			cv_Values.put(dbHandler.Length,pbean.getLength());
+			cv_Values.put(dbHandler.LightConnection,pbean.getLightConnection());
+			cv_Values.put(dbHandler.mobileNo,pbean.getMobileNo());
+			cv_Values.put(dbHandler.MarriageGardenHall,pbean.getMarriageGardenHall());
+			cv_Values.put(dbHandler.MobileNo_Address,pbean.getMobileNo_Address());
+			cv_Values.put(dbHandler.MobileTower,pbean.getMobileTower());
+			cv_Values.put(dbHandler.Name_No_OfBuilding_post,pbean.getName_No_OfBuilding());
+			cv_Values.put(dbHandler.Name_No_OfBuilding_pre,pbean.getName_No_OfBuilding_pre());
+			cv_Values.put(dbHandler.NameOfAttestingAuthority,pbean.getNameOfAttestingAuthority());
+			cv_Values.put(dbHandler.NameOfDataProvider,pbean.getNameOfDataProvider());
+			cv_Values.put(dbHandler.NameOfLane_Road,pbean.getNameOfLane_Road());
+			cv_Values.put(dbHandler.NameOfSurveyor,pbean.getNameOfSurveyor());
+			cv_Values.put(dbHandler.No_Of_Floors,pbean.getNo_Of_Floors());
+			cv_Values.put(dbHandler.OpenToilet,pbean.getOpenToilet());
+			//	cv_Values.put(dbHandler.ownerId,pbean.geto);
+			 cv_Values.put(dbHandler.OwnerUIDNumber,pbean.getOwnerUIDNumber());
+			 cv_Values.put(dbHandler.AddressforCommunication,pbean.getAddressforCommunication());
+			 cv_Values.put(dbHandler.Zone,pbean.getZone());
+			 cv_Values.put(dbHandler.Ward,pbean.getWard());
+			cv_Values.put(dbHandler.Others,pbean.getOthers());
+			cv_Values.put(dbHandler.OutOfRicoIndustries,pbean.getOutOfRicoIndustries());
+			//	cv_Values.put(dbHandler.owner_name,pbean.getO);
+			//		cv_Values.put(dbHandler.profession,pbean.getpr);
+			cv_Values.put(dbHandler.Parking,pbean.getParking());
+			cv_Values.put(dbHandler.PermanentAddress,pbean.getPermanentAddress());
+			//cv_Values.put(dbHandler.PermanentAddress_Address,pbean.getAddressforCommunication());
+			cv_Values.put(dbHandler.PipedWaterConnection,pbean.getPipedWaterConnection());
+			 cv_Values.put(dbHandler.WhetherConstructionOnPlot,pbean.getWhetherConstructionOnPlot());
+			 cv_Values.put(dbHandler.IncaseofMultistoreyBuilding,pbean.getIncaseofMultistoreyBuilding());
+			 cv_Values.put(dbHandler.TotalConstructionArea,pbean.getTotalConstructionArea());
+			 
+			 
+			 cv_Values.put(dbHandler.Width,pbean.getWidth());
+			 cv_Values.put(dbHandler.GeneralDegreeCollege,pbean.getGeneralDegreeCollege());
+			 cv_Values.put(dbHandler.CoachingInstitute,pbean.getCoachingInstitute());
+			 cv_Values.put(dbHandler.AdvertisementHoarding,pbean.getAdvertisementHoarding());
+			 cv_Values.put(dbHandler.WhetherpayUdTax,pbean.getWhetherpayUdTax());
+			 cv_Values.put(dbHandler.WhetherpayLeaseTax,pbean.getWhetherpayLeaseTax());
+			 cv_Values.put(dbHandler.WhetherpayUdTax_ACNo,pbean.getWhetherpayUdTax_ACNo());
+			 cv_Values.put(dbHandler.WhetherpayLeaseTax_ACNo,pbean.getWhetherpayLeaseTax_ACNo());
+			 
+			 
+			cv_Values.put(dbHandler.PlinthArea,pbean.getPlinthArea());
+			cv_Values.put(dbHandler.PlinthYard,pbean.getPlinthYard());
+			cv_Values.put(dbHandler.Plot_Flat_ShopNo,pbean.getPlot_Flat_ShopNo());
+			cv_Values.put(dbHandler.PrivateHospitalClinic,pbean.getPrivateHospitalClinic());
+			cv_Values.put(dbHandler.PrivateOffice,pbean.getPrivateOffice());
+			cv_Values.put(dbHandler.PrivateToilet,pbean.getPrivateToilet());
+			cv_Values.put(dbHandler.ProfessionalCollege,pbean.getProfessionalCollege());
+			cv_Values.put(dbHandler.relationshipOfOwner,pbean.getRelationshipOfOwner());
+			cv_Values.put(dbHandler.ReligiousPlace,pbean.getReligiousPlace());
+			cv_Values.put(dbHandler.Residential,pbean.getResidential());
+			cv_Values.put(dbHandler.Residentialcum_commercial,pbean.getResidentialcum_commercial());
+			cv_Values.put(dbHandler.School,pbean.getSchool());
+			cv_Values.put(dbHandler.SemiGovtInstitute,pbean.getSemiGovtInstitute());
+			cv_Values.put(dbHandler.SepticTank,pbean.getSepticTank());
+			cv_Values.put(dbHandler.SewerConnection,pbean.getSewerConnection());
+			cv_Values.put(dbHandler.SewerLine,pbean.getSewerLine());
+			cv_Values.put(dbHandler.SituatedInRicoArea,pbean.getSituatedInRicoArea());
+			cv_Values.put(dbHandler.State,pbean.getState());
+			cv_Values.put(dbHandler.StateGovtPropertyOffice,pbean.getStateGovtPropertyOffice());
+			cv_Values.put(dbHandler.StreetLight,pbean.getStreetLight());
+			cv_Values.put(dbHandler.SurveyorAddress,pbean.getSurveyorAddress());
+			cv_Values.put(dbHandler.TotalPlotArea,pbean.getTotalPlotArea());
+			cv_Values.put(dbHandler.TotalPlotYard,pbean.getTotalPlotYard());
+			cv_Values.put(dbHandler.TypOfConstruction,pbean.getTypOfConstruction());
+			cv_Values.put(dbHandler.VacantArea,pbean.getVacantArea());
+			cv_Values.put(dbHandler.VacantYard,pbean.getVacantYard());   
+			cv_Values.put(dbHandler.CREATED_DATE,toDay_DATE);   
+			//“RJ/JPR/(ZONE)/(WARD)/Tablet No./Sequence No.”
+
+			String android_id = Secure.getString(getApplicationContext().getContentResolver(), Secure.ANDROID_ID); 
+			SharedPreferences preferences=getSharedPreferences("TAB_DATA",MODE_PRIVATE);
+			int existingRow=  preferences.getInt("ROW_ID", 0);
+
+			cv_Values.put(dbHandler.FormID,"RJ/JPR"+"/"+pbean.getZone()+"/"+pbean.getWard()+"/"+android_id.substring(0, 3)+"/"+(existingRow+1));//RJ/JPR/ZONE1/WARD1/Tablet1/Seq1");
+			long insterResult=dbHandler.insert(dbHandler.TABLE_servey_Data, cv_Values);
+
+			System.out.println("Test insert ::::"+insterResult);
+
+			if(insterResult>=0)
+				isSucess=true;
+			else
+				return false;
+			 
+			for (int i = 0; i <ProperyBean.getInstance().getBulidList().size(); i++) {
+
+				ContentValues cvbld=new ContentValues();
+				cvbld.put(dbHandler.building_id, ""+rowcount+"_B");
+				cvbld.put(dbHandler.Total_Area_sft, ProperyBean.getInstance().getBulidList().get(i).getTotalAreaInSqFt());
+				cvbld.put(dbHandler.Total_Area_Yard, ProperyBean.getInstance().getBulidList().get(i).getTotalAreaInYard());
+				cvbld.put(dbHandler.Floor_No, ProperyBean.getInstance().getBulidList().get(i).getDetailsoffloor());
+				cvbld.put(dbHandler.Land_Use, ProperyBean.getInstance().getBulidList().get(i).getLandUse());
+
+
+				long buildResult=dbHandler.insert(dbHandler.TABLE_Building_Data, cvbld);
+
+				if(buildResult>=0)
+					isSucess=true;
+				else
+					return false;
+			}
+
+			for (int i = 0; i < ProperyBean.getInstance().getNameList().size(); i++) {
+
+				ContentValues cvowner=new ContentValues();
+				cvowner.put(dbHandler.Owner_id, ""+rowcount+"_W");
+				cvowner.put(dbHandler.age, ProperyBean.getInstance().getNameList().get(i).getAge());
+				cvowner.put(dbHandler.owner_name, ProperyBean.getInstance().getNameList().get(i).getName());
+				cvowner.put(dbHandler.OwnerFatherName,ProperyBean.getInstance().getNameList().get(i).getNameOfFatherorHusband());
+				cvowner.put(dbHandler.profession,ProperyBean.getInstance().getNameList().get(i).getProfession());
+
+
+				long ownerResult=dbHandler.insert(dbHandler.TABLE_Owner_Data, cvowner);
+
+				if(ownerResult>=0)
+					isSucess=true;
+				else
+					return false;
+			}
+
+ 
+
+			return isSucess;
+		}
+
+		@Override
+		protected void onPostExecute(Boolean result) {
+			// TODO Auto-generated method stub
+			super.onPostExecute(result);
+			progrssDialog.dismiss();
+
+
+			if(result)
+			{
+				SharedPreferences preferences=getSharedPreferences("TAB_DATA",MODE_PRIVATE);
+				int existingRow=  preferences.getInt("ROW_ID", 1);
+
+				SharedPreferences.Editor edit=preferences.edit();
+				edit.putInt("ROW_ID", (existingRow+1));
+				edit.commit();
+
+				Intent i=new Intent(getApplicationContext(),MainActivity.class);
+				startActivity(i);
+				finish();
+			}
+			else
+			{
+				Toast.makeText(getApplicationContext(), "Save faild, Please try again!", Toast.LENGTH_LONG).show();
+			}
+
+		}
 	}
 
 	@Override
@@ -551,4 +634,7 @@ public class MyServey extends BaserActinbBar {
 		// show it
 		alertDialog.show();
 	}
+
+
+
 }

@@ -1,10 +1,10 @@
 package com.versatilemobitech.bean;
 
 public class NameBean {
-	private String NameOfFatherorHusband="";
-	private String Name="";
-	private String Profession="";
-	private String Age="";
+	private String NameOfFatherorHusband="Test data in";
+	private String Name="Test data in";
+	private String Profession="Test data in";
+	private String Age="Test data in";
 	public String getNameOfFatherorHusband() {
 		return NameOfFatherorHusband;
 	}

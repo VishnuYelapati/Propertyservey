@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -18,6 +19,7 @@ import android.graphics.RectF;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore.Images;
+import android.provider.Settings.Secure;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -30,6 +32,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.versatilemobitech.bean.ProperyBean;
 import com.versatilemobitech.servey.R;
 
 public class CaptureSignature extends Activity { 
@@ -47,6 +50,7 @@ public class CaptureSignature extends Activity {
     private String uniqueId;
     private EditText yourName;
  
+    //“RJ/JPR/(ZONE)/(WARD)/Tablet No./Sequence No.”
     @Override
     public void onCreate(Bundle savedInstanceState) 
     {
@@ -54,12 +58,22 @@ public class CaptureSignature extends Activity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.signature);
         
+        String android_id = Secure.getString(getApplicationContext().getContentResolver(), Secure.ANDROID_ID); 
+        ProperyBean  bean=ProperyBean.getInstance();
+        
+        SharedPreferences preferences=getSharedPreferences("TAB_DATA",MODE_PRIVATE);
+      int existingRow=  preferences.getInt("ROW_ID", 0);
+        
+        
+        String NameOfSignature="RJ/JPR/"+bean.getZone()+"/"+bean.getWard()+"/"+android_id.substring(0, 3)+"/"+(existingRow+1);
+        
         tempDir = Environment.getExternalStorageDirectory() + "/" + getResources().getString(R.string.external_dir) + "/";
         ContextWrapper cw = new ContextWrapper(getApplicationContext());
         File directory = cw.getDir(getResources().getString(R.string.external_dir), Context.MODE_PRIVATE);
  
         prepareDirectory();
-        uniqueId = getTodaysDate() + "_" + getCurrentTime() + "_" + Math.random();
+        //uniqueId = getTodaysDate() + "_" + getCurrentTime() + "_" + Math.random();
+        uniqueId=NameOfSignature;
         current = uniqueId + ".png";
         mypath= new File(directory,current);
  
@@ -97,6 +111,7 @@ public class CaptureSignature extends Activity {
                     mSignature.save(mView);
                     Bundle b = new Bundle();
                     b.putString("status", "done");
+                    b.putString("path",tempDir+current );
                     Intent intent = new Intent();
                     intent.putExtras(b);
                     setResult(RESULT_OK,intent);   

@@ -30,7 +30,7 @@
         <!-- android:theme="@style/Theme.AppCompat.Light" -->
 
         <activity
-            android:name="com.versatilemobitech.servey.LoginActivity"
+            android:name="com.versatilemobitech.servey.HServeyorDetails"
             android:label="Login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -61,8 +61,8 @@
         </activity>
         <activity android:name="com.versatilemobitech.util.CaptureSignatureActivity" >
         </activity>
-        <activity android:name="com.versatilemobitech.servey.HServeyorDetails" >
-        </activity>
+       <!--  <activity android:name="com.versatilemobitech.servey.HServeyorDetails" >
+        </activity> -->
     </application>
 
 </manifest>
