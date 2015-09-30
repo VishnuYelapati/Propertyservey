@@ -50,7 +50,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Data Provide By*"
+                        android:text="Data Provided By*"
                         android:textColor="@color/black" />
 
                     <Spinner
@@ -84,7 +84,7 @@
                         android:text="Provider Name*"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_provider_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -117,7 +117,7 @@
                         android:text="Relationship*"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_relationowner"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -150,7 +150,7 @@
                         android:text="Owner UID No*"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_uidno"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -183,7 +183,7 @@
                         android:text="Mobile No*"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_mobileno"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -217,7 +217,7 @@
                         android:text="Basic Phone No*"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_basicphone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -251,7 +251,7 @@
                         android:text="Email ID"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_emaild"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

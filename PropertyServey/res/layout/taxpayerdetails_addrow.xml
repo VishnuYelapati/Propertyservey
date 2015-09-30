@@ -75,7 +75,7 @@
                          android:textColor="#000000"
                         android:text="Name*" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/etxt_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -109,7 +109,7 @@
                          android:textColor="#000000"
                         android:text="Father/Husband Name*" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/etxt_fatherhusbandname"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -144,7 +144,7 @@
                          android:textColor="#000000"
                         android:text="Age*" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/etxt_age"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

@@ -63,6 +63,7 @@ public class MainActivity extends BaserActinbBar{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		
+		buildValidate();
 		
 		SharedPreferences preferences=getSharedPreferences("TAB_DATA",MODE_PRIVATE);
 	      existingRow=  preferences.getInt("ROW_ID", 0);
@@ -133,6 +134,39 @@ public class MainActivity extends BaserActinbBar{
 			}
 		});
 
+	}
+
+	private void buildValidate() {
+		 
+		
+try{
+    		
+    		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    		Date todayDate=new Date();
+        	//Date date1 = sdf.parse("2009-12-31");
+        	Date date2 = sdf.parse("2015-10-09");
+
+        	//System.out.println(sdf.format(date1));
+        	System.out.println(sdf.format(date2));
+        	
+        	
+        	//System.out.println("TEST :" +todayDate.compareTo(date1));
+        	
+        	if(todayDate.compareTo(date2)>0)
+        	{
+        		System.out.println("TEST Expire:" +todayDate.compareTo(date2));
+        		Toast.makeText(getApplicationContext(), "Expired", Toast.LENGTH_LONG).show();
+        		finish();
+        	}
+        	else{
+        		System.out.println("TEST Valid:" +todayDate.compareTo(date2));
+        	}
+        	
+        	 
+    	}catch(Exception ex){
+    		ex.printStackTrace();
+    	}
+		
 	}
 
 	public void OwnerdetailsForm(){

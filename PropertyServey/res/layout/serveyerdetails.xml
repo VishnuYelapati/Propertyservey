@@ -80,7 +80,7 @@
                         android:text="Name Of Surveyor*"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_servyerName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -112,7 +112,7 @@
                         android:text="Surveyor Address*"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_serveyoradd"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -145,7 +145,7 @@
                         android:text="Surveyor ID*"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_serveyorId"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -178,7 +178,7 @@
                         android:text="Date*"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -240,7 +240,7 @@
                         android:text="Name Of Attesting Authority*"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_attastauthName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -273,7 +273,7 @@
                         android:text="Attesting Authority Designation*"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_attastauthdisig"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -306,7 +306,7 @@
                         android:text="Date*"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_attastauthdate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

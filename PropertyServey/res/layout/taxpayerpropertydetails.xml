@@ -59,7 +59,7 @@
                         android:text="Plot/Falt/Shop No*"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_flatno"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
                         android:text="Lane/Road*"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_laneroad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -188,7 +188,7 @@
                         android:text="Colony Name*"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_colonyname"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -221,7 +221,7 @@
                         android:text="Landmark"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_landmark"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -251,10 +251,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="City"
+                        android:text="City*"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_city"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -285,10 +285,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Disrict"
+                        android:text="Disrict*"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_district"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -322,7 +322,7 @@
                         android:text="State"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_state"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -356,7 +356,7 @@
                         android:text="Name/No. Of Building(Pre)"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_prebuildingname"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -389,7 +389,7 @@
                         android:text="Name/No. Of Building(Post)"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_postbuildingname"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -422,7 +422,7 @@
                         android:text="Build Description"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_buildingdesc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -498,7 +498,7 @@
                     android:layout_marginTop="10dp"
                     android:weightSum="1" >
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_lengthfeets"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -509,7 +509,7 @@
                          android:inputType="numberDecimal"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_widthfeets"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

@@ -11,6 +11,7 @@
     <string name="external_dir">GetSignature</string>
 
     <string-array name="str_arr_profession">
+        <item>Select</item>
         <item>Service</item>
         <item>Business</item>
         <item>HouseWife</item>
@@ -28,6 +29,7 @@
         <item> Church</item>
     </string-array>
     <string-array name="str_arr_residetial">
+        <item >Select</item>
         <item>Individual House</item>
         <item> Apartment</item>
     </string-array>
@@ -41,7 +43,8 @@
         <item> Others</item>
     </string-array>
     <string-array name="str_arr_land_use">
-        <item> dential</item>
+        <item >Select</item>
+        <item> Residential</item>
         <item> Commercial</item>
         <item> Institutional</item>
         <item> Industrial</item>

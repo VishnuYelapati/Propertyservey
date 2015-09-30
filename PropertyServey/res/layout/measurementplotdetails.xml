@@ -65,7 +65,7 @@
                     android:layout_marginTop="10dp"
                     android:weightSum="1" >
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_plotareainsqft"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
                         android:background="@drawable/textfiled"
                         android:singleLine="true" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_plotareainyardsss"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -117,7 +117,7 @@
                     android:layout_marginTop="10dp"
                     android:weightSum="1" >
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_plintareainsqft"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
                          android:inputType="numberDecimal"
                         android:singleLine="true" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_plintareainyards"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -169,7 +169,7 @@
                     android:layout_marginTop="10dp"
                     android:weightSum="1" >
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_vacantareainsqft"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -178,7 +178,7 @@
                         android:background="@drawable/textfiled"
                         android:singleLine="true" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_vacantareainyards"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -221,7 +221,7 @@
                     android:layout_marginTop="10dp"
                     android:weightSum="1" >
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_constructareainsqft"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -231,7 +231,7 @@
                         android:background="@drawable/textfiled"
                          />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_constructareainyards"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -264,7 +264,7 @@
                         android:text="No.Of Floors"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_nofloors"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

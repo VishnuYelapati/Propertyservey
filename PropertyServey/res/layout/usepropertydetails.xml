@@ -543,7 +543,7 @@
                         android:text="Others"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_others"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1143,14 +1143,14 @@
                     android:layout_marginTop="10dp"
                     android:orientation="vertical" >
 
-                    <TextView
+                   <!--  <TextView
                         android:id="@+id/tv_advhoarding_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Advertisement Hoarding"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black" /> -->
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_advhoarding"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -1272,7 +1272,7 @@
                         android:text="Falt No*"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <EditText  android:padding="3dp"
                         android:id="@+id/et_udtaxaccunt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1336,7 +1336,7 @@
                         android:layout_marginBottom="5dp"
                         android:weightSum="1" >
 
-                        <EditText
+                        <EditText  android:padding="3dp"
                             android:id="@+id/et_payleasetaxaccountno"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
