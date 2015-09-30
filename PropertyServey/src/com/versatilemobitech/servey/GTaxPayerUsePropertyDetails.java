@@ -1,12 +1,9 @@
 package com.versatilemobitech.servey;
 
-import org.apache.poi.hssf.util.HSSFColor.GOLD;
-import org.apache.poi.poifs.property.Child;
-
-import com.versatilemobitech.bean.ProperyBean;
-
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -18,6 +15,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
+
+import com.versatilemobitech.bean.ProperyBean;
 
 public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 
@@ -49,7 +48,7 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 
 	private EditText otherEdit=null;
 
-	private EditText et_udtaxaccunt=null;
+	//private EditText et_udtaxaccunt=null;
 	private EditText et_payleasetaxaccountno=null;
 	Button btn_next,btn_prev;
 
@@ -126,13 +125,19 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 		FireFightingSystem=(RadioGroup)findViewById(R.id.rg_firefittingsystem);
 
 
-		et_udtaxaccunt=(EditText)findViewById(R.id.et_udtaxaccunt);
+		//et_udtaxaccunt=(EditText)findViewById(R.id.et_udtaxaccunt);
 		et_payleasetaxaccountno=(EditText)findViewById(R.id.et_payleasetaxaccountno);
 		et_advhoarding=(EditText)findViewById(R.id.et_advhoarding);
 
 		Spinner stateGovt_spinner=(Spinner)findViewById(R.id.spn_govmentproperty);
 		Spinner religious_spinner=(Spinner)findViewById(R.id.spn_religiousplace);
 		Spinner residential_spinner=(Spinner)findViewById(R.id.spn_residential);
+		
+		
+		
+		et_advhoarding.setEnabled(false);
+		et_advhoarding.setBackgroundColor(Color.GRAY);
+		
 	
 		AdvertisementHoarding.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
@@ -142,9 +147,12 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 				
 				if(arg1==R.id.rb_adv_yes){
 					et_advhoarding.setEnabled(true);
+					et_advhoarding.setBackgroundColor(Color.TRANSPARENT);
 				}else if(arg1==R.id.rb_adv_no)
 				{
+					et_advhoarding.setText("");
 					et_advhoarding.setEnabled(false);
+					et_advhoarding.setBackgroundColor(Color.GRAY);
 				}
 				
 			}
@@ -220,7 +228,7 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 				bean.setPipedWaterConnection(getCheckValue(PipedWaterConnection));
 				bean.setFireFightingSystem(getCheckValue(FireFightingSystem));
 
-				bean.setWhetherpayUdTax_ACNo(et_udtaxaccunt.getText().toString());
+				//bean.setWhetherpayUdTax_ACNo(et_udtaxaccunt.getText().toString());
 				bean.setWhetherpayLeaseTax_ACNo(et_payleasetaxaccountno.getText().toString());
 				bean.setPleaseWriteSizefBoardSqft(et_advhoarding.getText().toString());
 				

@@ -9,10 +9,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.versatilemobitech.adapter.CustomAdapter;
 import com.versatilemobitech.bean.NameBean;
@@ -21,7 +25,7 @@ import com.versatilemobitech.bean.ProperyBean;
 public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 
 	EditText et_name,et_fathername,et_age;
-	//Spinner spn_profession;
+	 String profissinal="";
 	Button btn_addview,btn_Next,btn_Prev;
 	LinearLayout ll_container;
 	public static ArrayList<NameBean> beanList=new ArrayList<NameBean>();
@@ -32,23 +36,31 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 		setContentView(R.layout.taxpayeradddetails);
 		ll_container=(LinearLayout)findViewById(R.id.container);
 		et_name=(EditText)findViewById(R.id.et_name);
-		et_fathername=(EditText)findViewById(R.id.et_fatherhusbandname);
+		et_fathername=(EditText)findViewById(R.id.et_fathername);
 		et_age=(EditText)findViewById(R.id.et_age);
-		//spn_profession=(Spinner)findViewById(R.id.spn_proffesion);
+		Spinner spn_profession=(Spinner)findViewById(R.id.sp_profession);
 		btn_Next=(Button)findViewById(R.id.btn_next);
 		btn_Prev=(Button)findViewById(R.id.btn_prev);
-		/////Resources res = getResources(); 
-		//CustomAdapter adapter = new CustomAdapter(getApplicationContext(), R.layout.spinner_rows, ADataProviderActivity.arr_itemBean,res);
-
-
-
-		//spn_profession.setAdapter(adapter);
+ 
 
 		btn_Next.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				
+				
+				
+				if(et_age.getText().toString().length()>0 && et_name.getText().toString().length()>0 && et_fathername.getText().toString().length()>0 &&  profissinal.length()>0)
+				{
+				NameBean firstBean=new NameBean();
+				
+				firstBean.setAge(et_age.getText().toString());
+				firstBean.setName(et_name.getText().toString());
+				firstBean.setNameOfFatherorHusband(et_fathername.getText().toString());
+				firstBean.setProfession(profissinal);
+				
+				beanList.add(firstBean);
 				
 					NameBean nameBean=null;
 					for (int i = 0; i < ll_container.getChildCount(); i++) {
@@ -61,13 +73,13 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 						TextView etxtName = (TextView)addView.findViewById(R.id.etxt_name);
 						TextView etxtfatherName = (TextView)addView.findViewById(R.id.etxt_fatherhusbandname);
 						TextView etxtAge = (TextView)addView.findViewById(R.id.etxt_age);
-						TextView etxtProffesion = (TextView)addView.findViewById(R.id.etxt_proffesion);
+						Spinner etxtProffesion = (Spinner)addView.findViewById(R.id.sp_profession);
 
 
 						nameBean.setName(etxtName.getText().toString());
 						nameBean.setAge(etxtAge.getText().toString());
 						nameBean.setNameOfFatherorHusband(etxtfatherName.getText().toString());
-						nameBean.setProfession(etxtProffesion.getText().toString());
+						nameBean.setProfession(etxtProffesion.getSelectedItem().toString());
 						
 						beanList.add(nameBean);
 					}
@@ -76,7 +88,10 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 					Intent i=new Intent(getApplicationContext(),CTaxPayerAddressDetails.class);
 					startActivity(i);
 				
-
+				}
+				else{
+					Toast.makeText(getApplicationContext(), "Please provide required values", Toast.LENGTH_LONG).show();
+				}
 				 
 			}
 		});
@@ -89,6 +104,22 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 			}
 		});
 
+		
+		spn_profession.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+				profissinal=arg0.getItemAtPosition(arg2).toString();
+				
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 
 
 		btn_addview=(Button)findViewById(R.id.btn_addview);
@@ -103,7 +134,7 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 				TextView etxtName = (TextView)addView.findViewById(R.id.etxt_name);
 				TextView etxtfatherName = (TextView)addView.findViewById(R.id.etxt_fatherhusbandname);
 				TextView etxtAge = (TextView)addView.findViewById(R.id.etxt_age);
-				TextView etxtProffesion = (TextView)addView.findViewById(R.id.etxt_proffesion);
+				Spinner etxtProffesion = (Spinner)addView.findViewById(R.id.etxt_proffesion);
 				//    etxtName.setText(et_name.getText().toString());
 				//   etxtfatherName.setText(et_fathername.getText().toString());
 				//   etxtAge.setText(et_age.getText().toString());

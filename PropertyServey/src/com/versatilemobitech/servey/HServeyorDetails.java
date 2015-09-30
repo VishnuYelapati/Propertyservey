@@ -43,7 +43,6 @@ public class HServeyorDetails extends BaserActinbBar{
 		et_sDate=(EditText)findViewById(R.id.et_state);
 		 pbean=ProperyBean.getInstance();
 		
-		System.out.println("result:"+ProperyBean.getInstance().getDataProvidedBy());
 		
 		et_aaName=(EditText)findViewById(R.id.et_attastauthName);
 		et_aaDesig=(EditText)findViewById(R.id.et_attastauthdisig);

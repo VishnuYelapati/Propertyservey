@@ -47,7 +47,7 @@
                     android:layout_toRightOf="@+id/txt_category"
                     android:background="@color/theme_color"
                     android:gravity="center_vertical"
-                    android:text="Photoof Property."
+                    android:text="Photo Of Property."
                     android:textSize="20dp" />
             </LinearLayout>
 
@@ -84,7 +84,7 @@
                     android:layout_toRightOf="@+id/txt_category"
                     android:background="@color/theme_color"
                     android:gravity="center_vertical"
-                    android:text="Photo of Site plan."
+                    android:text="Photo Of Site Plan."
                     android:textSize="20dp" />
             </LinearLayout>
               <ImageView

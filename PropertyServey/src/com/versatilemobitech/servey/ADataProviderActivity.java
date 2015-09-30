@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -17,7 +16,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.versatilemobitech.adapter.CustomAdapter;
-import com.versatilemobitech.adapter.DatabaseHandler;
 import com.versatilemobitech.bean.ProperyBean;
 import com.versatilemobitech.bean.SpinnerItemBean;
 
@@ -75,7 +73,7 @@ public class ADataProviderActivity extends BaserActinbBar{
 		});
 
 
-		for(int i=0;i<getResources().getStringArray(R.array.str_arr_profession).length;i++){
+		 for(int i=0;i<getResources().getStringArray(R.array.str_arr_profession).length;i++){
 
 			SpinnerItemBean sib=new SpinnerItemBean();
 			sib.setStrItem(getResources().getStringArray(R.array.str_arr_profession)[i]);
@@ -85,13 +83,13 @@ public class ADataProviderActivity extends BaserActinbBar{
 		CustomAdapter adapter = new CustomAdapter(ADataProviderActivity.this, R.layout.spinner_rows, arr_itemBean,res);
 
 
-		mSpn_dataProvider.setAdapter(adapter);
+		mSpn_dataProvider.setAdapter(adapter); 
 		btn_save.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
 
-				if(!dataProvider.equals("") && mRelationshipOfOwner.getText().toString().length()>0 && MobileNo.getText().toString().length()>0 &&   NameOfDataProvider.getText().toString().length()>0 && OwnerUIDNumber.getText().toString().length()>0 &&  BasicPhoneNo.getText().toString().length()>0)
+				if((!dataProvider.equals("")) && mRelationshipOfOwner.getText().toString().length()>0 && MobileNo.getText().toString().length()>0 &&   NameOfDataProvider.getText().toString().length()>0 && OwnerUIDNumber.getText().toString().length()>0 &&  BasicPhoneNo.getText().toString().length()>0 &&dataProvider.length()>0)
 				{
 
 					//Here we need to same all data in Bean class

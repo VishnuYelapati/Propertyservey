@@ -36,7 +36,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="Taxpayer/Owner Details"
+                        android:text="Taxpayer/Occupier/Owner's Detail"
                         android:textColor="@color/white" />
                 </LinearLayout>
 
@@ -189,13 +189,13 @@
                         android:text="Profession"
                         android:textColor="@color/black" />
 
-                    <EditText
-                        android:id="@+id/et_profession"
+                    <Spinner
+                        android:id="@+id/sp_profession"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:background="@drawable/textfiled"
-                        android:singleLine="true" />
+                       android:entries="@array/str_arr_profession"
+                          />
                 </LinearLayout>
 
                 <LinearLayout
