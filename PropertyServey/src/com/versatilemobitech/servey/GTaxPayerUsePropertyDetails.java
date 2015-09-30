@@ -139,11 +139,14 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 			@Override
 			public void onCheckedChanged(RadioGroup arg0, int arg1) {
 				// TODO Auto-generated method stub
-				if(getCheckValue(AdvertisementHoarding).equalsIgnoreCase("Yes")){
+				
+				if(arg1==R.id.rb_adv_yes){
 					et_advhoarding.setEnabled(true);
-				}else{
+				}else if(arg1==R.id.rb_adv_no)
+				{
 					et_advhoarding.setEnabled(false);
 				}
+				
 			}
 		});
 		
@@ -152,11 +155,14 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 			@Override
 			public void onCheckedChanged(RadioGroup arg0, int arg1) {
 				// TODO Auto-generated method stub
-				if(getCheckValue(WhetherpayLeaseTax).equalsIgnoreCase("Yes")){
+				
+				if(arg1==R.id.rb_paylease_yes){
 					et_payleasetaxaccountno.setEnabled(true);
-				}else{
+				}else if(arg1==R.id.rb_paylease_no)
+				{
 					et_payleasetaxaccountno.setEnabled(false);
 				}
+				
 			}
 		});
 		
