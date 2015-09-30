@@ -535,8 +535,8 @@
                     android:layout_marginTop="10dp"
                     android:weightSum="1" >
 
-                    <TextView
-                        android:id="@+id/tv_others"
+                    <CheckBox
+                        android:id="@+id/cb_others"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"

@@ -10,11 +10,13 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.versatilemobitech.bean.ProperyBean;
 
@@ -133,26 +135,27 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 		Spinner religious_spinner=(Spinner)findViewById(R.id.spn_religiousplace);
 		Spinner residential_spinner=(Spinner)findViewById(R.id.spn_residential);
 		
+		//rb_others
+		CheckBox rb_other=(CheckBox)findViewById(R.id.cb_others);
 		
-		
-		et_advhoarding.setEnabled(false);
-		et_advhoarding.setBackgroundColor(Color.GRAY);
-		
+		rb_other.setOnClickListener(first_radio_listener);
+		//et_advhoarding.setEnabled(false);
+	
+		otherEdit.setEnabled(false);
 	
 		AdvertisementHoarding.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
 			@Override
 			public void onCheckedChanged(RadioGroup arg0, int arg1) {
-				// TODO Auto-generated method stub
 				
 				if(arg1==R.id.rb_adv_yes){
 					et_advhoarding.setEnabled(true);
-					et_advhoarding.setBackgroundColor(Color.TRANSPARENT);
+					//et_advhoarding.setBackgroundColor(Color.TRANSPARENT);
 				}else if(arg1==R.id.rb_adv_no)
 				{
 					et_advhoarding.setText("");
 					et_advhoarding.setEnabled(false);
-					et_advhoarding.setBackgroundColor(Color.GRAY);
+					//et_advhoarding.setBackgroundColor(Color.GRAY);
 				}
 				
 			}
@@ -309,6 +312,24 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 
 
 	}
+	
+	
+	OnClickListener first_radio_listener = new OnClickListener (){
+		 public void onClick(View v) {
+		    
+			 
+			 
+			if (((CheckBox)v).isChecked())
+			 {
+				otherEdit.setEnabled(true);
+			 }
+			else{
+				
+				otherEdit.setText("");
+				otherEdit.setEnabled(false);
+			}
+		 }
+		};
 	
 	private String getCheckValue(RadioGroup rg1)
 	{

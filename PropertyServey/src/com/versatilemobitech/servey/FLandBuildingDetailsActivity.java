@@ -36,12 +36,7 @@ public class FLandBuildingDetailsActivity  extends BaserActinbBar{
 		spn_profession=(Spinner)findViewById(R.id.spn_proffesion);
 		btn_Next=(Button)findViewById(R.id.btn_next);
 		btn_Prev=(Button)findViewById(R.id.btn_prev);
-		/*Resources res = getResources(); 
-		CustomAdapter adapter = new CustomAdapter(getApplicationContext(), R.layout.spinner_rows, ADataProviderActivity.arr_itemBean,res);
-		 */
-
-		//	spn_profession.setAdapter(adapter);
-
+		 
 		btn_Next.setOnClickListener(new OnClickListener() {
 
 			@Override
