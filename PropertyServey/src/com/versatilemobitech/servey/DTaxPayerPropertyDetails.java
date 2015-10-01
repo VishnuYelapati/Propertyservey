@@ -50,8 +50,10 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 
 		//Data mapping....
 		final HashMap<String, String> wardMaping=new HashMap<String, String>();
+		
 		 
 		wardMaping.put("Vidyanagar", "1,2,3,4,5,6,7,8,9,10,15,16,17,66,67,68,69");
+	
 		 wardMaping.put("Sanganer","30,31,32,33,34,36,37");
 		wardMaping.put("Civil line","11,12,13,14,18,19,20,21,22,41,42,43,63");
 		wardMaping.put("Mansarovar","23,24,25,26,27,28,29,40");
@@ -178,6 +180,7 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 		        @Override
 		        public void run() {
 		        	zone_spinner.setSelection(0);
+		        	
 		        }
 		    });
 		////////////////////////////////

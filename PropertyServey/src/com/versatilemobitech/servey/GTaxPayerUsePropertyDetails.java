@@ -150,12 +150,14 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 				
 				if(arg1==R.id.rb_adv_yes){
 					et_advhoarding.setEnabled(true);
+					et_advhoarding.setBackgroundResource(R.drawable.textfiled);
+					
 					//et_advhoarding.setBackgroundColor(Color.TRANSPARENT);
 				}else if(arg1==R.id.rb_adv_no)
 				{
 					et_advhoarding.setText("");
 					et_advhoarding.setEnabled(false);
-					//et_advhoarding.setBackgroundColor(Color.GRAY);
+					et_advhoarding.setBackgroundResource(R.drawable.et_corner_shape_desabled);
 				}
 				
 			}
@@ -168,10 +170,12 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 				// TODO Auto-generated method stub
 				
 				if(arg1==R.id.rb_paylease_yes){
+					et_payleasetaxaccountno.setBackgroundResource(R.drawable.textfiled);
 					et_payleasetaxaccountno.setEnabled(true);
 				}else if(arg1==R.id.rb_paylease_no)
 				{
 					et_payleasetaxaccountno.setEnabled(false);
+					et_payleasetaxaccountno.setBackgroundResource(R.drawable.et_corner_shape_desabled);
 				}
 				
 			}

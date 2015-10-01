@@ -56,7 +56,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Plot/Falt/Shop No*"
+                        android:text="Plot/Flat/Shop No*"
                         android:textColor="@color/black" />
 
                     <EditText  android:padding="3dp"
@@ -285,7 +285,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Disrict*"
+                        android:text="District*"
                         android:textColor="@color/black" />
 
                     <EditText  android:padding="3dp"

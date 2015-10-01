@@ -70,6 +70,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:hint="Sq.ft"
                          android:inputType="numberDecimal"
                         android:background="@drawable/textfiled"
                         android:singleLine="true" />
@@ -79,6 +80,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:hint="Yard"
                          android:inputType="numberDecimal"
                         android:background="@drawable/textfiled"
                         android:singleLine="true" />
@@ -123,6 +125,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/textfiled"
                         android:layout_weight="0.5"
+                        android:hint="Sq.ft"
                          android:inputType="numberDecimal"
                         android:singleLine="true" />
 
@@ -131,6 +134,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:hint="Yard"
                          android:inputType="numberDecimal"
                         android:background="@drawable/textfiled"
                         android:singleLine="true" />
@@ -174,6 +178,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:hint="Sq.ft"
                          android:inputType="numberDecimal"
                         android:background="@drawable/textfiled"
                         android:singleLine="true" />
@@ -183,6 +188,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:hint="Yard"
                          android:inputType="numberDecimal"
                         android:background="@drawable/textfiled"
                         android:singleLine="true" />
@@ -227,6 +233,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:singleLine="true"
+                        android:hint="Sq.ft"
                          android:inputType="numberDecimal"
                         android:background="@drawable/textfiled"
                          />
@@ -237,6 +244,7 @@
                         android:layout_height="wrap_content"
                          android:inputType="numberDecimal"
                         android:layout_weight="0.5"
+                        android:hint="Yard"
                         android:singleLine="true"
                         android:background="@drawable/textfiled" />
                 </LinearLayout>
@@ -270,6 +278,7 @@
                         android:layout_height="wrap_content"
                          android:inputType="numberDecimal"
                          android:singleLine="true"
+                         android:hint="Sq.ft"
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
                          />
