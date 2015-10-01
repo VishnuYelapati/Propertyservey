@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +17,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.versatilemobitech.adapter.CustomAdapter;
 import com.versatilemobitech.bean.NameBean;
 import com.versatilemobitech.bean.ProperyBean;
 
@@ -131,10 +129,10 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 				LayoutInflater layoutInflater =
 						(LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				final View addView = layoutInflater.inflate(R.layout.taxpayerdetails_addrow, null);
-				TextView etxtName = (TextView)addView.findViewById(R.id.etxt_name);
+				/*TextView etxtName = (TextView)addView.findViewById(R.id.etxt_name);
 				TextView etxtfatherName = (TextView)addView.findViewById(R.id.etxt_fatherhusbandname);
 				TextView etxtAge = (TextView)addView.findViewById(R.id.etxt_age);
-				Spinner etxtProffesion = (Spinner)addView.findViewById(R.id.etxt_proffesion);
+				Spinner etxtProffesion = (Spinner)addView.findViewById(R.id.etxt_proffesion);*/
 				//    etxtName.setText(et_name.getText().toString());
 				//   etxtfatherName.setText(et_fathername.getText().toString());
 				//   etxtAge.setText(et_age.getText().toString());

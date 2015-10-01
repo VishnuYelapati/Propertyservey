@@ -22,7 +22,7 @@ import com.versatilemobitech.bean.SpinnerItemBean;
 public class ADataProviderActivity extends BaserActinbBar{
 
 	private Button btn_save;
-	public static ArrayList<SpinnerItemBean> arr_itemBean=new ArrayList<SpinnerItemBean>();
+	
 
 
 	String outFilePath;
@@ -42,8 +42,7 @@ public class ADataProviderActivity extends BaserActinbBar{
 		setContentView(R.layout.dataproviderdetails);
 		btn_save=(Button)findViewById(R.id.btn_save);
 		mSpn_dataProvider=(Spinner)findViewById(R.id.spn_Dataprovder);
-
-
+		 
 		mRelationshipOfOwner=(EditText)findViewById(R.id.et_relationowner);
 		MobileNo=(EditText)findViewById(R.id.et_mobileno);
 		EmailID=(EditText)findViewById(R.id.et_emaild);
@@ -71,6 +70,8 @@ public class ADataProviderActivity extends BaserActinbBar{
 
 			}
 		});
+
+		 ArrayList<SpinnerItemBean> arr_itemBean=new ArrayList<SpinnerItemBean>();
 
 
 		 for(int i=0;i<getResources().getStringArray(R.array.str_arr_profession).length;i++){

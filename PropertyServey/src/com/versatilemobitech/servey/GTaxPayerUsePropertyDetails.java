@@ -157,7 +157,7 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 				{
 					et_advhoarding.setText("");
 					et_advhoarding.setEnabled(false);
-					et_advhoarding.setBackgroundResource(R.drawable.et_corner_shape_desabled);
+					//et_advhoarding.setBackgroundResource(R.drawable.et_corner_shape_desabled);
 				}
 				
 			}
@@ -175,7 +175,7 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 				}else if(arg1==R.id.rb_paylease_no)
 				{
 					et_payleasetaxaccountno.setEnabled(false);
-					et_payleasetaxaccountno.setBackgroundResource(R.drawable.et_corner_shape_desabled);
+					//et_payleasetaxaccountno.setBackgroundResource(R.drawable.et_corner_shape_desabled);
 				}
 				
 			}

@@ -2,6 +2,7 @@ package com.versatilemobitech.servey;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Set;
 
 import android.content.Intent;
@@ -49,9 +50,10 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 
 
 		//Data mapping....
-		final HashMap<String, String> wardMaping=new HashMap<String, String>();
+		final LinkedHashMap<String, String> wardMaping=new LinkedHashMap<String, String>();
 		
 		 
+		wardMaping.put("Select", "Select");
 		wardMaping.put("Vidyanagar", "1,2,3,4,5,6,7,8,9,10,15,16,17,66,67,68,69");
 	
 		 wardMaping.put("Sanganer","30,31,32,33,34,36,37");
@@ -175,10 +177,14 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 		 
 		CustomAdapter adapter = new CustomAdapter(DTaxPayerPropertyDetails.this, R.layout.spinner_rows, arr_itemBean,getResources());
 		zone_spinner.setAdapter(adapter);
+		
+		
 
 		zone_spinner.post(new Runnable() {
 		        @Override
 		        public void run() {
+		        	
+		        	
 		        	zone_spinner.setSelection(0);
 		        	
 		        }

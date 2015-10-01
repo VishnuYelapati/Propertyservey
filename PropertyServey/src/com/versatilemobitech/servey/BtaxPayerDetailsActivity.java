@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.versatilemobitech.adapter.CustomAdapter;
 import com.versatilemobitech.bean.NameBean;
 import com.versatilemobitech.bean.ProperyBean;
+import com.versatilemobitech.bean.SpinnerItemBean;
 
 public class BtaxPayerDetailsActivity  extends BaserActinbBar{
 	
@@ -41,7 +42,18 @@ public class BtaxPayerDetailsActivity  extends BaserActinbBar{
 		btn_Next=(Button)findViewById(R.id.btn_next);
 		btn_Prev=(Button)findViewById(R.id.btn_prev);
 		Resources res = getResources(); 
-		CustomAdapter adapter = new CustomAdapter(getApplicationContext(), R.layout.spinner_rows, ADataProviderActivity.arr_itemBean,res);
+		
+		 ArrayList<SpinnerItemBean> arr_itemBean=new ArrayList<SpinnerItemBean>();
+
+		
+		 for(int i=0;i<getResources().getStringArray(R.array.str_arr_profession).length;i++){
+
+				SpinnerItemBean sib=new SpinnerItemBean();
+				sib.setStrItem(getResources().getStringArray(R.array.str_arr_profession)[i]);
+				arr_itemBean.add(sib);
+			}
+		 
+		CustomAdapter adapter = new CustomAdapter(getApplicationContext(), R.layout.spinner_rows,arr_itemBean,res);
 		
      
 //	spn_profession.setAdapter(adapter);
