@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.versatilemobitech.bean.ProperyBean;
+import com.versatilemobitech.util.Utils;
 
 public class CTaxPayerAddressDetails extends BaserActinbBar{
 	private Button btn_Next,btn_prev;
@@ -19,12 +20,14 @@ public class CTaxPayerAddressDetails extends BaserActinbBar{
 	private EditText PermanentAddress=null;
 	private EditText BasicPhoneNo=null;
 	ProperyBean pbean;
+	Utils utls;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.taxpayeraddressdetails);
 		 pbean=ProperyBean.getInstance();
+		 utls=new Utils();
 		
 		btn_Next=(Button)findViewById(R.id.btn_next);
 		btn_prev=(Button)findViewById(R.id.btn_prev);
@@ -34,7 +37,12 @@ public class CTaxPayerAddressDetails extends BaserActinbBar{
 		  EmailID=(EditText)findViewById(R.id.et_email);
 		 PermanentAddress=(EditText)findViewById(R.id.et_permadd);
 		  BasicPhoneNo=(EditText)findViewById(R.id.et_basicphone);
-		
+		  
+		  AddressforCommunication.setText(pbean.getAddressforCommunication().toString());
+		  MobileNo.setText(pbean.getMobileNo().toString());
+		  PermanentAddress.setText(pbean.getPermanentAddress().toString());
+		  BasicPhoneNo.setText(pbean.getBasicPhoneNo().toString());
+		  EmailID.setText(pbean.getEmailID_Address().toString());
 		btn_Next.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -42,7 +50,7 @@ public class CTaxPayerAddressDetails extends BaserActinbBar{
 				
 		
 				 
-				if(AddressforCommunication.getText().toString().length()>0 && MobileNo.getText().toString().length()>0 &&  PermanentAddress.getText().toString().length()>0 && BasicPhoneNo.getText().toString().length()>0 )
+				if(AddressforCommunication.getText().toString().length()>0 && MobileNo.getText().toString().length()>0 &&  PermanentAddress.getText().toString().length()>0 && BasicPhoneNo.getText().toString().length()>0 && utls.validate(EmailID.getText().toString()))
 				{
 					pbean.setAddressforCommunication(AddressforCommunication.getText().toString());
 					pbean.setMobileNo(MobileNo.getText().toString());
@@ -65,6 +73,13 @@ public class CTaxPayerAddressDetails extends BaserActinbBar{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				
+				pbean.setAddressforCommunication(AddressforCommunication.getText().toString());
+				pbean.setMobileNo(MobileNo.getText().toString());
+				pbean.setPermanentAddress(PermanentAddress.getText().toString());
+				pbean.setBasicPhoneNo(BasicPhoneNo.getText().toString());
+				pbean.setEmailID_Address(EmailID.getText().toString()); //added
+				
 				onBackPressed();
 			}
 		});

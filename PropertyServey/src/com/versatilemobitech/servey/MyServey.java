@@ -567,9 +567,9 @@ public class MyServey extends BaserActinbBar {
 			/**
 			 * Image insert
 			 */
-			cv_Values.put(dbHandler.signatureIMG,pbean.getSignatureImgPath());  
-			cv_Values.put(dbHandler.propertyIMG,pbean.getPhotoOfPropertyImgPath());  
-			cv_Values.put(dbHandler.siteImage,pbean.getPhotoOfSitePlanImgPath());  
+			cv_Values.put(dbHandler.signatureIMG,pbean.getSignatureImgPath().replace(""+Environment.getExternalStorageDirectory().toString(), ""));  
+			cv_Values.put(dbHandler.propertyIMG,pbean.getPhotoOfPropertyImgPath().replace(""+Environment.getExternalStorageDirectory().toString(), ""));  
+			cv_Values.put(dbHandler.siteImage,pbean.getPhotoOfSitePlanImgPath().replace(""+Environment.getExternalStorageDirectory().toString(), ""));
 			
 			
 			String android_id = Secure.getString(getApplicationContext().getContentResolver(), Secure.ANDROID_ID); 

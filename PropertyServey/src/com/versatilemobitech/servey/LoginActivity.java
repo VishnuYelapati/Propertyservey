@@ -25,9 +25,6 @@ public class LoginActivity extends BaserActinbBar {
 		et_UserName=(EditText) findViewById(R.id.et_username);
 		et_Password=(EditText) findViewById(R.id.et_pwd);
 		btn_Login=(Button) findViewById(R.id.btn_login);
-		/*final ActionBar actionBar = getSupportActionBar();
-		actionBar.setTitle("Login");
-		actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.iconbg));*/
 		mypref=getSharedPreferences("Credentials", 0);
 		str_pref_UserName=mypref.getString("UserName", "");
 		str_pref_Password=mypref.getString("Password", "");	

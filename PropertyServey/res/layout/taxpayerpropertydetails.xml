@@ -481,15 +481,17 @@
                     android:weightSum="1" >
 
                     <CheckBox
-                        android:id="@+id/tv_details_ofownership"
+                        android:id="@+id/chk_constructiononplot"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Whether COnstruction on plot"
+                        android:checked="true"
+                        android:text="Whether Construction on plot"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_constructonplot"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"

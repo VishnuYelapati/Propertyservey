@@ -56,7 +56,7 @@ public class BtaxPayerDetailsActivity  extends BaserActinbBar{
 		CustomAdapter adapter = new CustomAdapter(getApplicationContext(), R.layout.spinner_rows,arr_itemBean,res);
 		
      
-//	spn_profession.setAdapter(adapter);
+      spn_profession.setAdapter(adapter);
 		
 	btn_Next.setOnClickListener(new OnClickListener() {
 		     

@@ -8,20 +8,26 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemSelectedListener;
 
 import com.versatilemobitech.bean.BuildingDetails;
 import com.versatilemobitech.bean.ProperyBean;
+import com.versatilemobitech.bean.SpinnerItemBean;
 
 public class FLandBuildingDetailsActivity  extends BaserActinbBar{
 
-	EditText et_name,et_fathername,et_age;
-	Spinner spn_profession;
+	EditText et_areaSqft,et_areyards;
+	Spinner spn_landinuse,spn_floordetails;
 	Button btn_addview,btn_Next,btn_Prev;
 	LinearLayout ll_container;
+	String strSpnFloor;
+	String strSpnLand;
 	//String[] strArr_dp={"<- Service ->","Business","HouseWife","Other"};
 	
 	 
@@ -29,23 +35,41 @@ public class FLandBuildingDetailsActivity  extends BaserActinbBar{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.landbuildingdetails);
+	
 		ll_container=(LinearLayout)findViewById(R.id.container);
-		et_name=(EditText)findViewById(R.id.et_name);
-		et_fathername=(EditText)findViewById(R.id.et_fatherhusbandname);
-		et_age=(EditText)findViewById(R.id.et_age);
-		spn_profession=(Spinner)findViewById(R.id.spn_proffesion);
+		et_areaSqft=(EditText)findViewById(R.id.et_totalareasft);
+		et_areyards=(EditText)findViewById(R.id.et_totalareainyards);
+		spn_floordetails=(Spinner)findViewById(R.id.spn_detailsfloor);
+		spn_landinuse=(Spinner)findViewById(R.id.spn_landuse);
+		
+	
 		btn_Next=(Button)findViewById(R.id.btn_next);
 		btn_Prev=(Button)findViewById(R.id.btn_prev);
+		
 		 
 		btn_Next.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
+				
+				if(et_areaSqft.getText().toString().length()>0 && et_areyards.getText().toString().length()>0 && !spn_floordetails.getSelectedItem().toString().equalsIgnoreCase("Select") && !spn_landinuse.getSelectedItem().toString().equalsIgnoreCase("Select")){
 
+				ArrayList<BuildingDetails> arr_bld=new ArrayList<BuildingDetails>();
+					BuildingDetails initBean=null;
+					
+					initBean=new BuildingDetails();
+					
+					
+					initBean.setTotalAreaInSqFt(et_areaSqft.getText().toString());
 
+					initBean.setTotalAreaInYard(et_areyards.getText().toString());
+					initBean.setLandUse( spn_landinuse.getSelectedItem().toString());
+					initBean.setDetailsoffloor(spn_floordetails.getSelectedItem().toString());
+					
+					arr_bld.add(initBean);
+					
 				if(ll_container!=null)
 				{
-					ArrayList<BuildingDetails> arr_bld=new ArrayList<BuildingDetails>();
 					BuildingDetails buildingDetails=null;
 					for (int i = 0; i <ll_container.getChildCount(); i++) {
 
@@ -72,6 +96,11 @@ public class FLandBuildingDetailsActivity  extends BaserActinbBar{
 				}
 				Intent i=new Intent(getApplicationContext(),GTaxPayerUsePropertyDetails.class);
 				startActivity(i);
+			}else{
+				
+				Toast.makeText(getApplicationContext(), "Please enter All Fields", Toast.LENGTH_LONG).show();
+			}
+				
 			}
 		});
 		btn_Prev.setOnClickListener(new OnClickListener() {
@@ -95,10 +124,7 @@ public class FLandBuildingDetailsActivity  extends BaserActinbBar{
 						(LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				final View addView = layoutInflater.inflate(R.layout.landbuilding_addrow, null);
 
-				//    etxtName.setText(et_name.getText().toString());
-				//   etxtfatherName.setText(et_fathername.getText().toString());
-				//   etxtAge.setText(et_age.getText().toString());
-				//  etxtProffesion.setText(spn_profession.getSelectedItem().toString());
+				
 				Button buttonRemove = (Button)addView.findViewById(R.id.btn_removeview);
 				buttonRemove.setOnClickListener(new OnClickListener(){
 

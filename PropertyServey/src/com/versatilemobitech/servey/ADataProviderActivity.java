@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.apache.poi.hpsf.Util;
+
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -14,10 +16,12 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.versatilemobitech.adapter.CustomAdapter;
 import com.versatilemobitech.bean.ProperyBean;
 import com.versatilemobitech.bean.SpinnerItemBean;
+import com.versatilemobitech.util.Utils;
 
 public class ADataProviderActivity extends BaserActinbBar{
 
@@ -36,10 +40,12 @@ public class ADataProviderActivity extends BaserActinbBar{
 	private String dataProvider="";
 	String toDay_DATE="";
 	Spinner mSpn_dataProvider;
+	Utils utls;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.dataproviderdetails);
+		utls=new Utils();
 		btn_save=(Button)findViewById(R.id.btn_save);
 		mSpn_dataProvider=(Spinner)findViewById(R.id.spn_Dataprovder);
 		 
@@ -90,12 +96,8 @@ public class ADataProviderActivity extends BaserActinbBar{
 			@Override
 			public void onClick(View arg0) {
 
-				if((!dataProvider.equals("")) && mRelationshipOfOwner.getText().toString().length()>0 && MobileNo.getText().toString().length()>0 &&   NameOfDataProvider.getText().toString().length()>0 && OwnerUIDNumber.getText().toString().length()>0 &&  BasicPhoneNo.getText().toString().length()>0 &&dataProvider.length()>0)
+				if((!dataProvider.equals("")) &&!dataProvider.equals("Select") &&   mRelationshipOfOwner.getText().toString().length()>0 && MobileNo.getText().toString().length()>0 &&   NameOfDataProvider.getText().toString().length()>0 && OwnerUIDNumber.getText().toString().length()>0 &&  BasicPhoneNo.getText().toString().length()>0 &&dataProvider.length()>0 && utls.validate(EmailID.getText().toString()))
 				{
-
-					//Here we need to same all data in Bean class
-
-
 					ProperyBean pbean=ProperyBean.getInstance();
 					pbean.setDataProvidedBy(dataProvider);
 					pbean.setNameOfDataProvider(NameOfDataProvider.getText().toString());
@@ -115,16 +117,22 @@ public class ADataProviderActivity extends BaserActinbBar{
 						mRelationshipOfOwner.setError("Invalid value");
 
 					if(MobileNo.getText().toString().length()<=0)
-						MobileNo.setError("Invalid value");
+						MobileNo.setError("Invalid Mobile Number");
 
 					if( NameOfDataProvider.getText().toString().length()<=0 )
 						NameOfDataProvider.setError("Invalid value");
 					if(OwnerUIDNumber.getText().toString().length()<=0)
-						OwnerUIDNumber.setError("Invalid value");
-					if(  BasicPhoneNo.getText().toString().length()<=0)
-						BasicPhoneNo.setError("Invalid value");
+						OwnerUIDNumber.setError("Invalid Owner UID Number");
+					if(BasicPhoneNo.getText().toString().length()<=0)
+						BasicPhoneNo.setError("Invalid Basic Phone Number");
+					if(EmailID.getText().toString().length()<=0)
+						EmailID.setError("Invalid Email Id");
+					if(!utls.validate(EmailID.getText().toString()))
+						EmailID.setError("Invalid Email Id");
+					if(dataProvider.equals("Select"))
+						Toast.makeText(getApplicationContext(), "Please select the data Provider", Toast.LENGTH_LONG).show();
+					
 				}
-
 
 
 			}

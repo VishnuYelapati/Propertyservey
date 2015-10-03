@@ -1,7 +1,6 @@
 package com.versatilemobitech.servey;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Set;
 
@@ -12,7 +11,11 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -40,14 +43,17 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 	EditText NameOfBuilding_Pre=null;
 	EditText MultistoreyBuildigNameofBuilding=null;
 	EditText flatno;
+	CheckBox chk_Constrution;
+	EditText et_lengthfeets,et_widthFeets;
 
-
+	LinearLayout ll_chk_constructionplot;
+	ProperyBean pbean;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.taxpayerpropertydetails);
-
+		 pbean=ProperyBean.getInstance();
 
 		//Data mapping....
 		final LinkedHashMap<String, String> wardMaping=new LinkedHashMap<String, String>();
@@ -66,6 +72,10 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 		wardMaping.put("Amer","	74,75,76,77");
 
 
+		ll_chk_constructionplot=(LinearLayout)findViewById(R.id.ll_constructonplot);
+		et_lengthfeets=(EditText)findViewById(R.id.et_lengthfeets);
+		et_widthFeets=(EditText)findViewById(R.id.et_widthfeets);
+		chk_Constrution=(CheckBox)findViewById(R.id.chk_constructiononplot);
 		flatno=(EditText)findViewById(R.id.et_flatno);
 		ColonyName=(EditText)findViewById(R.id.et_colonyname);
 		City=(EditText)findViewById(R.id.et_city);
@@ -83,13 +93,43 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 		MultistoreyBuildigNameofBuilding=(EditText)findViewById(R.id.et_postbuildingname);
 		btn_Next=(Button)findViewById(R.id.btn_next);
 		btn_Prev=(Button)findViewById(R.id.btn_prev);
+		
+		NameOfLaneOrRoad.setText(pbean.getNameOfLane_Road().toString());
+		et_lengthfeets.setText(pbean.getLength().toString());
+		et_widthFeets.setText(pbean.getWidth().toString());
+		flatno.setText(pbean.getNameOfLane_Road().toString());
+		ColonyName.setText(pbean.getColony_Name().toString());
+		City.setText(pbean.getCity().toString());
+		state.setText(pbean.getState().toString());
+		NameOfBuildin_Post.setText(pbean.getName_No_OfBuilding().toString());
+		Landmark.setText(pbean.getLandmark().toString());
+		District.setText(pbean.getDistrict().toString());
+		NameOfBuilding_Pre.setText(pbean.getName_No_OfBuilding_pre().toString());
+		MultistoreyBuildigNameofBuilding.setText(pbean.getMarriageGardenHall().toString());
+		
+		chk_Constrution.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			
+			@Override
+			public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
+				// TODO Auto-generated method stub
+				
+				if(arg1){
+					et_lengthfeets.setEnabled(true);
+					et_widthFeets.setEnabled(true);
+				}else{
+					et_lengthfeets.setBackgroundResource(R.drawable.et_corner_shape_desabled);
+					et_widthFeets.setBackgroundResource(R.drawable.et_corner_shape_desabled);
+				}
+			}
+		});
+		
 		btn_Next.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				
 				if(!flatno.getText().toString().equals("") && !NameOfLaneOrRoad.getText().toString().equals("")&& !ColonyName.getText().toString().equals("") && !Landmark.getText().toString().equals("")){
-					ProperyBean pbean=ProperyBean.getInstance();
+					
 					//	pbean.setPlot_Flat_ShopNo(PlotORFlatNo.getText().toString());
 						pbean.setColony_Name(ColonyName.getText().toString());
 						pbean.setCity(City.getText().toString());
@@ -104,9 +144,9 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 						pbean.setName_No_OfBuilding(NameOfBuildin_Post.getText().toString());
 		 
 						pbean.setDetailsOfOwnership(DetailsOfOwnership);
-						 pbean.setZone(Zone);
-						 pbean.setWard(Ward);
-						 pbean.setTypOfConstruction(TypeOfConstruction);
+						pbean.setZone(Zone);
+						pbean.setWard(Ward);
+						pbean.setTypOfConstruction(TypeOfConstruction);
 
 
 						Intent i=new Intent(getApplicationContext(),ETaxPayerMeasurementDetails.class);
@@ -124,6 +164,27 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				
+				ProperyBean pbean=ProperyBean.getInstance();
+				//	pbean.setPlot_Flat_ShopNo(PlotORFlatNo.getText().toString());
+				pbean.setNameOfLane_Road(NameOfLaneOrRoad.getText().toString());
+					pbean.setColony_Name(ColonyName.getText().toString());
+					pbean.setCity(City.getText().toString());
+					pbean.setState(state.getText().toString());
+					//	pbean.setName_No_OfBuilding(NameOfBuildin_Post.getText().toString());
+					pbean.setLength(WhetherConstructionOnPlot_lenth.getText().toString());
+					pbean.setWidth(WhetherConstructionOnPlot_width.getText().toString());
+					pbean.setNameOfLane_Road(NameOfLaneOrRoad.getText().toString());
+					pbean.setLandmark(Landmark.getText().toString());;
+					pbean.setDistrict(District.getText().toString());
+					pbean.setName_No_OfBuilding_pre(NameOfBuilding_Pre.getText().toString());
+					pbean.setName_No_OfBuilding(NameOfBuildin_Post.getText().toString());
+	 
+					pbean.setDetailsOfOwnership(DetailsOfOwnership);
+					pbean.setZone(Zone);
+					pbean.setWard(Ward);
+					pbean.setTypOfConstruction(TypeOfConstruction);
+
 				onBackPressed();
 			}
 		});
@@ -219,6 +280,8 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 					int position, long id) {
 				// TODO Auto-generated method stub
 				Zone=((SpinnerItemBean)parent.getItemAtPosition(position)).getStrItem();
+				
+				System.out.println("Item Bean:.."+Zone);
 				 
 				ArrayList<SpinnerItemBean> ward_itmeanBean=new ArrayList<SpinnerItemBean>();
 				String vaues=(String)wardMaping.get(Zone);
@@ -244,25 +307,7 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
  
 			}
 		});
-		/*btn_Next=(Button)findViewById(R.id.btn_next);
-
-
-		btn_Next.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-
-
-				ProperyBean bean=ProperyBean.getInstance();
-				
-				bean.setWard(Ward);
-				bean.setZone(Zone);
-				
-				Intent i=new Intent(getApplicationContext(),ETaxPayerMeasurementDetails.class);
-				startActivity(i);
-			}
-		});
-*/
+		
 	}
 
 }

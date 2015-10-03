@@ -1,10 +1,10 @@
 package com.versatilemobitech.bean;
 
 public class BuildingDetails {
-	private String LandUse="Test data in";
-	private String Detailsoffloor="Test data in";
-	private String TotalAreaInSqFt="Test data in";
-	private String TotalAreaInYard="Test data in";
+	private String LandUse;//="Test data in";
+	private String Detailsoffloor;//="Test data in";
+	private String TotalAreaInSqFt;//="Test data in";
+	private String TotalAreaInYard;//="Test data in";
 	public String getLandUse() {
 		return LandUse;
 	}
