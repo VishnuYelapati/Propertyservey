@@ -129,7 +129,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Mobile Number*"
+                        android:text="Mobile Number"
                         android:textColor="@color/black" />
 
                     <EditText  android:padding="3dp"
@@ -163,7 +163,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Basic Phone*"
+                        android:text="Basic Phone"
                         android:textColor="@color/black" />
 
                     <EditText  android:padding="3dp"

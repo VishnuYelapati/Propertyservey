@@ -50,7 +50,7 @@ public class CTaxPayerAddressDetails extends BaserActinbBar{
 				
 		
 				 
-				if(AddressforCommunication.getText().toString().length()>0 && MobileNo.getText().toString().length()>0 &&  PermanentAddress.getText().toString().length()>0 && BasicPhoneNo.getText().toString().length()>0 && utls.validate(EmailID.getText().toString()))
+				if(AddressforCommunication.getText().toString().length()>0  &&  PermanentAddress.getText().toString().length()>0 )
 				{
 					pbean.setAddressforCommunication(AddressforCommunication.getText().toString());
 					pbean.setMobileNo(MobileNo.getText().toString());

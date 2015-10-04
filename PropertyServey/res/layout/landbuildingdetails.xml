@@ -83,7 +83,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Land Use"
+                        android:text="Land Use*"
                         android:textColor="#000000" />
 
                     <Spinner
@@ -115,7 +115,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Floor Details"
+                        android:text="Floor Details*"
                         android:textColor="#000000" />
 
                     <Spinner
@@ -147,7 +147,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Total Area(in Sq.ft)"
+                        android:text="Total Area(in Sq.ft)*"
                         android:textColor="#000000" />
 
                     <EditText  android:padding="3dp"
@@ -180,7 +180,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Total Area(in yards)"
+                        android:text="Total Area(in yards)*"
                         android:textColor="@color/black" />
 
                     <EditText  android:padding="3dp"

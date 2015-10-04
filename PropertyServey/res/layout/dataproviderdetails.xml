@@ -114,7 +114,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Relationship*"
+                        android:text="Relationship"
                         android:textColor="@color/black" />
 
                     <EditText  android:padding="3dp"
@@ -147,7 +147,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Owner UID No*"
+                        android:text="Owner UID No"
                         android:textColor="@color/black" />
 
                     <EditText  android:padding="3dp"
@@ -180,7 +180,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Mobile No*"
+                        android:text="Mobile No"
                         android:textColor="@color/black" />
 
                     <EditText  android:padding="3dp"
@@ -214,7 +214,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Basic Phone No*"
+                        android:text="Basic Phone No"
                         android:textColor="@color/black" />
 
                     <EditText  android:padding="3dp"

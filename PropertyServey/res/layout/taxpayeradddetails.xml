@@ -85,7 +85,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Name"
+                        android:text="Name*"
                         android:textColor="#000000" />
 
                     <EditText  android:padding="3dp"
@@ -118,7 +118,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_weight="0.5"
-                        android:text="Father/Husband Name"
+                        android:text="Father/Husband Name*"
                         android:textColor="#000000" />
 
                     <EditText  android:padding="3dp"
@@ -151,7 +151,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Age"
+                        android:text="Age*"
                         android:textColor="#000000" />
 
                     <EditText  android:padding="3dp"
@@ -186,7 +186,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Profession"
+                        android:text="Profession*"
                         android:textColor="@color/black" />
 
                     <Spinner

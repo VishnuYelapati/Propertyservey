@@ -96,7 +96,7 @@ public class ADataProviderActivity extends BaserActinbBar{
 			@Override
 			public void onClick(View arg0) {
 
-				if((!dataProvider.equals("")) &&!dataProvider.equals("Select") &&   mRelationshipOfOwner.getText().toString().length()>0 && MobileNo.getText().toString().length()>0 &&   NameOfDataProvider.getText().toString().length()>0 && OwnerUIDNumber.getText().toString().length()>0 &&  BasicPhoneNo.getText().toString().length()>0 &&dataProvider.length()>0 && utls.validate(EmailID.getText().toString()))
+				if((!dataProvider.equals("")) &&!dataProvider.equals("Select") &&  NameOfDataProvider.getText().toString().length()>0 )
 				{
 					ProperyBean pbean=ProperyBean.getInstance();
 					pbean.setDataProvidedBy(dataProvider);
@@ -116,19 +116,9 @@ public class ADataProviderActivity extends BaserActinbBar{
 					if(mRelationshipOfOwner.getText().toString().length()<=0)
 						mRelationshipOfOwner.setError("Invalid value");
 
-					if(MobileNo.getText().toString().length()<=0)
-						MobileNo.setError("Invalid Mobile Number");
-
+				
 					if( NameOfDataProvider.getText().toString().length()<=0 )
 						NameOfDataProvider.setError("Invalid value");
-					if(OwnerUIDNumber.getText().toString().length()<=0)
-						OwnerUIDNumber.setError("Invalid Owner UID Number");
-					if(BasicPhoneNo.getText().toString().length()<=0)
-						BasicPhoneNo.setError("Invalid Basic Phone Number");
-					if(EmailID.getText().toString().length()<=0)
-						EmailID.setError("Invalid Email Id");
-					if(!utls.validate(EmailID.getText().toString()))
-						EmailID.setError("Invalid Email Id");
 					if(dataProvider.equals("Select"))
 						Toast.makeText(getApplicationContext(), "Please select the data Provider", Toast.LENGTH_LONG).show();
 					

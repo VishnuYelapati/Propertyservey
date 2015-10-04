@@ -128,7 +128,7 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 			@Override
 			public void onClick(View v) {
 				
-				if(!flatno.getText().toString().equals("") && !NameOfLaneOrRoad.getText().toString().equals("")&& !ColonyName.getText().toString().equals("") && !Landmark.getText().toString().equals("")){
+				if(!flatno.getText().toString().equals("") && !NameOfLaneOrRoad.getText().toString().equals("")&& !ColonyName.getText().toString().equals("") ){
 					
 					//	pbean.setPlot_Flat_ShopNo(PlotORFlatNo.getText().toString());
 						pbean.setColony_Name(ColonyName.getText().toString());
