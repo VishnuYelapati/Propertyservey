@@ -1,13 +1,14 @@
 package com.versatilemobitech.servey;
 
+import org.apache.poi.hssf.record.PageBreakRecord.Break;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
+import android.view.View.OnFocusChangeListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -102,16 +103,401 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 	});
 	
 	
-	TotalPlotArea.addTextChangedListener(watchTotalPlotArea);
-	PlinthArea.addTextChangedListener(watchTotalPlintArea);
+	/*TotalPlotArea.addTextChangedListener(watchTotalPlotArea);
+	   PlinthArea.addTextChangedListener(watchTotalPlintArea);
 	TotalConstructionArea.addTextChangedListener(watchTotalConstructionArea);
-	VacantArea.addTextChangedListener(watchTotalVacantArea);
+	VacantArea.addTextChangedListener(watchTotalVacantArea);*/
 	
 	
 	
+	//Second
+	/*
+	TotalPlotYard.addTextChangedListener(TotalPlotYardList);
+	PlinthYard.addTextChangedListener(PlinthYardList);
+	TotalConstructionYard.addTextChangedListener(TotalConstructionYardList);
+	VacantYard.addTextChangedListener(VacantYardList);*/
+	
+	
+	
+	TotalPlotYard.setOnFocusChangeListener(onFoucutList);
+	PlinthYard.setOnFocusChangeListener(onFoucutList);
+	TotalConstructionYard.setOnFocusChangeListener(onFoucutList);
+	VacantYard.setOnFocusChangeListener(onFoucutList);
+	
+	TotalPlotArea.setOnFocusChangeListener(onFoucutList);
+	PlinthArea.setOnFocusChangeListener(onFoucutList);
+	TotalConstructionArea.setOnFocusChangeListener(onFoucutList);
+	VacantArea.setOnFocusChangeListener(onFoucutList);
 	}
 	
 	
+	
+	
+	///////////////////////////////////////////////////////////////
+	
+	OnFocusChangeListener onFoucutList=new OnFocusChangeListener()
+	{
+
+		@Override
+		public void onFocusChange(View v, boolean hasFocus) {
+		 
+			switch (v.getId()) {
+			
+		
+			 
+			
+			
+			case R.id.et_plotareainsqft:
+				System.out.println("TEST et_plotareainsqft"+hasFocus);
+				
+				//TotalPlotYard TotalPlotArea.addTextChangedListener(watchTotalPlotArea);
+				if(hasFocus)
+				{
+					
+				}
+				else{
+				 	
+					if(TotalPlotArea.getText().toString().length()>0)
+					{
+						TotalPlotYard.setText(""+Float.parseFloat(TotalPlotArea.getText().toString())/9);
+					}
+					else{
+						TotalPlotYard.setText("");
+					}
+					
+				}
+				break;
+
+			case R.id.et_plotareainyardsss:
+				
+				System.out.println("TEST et_plotareainyardsss"+hasFocus);
+				if(hasFocus)
+				{
+					
+				}
+				else{
+					
+					if(TotalPlotYard.getText().toString().length()>0)
+					{
+						TotalPlotArea.setText(""+Float.parseFloat(TotalPlotYard.getText().toString())*9);
+					}
+					else{
+						TotalPlotArea.setText("");
+					}
+				}
+				break;
+				
+				
+
+			case R.id.et_plintareainsqft:
+				
+				//PlinthYard  PlinthArea
+				
+				
+				if(hasFocus)
+				{
+					
+				}
+				else{
+				 	
+					if(PlinthArea.getText().toString().length()>0)
+					{
+						PlinthYard.setText(""+Float.parseFloat(PlinthArea.getText().toString())/9);
+					}
+					else{
+						PlinthYard.setText("");
+					}
+					
+				}
+				
+				break;
+
+			case R.id.et_plintareainyards:
+				
+
+//PlinthYard  PlinthArea
+				
+				
+				if(hasFocus)
+				{
+					
+				}
+				else{
+				 	
+					if(PlinthYard.getText().toString().length()>0)
+					{
+						PlinthArea.setText(""+Float.parseFloat(PlinthYard.getText().toString())*9);
+					}
+					else{
+						PlinthArea.setText("");
+					}
+					
+				}
+				
+				
+				break;
+				
+				 
+
+			case R.id.et_constructareainsqft:
+				
+				//TotalConstructionYard TotalConstructionArea
+				 
+				
+
+				
+				if(hasFocus)
+				{
+					
+				}
+				else{
+				 	
+					if(TotalConstructionArea.getText().toString().length()>0)
+					{
+						TotalConstructionYard.setText(""+Float.parseFloat(TotalConstructionArea.getText().toString())/9);
+					}
+					else{
+						TotalConstructionYard.setText("");
+					}
+					
+				}
+				
+				break;
+
+			case R.id.et_constructareainyards:
+				
+
+
+				
+				if(hasFocus)
+				{
+					
+				}
+				else{
+				 	
+					if(TotalConstructionYard.getText().toString().length()>0)
+					{
+						TotalConstructionArea.setText(""+Float.parseFloat(TotalConstructionYard.getText().toString())*9);
+					}
+					else{
+						TotalConstructionArea.setText("");
+					}
+					
+				}
+				
+				
+				break;
+				
+
+			case R.id.et_vacantareainsqft:
+				
+				
+				//VacantArea  VacantYard
+				
+				if(hasFocus)
+				{
+					
+				}
+				else{
+				 	
+					if(VacantArea.getText().toString().length()>0)
+					{
+						VacantYard.setText(""+Float.parseFloat(VacantArea.getText().toString())/9);
+					}
+					else{
+						VacantYard.setText("");
+					}
+					
+				}
+				break;
+
+			case R.id.et_vacantareainyards:
+				
+ 				
+				if(hasFocus)
+				{
+					
+				}
+				else{
+				 	
+					if(VacantYard.getText().toString().length()>0)
+					{
+						VacantArea.setText(""+Float.parseFloat(VacantYard.getText().toString())*9);
+					}
+					else{
+						VacantArea.setText("");
+					}
+				}
+				break;
+				
+			default:
+				break;
+			}
+		}
+		
+	};
+	
+	
+	//////////////////////////////////////////////////////////////////////////////////////
+	
+	/*
+	TextWatcher VacantYardList  = new TextWatcher(){
+		 
+	    @Override
+	    public void afterTextChanged(Editable arg0) {
+	        // TODO Auto-generated method stub
+	 
+	    }
+	 
+	    @Override
+	    public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+	            int arg3) {
+	        // TODO Auto-generated method stub
+	 
+	    }
+	 
+	    @Override
+	    public void onTextChanged(CharSequence s, int a, int b, int c) {
+	        // TODO Auto-generated method stub
+	    	
+	    	
+	    	if(s.length()>0){
+		    	try {
+		    		
+					float sft=0;
+					sft=Float.parseFloat(s.toString());
+					VacantYard.setText(""+sft*9);
+					//TotalPlotArea.setText(""+sft*9);
+				} catch (NumberFormatException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	    	}else{
+	    		VacantYard.setText("");
+	    		//TotalPlotArea.setText("");
+	    	}
+	       
+	    }};
+	
+	
+	TextWatcher TotalConstructionYardList = new TextWatcher(){
+		 
+	    @Override
+	    public void afterTextChanged(Editable arg0) {
+	        // TODO Auto-generated method stub
+	 
+	    }
+	 
+	    @Override
+	    public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+	            int arg3) {
+	        // TODO Auto-generated method stub
+	 
+	    }
+	 
+	    @Override
+	    public void onTextChanged(CharSequence s, int a, int b, int c) {
+	        // TODO Auto-generated method stub
+	    	
+	    	
+	    	if(s.length()>0){
+		    	try {
+		    		
+					float sft=0;
+					sft=Float.parseFloat(s.toString());
+					TotalConstructionArea.setText(""+sft*9);
+					//TotalPlotArea.setText(""+sft*9);
+				} catch (NumberFormatException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	    	}else{
+	    		TotalConstructionArea.setText("");
+	    		//TotalPlotArea.setText("");
+	    	}
+	       
+	    }};
+	
+	 TextWatcher PlinthYardList = new TextWatcher(){
+		 
+		    @Override
+		    public void afterTextChanged(Editable arg0) {
+		        // TODO Auto-generated method stub
+		 
+		    }
+		 
+		    @Override
+		    public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+		            int arg3) {
+		        // TODO Auto-generated method stub
+		 
+		    }
+		 
+		    @Override
+		    public void onTextChanged(CharSequence s, int a, int b, int c) {
+		        // TODO Auto-generated method stub
+		    	
+		    	
+		    	if(s.length()>0){
+			    	try {
+			    		
+						float sft=0;
+						sft=Float.parseFloat(s.toString());
+						TotalPlotArea.setText(""+sft*9);
+						//TotalPlotArea.setText(""+sft*9);
+					} catch (NumberFormatException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		    	}else{
+		    		TotalPlotArea.setText("");
+		    		//TotalPlotArea.setText("");
+		    	}
+		       
+		    }};
+	
+		    
+		    
+		    TextWatcher TotalPlotYardList = new TextWatcher(){
+				 
+			    @Override
+			    public void afterTextChanged(Editable arg0) {
+			        // TODO Auto-generated method stub
+			 
+			    }
+			 
+			    @Override
+			    public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+			            int arg3) {
+			        // TODO Auto-generated method stub
+			 
+			    }
+			 
+			    @Override
+			    public void onTextChanged(CharSequence s, int a, int b, int c) {
+			        // TODO Auto-generated method stub
+			    	if(s.length()>0){
+			    	try {
+						float sft=0;
+						sft=Float.parseFloat(s.toString());
+ 
+						TotalPlotArea.setText(""+sft*9);
+					} catch (NumberFormatException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			    	}else{
+			    		TotalPlotArea.setText("");
+			    	}
+			       
+			    }};
+			    
+	
+		    
+	
+	
+	////////////////////////////////////////////////////////////////////////////////////////
+	//Main validation
 	 TextWatcher watchTotalPlotArea = new TextWatcher(){
 		 
 		    @Override
@@ -152,46 +538,7 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 		    
 		    
 		    
-		    
-		    TextWatcher watchTotalPlotYard = new TextWatcher(){
-				 
-			    @Override
-			    public void afterTextChanged(Editable arg0) {
-			        // TODO Auto-generated method stub
-			 
-			    }
-			 
-			    @Override
-			    public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
-			            int arg3) {
-			        // TODO Auto-generated method stub
-			 
-			    }
-			 
-			    @Override
-			    public void onTextChanged(CharSequence s, int a, int b, int c) {
-			        // TODO Auto-generated method stub
-			    	
-			    	
-			    	if(s.length()>0){
-				    	try {
-				    		
-							float sft=0;
-							sft=Float.parseFloat(s.toString());
-		 					TotalPlotArea.setText(""+sft*9);
-							//TotalPlotArea.setText(""+sft*9);
-						} catch (NumberFormatException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-			    	}else{
-			    		TotalPlotArea.setText("");
-			    		//TotalPlotArea.setText("");
-			    	}
-			       
-			    }};
-			    
-		    
+		      
 		    
 		    
 		    
@@ -302,5 +649,5 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 				       
 					    	
 					    }};
-
+*/
 }
