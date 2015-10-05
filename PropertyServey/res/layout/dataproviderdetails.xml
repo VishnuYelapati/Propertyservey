@@ -114,7 +114,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="Relationship"
+                        android:text="Relationship*"
                         android:textColor="@color/black" />
 
                     <EditText  android:padding="3dp"

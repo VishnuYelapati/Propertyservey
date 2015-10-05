@@ -4,8 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import org.apache.poi.hpsf.Util;
-
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;

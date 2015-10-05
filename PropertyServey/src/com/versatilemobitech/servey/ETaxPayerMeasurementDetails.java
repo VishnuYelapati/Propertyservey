@@ -1,11 +1,7 @@
 package com.versatilemobitech.servey;
 
-import org.apache.poi.hssf.record.PageBreakRecord.Break;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
@@ -53,12 +49,16 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 		VacantArea=(EditText)findViewById(R.id.et_vacantareainsqft);
 		VacantYard=(EditText)findViewById(R.id.et_vacantareainyards);
 		
-		TotalPlotArea.setText(pbean.getTotalPlotArea().toString());
+		
+		//Loading previous data  we can enable it later
+		/*TotalPlotArea.setText(pbean.getTotalPlotArea().toString());
+		TotalPlotYard.setText(pbean.getTotalPlotYard().toString());
 		PlinthArea.setText(pbean.getPlinthArea().toString());
+		PlinthYard.setText(pbean.getPlinthYard().toString());
 		TotalConstructionArea.setText(pbean.getTotalConstructionArea().toString());
 		TotalConstructionYard.setText(pbean.getTotalConstructionYard().toString());
 		TotalPlotYard.setText(pbean.getTotalPlotYard().toString());
-		VacantYard.setText(pbean.getVacantYard().toString());
+		VacantYard.setText(pbean.getVacantYard().toString());*/
 		
 	      btn_Next.setOnClickListener(new OnClickListener() {
 			

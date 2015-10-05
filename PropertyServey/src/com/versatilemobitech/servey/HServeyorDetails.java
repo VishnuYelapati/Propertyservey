@@ -56,14 +56,14 @@ public class HServeyorDetails extends BaserActinbBar{
 			public void onClick(View v) {
 
 				
-				if(et_sName.getText().toString().length()>0 && et_saddress.getText().toString().length()>0 && et_sId.getText().toString().length()>0 && et_aaDate.getText().toString().length()>0
+				if(et_sName.getText().toString().length()>0 && et_saddress.getText().toString().length()>0 && et_sId.getText().toString().length()>0 && et_sDate.getText().toString().length()>0
 						&& et_aaName.getText().toString().length()>0 && et_aaDate.getText().toString().length()>0)
 				{
                      ProperyBean bean=ProperyBean.getInstance();
                      bean.setNameOfSurveyor(et_sName.getText().toString());
                      bean.setSurveyorAddress(et_saddress.getText().toString());
                      bean.setIdCodeOfSurveyor(et_sId.getText().toString());
-                     bean.setDate_Surveyor(et_aaDate.getText().toString());
+                     bean.setDate_Surveyor(et_sDate.getText().toString());
                      bean.setNameOfAttestingAuthority(et_aaName.getText().toString());
                      bean.setDesignationOfAttestingAuthority(et_aaDesig.getText().toString());
                      bean.setDate_Attesting(et_aaDate.getText().toString());

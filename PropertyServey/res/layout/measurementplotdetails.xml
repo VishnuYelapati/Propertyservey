@@ -276,9 +276,9 @@
                         android:id="@+id/et_nofloors"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                         android:inputType="numberDecimal"
+                         android:inputType="number"
                          android:singleLine="true"
-                         android:hint="Sq.ft"
+                        
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
                          />
