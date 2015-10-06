@@ -40,7 +40,7 @@ public class HServeyorDetails extends BaserActinbBar{
 		et_sName=(EditText)findViewById(R.id.et_servyerName);
 		et_saddress=(EditText)findViewById(R.id.et_serveyoradd);
 		et_sId=(EditText)findViewById(R.id.et_serveyorId);
-		et_sDate=(EditText)findViewById(R.id.et_state);
+		et_sDate=(EditText)findViewById(R.id.et_date);
 		 pbean=ProperyBean.getInstance();
 		
 		
@@ -67,6 +67,8 @@ public class HServeyorDetails extends BaserActinbBar{
                      bean.setNameOfAttestingAuthority(et_aaName.getText().toString());
                      bean.setDesignationOfAttestingAuthority(et_aaDesig.getText().toString());
                      bean.setDate_Attesting(et_aaDate.getText().toString());
+                     
+                     
 				Intent intent = new Intent(HServeyorDetails.this, CaptureSignature.class); 
                 startActivityForResult(intent,SIGNATURE_ACTIVITY);
 				}

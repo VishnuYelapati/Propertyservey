@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnFocusChangeListener;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,6 +43,45 @@ public class FLandBuildingDetailsActivity  extends BaserActinbBar{
 		spn_floordetails=(Spinner)findViewById(R.id.spn_detailsfloor);
 		spn_landinuse=(Spinner)findViewById(R.id.spn_landuse);
 		
+		
+		
+		et_areaSqft.setOnFocusChangeListener(new OnFocusChangeListener() {
+			
+			@Override
+			public void onFocusChange(View arg0, boolean arg1) {
+				// TODO Auto-generated method stub
+				if(arg1)
+				{
+					
+				}
+				else{
+					if(et_areaSqft.getText().toString().length()>0)
+					{
+						et_areyards.setText(""+(Float.parseFloat(et_areaSqft.getText().toString())/9));
+					}
+				}
+			}
+		});
+		
+		
+		et_areyards.setOnFocusChangeListener(new OnFocusChangeListener() {
+			
+			@Override
+			public void onFocusChange(View v, boolean hasFocus) {
+
+				if(hasFocus)
+				{
+					
+				}
+				else{
+					if(et_areyards.getText().toString().length()>0)
+					{
+						et_areaSqft.setText(""+(Float.parseFloat(et_areyards.getText().toString())*9));
+					}
+				}
+				
+			}
+		});
 	
 		btn_Next=(Button)findViewById(R.id.btn_next);
 		btn_Prev=(Button)findViewById(R.id.btn_prev);
@@ -124,6 +164,50 @@ public class FLandBuildingDetailsActivity  extends BaserActinbBar{
 						(LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				final View addView = layoutInflater.inflate(R.layout.landbuilding_addrow, null);
 
+				final EditText totalAraeSFT = (EditText)addView.findViewById(R.id.et_totalareasft);
+				final EditText totalAraeYard = (EditText)addView.findViewById(R.id.et_totalareainyards);
+				
+				
+				totalAraeSFT.setOnFocusChangeListener(new OnFocusChangeListener() {
+					
+					@Override
+					public void onFocusChange(View arg0, boolean arg1) {
+						// TODO Auto-generated method stub
+						if(arg1)
+						{
+							
+						}
+						else{
+							if(totalAraeSFT.getText().toString().length()>0)
+							{
+								totalAraeYard.setText(""+(Float.parseFloat(totalAraeSFT.getText().toString())/9));
+							}
+						}
+					}
+				});
+				
+				
+				totalAraeYard.setOnFocusChangeListener(new OnFocusChangeListener() {
+					
+					@Override
+					public void onFocusChange(View v, boolean hasFocus) {
+
+						if(hasFocus)
+						{
+							
+						}
+						else{
+							if(totalAraeYard.getText().toString().length()>0)
+							{
+								totalAraeSFT.setText(""+(Float.parseFloat(totalAraeYard.getText().toString())*9));
+							}
+						}
+						
+					}
+				});
+				
+				
+				
 				
 				Button buttonRemove = (Button)addView.findViewById(R.id.btn_removeview);
 				buttonRemove.setOnClickListener(new OnClickListener(){

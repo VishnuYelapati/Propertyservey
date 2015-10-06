@@ -57,10 +57,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	public static final String Plot_Flat_ShopNo="Plot_Flat_Shop_No";
 	public static final String Zone="Zone";
-	public static final String Ward="ward";
+	 public static final String Ward="ward";
 	public static final String Colony_Name="Colony_Name";
 	public static final String City="City";
 	public static final String State="State";
+	public static final String Landmark="landmark";
 	public static final String Name_No_OfBuilding_pre="Name_No_of_building_pre";
 	public static final String Name_No_OfBuilding_post="Name_No_of_building_post";
 	public static final String DetailsOfOwnership="Details_of_ownership";
@@ -79,12 +80,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public static final String TotalPlotArea="Total_Plot_Area_in_Sqft";
 	public static final String PlinthArea="Plinth_Area_in_Sqft";
 	public static final String VacantArea="Vacant_Area_in_sqft";
-	public static final String TotalConstructionArea="Total_Construction_Area_in_sqft";
+	 public static final String TotalConstructionArea="Total_Construction_Area_in_sqft";
 
 	//_Yard
 	public static final String TotalPlotYard="Total_Plot_Area_in_yard";
 	public static final String PlinthYard="Plinth_Area_in_yard";
 	public static final String VacantYard="Vacant_Area_in_yard";
+	public static final String TotalConstructionYard="Total_Construction_Area_in_yard";
 	
 	
 	
@@ -136,8 +138,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public static final String FireFightingSystem="Fire_Fighting_SystemWrite_1_if_applicable_else_0";
 
 	public static final String WhetherpayUdTax_ACNo="If_paid_UD_Tax_Account_No";
-	public static final String WhetherpayLeaseTax_ACNo="If_paid_Lease_Tax_Account_No";
-	public static final String PleaseWriteSizefBoardSqft="";
+	 public static final String WhetherpayLeaseTax_ACNo="If_paid_Lease_Tax_Account_No";
+	public static final String PleaseWriteSizefBoardSqft="SizefBoardSqft";
 
 
 	/**
@@ -211,6 +213,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ Colony_Name 		+ " TEXT,"
 				+ City 		+ " TEXT,"
 				+ State 		+ " TEXT,"
+				+ Landmark	+ " TEXT,"
 				+ Name_No_OfBuilding_pre 		+ " TEXT,"
 				+ Name_No_OfBuilding_post 		+ " TEXT,"
 				+ DetailsOfOwnership 		+ " TEXT,"
@@ -226,6 +229,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ PlinthArea 		+ " TEXT,"
 				+ VacantArea 		+ " TEXT,"
 				+ TotalConstructionArea 		+ " TEXT,"
+				+ TotalConstructionYard + " TEXT,"
 			+ TotalPlotYard 		+ " TEXT,"
 				+ PlinthYard 		+ " TEXT,"
 				+ VacantYard 		+ " TEXT,"
@@ -257,6 +261,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ Boring 		+ " TEXT,"
 				+ Parking 		+ " TEXT,"
 				+ AdvertisementHoarding 		+ " TEXT,"
+				+ PleaseWriteSizefBoardSqft 	+ " TEXT,"
 				+ StreetLight 		+ " TEXT,"
 				+ PrivateToilet 		+ " TEXT,"
 				+ MobileTower 		+ " TEXT,"

@@ -117,8 +117,13 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 					et_lengthfeets.setEnabled(true);
 					et_widthFeets.setEnabled(true);
 				}else{
-					et_lengthfeets.setBackgroundResource(R.drawable.et_corner_shape_desabled);
-					et_widthFeets.setBackgroundResource(R.drawable.et_corner_shape_desabled);
+					
+					et_lengthfeets.setText("");
+					et_widthFeets.setText("");
+					et_lengthfeets.setEnabled(false);
+					et_widthFeets.setEnabled(false);
+					//et_lengthfeets.setBackgroundResource(R.drawable.et_corner_shape_desabled);
+					//et_widthFeets.setBackgroundResource(R.drawable.et_corner_shape_desabled);
 				}
 			}
 		});

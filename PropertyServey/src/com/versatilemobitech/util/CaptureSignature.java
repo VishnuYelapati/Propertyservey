@@ -210,7 +210,8 @@ public class CaptureSignature extends Activity {
             tempdir.mkdirs();
  
         if (tempdir.isDirectory()) 
-        {
+        {/*
+        To delete files
             File[] files = tempdir.listFiles();
             for (File file : files) 
             {
@@ -219,7 +220,7 @@ public class CaptureSignature extends Activity {
                     System.out.println("Failed to delete " + file);
                 }
             }
-        }
+        */}
         return (tempdir.isDirectory());
     }
  

@@ -39,9 +39,9 @@ public class CTaxPayerAddressDetails extends BaserActinbBar{
 		  BasicPhoneNo=(EditText)findViewById(R.id.et_basicphone);
 		  
 		  AddressforCommunication.setText(pbean.getAddressforCommunication().toString());
-		  MobileNo.setText(pbean.getMobileNo().toString());
+		  MobileNo.setText(pbean.getMobileNo_Address().toString());
 		  PermanentAddress.setText(pbean.getPermanentAddress().toString());
-		  BasicPhoneNo.setText(pbean.getBasicPhoneNo().toString());
+		  BasicPhoneNo.setText(pbean.getBasicPhoneNo_Address().toString());
 		  EmailID.setText(pbean.getEmailID_Address().toString());
 		btn_Next.setOnClickListener(new OnClickListener() {
 			
@@ -53,9 +53,9 @@ public class CTaxPayerAddressDetails extends BaserActinbBar{
 				if(AddressforCommunication.getText().toString().length()>0  &&  PermanentAddress.getText().toString().length()>0 )
 				{
 					pbean.setAddressforCommunication(AddressforCommunication.getText().toString());
-					pbean.setMobileNo(MobileNo.getText().toString());
+					pbean.setMobileNo_Address(MobileNo.getText().toString());
 					pbean.setPermanentAddress(PermanentAddress.getText().toString());
-					pbean.setBasicPhoneNo(BasicPhoneNo.getText().toString());
+					pbean.setBasicPhoneNo_Address(BasicPhoneNo.getText().toString());
 					pbean.setEmailID_Address(EmailID.getText().toString()); //added
 					
 					Intent i=new Intent(getApplicationContext(),DTaxPayerPropertyDetails.class);
@@ -75,9 +75,9 @@ public class CTaxPayerAddressDetails extends BaserActinbBar{
 				// TODO Auto-generated method stub
 				
 				pbean.setAddressforCommunication(AddressforCommunication.getText().toString());
-				pbean.setMobileNo(MobileNo.getText().toString());
+				pbean.setMobileNo_Address(MobileNo.getText().toString());
 				pbean.setPermanentAddress(PermanentAddress.getText().toString());
-				pbean.setBasicPhoneNo(BasicPhoneNo.getText().toString());
+				pbean.setBasicPhoneNo_Address(BasicPhoneNo.getText().toString());
 				pbean.setEmailID_Address(EmailID.getText().toString()); //added
 				
 				onBackPressed();

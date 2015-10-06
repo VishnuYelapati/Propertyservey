@@ -512,6 +512,7 @@ public class MyServey extends BaserActinbBar {
 			 cv_Values.put(dbHandler.AddressforCommunication,pbean.getAddressforCommunication());
 			 cv_Values.put(dbHandler.Zone,pbean.getZone());
 			 cv_Values.put(dbHandler.Ward,pbean.getWard());
+			 cv_Values.put(dbHandler.Landmark,pbean.getLandmark());
 			cv_Values.put(dbHandler.Others,pbean.getOthers());
 			cv_Values.put(dbHandler.OutOfRicoIndustries,pbean.getOutOfRicoIndustries());
 			//	cv_Values.put(dbHandler.owner_name,pbean.getO);
@@ -523,12 +524,15 @@ public class MyServey extends BaserActinbBar {
 			 cv_Values.put(dbHandler.WhetherConstructionOnPlot,pbean.getWhetherConstructionOnPlot());
 			 cv_Values.put(dbHandler.IncaseofMultistoreyBuilding,pbean.getIncaseofMultistoreyBuilding());
 			 cv_Values.put(dbHandler.TotalConstructionArea,pbean.getTotalConstructionArea());
+			 cv_Values.put(dbHandler. TotalConstructionYard,pbean.getTotalConstructionYard());
 			 
 			 
 			 cv_Values.put(dbHandler.Width,pbean.getWidth());
 			 cv_Values.put(dbHandler.GeneralDegreeCollege,pbean.getGeneralDegreeCollege());
 			 cv_Values.put(dbHandler.CoachingInstitute,pbean.getCoachingInstitute());
 			 cv_Values.put(dbHandler.AdvertisementHoarding,pbean.getAdvertisementHoarding());
+			 cv_Values.put(dbHandler.PleaseWriteSizefBoardSqft,pbean.getPleaseWriteSizefBoardSqft());
+			 
 			 cv_Values.put(dbHandler.WhetherpayUdTax,pbean.getWhetherpayUdTax());
 			 cv_Values.put(dbHandler.WhetherpayLeaseTax,pbean.getWhetherpayLeaseTax());
 			 cv_Values.put(dbHandler.WhetherpayUdTax_ACNo,pbean.getWhetherpayUdTax_ACNo());

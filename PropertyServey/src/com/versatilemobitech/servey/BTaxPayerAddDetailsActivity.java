@@ -49,6 +49,9 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 				
 				
 				
+				ArrayList<NameBean> tempNames=new ArrayList<NameBean>();
+				
+				
 				if(et_age.getText().toString().length()>0 && et_name.getText().toString().length()>0 && et_fathername.getText().toString().length()>0 &&  profissinal.length()>0)
 				{
 				NameBean firstBean=new NameBean();
@@ -58,8 +61,10 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 				firstBean.setNameOfFatherorHusband(et_fathername.getText().toString());
 				firstBean.setProfession(profissinal);
 				
-				beanList.add(firstBean);
+				tempNames.add(firstBean);
+				//beanList.add(firstBean);
 				
+				boolean isValid=true;
 					NameBean nameBean=null;
 					for (int i = 0; i < ll_container.getChildCount(); i++) {
 						//Values
@@ -73,18 +78,38 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 						TextView etxtAge = (TextView)addView.findViewById(R.id.etxt_age);
 						Spinner etxtProffesion = (Spinner)addView.findViewById(R.id.sp_profession);
 
+						
+						if(etxtName.getText().toString().length()>0 && etxtfatherName.getText().toString().length()>0 && etxtAge.getText().toString().length()>0 && etxtProffesion.getSelectedItem().toString().length()>0  )
 
+						{
 						nameBean.setName(etxtName.getText().toString());
 						nameBean.setAge(etxtAge.getText().toString());
 						nameBean.setNameOfFatherorHusband(etxtfatherName.getText().toString());
 						nameBean.setProfession(etxtProffesion.getSelectedItem().toString());
 						
-						beanList.add(nameBean);
+						//beanList.add(nameBean);
+						tempNames.add(nameBean);
+						}
+						else{
+							
+							isValid=false;
+							if(etxtName.getText().toString().length()<=0)
+								etxtName.setError("Invalide");
+							
+							tempNames.clear();
+						}
 					}
 
+					if(isValid)
+					{
+						beanList.addAll(tempNames);
 					ProperyBean.getInstance().setNameList(beanList);
 					Intent i=new Intent(getApplicationContext(),CTaxPayerAddressDetails.class);
 					startActivity(i);
+				}
+					else{
+						Toast.makeText(getApplicationContext(), "Please provide required values", Toast.LENGTH_LONG).show();
+					}
 				
 				}
 				else{
@@ -129,14 +154,7 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 				LayoutInflater layoutInflater =
 						(LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				final View addView = layoutInflater.inflate(R.layout.taxpayerdetails_addrow, null);
-				/*TextView etxtName = (TextView)addView.findViewById(R.id.etxt_name);
-				TextView etxtfatherName = (TextView)addView.findViewById(R.id.etxt_fatherhusbandname);
-				TextView etxtAge = (TextView)addView.findViewById(R.id.etxt_age);
-				Spinner etxtProffesion = (Spinner)addView.findViewById(R.id.etxt_proffesion);*/
-				//    etxtName.setText(et_name.getText().toString());
-				//   etxtfatherName.setText(et_fathername.getText().toString());
-				//   etxtAge.setText(et_age.getText().toString());
-				//  etxtProffesion.setText(spn_profession.getSelectedItem().toString());
+				 
 				Button buttonRemove = (Button)addView.findViewById(R.id.btn_removeview);
 				buttonRemove.setOnClickListener(new OnClickListener(){
 

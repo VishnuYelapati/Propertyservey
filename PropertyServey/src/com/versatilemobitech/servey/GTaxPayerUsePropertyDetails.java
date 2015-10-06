@@ -157,7 +157,7 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 				{
 					et_advhoarding.setText("");
 					et_advhoarding.setEnabled(false);
-					et_advhoarding.setBackgroundResource(R.drawable.et_corner_shape_desabled);
+					 et_advhoarding.setBackgroundResource(R.drawable.et_corner_shape_desabled);
 				}
 				
 			}
@@ -217,7 +217,7 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 				bean.setOthers(otherEdit.getText().toString());
 				
 				
-				System.out.println("TEST Radio "+getCheckValue(SewerConnection));
+				
 				bean.setSewerConnection(getCheckValue(SewerConnection));
 				bean.setLightConnection(getCheckValue(LightConnection));
 				bean.setBoring(getCheckValue(Boring));
