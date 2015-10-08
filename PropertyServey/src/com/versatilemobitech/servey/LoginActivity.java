@@ -1,7 +1,15 @@
 package com.versatilemobitech.servey;
 
+import java.io.InputStream;
+import java.util.HashMap;
+
+import org.json.JSONArray;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,8 +27,10 @@ public class LoginActivity extends BaserActinbBar {
 	String strPassword="", str_pref_Password;
 	SharedPreferences mypref=null;
 
+	Activity _activity=null;
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		_activity=this;
 		setContentView(R.layout.activity_login);
 		et_UserName=(EditText) findViewById(R.id.et_username);
 		et_Password=(EditText) findViewById(R.id.et_pwd);
@@ -44,18 +54,11 @@ public class LoginActivity extends BaserActinbBar {
 
 
 				if(strUsername.length()!=0 && strPassword.length()!=0){
-					if(strUsername.equalsIgnoreCase("Admin") && strPassword.equalsIgnoreCase("admin@123"))
-					{
+					 
 						//
-
-						Intent mapIntent=new Intent(LoginActivity.this, MainActivity.class);
-
-						startActivity(mapIntent);
-					}
-					else
-					{
-						Toast.makeText(LoginActivity.this, "Invalid credentials, please check and try again", Toast.LENGTH_LONG).show();
-					}
+						MyBgTask bgTask=new MyBgTask();
+						bgTask.execute(strUsername,strPassword);
+					 
 
 				}else{
 					if(strUsername.length()==0)
@@ -74,6 +77,88 @@ public class LoginActivity extends BaserActinbBar {
 		});
 
 
+	}
+	
+	class MyBgTask extends AsyncTask<String, Void, Boolean>
+	{
+		ProgressDialog dialog;
+		
+		boolean isUserValid=false;
+		boolean isPassValid=false;
+		@Override
+		protected void onPreExecute() {
+			// TODO Auto-generated method stub
+			super.onPreExecute();
+			dialog=new ProgressDialog(_activity);
+			dialog.setTitle("Please wait...");
+			dialog.show();
+		}
+
+		@Override
+		protected Boolean doInBackground(String... params) {
+			 
+			try{
+			InputStream is = _activity.getAssets().open("users_list.json");
+			int size = is.available();
+			byte[] buffer = new byte[size];
+			is.read(buffer);
+			is.close();
+			String bufferString = new String(buffer);
+			
+			JSONArray jsonArray = new JSONArray(bufferString);
+			//parse an Object from a random index in the JSONArray
+			
+			 
+			 HashMap<String, String> userList=new HashMap<String, String>();
+			 for (int i = 0; i < jsonArray.length(); i++) {
+				 
+				 userList.put(jsonArray.getJSONObject(i).getString("User Name "), jsonArray.getJSONObject(i).getString("Password "));
+			}
+			 
+			 if(userList.containsKey(params[0]))
+			 {
+				 isUserValid=true;
+				 if(userList.get(params[0])!=null)
+				 {
+					 if(userList.get(params[0]).equals(params[1]))
+						 isPassValid=true;
+						 
+				 }
+			 }
+			 
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+			return isPassValid;
+		}
+		@Override
+		protected void onPostExecute(Boolean result) {
+			// TODO Auto-generated method stub
+			super.onPostExecute(result);
+			
+			if(result)
+			{
+
+				
+				finish();
+				Intent mapIntent=new Intent(LoginActivity.this, MainActivity.class);
+
+				startActivity(mapIntent);
+			}
+			else{
+				if(!isPassValid)
+					et_Password.setError("Invalid");
+				
+				if(!isUserValid)
+					et_UserName.setError("Invalid");
+				Toast.makeText(getApplicationContext(), "Invalid credentials.", Toast.LENGTH_LONG).show();
+			}
+			
+			dialog.dismiss();
+		}
+		
 	}
 
 }

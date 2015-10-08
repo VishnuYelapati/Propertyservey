@@ -38,7 +38,7 @@
             android:hint="@string/uname"
             android:paddingLeft="10dp"
             android:singleLine="true"
-            android:text="Admin"
+            android:text="Cora"
             android:textColor="@color/black" >
         </EditText>
 
@@ -56,7 +56,7 @@
             android:inputType="textPassword"
             android:paddingLeft="10dp"
             android:singleLine="true"
-            android:text="Admin@123"
+            android:text="Levi"
             android:textColor="@color/black" />
 
         <Button
