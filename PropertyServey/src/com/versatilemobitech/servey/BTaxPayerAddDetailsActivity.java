@@ -85,7 +85,7 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 						nameBean.setName(etxtName.getText().toString());
 						nameBean.setAge(etxtAge.getText().toString());
 						nameBean.setNameOfFatherorHusband(etxtfatherName.getText().toString());
-						nameBean.setProfession(etxtProffesion.getSelectedItem().toString());
+						nameBean.setProfession(""+etxtProffesion.getSelectedItemId());
 						
 						//beanList.add(nameBean);
 						tempNames.add(nameBean);
@@ -133,7 +133,7 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
-				profissinal=arg0.getItemAtPosition(arg2).toString();
+				profissinal=""+arg2;//arg0.getItemAtPosition(arg2).toString();
 				
 			}
 

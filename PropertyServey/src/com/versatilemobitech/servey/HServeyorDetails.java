@@ -44,6 +44,7 @@ public class HServeyorDetails extends BaserActinbBar{
 		dbHandler=new DatabaseHandler(getApplicationContext());
 
 		et_sName=(EditText)findViewById(R.id.et_servyerName);
+		
 		et_saddress=(EditText)findViewById(R.id.et_serveyoradd);
 		et_sId=(EditText)findViewById(R.id.et_serveyorId);
 		et_sDate=(EditText)findViewById(R.id.et_date);
@@ -51,7 +52,7 @@ public class HServeyorDetails extends BaserActinbBar{
 		pbean=ProperyBean.getInstance();
 
 
-
+		et_sName.setText(pbean.getUserName());
 
 		et_sDate.setOnClickListener(new OnClickListener() {
 
@@ -154,7 +155,7 @@ public class HServeyorDetails extends BaserActinbBar{
 
 	private void updateLabelTwo() {
 
-		String myFormat = "dd/MM/yyyy"; //In which you need put here
+		String myFormat = "yyyy-MM-dd";//"dd/MM/yyyy"; //In which you need put here
 		SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
 		et_aaDate.setText(sdf.format(myCalendar.getTime()));
@@ -163,7 +164,7 @@ public class HServeyorDetails extends BaserActinbBar{
 
 	private void updateLabel() {
 
-		String myFormat = "dd/MM/yyyy"; //In which you need put here
+		String myFormat ="yyyy-MM-dd";// "dd/MM/yyyy"; //In which you need put here
 		SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
 		et_sDate.setText(sdf.format(myCalendar.getTime()));

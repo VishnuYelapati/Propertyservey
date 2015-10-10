@@ -18,25 +18,25 @@
         <item>Other</item>
     </string-array>
     <string-array name="str_arr_state_govt">
-          <item>Select</item>
+        <item>Select</item>
         <item> Govt. Autonomous Board</item>
         <item>Govt. Company</item>
         <item> Corporation</item>
     </string-array>
     <string-array name="str_arr_religious">
-          <item>Select</item>
+        <item>Select</item>
         <item>Temple</item>
         <item> Mosque</item>
         <item> Gurudwara</item>
         <item> Church</item>
     </string-array>
     <string-array name="str_arr_residetial">
-        <item >Select</item>
+        <item>Select</item>
         <item>Individual House</item>
         <item> Apartment</item>
     </string-array>
     <string-array name="str_arr_detils_floor">
-         <item>Select</item>
+        <item>Select</item>
         <item> Under Ground</item>
         <item> Ground Floor</item>
         <item> First Floor</item>
@@ -46,7 +46,7 @@
         <item> Others</item>
     </string-array>
     <string-array name="str_arr_land_use">
-        <item >Select</item>
+        <item>Select</item>
         <item> Residential</item>
         <item> Commercial</item>
         <item> Institutional</item>
@@ -54,20 +54,20 @@
         <item> Others</item>
     </string-array>
     <string-array name="str_type_of_construction">
-         <item>Select</item>
+        <item>Select</item>
         <item>R.C.C</item>
         <item>Teen Shed</item>
         <item> Kaccha House</item>
         <item>Semi(R.C.C+Kaccha)</item>
     </string-array>
     <string-array name="str_details_ownership">
-         <item>Select</item>
+        <item>Select</item>
         <item> Allotment Land/House</item>
         <item>Ancestral</item>
         <item> Possession</item>
     </string-array>
     <string-array name="str_data_provide_by">
-          <item>Select</item>
+        <item>Select</item>
         <item>  Owner</item>
         <item>  Family Member</item>
         <item>  Tenant</item>
@@ -77,6 +77,5 @@
         <item>  Guard</item>
         <item>  Others </item>
     </string-array>
-    
 
 </resources>

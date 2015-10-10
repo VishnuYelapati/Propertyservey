@@ -144,7 +144,7 @@ try{
     		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     		Date todayDate=new Date();
         	//Date date1 = sdf.parse("2009-12-31");
-        	Date date2 = sdf.parse("2015-10-10");
+        	Date date2 = sdf.parse("2015-10-20");
 
         	//System.out.println(sdf.format(date1));
         	System.out.println(sdf.format(date2));

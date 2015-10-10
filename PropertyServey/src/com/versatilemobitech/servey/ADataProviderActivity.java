@@ -24,7 +24,7 @@ import com.versatilemobitech.util.Utils;
 public class ADataProviderActivity extends BaserActinbBar{
 
 	private Button btn_save;
-	
+
 
 
 	String outFilePath;
@@ -46,7 +46,7 @@ public class ADataProviderActivity extends BaserActinbBar{
 		utls=new Utils();
 		btn_save=(Button)findViewById(R.id.btn_save);
 		mSpn_dataProvider=(Spinner)findViewById(R.id.spn_Dataprovder);
-		 
+
 		mRelationshipOfOwner=(EditText)findViewById(R.id.et_relationowner);
 		MobileNo=(EditText)findViewById(R.id.et_mobileno);
 		EmailID=(EditText)findViewById(R.id.et_emaild);
@@ -63,7 +63,7 @@ public class ADataProviderActivity extends BaserActinbBar{
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 
-				dataProvider=((SpinnerItemBean)parent.getItemAtPosition(position)).getStrItem();
+				dataProvider=""+position;//((SpinnerItemBean)parent.getItemAtPosition(position)).getStrItem();
 
 			}
 
@@ -75,13 +75,13 @@ public class ADataProviderActivity extends BaserActinbBar{
 			}
 		});
 
-		 ArrayList<SpinnerItemBean> arr_itemBean=new ArrayList<SpinnerItemBean>();
+		ArrayList<SpinnerItemBean> arr_itemBean=new ArrayList<SpinnerItemBean>();
 
 
-		 for(int i=0;i<getResources().getStringArray(R.array.str_arr_profession).length;i++){
+		for(int i=0;i<getResources().getStringArray(R.array.str_data_provide_by).length;i++){
 
 			SpinnerItemBean sib=new SpinnerItemBean();
-			sib.setStrItem(getResources().getStringArray(R.array.str_arr_profession)[i]);
+			sib.setStrItem(getResources().getStringArray(R.array.str_data_provide_by)[i]);
 			arr_itemBean.add(sib);
 		}
 		Resources res = getResources(); 
@@ -94,32 +94,55 @@ public class ADataProviderActivity extends BaserActinbBar{
 			@Override
 			public void onClick(View arg0) {
 
-				if((!dataProvider.equals("")) &&!dataProvider.equals("Select") &&  NameOfDataProvider.getText().toString().length()>0 )
+				if((!dataProvider.equals("")) &&!dataProvider.equals("Select") &&  NameOfDataProvider.getText().toString().length()>0   )
 				{
 					ProperyBean pbean=ProperyBean.getInstance();
 					pbean.setDataProvidedBy(dataProvider);
 					pbean.setNameOfDataProvider(NameOfDataProvider.getText().toString());
 					pbean.setRelationshipOfOwner(mRelationshipOfOwner.getText().toString());
+
+					boolean mobile1=(MobileNo.getText().toString().length()>0)?(MobileNo.getText().toString().length()==10):true;
+					boolean mobile2=(BasicPhoneNo.getText().toString().length()>0)?(BasicPhoneNo.getText().toString().length()==10):true;
+					boolean uid=(OwnerUIDNumber.getText().toString().length()>0)?(OwnerUIDNumber.getText().toString().length()==12):true;
+
+					if(!mobile1)
+					{
+						MobileNo.setError("Invalid");
+					}
+					if(!mobile2)
+						BasicPhoneNo.setError("Invalid");
+
+					if(!uid)
+						OwnerUIDNumber.setError("Invalid");
+
+
 					pbean.setMobileNo(MobileNo.getText().toString());
-					pbean.setEmailID(EmailID.getText().toString());
 					pbean.setOwnerUIDNumber(OwnerUIDNumber.getText().toString());
 					pbean.setBasicPhoneNo(BasicPhoneNo.getText().toString());
 
+					pbean.setEmailID(EmailID.getText().toString());
 
-					Intent i=new Intent(getApplicationContext(),BTaxPayerAddDetailsActivity.class);
-					startActivity(i);
+
+					if(mobile1&&mobile2&&uid)
+					{
+						Intent i=new Intent(getApplicationContext(),BTaxPayerAddDetailsActivity.class);
+						startActivity(i);
+					}
+					else{
+						Toast.makeText(getApplicationContext(), "Please select the data Provider", Toast.LENGTH_LONG).show();
+					}
 				}
 				else{
 
 					if(mRelationshipOfOwner.getText().toString().length()<=0)
 						mRelationshipOfOwner.setError("Invalid value");
 
-				
+
 					if( NameOfDataProvider.getText().toString().length()<=0 )
 						NameOfDataProvider.setError("Invalid value");
 					if(dataProvider.equals("Select"))
 						Toast.makeText(getApplicationContext(), "Please select the data Provider", Toast.LENGTH_LONG).show();
-					
+
 				}
 
 
@@ -129,10 +152,6 @@ public class ADataProviderActivity extends BaserActinbBar{
 
 
 	}
-
-
-
-
 
 
 

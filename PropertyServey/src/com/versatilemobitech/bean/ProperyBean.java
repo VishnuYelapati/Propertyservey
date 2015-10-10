@@ -8,6 +8,8 @@ public class ProperyBean implements Serializable{
 	/**
 	 * 
 	 */
+	
+	private String userName="";
 	private static final long serialVersionUID = 1L;
 	//New Survey Application Form Bean
 	
@@ -878,6 +880,16 @@ public class ProperyBean implements Serializable{
 
 	public void setLandmark(String landmark) {
 		Landmark = landmark;
+	}
+
+
+	public String getUserName() {
+		return userName;
+	}
+
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 

@@ -267,7 +267,7 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 
-				StateGovtPropertyOffice=parent.getItemAtPosition(position).toString();
+				StateGovtPropertyOffice=""+position;//parent.getItemAtPosition(position).toString();
 
 			}
 
@@ -284,7 +284,7 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 
-				ReligiousPlace=parent.getItemAtPosition(position).toString();
+				ReligiousPlace=""+position;//parent.getItemAtPosition(position).toString();
 
 			}
 
@@ -302,7 +302,7 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 
-				Residential=parent.getItemAtPosition(position).toString();
+				Residential=""+position;//parent.getItemAtPosition(position).toString();
 
 			}
 

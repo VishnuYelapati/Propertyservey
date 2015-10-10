@@ -140,6 +140,7 @@
                         android:background="@drawable/textfiled"
                         android:inputType="phone"
                         android:singleLine="true"
+                       android:maxLength="10"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -174,6 +175,7 @@
                         android:background="@drawable/textfiled"
                         android:inputType="phone"
                         android:singleLine="true"
+                         android:maxLength="10"
                         android:textColor="@color/black" />
                 </LinearLayout>
 

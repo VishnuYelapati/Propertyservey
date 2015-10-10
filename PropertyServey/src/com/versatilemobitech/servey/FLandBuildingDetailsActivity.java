@@ -103,9 +103,10 @@ public class FLandBuildingDetailsActivity  extends BaserActinbBar{
 					initBean.setTotalAreaInSqFt(et_areaSqft.getText().toString());
 
 					initBean.setTotalAreaInYard(et_areyards.getText().toString());
-					initBean.setLandUse( spn_landinuse.getSelectedItem().toString());
-					initBean.setDetailsoffloor(spn_floordetails.getSelectedItem().toString());
-					
+					//initBean.setLandUse( spn_landinuse.getSelectedItem().toString());
+					initBean.setLandUse( ""+spn_landinuse.getSelectedItemPosition());
+					//initBean.setDetailsoffloor(spn_floordetails.getSelectedItem().toString());
+					initBean.setDetailsoffloor(""+spn_floordetails.getSelectedItemPosition());
 					arr_bld.add(initBean);
 					
 				if(ll_container!=null)
@@ -125,8 +126,8 @@ public class FLandBuildingDetailsActivity  extends BaserActinbBar{
 						buildingDetails.setTotalAreaInSqFt(totalAraeSFT.getText().toString());
 
 						buildingDetails.setTotalAreaInYard(totalAraeYard.getText().toString());
-						buildingDetails.setLandUse( landUse.getSelectedItem().toString());
-						buildingDetails.setDetailsoffloor(floordetails.getSelectedItem().toString());
+						buildingDetails.setLandUse(""+ landUse.getSelectedItemPosition());
+						buildingDetails.setDetailsoffloor(""+floordetails.getSelectedItemPosition());
 						
 						arr_bld.add(buildingDetails);
 					}

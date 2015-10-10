@@ -5,6 +5,8 @@ import java.util.HashMap;
 
 import org.json.JSONArray;
 
+import com.versatilemobitech.bean.ProperyBean;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -107,7 +109,7 @@ public class LoginActivity extends BaserActinbBar {
 			
 			JSONArray jsonArray = new JSONArray(bufferString);
 			//parse an Object from a random index in the JSONArray
-			
+			ProperyBean.getInstance().setUserName(params[0]);
 			 
 			 HashMap<String, String> userList=new HashMap<String, String>();
 			 for (int i = 0; i < jsonArray.length(); i++) {
@@ -141,6 +143,7 @@ public class LoginActivity extends BaserActinbBar {
 			if(result)
 			{
 
+				
 				
 				finish();
 				Intent mapIntent=new Intent(LoginActivity.this, MainActivity.class);

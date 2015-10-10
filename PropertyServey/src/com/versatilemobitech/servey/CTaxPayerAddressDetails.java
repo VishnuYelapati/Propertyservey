@@ -53,13 +53,33 @@ public class CTaxPayerAddressDetails extends BaserActinbBar{
 				if(AddressforCommunication.getText().toString().length()>0  &&  PermanentAddress.getText().toString().length()>0 )
 				{
 					pbean.setAddressforCommunication(AddressforCommunication.getText().toString());
+					
+					
+					boolean mobile1=(MobileNo.getText().toString().length()>0)?(MobileNo.getText().toString().length()==10):true;
+					boolean mobile2=(BasicPhoneNo.getText().toString().length()>0)?(BasicPhoneNo.getText().toString().length()==10):true;
+					
+					
+					if(!mobile1)
+					{
+						MobileNo.setError("Invalid");
+					}
+					if(!mobile2)
+						BasicPhoneNo.setError("Invalid");
+					
 					pbean.setMobileNo_Address(MobileNo.getText().toString());
-					pbean.setPermanentAddress(PermanentAddress.getText().toString());
 					pbean.setBasicPhoneNo_Address(BasicPhoneNo.getText().toString());
+					
+					pbean.setPermanentAddress(PermanentAddress.getText().toString());
 					pbean.setEmailID_Address(EmailID.getText().toString()); //added
 					
+					if(mobile1&&mobile2)
+					{
 					Intent i=new Intent(getApplicationContext(),DTaxPayerPropertyDetails.class);
 					startActivity(i);
+					}
+					else{
+						Toast.makeText(getApplicationContext(), "Please provide required fields.",Toast.LENGTH_LONG).show();
+					}
 				}
 				else{
 					Toast.makeText(getApplicationContext(), "Please provide required fields.",Toast.LENGTH_LONG).show();
