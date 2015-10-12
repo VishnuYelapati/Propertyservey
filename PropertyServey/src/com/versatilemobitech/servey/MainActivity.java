@@ -17,6 +17,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -26,7 +27,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -51,29 +56,29 @@ public class MainActivity extends BaserActinbBar{
 	private Context _mainContext;
 	String toDay_DATE="";
 	private boolean isCanExportReport=false;
-	
+
 	String csvFile="";
 	//String xlsFIle="";
-	
-	
+
+
 	public static final int SIGNATURE_ACTIVITY = 1;
-	 int existingRow=0;
-	
+	int existingRow=0;
+
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
-		
+
 		buildValidate();
-		
+
 		SharedPreferences preferences=getSharedPreferences("TAB_DATA",MODE_PRIVATE);
-	      existingRow=  preferences.getInt("ROW_ID", 0);
+		existingRow=  preferences.getInt("ROW_ID", 0);
 
 		_mainContext=this;
 		btn_startservey=(Button) findViewById(R.id.btn_startservey);
 		btn_reset_master=(Button)findViewById(R.id.btn_reset_master);
 		btn_export=(Button)findViewById(R.id.btn_export);
 		txt_noserveys=(TextView)findViewById(R.id.txt_noserveys);
-		
+
 		txt_noserveys.setText("No of Survey's :"+existingRow);
 		db=new DatabaseHandler(getApplicationContext());
 		final ActionBar actionBar = getSupportActionBar();
@@ -86,7 +91,7 @@ public class MainActivity extends BaserActinbBar{
 		TextView dateView=(TextView)findViewById(R.id.date_info);
 		dateView.setText("Date:"+toDay_DATE);
 
-		 
+
 
 		btn_startservey.setOnClickListener(new OnClickListener() {
 
@@ -98,84 +103,79 @@ public class MainActivity extends BaserActinbBar{
 				finish();
 			}
 		});
-		
-		
- 
+
+
+
 		btn_export.setOnClickListener(new View.OnClickListener() {
 			//SQLiteDatabase sqldb = db.getReadableDatabase();
 			//Cursor cursor = null;
 
 			@Override
 			public void onClick(View v) {  //main code begins here
-			
-				
+
+
 				if(existingRow!=0){
-					 mainForm();
-					  OwnerdetailsForm();
-					  buildingdetailsForm();
+					mainForm();
+					OwnerdetailsForm();
+					buildingdetailsForm();
 				}else{
 					Toast.makeText(getApplicationContext(), "Servey Records not found",Toast.LENGTH_LONG).show();
 				}
-				 
-				
+
+
 			}
-			
- 
-			
+
+
+
 		});
-		
+
 		btn_reset_master.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
-				//Need to reset master data.
-				
-				
+
+				deleteAll();
+
+
 			}
 		});
 
 	}
 
 	private void buildValidate() {
-		 
-		
-try{
-    		
-    		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-    		Date todayDate=new Date();
-        	//Date date1 = sdf.parse("2009-12-31");
-        	Date date2 = sdf.parse("2015-10-20");
 
-        	//System.out.println(sdf.format(date1));
-        	System.out.println(sdf.format(date2));
-        	
-        	
-        	//System.out.println("TEST :" +todayDate.compareTo(date1));
-        	
-        	if(todayDate.compareTo(date2)>0)
-        	{
-        		System.out.println("TEST Expire:" +todayDate.compareTo(date2));
-        		Toast.makeText(getApplicationContext(), "Expired", Toast.LENGTH_LONG).show();
-        		finish();
-        	}
-        	else{
-        		System.out.println("TEST Valid:" +todayDate.compareTo(date2));
-        	}
-        	
-        	 
-    	}catch(Exception ex){
-    		ex.printStackTrace();
-    	}
-		
+
+		try{
+
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date todayDate=new Date();
+			//Date date1 = sdf.parse("2009-12-31");
+			Date date2 = sdf.parse("2015-10-20");
+
+			if(todayDate.compareTo(date2)>0)
+			{
+				System.out.println("TEST Expire:" +todayDate.compareTo(date2));
+				Toast.makeText(getApplicationContext(), "Expired", Toast.LENGTH_LONG).show();
+				finish();
+			}
+			else{
+				System.out.println("TEST Valid:" +todayDate.compareTo(date2));
+			}
+
+
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+
 	}
 
 	public void OwnerdetailsForm(){
 		SQLiteDatabase sqldb = db.getReadableDatabase();
 		Cursor cursor = null;
 		try {
-			 //My Database class
+			//My Database class
 			csvFile="/OwnerDetails.csv";
-			 
+
 			cursor = sqldb.rawQuery("select * from SERVEY_Owner_Details",null);//WHERE CREATED_DATE >='"+toDay_DATE+"_00:00:00'", null);
 			int rowcount = 0;
 			int colcount = 0;
@@ -195,11 +195,11 @@ try{
 					if (i != colcount - 1) {
 
 						bw.write(""+cursor.getColumnName(i) + ",");
-						
+
 					} else {
 
 						bw.write(""+cursor.getColumnName(i));
-						
+
 
 					}
 				}
@@ -211,10 +211,10 @@ try{
 					for (int j = 0; j < colcount; j++) {
 						if (j != colcount - 1){
 							bw.write(""+cursor.getString(j) + ",");
-						
+
 						}else{
 							bw.write(""+cursor.getString(j));
-							
+
 						}
 					}
 					bw.newLine();
@@ -227,7 +227,7 @@ try{
 			if(!cursor.isClosed())
 				cursor.close();
 		} catch (Exception ex) {
-			
+
 			System.out.println("exception:"+ex.getMessage());
 			if (sqldb.isOpen()) {
 				sqldb.close();
@@ -242,22 +242,22 @@ try{
 		} finally {
 
 		}
-		
+
 	}
 
 	public void buildingdetailsForm(){
 		SQLiteDatabase sqldb = db.getReadableDatabase();
 		Cursor cursor = null;
 		try {
-			
+
 			File exportDir = new File(Environment.getExternalStorageDirectory(), "/serveyforms");        
 			if (!exportDir.exists()) 
 			{
 				exportDir.mkdirs();
 			}  
-			 //My Database class
+			//My Database class
 			csvFile="/BuildingDetails.csv";
-		 
+
 			cursor = sqldb.rawQuery("select * from SERVEY_Building_Details",null);//WHERE CREATED_DATE >='"+toDay_DATE+"_00:00:00'", null);
 			int rowcount = 0;
 			int colcount = 0;
@@ -293,7 +293,7 @@ try{
 					for (int j = 0; j < colcount; j++) {
 						if (j != colcount - 1){
 							bw.write(""+cursor.getString(j) + ",");
-						System.out.println("names:"+cursor.getString(j));
+							System.out.println("names:"+cursor.getString(j));
 						}else{
 							bw.write(""+cursor.getString(j));
 							System.out.println("names1:"+cursor.getString(j));
@@ -309,7 +309,7 @@ try{
 			if(!cursor.isClosed())
 				cursor.close();
 		} catch (Exception ex) {
-			
+
 			System.out.println("exception:"+ex.getMessage());
 			if (sqldb.isOpen()) {
 				sqldb.close();
@@ -324,21 +324,21 @@ try{
 		} finally {
 
 		}
-		
-		
-	}
-	
-	
-	
 
-	
+
+	}
+
+
+
+
+
 	public void mainForm(){
 		SQLiteDatabase sqldb = db.getReadableDatabase();
 		Cursor cursor = null;
 		try {
-			 //My Database class
+			//My Database class
 			csvFile="/MainSurveyForm.csv";
-		 
+
 			cursor = sqldb.rawQuery("select * from SERVEY_DATA",null);//WHERE CREATED_DATE >='"+toDay_DATE+"_00:00:00'", null);
 			int rowcount = 0;
 			int colcount = 0;
@@ -346,10 +346,10 @@ try{
 			String filename = csvFile;//"MainSurveyForm.csv";
 			// the name of the file to export with
 			File saveFile = new File(sdCardDir, filename);
-			
+
 			if(!saveFile.exists())
-			saveFile.createNewFile();
-			
+				saveFile.createNewFile();
+
 			FileWriter fw = new FileWriter(saveFile);
 
 			BufferedWriter bw = new BufferedWriter(fw);
@@ -378,7 +378,7 @@ try{
 					for (int j = 0; j < colcount; j++) {
 						if (j != colcount - 1){
 							bw.write(""+cursor.getString(j) + ",");
-						System.out.println("names:"+cursor.getString(j));
+							System.out.println("names:"+cursor.getString(j));
 						}else{
 							bw.write(""+cursor.getString(j));
 							System.out.println("names1:"+cursor.getString(j));
@@ -394,7 +394,7 @@ try{
 			if(!cursor.isClosed())
 				cursor.close();
 		} catch (Exception ex) {
-			
+
 			System.out.println("exception:"+ex.getMessage());
 			if (sqldb.isOpen()) {
 				sqldb.close();
@@ -403,14 +403,14 @@ try{
 					if(!cursor.isClosed())
 						cursor.close();
 				}
-				 
+
 			}
 
 		} finally {
 
 		}
-		
-		
+
+
 	}
 
 
@@ -424,13 +424,13 @@ try{
 		{
 			dialog.setCanceledOnTouchOutside(false);
 			this.dialog.setMessage("Exporting to excel...");
-		this.dialog.show();}
+			this.dialog.show();}
 
 		@Override
 		protected Boolean doInBackground(String... params) {
 			ArrayList arList=null;
 			ArrayList al=null;
- 
+
 
 
 			File exportDir = new File(Environment.getExternalStorageDirectory(), "/serveyforms");        
@@ -440,8 +440,8 @@ try{
 			}  
 
 			//System.out.println("TEST main dir"+exportDir.getAbsolutePath());
-			
-			 
+
+
 			String inFilePath = Environment.getExternalStorageDirectory().toString()+"/MainSurveyForm.csv";
 			outFilePath =     Environment.getExternalStorageDirectory().toString()+"/serveyforms/MainSurveyForm"+toDay_DATE+".xls";
 			String thisLine;
@@ -449,7 +449,7 @@ try{
 
 			try {
 
-			 
+
 				FileInputStream fis = new FileInputStream(inFilePath);
 				DataInputStream myInput = new DataInputStream(fis);
 				int i=0;
@@ -517,8 +517,8 @@ try{
 			if (this.dialog.isShowing())
 
 			{
-				
-				
+
+
 				//OwnerdetailsForm();
 
 				this.dialog.dismiss();
@@ -530,7 +530,7 @@ try{
 			{
 
 				Toast.makeText(MainActivity.this, "File exported successfully :"+outFilePath, Toast.LENGTH_LONG).show();
-				
+
 				// showCutomDialog();
 
 			}
@@ -548,7 +548,7 @@ try{
 
 
 	}
-	
+
 	public class CSVToExcelConverter2 extends AsyncTask<String, Void, Boolean> {
 
 
@@ -559,7 +559,7 @@ try{
 		{
 			dialog.setCanceledOnTouchOutside(false);
 			this.dialog.setMessage("Exporting to excel-2...");
-		this.dialog.show();}
+			this.dialog.show();}
 
 		@Override
 		protected Boolean doInBackground(String... params) {
@@ -663,8 +663,8 @@ try{
 			{
 
 				Toast.makeText(MainActivity.this, "File exported successfully :"+outFilePath, Toast.LENGTH_LONG).show();
-				
-				 showCutomDialog();
+
+				showCutomDialog();
 
 			}
 
@@ -681,7 +681,7 @@ try{
 
 
 	}
-	
+
 	public class CSVToExcelConverter1 extends AsyncTask<String, Void, Boolean> {
 
 
@@ -692,7 +692,7 @@ try{
 		{
 			dialog.setCanceledOnTouchOutside(false);
 			this.dialog.setMessage("Exporting to excel-1...");
-		this.dialog.show();
+			this.dialog.show();
 		}
 
 		@Override
@@ -787,7 +787,7 @@ try{
 			if (this.dialog.isShowing())
 
 			{
-			//	buildingdetailsForm();
+				//	buildingdetailsForm();
 				this.dialog.dismiss();
 
 			}
@@ -797,8 +797,8 @@ try{
 			{
 
 				Toast.makeText(MainActivity.this, "File exported successfully :"+outFilePath, Toast.LENGTH_LONG).show();
-				
-				 //showCutomDialog();
+
+				//showCutomDialog();
 
 			}
 
@@ -816,8 +816,115 @@ try{
 
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// TODO Auto-generated method stub
+		MenuInflater inflater=getMenuInflater();
+		inflater.inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+
+
+		deleteAll();
+
+
+		return super.onOptionsItemSelected(item);
+	}
+
+	private void deleteAll() {
+
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+				MainActivity.this);
+
+		// set title
+		alertDialogBuilder.setTitle(getString(R.string.app_name));
+		alertDialogBuilder.setIcon(R.drawable.ic_launcher);
+
+		// set dialog message
+		alertDialogBuilder
+		.setMessage("Are you sure you want clear Master Data(Record,Images)?")
+		.setCancelable(false)
+		.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog,int id) {
+
+
+
+				clearMasterData();
+
+
+			}
+
+
+		})
+		.setNegativeButton("No",new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog,int id) {
+				// if this button is clicked, just close
+				// the dialog box and do nothing
+				dialog.cancel();
+			}
+		});
+
+		// create alert dialog
+		AlertDialog alertDialog = alertDialogBuilder.create();
+
+		// show it
+		alertDialog.show();
+
+	}
+
+	protected void clearMasterData() {
+
+		DatabaseHandler databaseHandler=new DatabaseHandler(_mainContext);
+		SQLiteDatabase sqldb = databaseHandler.getReadableDatabase();
+		databaseHandler.deleteMasterData();
+
+		SharedPreferences preferences=getSharedPreferences("TAB_DATA",MODE_PRIVATE);
+		SharedPreferences.Editor edit=preferences.edit();
+		edit.putInt("ROW_ID", 0);
+		edit.commit();
+
+		deleteFiels();
+
+		Intent intent=new Intent(MainActivity.this,LoginActivity.class);
+
+		startActivity(intent);
+		finish();
+	}
+
+	private void deleteFiels() 
+	{
+		try{
+			String tempDir = Environment.getExternalStorageDirectory() + "/" + getResources().getString(R.string.external_dir) + "/";
+			File tempdir = new File(tempDir);
+			if (!tempdir.exists())
+				tempdir.mkdirs();
+
+			if (tempdir.isDirectory()) 
+			{ 
+				//  To delete files
+				File[] files = tempdir.listFiles();
+				for (File file : files) 
+				{
+					if (!file.delete()) 
+					{
+						System.out.println("Failed to delete " + file);
+					}
+				}
+			}
+
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+
+		}
+	}
+
+
 	private void showCutomDialog() {
-		 
+
 		/*AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 				MainActivity.this);
 
@@ -832,13 +939,13 @@ try{
 		.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog,int id) {
 
-  
+
 				//sendEmail();
-				 
-				 
+
+
 			}
 
-			
+
 		})
 		.setNegativeButton("No",new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog,int id) {
@@ -853,11 +960,11 @@ try{
 
 		// show it
 		alertDialog.show();*/
-		
+
 	}
-	
+
 	private void sendEmail() {
-		 
+
 		Intent intent = new Intent(Intent.ACTION_SEND);
 		intent.setType("text/plain");
 		intent.putExtra(Intent.EXTRA_EMAIL, new String[] {"rajesh.mca008@gmail.com"});
@@ -866,34 +973,34 @@ try{
 		File root = Environment.getExternalStorageDirectory();
 		File file = new File(outFilePath);
 		if (!file.exists() || !file.canRead()) {
-		    Toast.makeText(this, "Attachment Error", Toast.LENGTH_SHORT).show();
-		    finish();
-		    return;
+			Toast.makeText(this, "Attachment Error", Toast.LENGTH_SHORT).show();
+			finish();
+			return;
 		}
 		Uri uri = Uri.parse("file://" + file);
 		intent.putExtra(Intent.EXTRA_STREAM, uri);
 		startActivity(Intent.createChooser(intent, "Send email..."));
-		
+
 	}
-	
-	
-	 protected void onActivityResult(int requestCode, int resultCode, Intent data)
-	    {
-	        switch(requestCode) {
-	        case SIGNATURE_ACTIVITY: 
-	            if (resultCode == RESULT_OK) {
-	 
-	                Bundle bundle = data.getExtras();
-	                String status  = bundle.getString("status");
-	                if(status.equalsIgnoreCase("done")){
-	                    Toast toast = Toast.makeText(this, "Signature capture successful!", Toast.LENGTH_SHORT);
-	                    toast.setGravity(Gravity.TOP, 105, 50);
-	                    toast.show();
-	                }
-	            }
-	            break;
-	        }
-	 
-	    }  
+
+
+	protected void onActivityResult(int requestCode, int resultCode, Intent data)
+	{
+		switch(requestCode) {
+		case SIGNATURE_ACTIVITY: 
+			if (resultCode == RESULT_OK) {
+
+				Bundle bundle = data.getExtras();
+				String status  = bundle.getString("status");
+				if(status.equalsIgnoreCase("done")){
+					Toast toast = Toast.makeText(this, "Signature capture successful!", Toast.LENGTH_SHORT);
+					toast.setGravity(Gravity.TOP, 105, 50);
+					toast.show();
+				}
+			}
+			break;
+		}
+
+	}  
 
 }

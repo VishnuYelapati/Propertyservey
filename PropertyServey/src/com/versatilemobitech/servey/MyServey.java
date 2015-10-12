@@ -59,7 +59,7 @@ public class MyServey extends BaserActinbBar {
 	//GPSTracker gpsTracker;
 
 	//private TextView batinfo=null;
-	DatabaseHandler db_Handler;
+	//DatabaseHandler db_Handler;
 
 
 	private static final int ACTION_TAKE_PHOTO_A = 1;

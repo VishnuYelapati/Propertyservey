@@ -65,28 +65,31 @@
         android:text="Start survey"
         android:textColor="@color/white" />
 
-    <Button
-        android:id="@+id/btn_reset_master"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_below="@id/btn_startservey"
-       android:layout_margin="5dp"
-         
-        android:background="@color/sing_in_button"
-        android:text="Survey Report"
-        android:visibility="gone"
-     
-        android:textColor="@color/white" />
+    
 
     <Button
         android:id="@+id/btn_export"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_margin="5dp"
-           android:layout_below="@id/btn_reset_master"
+           android:layout_below="@id/btn_startservey"
         android:layout_marginTop="25dp"
         android:background="@color/sing_in_button"
         android:text="Export to sdcard"
+        android:textColor="@color/white" />
+    
+    
+    <Button
+        android:id="@+id/btn_reset_master"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@id/btn_export"
+       android:layout_margin="5dp"
+         
+        android:background="@color/red"
+        android:text="Reset Master Data"
+        android:visibility="visible"
+     
         android:textColor="@color/white" />
     </RelativeLayout>
 
