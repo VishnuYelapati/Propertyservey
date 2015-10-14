@@ -95,6 +95,7 @@
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
                         android:singleLine="true"
+                         android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789 0"
                         android:textColor="#000000" />
                 </LinearLayout>
 
@@ -125,6 +126,7 @@
                         android:id="@+id/et_fathername"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                         android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789 0"
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
                         android:singleLine="true"

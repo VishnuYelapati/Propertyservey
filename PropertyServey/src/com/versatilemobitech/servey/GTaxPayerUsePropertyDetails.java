@@ -73,6 +73,7 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 	private RadioGroup 	 PipedWaterConnection=null;
 	private RadioGroup 	 FireFightingSystem=null;
 	private EditText et_advhoarding;
+	 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -105,7 +106,6 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 		otherEdit=(EditText)findViewById(R.id.et_others);
 		btn_next=(Button)findViewById(R.id.btn_next);
 		btn_prev=(Button)findViewById(R.id.btn_prev);
-
 
 
 
@@ -238,6 +238,7 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 				//bean.setWhetherpayUdTax_ACNo(et_udtaxaccunt.getText().toString());
 				bean.setWhetherpayLeaseTax_ACNo(et_payleasetaxaccountno.getText().toString());
 				bean.setPleaseWriteSizefBoardSqft(et_advhoarding.getText().toString());
+				//bean.setd
 				
 				
 				
@@ -337,13 +338,15 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 	
 	private String getCheckValue(RadioGroup rg1)
 	{
-		String selection="No";
+		String selection="0";
 		if(rg1.getCheckedRadioButtonId()!=-1){
 		    int id= rg1.getCheckedRadioButtonId();
 		    View radioButton = rg1.findViewById(id);
 		    int radioId = rg1.indexOfChild(radioButton);
 		    RadioButton btn = (RadioButton) rg1.getChildAt(radioId);
-		  //   selection = (String) btn.getText();
+		    selection = (String) btn.getText();
+		    
+		    selection=  selection.equalsIgnoreCase("No")?"0":"1";
 		}
 		return selection;
 	}

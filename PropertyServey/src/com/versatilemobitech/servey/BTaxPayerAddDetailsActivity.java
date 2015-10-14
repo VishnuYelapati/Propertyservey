@@ -65,6 +65,13 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 				//beanList.add(firstBean);
 				
 				boolean isValid=true;
+				
+				if(Integer.parseInt(et_age.getText().toString())==0)
+				{
+					isValid=false;
+					et_age.setError("Invalid");
+					
+				}
 					NameBean nameBean=null;
 					for (int i = 0; i < ll_container.getChildCount(); i++) {
 						//Values
@@ -89,6 +96,15 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 						
 						//beanList.add(nameBean);
 						tempNames.add(nameBean);
+						
+						
+						if(Integer.parseInt(etxtAge.getText().toString())==0)
+						{
+							isValid=false;
+							etxtAge.setError("Invalid");
+							
+						}
+						
 						}
 						else{
 							
@@ -135,6 +151,8 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 					int arg2, long arg3) {
 				profissinal=""+arg2;//arg0.getItemAtPosition(arg2).toString();
 				
+				if(arg2==0)
+					profissinal="";
 			}
 
 			@Override

@@ -66,7 +66,7 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				
-				if(!TotalPlotArea.getText().toString().equals("")& !PlinthArea.getText().toString().equals("")&!PlinthYard.getText().toString().equals("")&!VacantArea.getText().toString().equals("")&!TotalConstructionArea.getText().toString().equals("")& !TotalPlotArea.getText().toString().equals("")& !TotalPlotYard.getText().toString().equals("")&!VacantYard.getText().toString().equals("")){
+				//if(!TotalPlotArea.getText().toString().equals("")& !PlinthArea.getText().toString().equals("")&!PlinthYard.getText().toString().equals("")&!VacantArea.getText().toString().equals("")&!TotalConstructionArea.getText().toString().equals("")& !TotalPlotArea.getText().toString().equals("")& !TotalPlotYard.getText().toString().equals("")&!VacantYard.getText().toString().equals("")){
 					pbean.setTotalPlotArea(TotalPlotArea.getText().toString());
 					pbean.setPlinthArea(PlinthArea.getText().toString());
 					pbean.setPlinthYard(PlinthYard.getText().toString());
@@ -77,9 +77,9 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 					pbean.setVacantYard(VacantYard.getText().toString());
 					Intent i=new Intent(getApplicationContext(),FLandBuildingDetailsActivity.class);
 					startActivity(i);
-				}else{
+				/*}else{
 					Toast.makeText(getApplicationContext(), "Please enter all the fields", Toast.LENGTH_LONG).show();
-				}
+				}*/
 				
 			}
 		});
@@ -140,6 +140,9 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 
 		@Override
 		public void onFocusChange(View v, boolean hasFocus) {
+			
+			
+			try{
 		 
 			switch (v.getId()) {
 			
@@ -148,7 +151,7 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 			
 			
 			case R.id.et_plotareainsqft:
-				System.out.println("TEST et_plotareainsqft"+hasFocus);
+				 
 				
 				//TotalPlotYard TotalPlotArea.addTextChangedListener(watchTotalPlotArea);
 				if(hasFocus)
@@ -332,6 +335,12 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 				
 			default:
 				break;
+			}
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+				Toast.makeText(getApplicationContext(), "Invalid data", Toast.LENGTH_LONG).show();
 			}
 		}
 		

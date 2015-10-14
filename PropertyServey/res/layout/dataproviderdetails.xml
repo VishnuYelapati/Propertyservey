@@ -91,6 +91,7 @@
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
                         android:singleLine="true"
+                         android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789 0"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -124,6 +125,7 @@
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
                         android:singleLine="true"
+                         android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789 0"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -158,6 +160,7 @@
                         android:background="@drawable/textfiled"
                         android:singleLine="true"
                         android:maxLength="12"
+                         android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789 0"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -263,6 +266,7 @@
                         android:background="@drawable/textfiled"
                         android:inputType="textEmailAddress"
                         android:singleLine="true"
+                         android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789 0@-_"
                         android:textColor="@color/black" />
                 </LinearLayout>
 

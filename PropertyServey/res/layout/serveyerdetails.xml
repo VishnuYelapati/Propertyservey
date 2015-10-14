@@ -4,19 +4,15 @@
     android:layout_height="match_parent"
     android:background="@drawable/background2" >
 
-    
-   
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        
         android:layout_marginTop="5dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
 
             <LinearLayout
                 android:id="@+id/content_layout"
@@ -59,8 +55,7 @@
                         android:gravity="center"
                         android:text="Surveyor"
                         android:textColor="@color/black"
-                        android:textSize="20sp"
-                          />
+                        android:textSize="20sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -80,13 +75,15 @@
                         android:text="Name Of Surveyor*"
                         android:textColor="@color/black" />
 
-                    <EditText  android:padding="3dp"
+                    <EditText
                         android:id="@+id/et_servyerName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:singleLine="true"
-                        android:background="@drawable/textfiled" />
+                        android:background="@drawable/textfiled"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY Z"
+                        android:padding="3dp"
+                        android:singleLine="true" />
                 </LinearLayout>
 
                 <View
@@ -112,12 +109,14 @@
                         android:text="Surveyor Address*"
                         android:textColor="@color/black" />
 
-                    <EditText  android:padding="3dp"
+                    <EditText
                         android:id="@+id/et_serveyoradd"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789 0"
+                        android:padding="3dp"
                         android:singleLine="true"
                         android:textColor="@color/black" />
                 </LinearLayout>
@@ -145,12 +144,13 @@
                         android:text="Surveyor ID*"
                         android:textColor="@color/black" />
 
-                    <EditText  android:padding="3dp"
+                    <EditText
                         android:id="@+id/et_serveyorId"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
+                        android:padding="3dp"
                         android:singleLine="true"
                         android:textColor="@color/black" />
                 </LinearLayout>
@@ -178,15 +178,17 @@
                         android:text="Date*"
                         android:textColor="@color/black" />
 
-                    <EditText  android:padding="3dp"
+                    <EditText
                         android:id="@+id/et_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
-                        android:singleLine="true"
+                        android:hint="yyyy-mm-dd"
                         android:inputType="date"
-                         android:hint="yyyy-mm-dd"
+                        android:maxLength="10"
+                        android:padding="3dp"
+                        android:singleLine="true"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -214,8 +216,7 @@
                         android:gravity="center"
                         android:text="Attesting Authority"
                         android:textColor="@color/black"
-                        android:textSize="20sp"
-                         />
+                        android:textSize="20sp" />
                 </LinearLayout>
 
                 <View
@@ -241,12 +242,14 @@
                         android:text="Name Of Attesting Authority*"
                         android:textColor="@color/black" />
 
-                    <EditText  android:padding="3dp"
+                    <EditText
                         android:id="@+id/et_attastauthName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789 0"
+                        android:padding="3dp"
                         android:singleLine="true"
                         android:textColor="@color/black" />
                 </LinearLayout>
@@ -274,12 +277,13 @@
                         android:text="Attesting Authority Designation*"
                         android:textColor="@color/black" />
 
-                    <EditText  android:padding="3dp"
+                    <EditText
                         android:id="@+id/et_attastauthdisig"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
+                        android:padding="3dp"
                         android:singleLine="true"
                         android:textColor="@color/black" />
                 </LinearLayout>
@@ -307,42 +311,43 @@
                         android:text="Date*"
                         android:textColor="@color/black" />
 
-                    <EditText  android:padding="3dp"
+                    <EditText
                         android:id="@+id/et_attastauthdate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
-                        android:singleLine="true"
-                        android:inputType="date"
                         android:hint="yyyy-mm-dd"
+                        android:inputType="date"
+                        android:maxLength="10"
+                        android:padding="3dp"
+                        android:singleLine="true"
                         android:textColor="@color/black" />
                 </LinearLayout>
             </LinearLayout>
-             <LinearLayout
-        android:id="@+id/buttom_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:orientation="horizontal"
-        android:weightSum="1" >
 
-        <Button
-            android:id="@+id/btn_submit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:layout_weight="1"
-            android:background="@color/sing_in_button"
-            android:text="Submit"
-            android:textColor="@android:color/white" />
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/buttom_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                android:weightSum="1" >
+
+                <Button
+                    android:id="@+id/btn_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/sing_in_button"
+                    android:text="Submit"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-    
 
 </RelativeLayout>

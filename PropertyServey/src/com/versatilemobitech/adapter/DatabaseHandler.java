@@ -107,7 +107,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public static final String CompletelyReligiousProperty="Completely_Religious_Property_Write_1_if_applicable_else_0";
 	public static final String SituatedInRicoArea="Situateed_in_RICO_Area_Write_1_if_applicable_else_0";
 	public static final String ExempteUnderclause107Act2009="Excempted_under_clause_107_of_RM_Act_2009_Write_1_if_applicable_else_0";
-	//	public static final String DharmashalaOfCommunitySociety=false;
+	 	//public static final String DharmashalaOfCommunitySociety="Dharmashala";
 	public static final String CinemahallMultiplex="Cinema_Hall_Multiplex_Write_1_if_applicable_else_0";
 	public static final String GeneralDegreeCollege="General_Degree_college";
 	public static final String CoachingInstitute="Coaching_Institute_Write_1_if_applicable_else_0";
@@ -117,7 +117,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public static final String StateGovtPropertyOffice="State_Govt_Property_office";
 	public static final String ReligiousPlace="Religious_Place";
 	public static final String Residential="Residential";
-	public static final String Others="Others_write_1_or_0_here";//Other_valu_only_when_accept_click_okay
+	 public static final String Others="Others_write_1_or_0_here";//Other_valu_only_when_accept_click_okay
+	public static final String Others_text="others"; 
 
 
 	//Yes_are_no
@@ -140,6 +141,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public static final String WhetherpayUdTax_ACNo="If_paid_UD_Tax_Account_No";
 	public static final String WhetherpayLeaseTax_ACNo="If_paid_Lease_Tax_Account_No";
 	public static final String PleaseWriteSizefBoardSqft="SizefBoardSqft";
+	public static final String dharmashala="dharmashala";
 
 
 	/**
@@ -178,6 +180,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public static final String propertyIMG="property_img";
 	public static final String siteImage="site_image";
 	public static final String signatureIMG="singnature_img";
+	public static final String createdBy="created_by";
+
+
+
 
 	public DatabaseHandler(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -268,6 +274,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ ReligiousPlace 		+ " TEXT,"
 				+ Residential 		+ " TEXT,"
 				+ Others 		+ " TEXT,"
+				+ Others_text	    + " TEXT,"
 				+ building_id 	+ " TEXT," 
 				+ Owner_id 	+ " TEXT," 
 				+ SewerConnection 		+ " TEXT,"
@@ -282,6 +289,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ OpenToilet 		+ " TEXT,"
 				+ WhetherpayUdTax 		+ " TEXT,"
 				+ WhetherpayLeaseTax 		+ " TEXT,"
+				+ dharmashala 		+ " TEXT,"
 				+ SewerLine 		+ " TEXT,"
 				+ SepticTank 		+ " TEXT,"
 				+ PipedWaterConnection 		+ " TEXT,"
@@ -298,6 +306,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ propertyIMG 		+ " TEXT,"
 				+ siteImage 		+ " TEXT,"
 				+ signatureIMG 		+ " TEXT,"
+				+ createdBy 		+ " TEXT,"
 				+ CREATED_DATE + " TEXT"
 				+ ")";
 

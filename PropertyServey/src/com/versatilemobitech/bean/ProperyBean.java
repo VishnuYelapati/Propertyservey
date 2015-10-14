@@ -125,24 +125,24 @@ public class ProperyBean implements Serializable{
 	 * Use Of Property(Please tick if applicable)
 	 */
 
-	private String PrivateHospitalClinic="";
-	private String  Residentialcum_commercial="";
-	private String  BeautyParlour="";
-	private String  PrivateOffice="";
-	private String  MarriageGardenHall="";
-	private String  HotelRestaurant="";
-	private String SemiGovtInstitute="";
-	private String CentralGovPropertyOffice="";
-	private String School="";
-	private String ProfessionalCollege="";
-	private String CompletelyReligiousProperty="";
-	private String SituatedInRicoArea="";
-	private String ExempteUnderclause107Act2009="";
-	private String DharmashalaOfCommunitySociety="";
-	private String CinemahallMultiplex="";
-	private String GeneralDegreeCollege="";
-	private String CoachingInstitute="";
-	private String OutOfRicoIndustries="";
+	private String PrivateHospitalClinic="0";
+	private String  Residentialcum_commercial="0";
+	private String  BeautyParlour="0";
+	private String  PrivateOffice="0";
+	private String  MarriageGardenHall="0";
+	private String  HotelRestaurant="0";
+	private String SemiGovtInstitute="0";
+	private String CentralGovPropertyOffice="0";
+	private String School="0";
+	private String ProfessionalCollege="0";
+	private String CompletelyReligiousProperty="0";
+	private String SituatedInRicoArea="0";
+	private String ExempteUnderclause107Act2009="0";
+	private String DharmashalaOfCommunitySociety="0";
+	private String CinemahallMultiplex="0";
+	private String GeneralDegreeCollege="0";
+	private String CoachingInstitute="0";
+	private String OutOfRicoIndustries="0";
 
 
 	private String StateGovtPropertyOffice="";
@@ -171,6 +171,7 @@ public class ProperyBean implements Serializable{
 	private String  WhetherpayUdTax_ACNo="";
 	private String  WhetherpayLeaseTax_ACNo="";
 	private  String  PleaseWriteSizefBoardSqft="";
+	private String  dharmashala="";
 
 
 	/**
@@ -890,6 +891,16 @@ public class ProperyBean implements Serializable{
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+
+	public String getDharmashala() {
+		return dharmashala;
+	}
+
+
+	public void setDharmashala(String dharmashala) {
+		this.dharmashala = dharmashala;
 	}
 
 

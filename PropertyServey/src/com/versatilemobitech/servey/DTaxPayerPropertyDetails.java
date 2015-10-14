@@ -96,7 +96,7 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 		btn_Next=(Button)findViewById(R.id.btn_next);
 		btn_Prev=(Button)findViewById(R.id.btn_prev);
 
-		NameOfLaneOrRoad.setText(pbean.getNameOfLane_Road().toString());
+		/*NameOfLaneOrRoad.setText(pbean.getNameOfLane_Road().toString());
 		et_lengthfeets.setText(pbean.getLength().toString());
 		et_widthFeets.setText(pbean.getWidth().toString());
 		flatno.setText(pbean.getNameOfLane_Road().toString());
@@ -107,7 +107,7 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 		Landmark.setText(pbean.getLandmark().toString());
 		District.setText(pbean.getDistrict().toString());
 		NameOfBuilding_Pre.setText(pbean.getName_No_OfBuilding_pre().toString());
-		MultistoreyBuildigNameofBuilding.setText(pbean.getMarriageGardenHall().toString());
+		MultistoreyBuildigNameofBuilding.setText(pbean.getMarriageGardenHall().toString());*/
 
 		chk_Constrution.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
@@ -135,7 +135,7 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 			@Override
 			public void onClick(View v) {
 
-				if(!flatno.getText().toString().equals("") && !NameOfLaneOrRoad.getText().toString().equals("")&& !ColonyName.getText().toString().equals("") ){
+				if(!flatno.getText().toString().equals("") && !NameOfLaneOrRoad.getText().toString().equals("")&& !ColonyName.getText().toString().equals("") && (!Zone_id.equals("")) && (!state.getText().toString().equals(""))){
 
 					//	pbean.setPlot_Flat_ShopNo(PlotORFlatNo.getText().toString());
 					pbean.setColony_Name(ColonyName.getText().toString());
@@ -290,6 +290,9 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 				// TODO Auto-generated method stub
 				Zone=((SpinnerItemBean)parent.getItemAtPosition(position)).getStrItem();
 				Zone_id=""+position;
+				
+				if(position==0)
+					Zone_id="";
 				System.out.println("Item Bean:.."+Zone);
 
 				ArrayList<SpinnerItemBean> ward_itmeanBean=new ArrayList<SpinnerItemBean>();

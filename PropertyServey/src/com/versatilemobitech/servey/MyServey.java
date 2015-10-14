@@ -513,7 +513,17 @@ public class MyServey extends BaserActinbBar {
 			 cv_Values.put(dbHandler.Zone,pbean.getZone());
 			 cv_Values.put(dbHandler.Ward,pbean.getWard());
 			 cv_Values.put(dbHandler.Landmark,pbean.getLandmark());
-			cv_Values.put(dbHandler.Others,pbean.getOthers());
+			 
+			 if(pbean.getOthers().length()>0)
+			 {
+			cv_Values.put(dbHandler.Others,"1");
+			cv_Values.put(dbHandler.Others_text,pbean.getOthers());
+			 }
+			 else{
+				 cv_Values.put(dbHandler.Others,"0");
+				 cv_Values.put(dbHandler.Others_text,"");
+			 }
+			cv_Values.put(dbHandler.dharmashala,pbean.getDharmashalaOfCommunitySociety());
 			cv_Values.put(dbHandler.OutOfRicoIndustries,pbean.getOutOfRicoIndustries());
 			//	cv_Values.put(dbHandler.owner_name,pbean.getO);
 			//		cv_Values.put(dbHandler.profession,pbean.getpr);
@@ -565,6 +575,7 @@ public class MyServey extends BaserActinbBar {
 			cv_Values.put(dbHandler.TypOfConstruction,pbean.getTypOfConstruction());
 			cv_Values.put(dbHandler.VacantArea,pbean.getVacantArea());
 			cv_Values.put(dbHandler.VacantYard,pbean.getVacantYard());   
+			cv_Values.put(dbHandler.createdBy, pbean.getUserName());
 			cv_Values.put(dbHandler.CREATED_DATE,toDay_DATE);   
 			//“RJ/JPR/(ZONE)/(WARD)/Tablet No./Sequence No.”
 

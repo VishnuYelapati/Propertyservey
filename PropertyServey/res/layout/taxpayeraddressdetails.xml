@@ -66,7 +66,7 @@
                         android:inputType="textMultiLine"
                         android:minHeight="100dp"
                        android:maxLines="4"
-                       android:text="hii"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789 0@#_-"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -106,6 +106,7 @@
                         android:inputType="textMultiLine"
                         android:minHeight="100dp"
                        android:maxLines="4"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789 0@#_-"
                         android:textColor="@color/black" />
                 </LinearLayout>
 

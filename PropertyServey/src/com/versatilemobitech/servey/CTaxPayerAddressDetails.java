@@ -38,11 +38,11 @@ public class CTaxPayerAddressDetails extends BaserActinbBar{
 		 PermanentAddress=(EditText)findViewById(R.id.et_permadd);
 		  BasicPhoneNo=(EditText)findViewById(R.id.et_basicphone);
 		  
-		  AddressforCommunication.setText(pbean.getAddressforCommunication().toString());
+		  /*AddressforCommunication.setText(pbean.getAddressforCommunication().toString());
 		  MobileNo.setText(pbean.getMobileNo_Address().toString());
 		  PermanentAddress.setText(pbean.getPermanentAddress().toString());
 		  BasicPhoneNo.setText(pbean.getBasicPhoneNo_Address().toString());
-		  EmailID.setText(pbean.getEmailID_Address().toString());
+		  EmailID.setText(pbean.getEmailID_Address().toString());*/
 		btn_Next.setOnClickListener(new OnClickListener() {
 			
 			@Override

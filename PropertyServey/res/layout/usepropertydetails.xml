@@ -1143,12 +1143,12 @@
                     android:layout_marginTop="10dp"
                     android:orientation="vertical" >
 
-                   <!--  <TextView
+                    <TextView
                         android:id="@+id/tv_advhoarding_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Advertisement Hoarding"
-                        android:textColor="@color/black" /> -->
+                        android:text="Please write size of Board if more than 7x1 Sq.ft."
+                        android:textColor="@color/black" /> 
 
                     <EditText  android:padding="3dp"
                         android:id="@+id/et_advhoarding"
@@ -1159,7 +1159,7 @@
                     </EditText>
                 </LinearLayout>
 
-                <View
+                <!-- <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_margin="10dp"
@@ -1202,7 +1202,7 @@
                             android:layout_height="wrap_content"
                             android:text="Yes" />
                     </RadioGroup>
-                </LinearLayout>
+                </LinearLayout> -->
 
                 <View
                     android:layout_width="match_parent"
@@ -1345,6 +1345,9 @@
                             android:background="@drawable/textfiled"
                             android:singleLine="true" />
                     </LinearLayout>
+                    
+                    
+                     
                 </LinearLayout>
             </LinearLayout>
             
