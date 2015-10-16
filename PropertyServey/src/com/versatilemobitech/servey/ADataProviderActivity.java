@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.apache.poi.hpsf.Util;
+
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -35,7 +37,7 @@ public class ADataProviderActivity extends BaserActinbBar{
 	private EditText NameOfDataProvider=null;
 	private EditText OwnerUIDNumber=null;
 	private EditText BasicPhoneNo=null;
-	private String dataProvider="";
+	private String dataProvider="0";
 	String toDay_DATE="";
 	Spinner mSpn_dataProvider;
 	Utils utls;
@@ -63,7 +65,7 @@ public class ADataProviderActivity extends BaserActinbBar{
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 
-				dataProvider=""+position;//((SpinnerItemBean)parent.getItemAtPosition(position)).getStrItem();
+				dataProvider=""+position; 
 
 			}
 
@@ -94,17 +96,18 @@ public class ADataProviderActivity extends BaserActinbBar{
 			@Override
 			public void onClick(View arg0) {
 
-				if((!dataProvider.equals("")) &&!dataProvider.equals("Select") &&  NameOfDataProvider.getText().toString().length()>0   )
+				if((!dataProvider.equals("")) &&!dataProvider.equals("0") &&  NameOfDataProvider.getText().toString().length()>0 && mRelationshipOfOwner.getText().toString().length()>2 )
 				{
 					ProperyBean pbean=ProperyBean.getInstance();
 					pbean.setDataProvidedBy(dataProvider);
 					pbean.setNameOfDataProvider(NameOfDataProvider.getText().toString());
 					pbean.setRelationshipOfOwner(mRelationshipOfOwner.getText().toString());
 
-					boolean mobile1=(MobileNo.getText().toString().length()>0)?(MobileNo.getText().toString().length()==10):true;
-					boolean mobile2=(BasicPhoneNo.getText().toString().length()>0)?(BasicPhoneNo.getText().toString().length()==10):true;
-					boolean uid=(OwnerUIDNumber.getText().toString().length()>0)?(OwnerUIDNumber.getText().toString().length()==12):true;
+					boolean mobile1=(MobileNo.getText().toString().length()>0)?(Utils.actualLength(MobileNo.getText().toString())==10):true;
+					boolean mobile2=(BasicPhoneNo.getText().toString().length()>0)?(Utils.actualLength(BasicPhoneNo.getText().toString())==10):true;
+					boolean uid=(OwnerUIDNumber.getText().toString().length()>0)?(Utils.actualLength(OwnerUIDNumber.getText().toString())==12):true;
 
+					boolean emailValid= (EmailID.getText().toString().length()>0)?(Utils.isValidMail(EmailID.getText().toString())):true;
 					if(!mobile1)
 					{
 						MobileNo.setError("Invalid");
@@ -114,22 +117,27 @@ public class ADataProviderActivity extends BaserActinbBar{
 
 					if(!uid)
 						OwnerUIDNumber.setError("Invalid");
+					
+					
+					if(!emailValid)
+						EmailID.setError("Invalid");
+				 
 
 
 					pbean.setMobileNo(MobileNo.getText().toString());
 					pbean.setOwnerUIDNumber(OwnerUIDNumber.getText().toString());
 					pbean.setBasicPhoneNo(BasicPhoneNo.getText().toString());
 
-					pbean.setEmailID(EmailID.getText().toString());
+					pbean.setEmailID(EmailID.getText().toString());//EmailID.getText().toString()
 
 
-					if(mobile1&&mobile2&&uid)
+					if(mobile1&&mobile2&&uid&&emailValid)
 					{
 						Intent i=new Intent(getApplicationContext(),BTaxPayerAddDetailsActivity.class);
 						startActivity(i);
 					}
 					else{
-						Toast.makeText(getApplicationContext(), "Please select the data Provider", Toast.LENGTH_LONG).show();
+						Toast.makeText(getApplicationContext(), "Please provide valid data!", Toast.LENGTH_LONG).show();
 					}
 				}
 				else{
@@ -140,7 +148,7 @@ public class ADataProviderActivity extends BaserActinbBar{
 
 					if( NameOfDataProvider.getText().toString().length()<=0 )
 						NameOfDataProvider.setError("Invalid value");
-					if(dataProvider.equals("Select"))
+					 if(dataProvider.equals("0"))
 						Toast.makeText(getApplicationContext(), "Please select the data Provider", Toast.LENGTH_LONG).show();
 
 				}
@@ -153,6 +161,8 @@ public class ADataProviderActivity extends BaserActinbBar{
 
 	}
 
+	
+	
 
 
 

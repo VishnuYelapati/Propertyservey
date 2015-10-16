@@ -13,6 +13,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.versatilemobitech.adapter.DatabaseHandler;
@@ -25,11 +26,11 @@ public class HServeyorDetails extends BaserActinbBar{
 	EditText et_sName;
 	EditText et_saddress;
 	EditText et_sId;
-	EditText et_sDate;
+	TextView tv_sDate;
 
 	EditText et_aaName;
 	EditText et_aaDesig;
-	EditText et_aaDate;
+	TextView tv_aaDate;
 	Button btn_submit;
 	DatabaseHandler dbHandler;
 	ProperyBean pbean;
@@ -47,14 +48,14 @@ public class HServeyorDetails extends BaserActinbBar{
 		
 		et_saddress=(EditText)findViewById(R.id.et_serveyoradd);
 		et_sId=(EditText)findViewById(R.id.et_serveyorId);
-		et_sDate=(EditText)findViewById(R.id.et_date);
+		tv_sDate=(TextView)findViewById(R.id.et_date);
 
 		pbean=ProperyBean.getInstance();
 
 
 		et_sName.setText(pbean.getUserName());
 
-		et_sDate.setOnClickListener(new OnClickListener() {
+		tv_sDate.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -68,11 +69,11 @@ public class HServeyorDetails extends BaserActinbBar{
 
 		et_aaName=(EditText)findViewById(R.id.et_attastauthName);
 		et_aaDesig=(EditText)findViewById(R.id.et_attastauthdisig);
-		et_aaDate=(EditText)findViewById(R.id.et_attastauthdate);
+		tv_aaDate=(TextView)findViewById(R.id.et_attastauthdate);
 
 
 
-		et_aaDate.setOnClickListener(new OnClickListener() {
+		tv_aaDate.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -91,17 +92,17 @@ public class HServeyorDetails extends BaserActinbBar{
 			public void onClick(View v) {
 
 
-				if(et_sName.getText().toString().length()>0 && et_saddress.getText().toString().length()>0 && et_sId.getText().toString().length()>0 && et_sDate.getText().toString().length()>0
-						&& et_aaName.getText().toString().length()>0 && et_aaDate.getText().toString().length()>0)
+				if(et_sName.getText().toString().length()>0 && et_saddress.getText().toString().length()>0 && et_sId.getText().toString().length()>0 && tv_sDate.getText().toString().length()>0
+						&& et_aaName.getText().toString().length()>0 && tv_aaDate.getText().toString().length()>0)
 				{
 					ProperyBean bean=ProperyBean.getInstance();
 					bean.setNameOfSurveyor(et_sName.getText().toString());
 					bean.setSurveyorAddress(et_saddress.getText().toString());
 					bean.setIdCodeOfSurveyor(et_sId.getText().toString());
-					bean.setDate_Surveyor(et_sDate.getText().toString());
+					bean.setDate_Surveyor(tv_sDate.getText().toString());
 					bean.setNameOfAttestingAuthority(et_aaName.getText().toString());
 					bean.setDesignationOfAttestingAuthority(et_aaDesig.getText().toString());
-					bean.setDate_Attesting(et_aaDate.getText().toString());
+					bean.setDate_Attesting(tv_aaDate.getText().toString());
 
 
 					Intent intent = new Intent(HServeyorDetails.this, CaptureSignature.class); 
@@ -158,7 +159,7 @@ public class HServeyorDetails extends BaserActinbBar{
 		String myFormat = "yyyy-MM-dd";//"dd/MM/yyyy"; //In which you need put here
 		SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
-		et_aaDate.setText(sdf.format(myCalendar.getTime()));
+		tv_aaDate.setText(sdf.format(myCalendar.getTime()));
 	}
 
 
@@ -167,7 +168,7 @@ public class HServeyorDetails extends BaserActinbBar{
 		String myFormat ="yyyy-MM-dd";// "dd/MM/yyyy"; //In which you need put here
 		SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
-		et_sDate.setText(sdf.format(myCalendar.getTime()));
+		tv_sDate.setText(sdf.format(myCalendar.getTime()));
 	}
 
 	protected void onActivityResult(int requestCode, int resultCode, Intent data)

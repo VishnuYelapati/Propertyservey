@@ -160,7 +160,7 @@
                         android:background="@drawable/textfiled"
                         android:singleLine="true"
                         android:maxLength="12"
-                         android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789 0"
+                         android:digits="123456789 0"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -193,7 +193,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:maxLength="10"
-                        
+                         android:digits="1234567890"
                         android:background="@drawable/textfiled"
                         android:singleLine="true"
                         android:inputType="phone"
@@ -231,6 +231,7 @@
                         android:background="@drawable/textfiled"
                         android:inputType="phone"
                         android:singleLine="true"
+                         android:digits="1234567890"
                         android:maxLength="10"
                         android:textColor="@color/black" />
                 </LinearLayout>

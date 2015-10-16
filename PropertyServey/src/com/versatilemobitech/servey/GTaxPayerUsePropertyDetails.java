@@ -50,7 +50,7 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 
 	private EditText otherEdit=null;
 
-	//private EditText et_udtaxaccunt=null;
+	 private EditText et_udtaxaccunt=null;
 	private EditText et_payleasetaxaccountno=null;
 	Button btn_next,btn_prev;
 
@@ -127,7 +127,7 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 		FireFightingSystem=(RadioGroup)findViewById(R.id.rg_firefittingsystem);
 
 
-		//et_udtaxaccunt=(EditText)findViewById(R.id.et_udtaxaccunt);
+		 et_udtaxaccunt=(EditText)findViewById(R.id.et_udtaxaccunt);
 		et_payleasetaxaccountno=(EditText)findViewById(R.id.et_payleasetaxaccountno);
 		et_advhoarding=(EditText)findViewById(R.id.et_advhoarding);
 
@@ -142,6 +142,27 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 		//et_advhoarding.setEnabled(false);
 	
 		otherEdit.setEnabled(false);
+		
+		
+		WhetherpayUdTax.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			
+			@Override
+			public void onCheckedChanged(RadioGroup arg0, int arg1) {
+				 
+				if(arg1==R.id.rb_payudtax_yes)
+				{
+					et_udtaxaccunt.setEnabled(true);
+					et_udtaxaccunt.setBackgroundResource(R.drawable.textfiled);
+				}
+				
+				else if(arg1==R.id.rb_payudtax_no)
+				{
+					et_udtaxaccunt.setText("");
+					et_udtaxaccunt.setEnabled(false);
+					et_udtaxaccunt.setBackgroundResource(R.drawable.textfiled_dis);
+				}
+			}
+		});
 	
 		AdvertisementHoarding.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
@@ -235,7 +256,7 @@ public class GTaxPayerUsePropertyDetails extends BaserActinbBar{
 				bean.setPipedWaterConnection(getCheckValue(PipedWaterConnection));
 				bean.setFireFightingSystem(getCheckValue(FireFightingSystem));
 
-				//bean.setWhetherpayUdTax_ACNo(et_udtaxaccunt.getText().toString());
+				 bean.setWhetherpayUdTax_ACNo(et_udtaxaccunt.getText().toString());
 				bean.setWhetherpayLeaseTax_ACNo(et_payleasetaxaccountno.getText().toString());
 				bean.setPleaseWriteSizefBoardSqft(et_advhoarding.getText().toString());
 				//bean.setd

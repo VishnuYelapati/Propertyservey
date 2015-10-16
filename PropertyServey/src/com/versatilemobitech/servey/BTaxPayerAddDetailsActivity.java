@@ -52,7 +52,7 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 				ArrayList<NameBean> tempNames=new ArrayList<NameBean>();
 				
 				
-				if(et_age.getText().toString().length()>0 && et_name.getText().toString().length()>0 && et_fathername.getText().toString().length()>0 &&  profissinal.length()>0)
+				if(et_age.getText().toString().length()>0 && et_name.getText().toString().length()>2 && et_fathername.getText().toString().length()>2 &&  profissinal.length()>0)
 				{
 				NameBean firstBean=new NameBean();
 				
@@ -86,7 +86,7 @@ public class BTaxPayerAddDetailsActivity  extends BaserActinbBar{
 						Spinner etxtProffesion = (Spinner)addView.findViewById(R.id.sp_profession);
 
 						
-						if(etxtName.getText().toString().length()>0 && etxtfatherName.getText().toString().length()>0 && etxtAge.getText().toString().length()>0 && etxtProffesion.getSelectedItem().toString().length()>0  )
+						if(etxtName.getText().toString().length()>0 && etxtfatherName.getText().toString().length()>0 && etxtAge.getText().toString().length()>0 && !etxtProffesion.getSelectedItem().toString().equals("Select")  )
 
 						{
 						nameBean.setName(etxtName.getText().toString());

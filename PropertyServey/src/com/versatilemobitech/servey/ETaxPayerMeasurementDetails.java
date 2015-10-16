@@ -162,7 +162,10 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 				 	
 					if(TotalPlotArea.getText().toString().length()>0)
 					{
+						if(!TotalPlotArea.getText().toString().trim().equals("."))
 						TotalPlotYard.setText(""+Float.parseFloat(TotalPlotArea.getText().toString())/9);
+						else
+							TotalPlotArea.setText("");
 					}
 					else{
 						TotalPlotYard.setText("");
@@ -182,7 +185,10 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 					
 					if(TotalPlotYard.getText().toString().length()>0)
 					{
+						if(!TotalPlotYard.getText().toString().trim().equals("."))
 						TotalPlotArea.setText(""+Float.parseFloat(TotalPlotYard.getText().toString())*9);
+						else
+							TotalPlotYard.setText("");
 					}
 					else{
 						TotalPlotArea.setText("");
@@ -205,7 +211,10 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 				 	
 					if(PlinthArea.getText().toString().length()>0)
 					{
+						if(!PlinthArea.getText().toString().trim().equals("."))
 						PlinthYard.setText(""+Float.parseFloat(PlinthArea.getText().toString())/9);
+						else
+							PlinthArea.setText("");
 					}
 					else{
 						PlinthYard.setText("");
@@ -229,7 +238,10 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 				 	
 					if(PlinthYard.getText().toString().length()>0)
 					{
+						if(!PlinthYard.getText().toString().trim().equals("."))
 						PlinthArea.setText(""+Float.parseFloat(PlinthYard.getText().toString())*9);
+						else
+							PlinthYard.setText("");
 					}
 					else{
 						PlinthArea.setText("");
@@ -257,7 +269,10 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 				 	
 					if(TotalConstructionArea.getText().toString().length()>0)
 					{
+						if(!TotalConstructionArea.getText().toString().trim().equals("."))
 						TotalConstructionYard.setText(""+Float.parseFloat(TotalConstructionArea.getText().toString())/9);
+						else
+							TotalConstructionArea.setText("");
 					}
 					else{
 						TotalConstructionYard.setText("");
@@ -280,7 +295,10 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 				 	
 					if(TotalConstructionYard.getText().toString().length()>0)
 					{
+						if(!TotalConstructionYard.getText().toString().trim().equals("."))
 						TotalConstructionArea.setText(""+Float.parseFloat(TotalConstructionYard.getText().toString())*9);
+						else
+							TotalConstructionYard.setText("");
 					}
 					else{
 						TotalConstructionArea.setText("");
@@ -305,7 +323,10 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 				 	
 					if(VacantArea.getText().toString().length()>0)
 					{
+						if(!VacantArea.getText().toString().trim().equals("."))
 						VacantYard.setText(""+Float.parseFloat(VacantArea.getText().toString())/9);
+						else
+							VacantArea.setText("");
 					}
 					else{
 						VacantYard.setText("");
@@ -325,7 +346,10 @@ public class ETaxPayerMeasurementDetails extends BaserActinbBar{
 				 	
 					if(VacantYard.getText().toString().length()>0)
 					{
+						if(!VacantYard.getText().toString().trim().equals("."))
 						VacantArea.setText(""+Float.parseFloat(VacantYard.getText().toString())*9);
+						else
+							VacantYard.setText("");
 					}
 					else{
 						VacantArea.setText("");
