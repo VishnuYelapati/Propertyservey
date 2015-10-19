@@ -23,17 +23,17 @@ import com.versatilemobitech.util.CaptureSignature;
 public class HServeyorDetails extends BaserActinbBar{
 
 
-	EditText et_sName;
-	EditText et_saddress;
-	EditText et_sId;
-	TextView tv_sDate;
+	private EditText et_sName;
+	private EditText et_saddress;
+	private EditText et_sId;
+	private TextView tv_sDate;
 
-	EditText et_aaName;
-	EditText et_aaDesig;
-	TextView tv_aaDate;
-	Button btn_submit;
-	DatabaseHandler dbHandler;
-	ProperyBean pbean;
+	private EditText et_aaName;
+	private EditText et_aaDesig;
+	private TextView tv_aaDate;
+	private Button btn_submit;
+	private DatabaseHandler dbHandler;
+	private ProperyBean pbean;
 	Calendar myCalendar = Calendar.getInstance();
 	public static final int SIGNATURE_ACTIVITY = 1;
 	@Override
