@@ -125,7 +125,7 @@
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
                         android:singleLine="true"
-                         android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789 0"
+                         android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                         android:textColor="@color/black" />
                 </LinearLayout>
 
