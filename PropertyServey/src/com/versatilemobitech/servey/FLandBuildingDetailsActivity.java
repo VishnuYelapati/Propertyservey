@@ -9,17 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemSelectedListener;
 
 import com.versatilemobitech.bean.BuildingDetails;
 import com.versatilemobitech.bean.ProperyBean;
-import com.versatilemobitech.bean.SpinnerItemBean;
 
 public class FLandBuildingDetailsActivity  extends BaserActinbBar{
 
@@ -109,6 +106,7 @@ public class FLandBuildingDetailsActivity  extends BaserActinbBar{
 					initBean.setDetailsoffloor(""+spn_floordetails.getSelectedItemPosition());
 					arr_bld.add(initBean);
 					
+					boolean isValidData=true;
 				if(ll_container!=null)
 				{
 					BuildingDetails buildingDetails=null;
@@ -122,21 +120,37 @@ public class FLandBuildingDetailsActivity  extends BaserActinbBar{
 						Spinner landUse = (Spinner)addView.findViewById(R.id.spn_landuse);
 
 						Spinner floordetails = (Spinner)addView.findViewById(R.id.spn_detailsfloor);
-		
+						
+						if(totalAraeSFT.getText().toString().length()>0 && totalAraeYard.getText().toString().length()>0 && !floordetails.getSelectedItem().toString().equalsIgnoreCase("Select") && !landUse.getSelectedItem().toString().equalsIgnoreCase("Select"))
+						{
 						buildingDetails.setTotalAreaInSqFt(totalAraeSFT.getText().toString());
 
 						buildingDetails.setTotalAreaInYard(totalAraeYard.getText().toString());
 						buildingDetails.setLandUse(""+ landUse.getSelectedItemPosition());
 						buildingDetails.setDetailsoffloor(""+floordetails.getSelectedItemPosition());
 						
+						
 						arr_bld.add(buildingDetails);
+						}
+						else{
+							
+							isValidData=false;
+						}
 					}
 					
-					ProperyBean.getInstance().setBulidList(arr_bld);
+				
 					
 				}
+				
+				if(isValidData)
+				{
+					ProperyBean.getInstance().setBulidList(arr_bld);
 				Intent i=new Intent(getApplicationContext(),GTaxPayerUsePropertyDetails.class);
 				startActivity(i);
+				}
+				else{
+					Toast.makeText(getApplicationContext(), "Please enter All Fields", Toast.LENGTH_LONG).show();
+				}
 			}else{
 				
 				Toast.makeText(getApplicationContext(), "Please enter All Fields", Toast.LENGTH_LONG).show();

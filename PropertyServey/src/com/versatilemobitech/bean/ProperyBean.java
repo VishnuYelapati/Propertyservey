@@ -10,6 +10,7 @@ public class ProperyBean implements Serializable{
 	 */
 	
 	private String userName="";
+	private String userID="";
 	private static final long serialVersionUID = 1L;
 	//New Survey Application Form Bean
 	
@@ -901,6 +902,16 @@ public class ProperyBean implements Serializable{
 
 	public void setDharmashala(String dharmashala) {
 		this.dharmashala = dharmashala;
+	}
+
+
+	public String getUserID() {
+		return userID;
+	}
+
+
+	public void setUserID(String userID) {
+		this.userID = userID;
 	}
 
 

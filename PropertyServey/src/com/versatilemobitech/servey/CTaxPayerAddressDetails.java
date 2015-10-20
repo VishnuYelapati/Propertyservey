@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -38,11 +41,39 @@ public class CTaxPayerAddressDetails extends BaserActinbBar{
 		 PermanentAddress=(EditText)findViewById(R.id.et_permadd);
 		  BasicPhoneNo=(EditText)findViewById(R.id.et_basicphone);
 		  
+		  final CheckBox  sameAddressCheck=(CheckBox)findViewById(R.id.chk_same_address);
+		  
 		  /*AddressforCommunication.setText(pbean.getAddressforCommunication().toString());
 		  MobileNo.setText(pbean.getMobileNo_Address().toString());
 		  PermanentAddress.setText(pbean.getPermanentAddress().toString());
 		  BasicPhoneNo.setText(pbean.getBasicPhoneNo_Address().toString());
 		  EmailID.setText(pbean.getEmailID_Address().toString());*/
+		  
+		  
+		  
+		  sameAddressCheck.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			
+			@Override
+			public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
+
+
+				if(arg1)
+				{
+					if(AddressforCommunication.getText().toString().trim().length()>2)
+					{
+						PermanentAddress.setText(AddressforCommunication.getText().toString());
+					}
+					else{
+						sameAddressCheck.setChecked(false);
+						AddressforCommunication.setError("Invalid");
+						AddressforCommunication.setFocusable(true);
+					}
+				}
+				else{
+					PermanentAddress.setText("");
+				}
+			}
+		});
 		btn_Next.setOnClickListener(new OnClickListener() {
 			
 			@Override

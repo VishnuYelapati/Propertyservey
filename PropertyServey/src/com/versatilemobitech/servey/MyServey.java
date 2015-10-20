@@ -575,7 +575,7 @@ public class MyServey extends BaserActinbBar {
 			cv_Values.put(dbHandler.TypOfConstruction,pbean.getTypOfConstruction());
 			cv_Values.put(dbHandler.VacantArea,pbean.getVacantArea());
 			cv_Values.put(dbHandler.VacantYard,pbean.getVacantYard());   
-			cv_Values.put(dbHandler.createdBy, pbean.getUserName());
+			cv_Values.put(dbHandler.createdBy, pbean.getUserID());
 			cv_Values.put(dbHandler.CREATED_DATE,toDay_DATE);   
 			//“RJ/JPR/(ZONE)/(WARD)/Tablet No./Sequence No.”
 

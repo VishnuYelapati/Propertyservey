@@ -66,6 +66,7 @@
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
                         android:singleLine="true"
+                          android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789."
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -100,6 +101,7 @@
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
                         android:singleLine="true"
+                          android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789."
                         android:textColor="@color/black" />
                 </LinearLayout>
                 
@@ -226,6 +228,7 @@
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
                         android:singleLine="true"
+                          android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -259,6 +262,7 @@
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
                         android:singleLine="true"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -295,6 +299,7 @@
                         android:background="@drawable/textfiled"
                         android:singleLine="true"
                         android:text=""
+                          android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -329,6 +334,7 @@
                         android:background="@drawable/textfiled"
                         android:singleLine="true"
                         android:text="Rajasthan"
+                          android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -362,6 +368,7 @@
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
                         android:singleLine="true"
+                          android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789."
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -394,6 +401,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
+                          android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789"
                         android:singleLine="true"
                         android:textColor="@color/black" />
                 </LinearLayout>
@@ -428,7 +436,7 @@
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
                         android:singleLine="true"
-                        
+                          android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789,.#"
                         android:textColor="@color/black" />
                 </LinearLayout>
 

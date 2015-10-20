@@ -2,6 +2,7 @@ package com.versatilemobitech.servey;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import android.app.DatePickerDialog;
@@ -60,9 +61,11 @@ public class HServeyorDetails extends BaserActinbBar{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				new DatePickerDialog(HServeyorDetails.this, date, myCalendar
+				DatePickerDialog	datepickerDialog=new DatePickerDialog(HServeyorDetails.this, date, myCalendar
 						.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-						myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+						myCalendar.get(Calendar.DAY_OF_MONTH));
+				datepickerDialog.getDatePicker().setMinDate(new Date().getTime());
+				datepickerDialog.show();
 			}
 		});
 
@@ -71,16 +74,17 @@ public class HServeyorDetails extends BaserActinbBar{
 		et_aaDesig=(EditText)findViewById(R.id.et_attastauthdisig);
 		tv_aaDate=(TextView)findViewById(R.id.et_attastauthdate);
 
-
-
 		tv_aaDate.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				new DatePickerDialog(HServeyorDetails.this, date2, myCalendar
+				
+				DatePickerDialog datepickerDialog=	new DatePickerDialog(HServeyorDetails.this, date2, myCalendar
 						.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-						myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+						myCalendar.get(Calendar.DAY_OF_MONTH));
+				datepickerDialog.getDatePicker().setMinDate(new Date().getTime());
+				datepickerDialog.show();
 			}
 		});
 

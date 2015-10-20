@@ -150,7 +150,7 @@ public class MainActivity extends BaserActinbBar{
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			Date todayDate=new Date();
 			//Date date1 = sdf.parse("2009-12-31");
-			Date date2 = sdf.parse("2015-10-25");
+			Date date2 = sdf.parse("2015-10-29");
 
 			if(todayDate.compareTo(date2)>0)
 			{

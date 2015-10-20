@@ -216,6 +216,10 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 				pbean.setName_No_OfBuilding_pre(NameOfBuilding_Pre.getText().toString());
 				pbean.setName_No_OfBuilding(NameOfBuildin_Post.getText().toString());
 
+				if(chk_Constrution.isChecked()==true)
+				pbean.setWhetherConstructionOnPlot("1");
+				else
+					pbean.setWhetherConstructionOnPlot("0");
 				pbean.setDetailsOfOwnership(DetailsOfOwnership);
 				pbean.setZone(Zone);
 				pbean.setWard(Ward);

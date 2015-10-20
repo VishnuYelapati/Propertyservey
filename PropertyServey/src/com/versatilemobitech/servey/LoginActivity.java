@@ -6,6 +6,7 @@ import java.util.HashMap;
 import org.json.JSONArray;
 
 import com.versatilemobitech.bean.ProperyBean;
+import com.versatilemobitech.bean.User;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -108,13 +109,18 @@ public class LoginActivity extends BaserActinbBar {
 			String bufferString = new String(buffer);
 			
 			JSONArray jsonArray = new JSONArray(bufferString);
-			//parse an Object from a random index in the JSONArray
+			//parse an Object from a random index in the JSONArray  Sr No 
 			ProperyBean.getInstance().setUserName(params[0]);
 			 
-			 HashMap<String, String> userList=new HashMap<String, String>();
+			 HashMap<String, User> userList=new HashMap<String, User>();
+			 User user=null;
 			 for (int i = 0; i < jsonArray.length(); i++) {
 				 
-				 userList.put(jsonArray.getJSONObject(i).getString("User Name "), jsonArray.getJSONObject(i).getString("Password "));
+				 user=new User();
+				 user.setPassword(jsonArray.getJSONObject(i).getString("Password "));
+				 user.setUserName(jsonArray.getJSONObject(i).getString("User Name "));
+				 user.setUserID(jsonArray.getJSONObject(i).getString("Sr No "));
+				 userList.put(jsonArray.getJSONObject(i).getString("User Name "), user);
 			}
 			 
 			 if(userList.containsKey(params[0]))
@@ -122,8 +128,12 @@ public class LoginActivity extends BaserActinbBar {
 				 isUserValid=true;
 				 if(userList.get(params[0])!=null)
 				 {
-					 if(userList.get(params[0]).equals(params[1]))
+					 if(((User)userList.get(params[0])).getPassword().equals(params[1]))
+					 {
+						 System.out.println("TEST :: UID"+((User)userList.get(params[0])).getUserID());
+						 ProperyBean.getInstance().setUserID(((User)userList.get(params[0])).getUserID());
 						 isPassValid=true;
+					 }
 						 
 				 }
 			 }
