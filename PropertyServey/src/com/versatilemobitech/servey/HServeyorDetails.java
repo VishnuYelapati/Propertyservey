@@ -55,6 +55,7 @@ public class HServeyorDetails extends BaserActinbBar{
 
 
 		et_sName.setText(pbean.getUserName());
+		et_sId.setText(pbean.getUserID());
 
 		tv_sDate.setOnClickListener(new OnClickListener() {
 

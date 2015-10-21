@@ -657,6 +657,8 @@ public class MyServey extends BaserActinbBar {
 				SharedPreferences.Editor edit=preferences.edit();
 				edit.putInt("ROW_ID", (existingRow+1));
 				edit.commit();
+				
+				Toast.makeText(getApplicationContext(), "Record successfully saved.", Toast.LENGTH_LONG).show();
 
 				Intent i=new Intent(getApplicationContext(),MainActivity.class);
 				startActivity(i);

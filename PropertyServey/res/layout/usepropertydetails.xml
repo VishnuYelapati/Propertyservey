@@ -1236,13 +1236,14 @@
                         android:checkedButton="@+id/rb_payudtax_yes" >
 
                         <RadioButton
-                            android:id="@+id/rb_payudtax_yes"
+                           
+                              android:id="@+id/rb_payudtax_no"
                             android:layout_width="wrap_content"
                             android:text="No" 
                             android:layout_height="wrap_content" />
 
                         <RadioButton
-                            android:id="@+id/rb_payudtax_no"
+                           android:id="@+id/rb_payudtax_yes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Yes" />
