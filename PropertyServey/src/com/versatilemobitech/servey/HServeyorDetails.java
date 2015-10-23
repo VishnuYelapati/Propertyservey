@@ -3,6 +3,7 @@ package com.versatilemobitech.servey;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 
 import android.app.DatePickerDialog;
@@ -29,9 +30,9 @@ public class HServeyorDetails extends BaserActinbBar{
 	private EditText et_sId;
 	private TextView tv_sDate;
 
-	private EditText et_aaName;
-	private EditText et_aaDesig;
-	private TextView tv_aaDate;
+	//private EditText et_aaName;
+	//private EditText et_aaDesig;
+	//private TextView tv_aaDate;
 	private Button btn_submit;
 	private DatabaseHandler dbHandler;
 	private ProperyBean pbean;
@@ -65,17 +66,17 @@ public class HServeyorDetails extends BaserActinbBar{
 				DatePickerDialog	datepickerDialog=new DatePickerDialog(HServeyorDetails.this, date, myCalendar
 						.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
 						myCalendar.get(Calendar.DAY_OF_MONTH));
-				datepickerDialog.getDatePicker().setMinDate(new Date().getTime());
+				datepickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
 				datepickerDialog.show();
 			}
 		});
 
 
-		et_aaName=(EditText)findViewById(R.id.et_attastauthName);
-		et_aaDesig=(EditText)findViewById(R.id.et_attastauthdisig);
-		tv_aaDate=(TextView)findViewById(R.id.et_attastauthdate);
+		//et_aaName=(EditText)findViewById(R.id.et_attastauthName);
+		//et_aaDesig=(EditText)findViewById(R.id.et_attastauthdisig);
+		//tv_aaDate=(TextView)findViewById(R.id.et_attastauthdate);
 
-		tv_aaDate.setOnClickListener(new OnClickListener() {
+		/*tv_aaDate.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -84,10 +85,10 @@ public class HServeyorDetails extends BaserActinbBar{
 				DatePickerDialog datepickerDialog=	new DatePickerDialog(HServeyorDetails.this, date2, myCalendar
 						.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
 						myCalendar.get(Calendar.DAY_OF_MONTH));
-				datepickerDialog.getDatePicker().setMinDate(new Date().getTime());
+				datepickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
 				datepickerDialog.show();
 			}
-		});
+		});*/
 
 		btn_submit=(Button)findViewById(R.id.btn_submit);
 
@@ -98,16 +99,16 @@ public class HServeyorDetails extends BaserActinbBar{
 
 
 				if(et_sName.getText().toString().length()>0 && et_saddress.getText().toString().length()>0 && et_sId.getText().toString().length()>0 && tv_sDate.getText().toString().length()>0
-						&& et_aaName.getText().toString().length()>0 && tv_aaDate.getText().toString().length()>0)
+						/*&& et_aaName.getText().toString().length()>0 && tv_aaDate.getText().toString().length()>0*/)
 				{
 					ProperyBean bean=ProperyBean.getInstance();
 					bean.setNameOfSurveyor(et_sName.getText().toString());
 					bean.setSurveyorAddress(et_saddress.getText().toString());
 					bean.setIdCodeOfSurveyor(et_sId.getText().toString());
 					bean.setDate_Surveyor(tv_sDate.getText().toString());
-					bean.setNameOfAttestingAuthority(et_aaName.getText().toString());
+					/*bean.setNameOfAttestingAuthority(et_aaName.getText().toString());
 					bean.setDesignationOfAttestingAuthority(et_aaDesig.getText().toString());
-					bean.setDate_Attesting(tv_aaDate.getText().toString());
+					bean.setDate_Attesting(tv_aaDate.getText().toString());*/
 
 
 					Intent intent = new Intent(HServeyorDetails.this, CaptureSignature.class); 
@@ -145,7 +146,7 @@ public class HServeyorDetails extends BaserActinbBar{
 	};
 
 
-	DatePickerDialog.OnDateSetListener date2 = new DatePickerDialog.OnDateSetListener() {
+	/*DatePickerDialog.OnDateSetListener date2 = new DatePickerDialog.OnDateSetListener() {
 
 		@Override
 		public void onDateSet(DatePicker view, int year, int monthOfYear,
@@ -157,15 +158,15 @@ public class HServeyorDetails extends BaserActinbBar{
 			updateLabelTwo();
 		}
 
-	};
+	};*/
 
-	private void updateLabelTwo() {
+	/*private void updateLabelTwo() {
 
 		String myFormat = "yyyy-MM-dd";//"dd/MM/yyyy"; //In which you need put here
 		SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
 		tv_aaDate.setText(sdf.format(myCalendar.getTime()));
-	}
+	}*/
 
 
 	private void updateLabel() {

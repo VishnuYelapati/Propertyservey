@@ -477,9 +477,9 @@ public class MyServey extends BaserActinbBar {
 			cv_Values.put(dbHandler.Colony_Name,pbean.getColony_Name());
 			cv_Values.put(dbHandler.CompletelyReligiousProperty,pbean.getCompletelyReligiousProperty());
 			cv_Values.put(dbHandler.dataProvidedBy,pbean.getDataProvidedBy());
-			cv_Values.put(dbHandler.Date_Attesting,pbean.getDate_Attesting());
+			//cv_Values.put(dbHandler.Date_Attesting,pbean.getDate_Attesting());
 			cv_Values.put(dbHandler.Date_Surveyor,pbean.getDate_Surveyor());
-			cv_Values.put(dbHandler.DesignationOfAttestingAuthority,pbean.getDesignationOfAttestingAuthority());
+			//cv_Values.put(dbHandler.DesignationOfAttestingAuthority,pbean.getDesignationOfAttestingAuthority());
 			cv_Values.put(dbHandler.DetailsOfOwnership,pbean.getDetailsOfOwnership());
 			cv_Values.put(dbHandler.District,pbean.getDistrict());
 			cv_Values.put(dbHandler.EmailID,pbean.getEmailID());
@@ -501,7 +501,7 @@ public class MyServey extends BaserActinbBar {
 			cv_Values.put(dbHandler.MobileTower,pbean.getMobileTower());
 			cv_Values.put(dbHandler.Name_No_OfBuilding_post,pbean.getName_No_OfBuilding());
 			cv_Values.put(dbHandler.Name_No_OfBuilding_pre,pbean.getName_No_OfBuilding_pre());
-			cv_Values.put(dbHandler.NameOfAttestingAuthority,pbean.getNameOfAttestingAuthority());
+			//cv_Values.put(dbHandler.NameOfAttestingAuthority,pbean.getNameOfAttestingAuthority());
 			cv_Values.put(dbHandler.NameOfDataProvider,pbean.getNameOfDataProvider());
 			cv_Values.put(dbHandler.NameOfLane_Road,pbean.getNameOfLane_Road());
 			cv_Values.put(dbHandler.NameOfSurveyor,pbean.getNameOfSurveyor());

@@ -183,9 +183,9 @@ public class ProperyBean implements Serializable{
 	private  String  SurveyorAddress="";
 	private  String  IdCodeOfSurveyor="";
 	private  String  Date_Surveyor="";
-	private  String  NameOfAttestingAuthority="";
-	private  String  DesignationOfAttestingAuthority="";
-	private  String  Date_Attesting ="";
+	//private  String  NameOfAttestingAuthority="";
+	//private  String  DesignationOfAttestingAuthority="";
+	//private  String  Date_Attesting ="";
 
 	static ProperyBean mProperyBean=null;
 	
@@ -851,13 +851,13 @@ public class ProperyBean implements Serializable{
 	public void setDate_Surveyor(String date_Surveyor) {
 		Date_Surveyor = date_Surveyor;
 	}
-	public String getNameOfAttestingAuthority() {
+	/*public String getNameOfAttestingAuthority() {
 		return NameOfAttestingAuthority;
 	}
 	public void setNameOfAttestingAuthority(String nameOfAttestingAuthority) {
 		NameOfAttestingAuthority = nameOfAttestingAuthority;
-	}
-	public String getDesignationOfAttestingAuthority() {
+	}*/
+	/*public String getDesignationOfAttestingAuthority() {
 		return DesignationOfAttestingAuthority;
 	}
 	public void setDesignationOfAttestingAuthority(
@@ -869,7 +869,7 @@ public class ProperyBean implements Serializable{
 	}
 	public void setDate_Attesting(String date_Attesting) {
 		Date_Attesting = date_Attesting;
-	}
+	}*/
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}

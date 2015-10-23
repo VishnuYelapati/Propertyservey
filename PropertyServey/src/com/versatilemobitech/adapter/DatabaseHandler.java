@@ -152,9 +152,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public static final String SurveyorAddress="Surveyor_Address";
 	public static final String IdCodeOfSurveyor="ID_code_of_the_surveyor";
 	public static final String Date_Surveyor="Date";
-	public static final String NameOfAttestingAuthority="Name_of_the_Attesting_Authority";
-	public static final String DesignationOfAttestingAuthority="Designation_of_the_Attesting_Authority";
-	public static final String Date_Attesting="Date_attesting";
+	//public static final String NameOfAttestingAuthority="Name_of_the_Attesting_Authority";
+	//public static final String DesignationOfAttestingAuthority="Designation_of_the_Attesting_Authority";
+	//public static final String Date_Attesting="Date_attesting";
 
 
 	/*public static final String photoofProperty_MAGEPATH="propertyimagepath";
@@ -300,9 +300,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ SurveyorAddress 		+ " TEXT,"
 				+ IdCodeOfSurveyor 		+ " TEXT,"
 				+ Date_Surveyor 		+ " TEXT,"
-				+ Date_Attesting         + " TEXT,"
-				+ NameOfAttestingAuthority 		+ " TEXT,"
-				+ DesignationOfAttestingAuthority 		+ " TEXT,"
+		//		+ Date_Attesting         + " TEXT,"
+		//		+ NameOfAttestingAuthority 		+ " TEXT,"
+		//		+ DesignationOfAttestingAuthority 		+ " TEXT,"
 				+ propertyIMG 		+ " TEXT,"
 				+ siteImage 		+ " TEXT,"
 				+ signatureIMG 		+ " TEXT,"
