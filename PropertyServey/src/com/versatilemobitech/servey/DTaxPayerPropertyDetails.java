@@ -72,11 +72,12 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 		jaipurWardMap.put("Hawamahal Zone (West)","60,61,62,64,65,70,71");
 		jaipurWardMap.put("Amer","	74,75,76,77");*/
 		
-		jaipurWardMap.put("Vidyanagar", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,23,24,25,79,80,81,82");
+		jaipurWardMap.put("Vidyadhar Nagar", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,23,24,25,79,80,81,82");
+		 
 		jaipurWardMap.put("Civil line","15,16,17,18,19,20,21,22,26,27,28,30,56,57,58,76");
 		jaipurWardMap.put("Mansarovar","29,31,32,33,34,40,41,42,43,44,55");
 		jaipurWardMap.put("Sanganer","35,36,37,38,39,45,44,45,46,47,48,49,50,52");
-		jaipurWardMap.put("Moti Doongari","51,53,54,59,60,61,62,64,65");
+		jaipurWardMap.put("Moti Dungri","51,53,54,59,60,61,62,64,65");
 		jaipurWardMap.put("Hawamahal Zone (East)","63,66,67,68,69,70,71,72,73,85,86");
 		jaipurWardMap.put("Hawamahal Zone (West)","74,75,77,78,83,84");
 		jaipurWardMap.put("Amer","87,88,89,90,91");

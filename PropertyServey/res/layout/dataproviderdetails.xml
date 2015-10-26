@@ -267,7 +267,7 @@
                         android:background="@drawable/textfiled"
                         android:inputType="textEmailAddress"
                         android:singleLine="true"
-                         android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789 0@-_"
+                         android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789 0@-_."
                         android:textColor="@color/black" />
                 </LinearLayout>
 
