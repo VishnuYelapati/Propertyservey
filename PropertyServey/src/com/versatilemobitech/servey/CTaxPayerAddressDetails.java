@@ -62,6 +62,7 @@ public class CTaxPayerAddressDetails extends BaserActinbBar{
 					if(AddressforCommunication.getText().toString().trim().length()>2)
 					{
 						PermanentAddress.setText(AddressforCommunication.getText().toString());
+						PermanentAddress.setEnabled(false);
 					}
 					else{
 						sameAddressCheck.setChecked(false);
@@ -71,6 +72,7 @@ public class CTaxPayerAddressDetails extends BaserActinbBar{
 				}
 				else{
 					PermanentAddress.setText("");
+					PermanentAddress.setEnabled(true);
 				}
 			}
 		});
@@ -103,6 +105,11 @@ public class CTaxPayerAddressDetails extends BaserActinbBar{
 					
 					pbean.setPermanentAddress(PermanentAddress.getText().toString());
 					pbean.setEmailID_Address(EmailID.getText().toString()); //added
+					
+					if(sameAddressCheck.isChecked())
+					pbean.setIsSameAddress("1");
+					else
+						pbean.setIsSameAddress("0");
 					
 					if(!emailValid)
 						EmailID.setError("Invalid");

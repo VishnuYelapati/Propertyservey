@@ -47,6 +47,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public static final String EmailID_Address="Owner_mail_Id";
 	public static final String PermanentAddress="Owner_Permanent_Address";
 	public static final String BasicPhoneNo_Address="Owner_Basic_Phone_No";
+	public static final String isSameAddress="isSameAddress";
 
 
 
@@ -150,7 +151,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	public static final String NameOfSurveyor="Name_of_the_Surveyor";
 	public static final String SurveyorAddress="Surveyor_Address";
-	public static final String IdCodeOfSurveyor="ID_code_of_the_surveyor";
+	public static final String IdCodeOfSurveyor="Created_By_suveyor_id";
 	public static final String Date_Surveyor="Date";
 	//public static final String NameOfAttestingAuthority="Name_of_the_Attesting_Authority";
 	//public static final String DesignationOfAttestingAuthority="Designation_of_the_Attesting_Authority";
@@ -225,6 +226,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ MobileNo_Address 		+ " TEXT,"
 				+ EmailID_Address 		+ " TEXT,"
 				+ PermanentAddress 		+ " TEXT,"
+				+ isSameAddress         + " TEXT,"
 				+ BasicPhoneNo_Address 		+ " TEXT,"
 
 				+ Plot_Flat_ShopNo 		+ " TEXT,"

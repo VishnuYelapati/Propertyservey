@@ -51,6 +51,7 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 	ProperyBean pbean;
 
 	private String Zone_id="";
+	private String city_id=""; 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -71,9 +72,9 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 		jaipurWardMap.put("Hawamahal Zone (East)","49,52,53,54,55,56,57,58,59,72,73");
 		jaipurWardMap.put("Hawamahal Zone (West)","60,61,62,64,65,70,71");
 		jaipurWardMap.put("Amer","	74,75,76,77");*/
-		
+
 		jaipurWardMap.put("Vidyadhar Nagar", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,23,24,25,79,80,81,82");
-		 
+
 		jaipurWardMap.put("Civil line","15,16,17,18,19,20,21,22,26,27,28,30,56,57,58,76");
 		jaipurWardMap.put("Mansarovar","29,31,32,33,34,40,41,42,43,44,55");
 		jaipurWardMap.put("Sanganer","35,36,37,38,39,45,44,45,46,47,48,49,50,52");
@@ -81,24 +82,64 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 		jaipurWardMap.put("Hawamahal Zone (East)","63,66,67,68,69,70,71,72,73,85,86");
 		jaipurWardMap.put("Hawamahal Zone (West)","74,75,77,78,83,84");
 		jaipurWardMap.put("Amer","87,88,89,90,91");
-		
-		
-		//Second ward
-		 LinkedHashMap<String, String> bharapurWardMap=new LinkedHashMap<String, String>();
-		 bharapurWardMap.put("Select", "Select");
-		 bharapurWardMap.put("Heerra Das", "1,2,3,4,5,6,7,8,9");
-		 bharapurWardMap.put("Arogya Dham", "10,11,12,13,15,16");
-		 bharapurWardMap.put("Ketan Gate", "18,19,20,21,22");
-		 bharapurWardMap.put("Ghoda Ghat", "17,26,27,28,29,30");
-		 bharapurWardMap.put("Fire Station", "23,24,36,37,38,39,40,41,42");
-		 bharapurWardMap.put("Binarayan Gate", "14,25,35,31,32,33,34");
-		 bharapurWardMap.put("Railway Station", "43,44,45,46,47,48,49,50");
 
-		 //Zone list
-		 final LinkedHashMap<String, LinkedHashMap<String, String>> cityMap=new LinkedHashMap<String, LinkedHashMap<String, String>>();
-		 cityMap.put("Select", null);
-		 cityMap.put("Jaipur", jaipurWardMap);
-		 cityMap.put("Bharatpur", bharapurWardMap);
+
+		//Second ward
+		LinkedHashMap<String, String> bharapurWardMap=new LinkedHashMap<String, String>();
+		bharapurWardMap.put("Select", "Select");
+		bharapurWardMap.put("Heerra Das", "1,2,3,4,5,6,7,8,9");
+		bharapurWardMap.put("Arogya Dham", "10,11,12,13,15,16");
+		bharapurWardMap.put("Ketan Gate", "18,19,20,21,22");
+		bharapurWardMap.put("Ghoda Ghat", "17,26,27,28,29,30");
+		bharapurWardMap.put("Fire Station", "23,24,36,37,38,39,40,41,42");
+		bharapurWardMap.put("Binarayan Gate", "14,25,35,31,32,33,34");
+		bharapurWardMap.put("Railway Station", "43,44,45,46,47,48,49,50");
+
+		// Kota VIGYAN NAGAR ZONE
+		LinkedHashMap<String, String> kotaWardMap=new LinkedHashMap<String, String>();
+		kotaWardMap.put("Select", "Select");
+		kotaWardMap.put("VIGYAN NAGAR ZONE", "8,9,10,11,17,18,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,61");
+		kotaWardMap.put("RAMPURA", "1,2,3,4,23,41,42,43,44,45,46,48,49,50,51,52,53,54,55,56,57,58,59,60,62,63,64,65");
+		kotaWardMap.put("HEAD OFFICE", "5,6,7,12,13,14,15,16,19,20,21,22,24,47");
+
+		//Zone list
+		final LinkedHashMap<String, LinkedHashMap<String, String>> cityMap=new LinkedHashMap<String, LinkedHashMap<String, String>>();
+		cityMap.put("Select", null);
+		cityMap.put("Jaipur", jaipurWardMap);
+		cityMap.put("Bharatpur", bharapurWardMap);
+		cityMap.put("Kota", kotaWardMap);
+		cityMap.put("Udaipur", null);
+		cityMap.put("Jodhpur", null);
+		cityMap.put("Ajmer", null);
+		cityMap.put("Bikaner", null);
+		cityMap.put("Sikar", null);
+		cityMap.put("Makrana", null);
+		cityMap.put("Nagaur", null);
+		cityMap.put("Alwar", null);
+		cityMap.put("Banswara", null);
+		cityMap.put("baran", null);
+		cityMap.put("Barmer", null);
+		cityMap.put("Bhilwara", null);
+		cityMap.put("Bundi", null);
+		cityMap.put("Chiittorgarh", null);
+		cityMap.put("Churu ", null);
+		cityMap.put("Dausa", null);
+		cityMap.put("Dholpur", null);
+		cityMap.put("Dungarpur", null);
+		cityMap.put("Hanuman Garh", null);
+		cityMap.put("Jaislalmer", null);
+		cityMap.put("Jalor", null);
+		cityMap.put("Jhalawar", null);
+		cityMap.put("Jhunjhunu", null);
+		cityMap.put("Karauli", null);
+		cityMap.put("Pali", null);
+		cityMap.put("Pratapgarh", null);
+		cityMap.put("Rajsamand", null);
+		cityMap.put("Sawai Madhopur", null);
+		cityMap.put("Sirohi", null);
+		cityMap.put("Sri Gangaganagar", null);
+		cityMap.put("Tonk", null);
+
 
 		ll_chk_constructionplot=(LinearLayout)findViewById(R.id.ll_constructonplot);
 		et_lengthfeets=(EditText)findViewById(R.id.et_lengthfeets);
@@ -146,16 +187,16 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 				if(arg1){
 					et_lengthfeets.setEnabled(true);
 					et_widthFeets.setEnabled(true);
-					 et_lengthfeets.setBackgroundResource(R.drawable.textfiled);
-					 et_widthFeets.setBackgroundResource(R.drawable.textfiled);
+					et_lengthfeets.setBackgroundResource(R.drawable.textfiled);
+					et_widthFeets.setBackgroundResource(R.drawable.textfiled);
 				}else{
 
 					et_lengthfeets.setText("");
 					et_widthFeets.setText("");
 					et_lengthfeets.setEnabled(false);
 					et_widthFeets.setEnabled(false);
-					 et_lengthfeets.setBackgroundResource(R.drawable.textfiled_dis);
-					 et_widthFeets.setBackgroundResource(R.drawable.textfiled_dis);
+					et_lengthfeets.setBackgroundResource(R.drawable.textfiled_dis);
+					et_widthFeets.setBackgroundResource(R.drawable.textfiled_dis);
 				}
 			}
 		});
@@ -165,7 +206,7 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 			@Override
 			public void onClick(View v) {
 
-				if(!flatno.getText().toString().equals("") && !NameOfLaneOrRoad.getText().toString().equals("")&& !ColonyName.getText().toString().equals("") && (!Zone_id.equals("")) && (!state.getText().toString().equals("")) && (!city.equals(""))){
+				if(!flatno.getText().toString().equals("") && !NameOfLaneOrRoad.getText().toString().equals("")&& !ColonyName.getText().toString().equals("") && (!Zone_id.equals("")) && (!state.getText().toString().equals("")) && (!city.equals("")) &&(!District.getText().toString().trim().equals(""))){
 
 					//	pbean.setPlot_Flat_ShopNo(PlotORFlatNo.getText().toString());
 					pbean.setColony_Name(ColonyName.getText().toString());
@@ -206,7 +247,7 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 				//	pbean.setPlot_Flat_ShopNo(PlotORFlatNo.getText().toString());
 				pbean.setNameOfLane_Road(NameOfLaneOrRoad.getText().toString());
 				pbean.setColony_Name(ColonyName.getText().toString());
-				pbean.setCity(city);
+				pbean.setCity(city_id);
 				pbean.setState(state.getText().toString());
 				//	pbean.setName_No_OfBuilding(NameOfBuildin_Post.getText().toString());
 				pbean.setLength(WhetherConstructionOnPlot_lenth.getText().toString());
@@ -218,9 +259,10 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 				pbean.setName_No_OfBuilding(NameOfBuildin_Post.getText().toString());
 
 				if(chk_Constrution.isChecked()==true)
-				pbean.setWhetherConstructionOnPlot("1");
+					pbean.setWhetherConstructionOnPlot("1");
 				else
 					pbean.setWhetherConstructionOnPlot("0");
+				
 				pbean.setDetailsOfOwnership(DetailsOfOwnership);
 				pbean.setZone(Zone);
 				pbean.setWard(Ward);
@@ -229,12 +271,12 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 				onBackPressed();
 			}
 		});
-		
-		
-		
+
+
+
 		//adding data
-		
-		
+
+
 		ArrayList<SpinnerItemBean> arr_cityMap=new ArrayList<SpinnerItemBean>();
 
 		Set<String> Citykeys = cityMap.keySet();
@@ -259,9 +301,9 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 
 			}
 		});
-		
-		
-		
+
+
+
 		city_spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override
@@ -269,51 +311,66 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 					int arg2, long arg3) {
 				if(arg2!=0)
 				{
-				 System.out.println(" TEST :::"+((SpinnerItemBean)parent.getItemAtPosition(arg2)).getStrItem());
-				 if((SpinnerItemBean)parent.getItemAtPosition(arg2)!=null)
-				 {
-				city=((SpinnerItemBean)parent.getItemAtPosition(arg2)).getStrItem();
-				
-				
-				LinkedHashMap<String, String> newmap =(LinkedHashMap<String, String>) cityMap.get(city);
-				
-				zone_spinner.setTag(newmap);
-				ArrayList<SpinnerItemBean> cityArraylist=new ArrayList<SpinnerItemBean>();
-				
+					System.out.println(" TEST :::"+((SpinnerItemBean)parent.getItemAtPosition(arg2)).getStrItem());
+					if((SpinnerItemBean)parent.getItemAtPosition(arg2)!=null)
+					{
+						city=((SpinnerItemBean)parent.getItemAtPosition(arg2)).getStrItem();
+						city_id=""+arg2;
 
-				Set<String> keys = newmap.keySet();
-				for(String key: keys){ 
-					//System.out.println(key);
-					SpinnerItemBean sib=new SpinnerItemBean();
-					sib.setStrItem(key);
-					cityArraylist.add(sib);
-				} 
+						LinkedHashMap<String, String> newmap =(LinkedHashMap<String, String>) cityMap.get(city);
 
-				CustomAdapter adapter = new CustomAdapter(DTaxPayerPropertyDetails.this, R.layout.spinner_rows, cityArraylist,getResources());
-				zone_spinner.setAdapter(adapter);
-				 }
-				 
+						if(newmap!=null)
+						{
+							zone_spinner.setTag(newmap);
+							ArrayList<SpinnerItemBean> cityArraylist=new ArrayList<SpinnerItemBean>();
+
+
+							Set<String> keys = newmap.keySet();
+							for(String key: keys){ 
+								//System.out.println(key);
+								SpinnerItemBean sib=new SpinnerItemBean();
+								sib.setStrItem(key);
+								cityArraylist.add(sib);
+							} 
+
+							CustomAdapter adapter = new CustomAdapter(DTaxPayerPropertyDetails.this, R.layout.spinner_rows, cityArraylist,getResources());
+							zone_spinner.setAdapter(adapter);
+						}
+						else{
+							//city="";
+							zone_spinner.setTag(null);
+							ArrayList<SpinnerItemBean> cityArraylist=new ArrayList<SpinnerItemBean>();
+							CustomAdapter adapter = new CustomAdapter(DTaxPayerPropertyDetails.this, R.layout.spinner_rows, cityArraylist,getResources());
+							zone_spinner.setAdapter(adapter);
+
+
+							ArrayList<SpinnerItemBean> ward_itmeanBean=new ArrayList<SpinnerItemBean>(); 
+							CustomAdapter adapter2 = new CustomAdapter(DTaxPayerPropertyDetails.this, R.layout.spinner_rows, ward_itmeanBean,getResources());
+							ward_spinner.setAdapter(adapter2);
+						}
+					}
+
 				}
 				else{
-					 System.out.println(" TEST else :::"+parent.getItemAtPosition(arg2).toString());
 					city="";
+					city_id="";
 					zone_spinner.setTag(null);
 					ArrayList<SpinnerItemBean> cityArraylist=new ArrayList<SpinnerItemBean>();
 					CustomAdapter adapter = new CustomAdapter(DTaxPayerPropertyDetails.this, R.layout.spinner_rows, cityArraylist,getResources());
 					zone_spinner.setAdapter(adapter);
-					
-					
+
+
 					ArrayList<SpinnerItemBean> ward_itmeanBean=new ArrayList<SpinnerItemBean>(); 
 					CustomAdapter adapter2 = new CustomAdapter(DTaxPayerPropertyDetails.this, R.layout.spinner_rows, ward_itmeanBean,getResources());
 					ward_spinner.setAdapter(adapter2);
 				}
-				
-				
-				
-			
 
-				
-				
+
+
+
+
+
+
 
 				/*ArrayList<SpinnerItemBean> ward_itmeanBean=new ArrayList<SpinnerItemBean>();
 				String vaues=(String)jaipurWardMap.get(Zone);
@@ -329,20 +386,20 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 
 				CustomAdapter adapter = new CustomAdapter(DTaxPayerPropertyDetails.this, R.layout.spinner_rows, ward_itmeanBean,getResources());
 				ward_spinner.setAdapter(adapter);
-				*/
-				
-				
-				
+				 */
+
+
+
 			}
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
 
-		
+
 
 		ward_spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 
@@ -352,7 +409,7 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 				// TODO Auto-generated method stub
 
 				if((SpinnerItemBean)parent.getItemAtPosition(position)!=null)
-				Ward=((SpinnerItemBean)parent.getItemAtPosition(position)).getStrItem();
+					Ward=((SpinnerItemBean)parent.getItemAtPosition(position)).getStrItem();
 			}
 
 			@Override
@@ -377,34 +434,7 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 
 			}
 		});
-		///////////////////////
-		
 
-		/*ArrayList<SpinnerItemBean> arr_itemBean=new ArrayList<SpinnerItemBean>();
-
-		Set<String> keys = jaipurWardMap.keySet();
-		for(String key: keys){ 
-			//System.out.println(key);
-			SpinnerItemBean sib=new SpinnerItemBean();
-			sib.setStrItem(key);
-			arr_itemBean.add(sib);
-		} 
-
-		CustomAdapter adapter = new CustomAdapter(DTaxPayerPropertyDetails.this, R.layout.spinner_rows, arr_itemBean,getResources());
-		zone_spinner.setAdapter(adapter);
-
-
-
-		zone_spinner.post(new Runnable() {
-			@Override
-			public void run() {
-
-
-				zone_spinner.setSelection(0);
-
-			}
-		});*/
-		////////////////////////////////
 
 
 		Spinner details_of_owner_spinner=(Spinner)findViewById(R.id.spn_ownershipsdetails);
@@ -437,32 +467,32 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 				// TODO Auto-generated method stub
 				Zone=((SpinnerItemBean)parent.getItemAtPosition(position)).getStrItem();
 				Zone_id=""+position;
-				
+
 				if(position==0)
 					Zone_id="";
-				System.out.println("Item Bean:.."+Zone);
-				
-				
+
+
+
 				if(zone_spinner.getTag()!=null)
 				{
-				ArrayList<SpinnerItemBean> ward_itmeanBean=new ArrayList<SpinnerItemBean>(); 
-				String vaues=(String)((LinkedHashMap<String, String>)zone_spinner.getTag()).get(Zone);
-				
-				if(vaues!=null)
-				{
-				String valuesArray[]=	vaues.split(",");
+					ArrayList<SpinnerItemBean> ward_itmeanBean=new ArrayList<SpinnerItemBean>(); 
+					String vaues=(String)((LinkedHashMap<String, String>)zone_spinner.getTag()).get(Zone);
 
-				for(int i=0;i<valuesArray.length;i++){ 
+					if(vaues!=null)
+					{
+						String valuesArray[]=	vaues.split(",");
 
-					SpinnerItemBean sib=new SpinnerItemBean();
-					sib.setStrItem(valuesArray[i]);
+						for(int i=0;i<valuesArray.length;i++){ 
 
-					ward_itmeanBean.add(sib);
-				} 
+							SpinnerItemBean sib=new SpinnerItemBean();
+							sib.setStrItem(valuesArray[i]);
 
-				CustomAdapter adapter = new CustomAdapter(DTaxPayerPropertyDetails.this, R.layout.spinner_rows, ward_itmeanBean,getResources());
-				ward_spinner.setAdapter(adapter);
-				}
+							ward_itmeanBean.add(sib);
+						} 
+
+						CustomAdapter adapter = new CustomAdapter(DTaxPayerPropertyDetails.this, R.layout.spinner_rows, ward_itmeanBean,getResources());
+						ward_spinner.setAdapter(adapter);
+					}
 				}
 				else{
 					ArrayList<SpinnerItemBean> ward_itmeanBean=new ArrayList<SpinnerItemBean>(); 

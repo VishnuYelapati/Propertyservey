@@ -40,6 +40,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.versatilemobitech.adapter.DatabaseHandler;
+import com.versatilemobitech.bean.ProperyBean;
 
 public class MainActivity extends BaserActinbBar{
 
@@ -98,8 +99,15 @@ public class MainActivity extends BaserActinbBar{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				if(ProperyBean.getInstance().getUserName().length()>2){
 				Intent i=new Intent(getApplicationContext(),ADataProviderActivity.class);
 				startActivity(i);
+				}
+				else{
+					Toast.makeText(getApplicationContext(), "Login faild", Toast.LENGTH_LONG).show();
+					Intent i=new Intent(getApplicationContext(),LoginActivity.class);
+					startActivity(i);
+				}
 				finish();
 			}
 		});

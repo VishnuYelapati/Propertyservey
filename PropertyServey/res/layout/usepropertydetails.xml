@@ -1148,6 +1148,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Please write size of Board if more than 7x1 Sq.ft."
+                        
                         android:textColor="@color/black" /> 
 
                     <EditText  android:padding="3dp"
@@ -1155,6 +1156,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:inputType="numberDecimal"
                         android:background="@drawable/textfiled" >
                     </EditText>
                 </LinearLayout>

@@ -94,7 +94,7 @@ public class ADataProviderActivity extends BaserActinbBar{
 			@Override
 			public void onClick(View arg0) {
 
-				if((!dataProvider.equals("")) &&!dataProvider.equals("0") &&  NameOfDataProvider.getText().toString().length()>0 && mRelationshipOfOwner.getText().toString().length()>2 )
+				if((!dataProvider.equals("")) &&!dataProvider.equals("0") &&  NameOfDataProvider.getText().toString().trim().length()>2 && mRelationshipOfOwner.getText().toString().trim().length()>2 )
 				{
 					ProperyBean pbean=ProperyBean.getInstance();
 					pbean.setDataProvidedBy(dataProvider);
@@ -148,7 +148,12 @@ public class ADataProviderActivity extends BaserActinbBar{
 						NameOfDataProvider.setError("Invalid value");
 					 if(dataProvider.equals("0"))
 						Toast.makeText(getApplicationContext(), "Please select the data Provider", Toast.LENGTH_LONG).show();
-
+					 
+					 if(mRelationshipOfOwner.getText().toString().length()<=2)
+						 mRelationshipOfOwner.setError("Invalid value");
+					 
+					 if(NameOfDataProvider.getText().toString().trim().length()<=2)
+						 NameOfDataProvider.setError("Invalid value");
 				}
 
 

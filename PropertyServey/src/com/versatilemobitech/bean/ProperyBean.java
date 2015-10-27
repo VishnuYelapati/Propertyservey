@@ -74,6 +74,7 @@ public class ProperyBean implements Serializable{
 	 * Address for communication
 	 */
 
+	private String isSameAddress="0";
 	private String AddressforCommunication="";
 	private String PermanentAddress_Address="";
 	private String MobileNo_Address="";
@@ -92,7 +93,7 @@ public class ProperyBean implements Serializable{
 	private String State="Rajasthan";
 	private String Name_No_OfBuilding="";
 	private String DetailsOfOwnership="";
-	private String WhetherConstructionOnPlot="";
+	private String WhetherConstructionOnPlot="0";
 	private String NameOfLane_Road="";
 	private String Landmark="";
 	private String Ward="";
@@ -669,9 +670,9 @@ public class ProperyBean implements Serializable{
 	public void setDetailsOfOwnership(String detailsOfOwnership) {
 		DetailsOfOwnership = detailsOfOwnership;
 	}
-	public String getWhetherConstructionOnPlot() {
+ 	public String getWhetherConstructionOnPlot() {
 		return WhetherConstructionOnPlot;
-	}
+	} 
 	public void setWhetherConstructionOnPlot(String whetherConstructionOnPlot) {
 		WhetherConstructionOnPlot = whetherConstructionOnPlot;
 	}
@@ -912,6 +913,16 @@ public class ProperyBean implements Serializable{
 
 	public void setUserID(String userID) {
 		this.userID = userID;
+	}
+
+
+	public String getIsSameAddress() {
+		return isSameAddress;
+	}
+
+
+	public void setIsSameAddress(String isSameAddress) {
+		this.isSameAddress = isSameAddress;
 	}
 
 

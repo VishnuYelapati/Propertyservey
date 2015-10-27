@@ -32,6 +32,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.Settings.Secure;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -444,7 +445,7 @@ public class MyServey extends BaserActinbBar {
 
 
 
-
+try{
 
 
 			boolean isSucess=false;
@@ -510,6 +511,7 @@ public class MyServey extends BaserActinbBar {
 			//	cv_Values.put(dbHandler.ownerId,pbean.geto);
 			 cv_Values.put(dbHandler.OwnerUIDNumber,pbean.getOwnerUIDNumber());
 			 cv_Values.put(dbHandler.AddressforCommunication,pbean.getAddressforCommunication());
+			 cv_Values.put(dbHandler.isSameAddress,pbean.getIsSameAddress());
 			 cv_Values.put(dbHandler.Zone,pbean.getZone());
 			 cv_Values.put(dbHandler.Ward,pbean.getWard());
 			 cv_Values.put(dbHandler.Landmark,pbean.getLandmark());
@@ -640,6 +642,12 @@ public class MyServey extends BaserActinbBar {
  
 
 			return isSucess;
+}
+catch(Exception e)
+{
+	
+	return false;
+}
 		}
 
 		@Override
@@ -652,7 +660,7 @@ public class MyServey extends BaserActinbBar {
 			if(result)
 			{
 				SharedPreferences preferences=getSharedPreferences("TAB_DATA",MODE_PRIVATE);
-				int existingRow=  preferences.getInt("ROW_ID", 1);
+				int existingRow=  preferences.getInt("ROW_ID", 0);
 
 				SharedPreferences.Editor edit=preferences.edit();
 				edit.putInt("ROW_ID", (existingRow+1));
@@ -663,6 +671,7 @@ public class MyServey extends BaserActinbBar {
 				Intent i=new Intent(getApplicationContext(),MainActivity.class);
 				startActivity(i);
 				finish();
+				ActivityCompat.finishAffinity(activity);
 			}
 			else
 			{
