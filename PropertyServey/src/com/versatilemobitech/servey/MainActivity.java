@@ -69,7 +69,7 @@ public class MainActivity extends BaserActinbBar{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 
-		//buildValidate();
+		 buildValidate();
 
 		SharedPreferences preferences=getSharedPreferences("TAB_DATA",MODE_PRIVATE);
 		existingRow=  preferences.getInt("ROW_ID", 0);
@@ -158,7 +158,7 @@ public class MainActivity extends BaserActinbBar{
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			Date todayDate=new Date();
 			//Date date1 = sdf.parse("2009-12-31");
-			Date date2 = sdf.parse("2015-10-31");
+			Date date2 = sdf.parse("2015-11-05");
 
 			if(todayDate.compareTo(date2)>0)
 			{
