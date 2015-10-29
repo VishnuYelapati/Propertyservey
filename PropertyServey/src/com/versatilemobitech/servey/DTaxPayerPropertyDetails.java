@@ -45,7 +45,7 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 	EditText MultistoreyBuildigNameofBuilding=null;
 	EditText flatno;
 	CheckBox chk_Constrution;
-	EditText et_lengthfeets,et_widthFeets;
+	//EditText et_lengthfeets,et_widthFeets;
 
 	LinearLayout ll_chk_constructionplot;
 	ProperyBean pbean;
@@ -101,49 +101,188 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 		kotaWardMap.put("VIGYAN NAGAR ZONE", "8,9,10,11,17,18,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,61");
 		kotaWardMap.put("RAMPURA", "1,2,3,4,23,41,42,43,44,45,46,48,49,50,51,52,53,54,55,56,57,58,59,60,62,63,64,65");
 		kotaWardMap.put("HEAD OFFICE", "5,6,7,12,13,14,15,16,19,20,21,22,24,47");
+		/*
+		 * 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60
+		 */
+		LinkedHashMap<String, String> udaipurWardMapp=new LinkedHashMap<String, String>();;
+		udaipurWardMapp.put("Select", "Select");
+		udaipurWardMapp.put("Udaipur", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55");
 
+		LinkedHashMap<String, String> jodhpurWardMap=new LinkedHashMap<String, String>();;
+		jodhpurWardMap.put("Select", "Select");
+		jodhpurWardMap.put("Jodhpur", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65");
+
+
+		LinkedHashMap<String, String> ajmerWardMap=new LinkedHashMap<String, String>();
+		ajmerWardMap.put("Select", "Select");
+		ajmerWardMap.put("Ajmer", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60");
+ 
+		
+		LinkedHashMap<String, String> bikanerWardMap=new LinkedHashMap<String, String>();
+		bikanerWardMap.put("Select", "Select");
+		bikanerWardMap.put("Bikaner", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60");
+ 
+		LinkedHashMap<String, String> sikarWardMap=new LinkedHashMap<String, String>();
+		sikarWardMap.put("Select", "Select");
+		sikarWardMap.put("Sikar", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50");
+ 
+		LinkedHashMap<String, String> makranaWardMap=new LinkedHashMap<String, String>();
+		makranaWardMap.put("Select", "Select");
+		makranaWardMap.put("Makrana", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40");
+		
+ 
+		LinkedHashMap<String, String> nagaurWardMap=new LinkedHashMap<String, String>();
+		nagaurWardMap.put("Select", "Select");
+		nagaurWardMap.put("Nagaur", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45");
+		
+		LinkedHashMap<String, String> alwarWardMap=new LinkedHashMap<String, String>();
+		alwarWardMap.put("Select", "Select");
+		alwarWardMap.put("Alwar", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50");
+	
+ 
+		LinkedHashMap<String, String> banswaraWardMap=new LinkedHashMap<String, String>();
+		banswaraWardMap.put("Select", "Select");
+		banswaraWardMap.put("Banswara", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45");
+		
+		LinkedHashMap<String, String> baranWardMap=new LinkedHashMap<String, String>();
+		baranWardMap.put("Select", "Select");
+		baranWardMap.put("baran", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45");
+	
+		LinkedHashMap<String, String> barmerWardMap=new LinkedHashMap<String, String>();
+		barmerWardMap.put("Select", "Select");
+		barmerWardMap.put("Barmer", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40");
+	
+		LinkedHashMap<String, String> bhilwaraWardMap=new LinkedHashMap<String, String>();
+		bhilwaraWardMap.put("Select", "Select");
+		bhilwaraWardMap.put("Bhilwara", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55");
+	
+		LinkedHashMap<String, String> bundiWardMap=new LinkedHashMap<String, String>();
+		bundiWardMap.put("Select", "Select");
+		bundiWardMap.put("Bundi", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45");
+	
+		LinkedHashMap<String, String> chittorgarWardMap=new LinkedHashMap<String, String>();
+		chittorgarWardMap.put("Select", "Select");
+		chittorgarWardMap.put("Chiittorgarh", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45");
+	
+		LinkedHashMap<String, String> churuWardMap=new LinkedHashMap<String, String>();
+		churuWardMap.put("Select", "Select");
+		churuWardMap.put("Churu", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45");
+	
+		LinkedHashMap<String, String> dausaWardMap=new LinkedHashMap<String, String>();
+		dausaWardMap.put("Select", "Select");
+		dausaWardMap.put("Dausa", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40");
+	
+		
+		LinkedHashMap<String, String> dholpurWardMap=new LinkedHashMap<String, String>();
+		dholpurWardMap.put("Select", "Select");
+		dholpurWardMap.put("Dholpur", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45");
+	
+		LinkedHashMap<String, String> dungarpurWardMap=new LinkedHashMap<String, String>();
+		dungarpurWardMap.put("Select", "Select");
+		dungarpurWardMap.put("Dungarpur", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30");
+		
+
+		LinkedHashMap<String, String> hanumanWardMap=new LinkedHashMap<String, String>();
+		hanumanWardMap.put("Select", "Select");
+		hanumanWardMap.put("Hanuman Garh", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45");
+	
+		LinkedHashMap<String, String> jaislalmerWardMap=new LinkedHashMap<String, String>();
+		jaislalmerWardMap.put("Select", "Select");
+		jaislalmerWardMap.put("Jaislalmer", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35");
+	 
+		LinkedHashMap<String, String> jalorWardMap=new LinkedHashMap<String, String>();
+		jalorWardMap.put("Select", "Select");
+		jalorWardMap.put("Jalor", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30");
+		
+		LinkedHashMap<String, String> jhalawarWardMap=new LinkedHashMap<String, String>();
+		jhalawarWardMap.put("Select", "Select");
+		jhalawarWardMap.put("Jhalawar", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35");
+	 
+		LinkedHashMap<String, String> jhnujhunuWardMap=new LinkedHashMap<String, String>();
+		jhnujhunuWardMap.put("Select", "Select");
+		jhnujhunuWardMap.put("Jhunjhunu", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45");
+	
+		LinkedHashMap<String, String> karauliWardMap=new LinkedHashMap<String, String>();
+		karauliWardMap.put("Select", "Select");
+		karauliWardMap.put("Karauli", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40");
+	
+		LinkedHashMap<String, String> paliWardMap=new LinkedHashMap<String, String>();
+		paliWardMap.put("Select", "Select");
+		paliWardMap.put("Pali", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50");
+		
+		
+		LinkedHashMap<String, String> pratapgarhWardMap=new LinkedHashMap<String, String>();
+		pratapgarhWardMap.put("Select", "Select");
+		pratapgarhWardMap.put("Pratapgarh", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30");
+		
+		
+		LinkedHashMap<String, String> rajsamandWardMap=new LinkedHashMap<String, String>();
+		rajsamandWardMap.put("Select", "Select");
+		rajsamandWardMap.put("Rajsamand", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30");
+		
+		
+		LinkedHashMap<String, String> sawaiWardMap=new LinkedHashMap<String, String>();
+		sawaiWardMap.put("Select", "Select");
+		sawaiWardMap.put("Sawai Madhopur", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45");
+		
+		LinkedHashMap<String, String> sirohiWardMap=new LinkedHashMap<String, String>();
+		sirohiWardMap.put("Select", "Select");
+		sirohiWardMap.put("Sirohi", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25");
+		
+		LinkedHashMap<String, String> sriGangaWardMap=new LinkedHashMap<String, String>();
+		sriGangaWardMap.put("Select", "Select");
+		sriGangaWardMap.put("Sri Gangaganagar", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50");
+		
+		LinkedHashMap<String, String> tonkWardMap=new LinkedHashMap<String, String>();
+		tonkWardMap.put("Select", "Select");
+		tonkWardMap.put("Tonk", "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45");
+		 
+	
+		
 		//Zone list
 		final LinkedHashMap<String, LinkedHashMap<String, String>> cityMap=new LinkedHashMap<String, LinkedHashMap<String, String>>();
 		cityMap.put("Select", null);
 		cityMap.put("Jaipur", jaipurWardMap);
 		cityMap.put("Bharatpur", bharapurWardMap);
 		cityMap.put("Kota", kotaWardMap);
-		cityMap.put("Udaipur", null);
-		cityMap.put("Jodhpur", null);
-		cityMap.put("Ajmer", null);
-		cityMap.put("Bikaner", null);
-		cityMap.put("Sikar", null);
-		cityMap.put("Makrana", null);
-		cityMap.put("Nagaur", null);
-		cityMap.put("Alwar", null);
-		cityMap.put("Banswara", null);
-		cityMap.put("baran", null);
-		cityMap.put("Barmer", null);
-		cityMap.put("Bhilwara", null);
-		cityMap.put("Bundi", null);
-		cityMap.put("Chiittorgarh", null);
-		cityMap.put("Churu ", null);
-		cityMap.put("Dausa", null);
-		cityMap.put("Dholpur", null);
-		cityMap.put("Dungarpur", null);
-		cityMap.put("Hanuman Garh", null);
-		cityMap.put("Jaislalmer", null);
-		cityMap.put("Jalor", null);
-		cityMap.put("Jhalawar", null);
-		cityMap.put("Jhunjhunu", null);
-		cityMap.put("Karauli", null);
-		cityMap.put("Pali", null);
-		cityMap.put("Pratapgarh", null);
-		cityMap.put("Rajsamand", null);
-		cityMap.put("Sawai Madhopur", null);
-		cityMap.put("Sirohi", null);
-		cityMap.put("Sri Gangaganagar", null);
-		cityMap.put("Tonk", null);
+		cityMap.put("Udaipur", udaipurWardMapp);
+		cityMap.put("Jodhpur", jodhpurWardMap);
+		cityMap.put("Ajmer", ajmerWardMap);
+		cityMap.put("Bikaner", bikanerWardMap);
+		cityMap.put("Sikar", sikarWardMap);
+		cityMap.put("Makrana", makranaWardMap);
+		cityMap.put("Nagaur", nagaurWardMap);
+		cityMap.put("Alwar", alwarWardMap);
+		cityMap.put("Banswara", banswaraWardMap);
+		cityMap.put("baran", baranWardMap);
+		cityMap.put("Barmer", barmerWardMap);
+		cityMap.put("Bhilwara", bhilwaraWardMap);
+		cityMap.put("Bundi", bundiWardMap);
+		cityMap.put("Chiittorgarh", chittorgarWardMap);
+		cityMap.put("Churu", churuWardMap);
+		cityMap.put("Dausa", dausaWardMap);
+		cityMap.put("Dholpur", dholpurWardMap);
+		cityMap.put("Dungarpur", dungarpurWardMap);
+		
+		
+		cityMap.put("Hanuman Garh", hanumanWardMap);
+		cityMap.put("Jaislalmer", jaislalmerWardMap);
+		cityMap.put("Jalor", jalorWardMap);
+		cityMap.put("Jhalawar", jhalawarWardMap);
+		cityMap.put("Jhunjhunu", jhnujhunuWardMap);
+		cityMap.put("Karauli", karauliWardMap);
+		cityMap.put("Pali", paliWardMap);
+		cityMap.put("Pratapgarh", pratapgarhWardMap);
+		cityMap.put("Rajsamand", rajsamandWardMap);
+		cityMap.put("Sawai Madhopur", sawaiWardMap);
+		cityMap.put("Sirohi", sirohiWardMap);
+		cityMap.put("Sri Gangaganagar", sriGangaWardMap);
+		cityMap.put("Tonk", tonkWardMap);
 
 
 		ll_chk_constructionplot=(LinearLayout)findViewById(R.id.ll_constructonplot);
-		et_lengthfeets=(EditText)findViewById(R.id.et_lengthfeets);
-		et_widthFeets=(EditText)findViewById(R.id.et_widthfeets);
+		//et_lengthfeets=(EditText)findViewById(R.id.et_lengthfeets);
+		//et_widthFeets=(EditText)findViewById(R.id.et_widthfeets);
 		chk_Constrution=(CheckBox)findViewById(R.id.chk_constructiononplot);
 		flatno=(EditText)findViewById(R.id.et_flatno);
 		ColonyName=(EditText)findViewById(R.id.et_colonyname);
@@ -185,18 +324,18 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 				// TODO Auto-generated method stub
 
 				if(arg1){
-					et_lengthfeets.setEnabled(true);
-					et_widthFeets.setEnabled(true);
-					et_lengthfeets.setBackgroundResource(R.drawable.textfiled);
-					et_widthFeets.setBackgroundResource(R.drawable.textfiled);
+					WhetherConstructionOnPlot_lenth.setEnabled(true);
+					WhetherConstructionOnPlot_width.setEnabled(true);
+					WhetherConstructionOnPlot_lenth.setBackgroundResource(R.drawable.textfiled);
+					WhetherConstructionOnPlot_width.setBackgroundResource(R.drawable.textfiled);
 				}else{
 
-					et_lengthfeets.setText("");
-					et_widthFeets.setText("");
-					et_lengthfeets.setEnabled(false);
-					et_widthFeets.setEnabled(false);
-					et_lengthfeets.setBackgroundResource(R.drawable.textfiled_dis);
-					et_widthFeets.setBackgroundResource(R.drawable.textfiled_dis);
+					WhetherConstructionOnPlot_lenth.setText("");
+					WhetherConstructionOnPlot_width.setText("");
+					WhetherConstructionOnPlot_lenth.setEnabled(false);
+					WhetherConstructionOnPlot_width.setEnabled(false);
+					WhetherConstructionOnPlot_lenth.setBackgroundResource(R.drawable.textfiled_dis);
+					WhetherConstructionOnPlot_width.setBackgroundResource(R.drawable.textfiled_dis);
 				}
 			}
 		});
@@ -210,7 +349,7 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 
 					//	pbean.setPlot_Flat_ShopNo(PlotORFlatNo.getText().toString());
 					pbean.setColony_Name(ColonyName.getText().toString());
-					pbean.setCity(city);
+					pbean.setCity(city_id);
 					pbean.setState(state.getText().toString());
 					//	pbean.setName_No_OfBuilding(NameOfBuildin_Post.getText().toString());
 					pbean.setLength(WhetherConstructionOnPlot_lenth.getText().toString());
@@ -220,6 +359,12 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 					pbean.setDistrict(District.getText().toString());
 					pbean.setName_No_OfBuilding_pre(NameOfBuilding_Pre.getText().toString());
 					pbean.setName_No_OfBuilding(NameOfBuildin_Post.getText().toString());
+					
+					
+					if(chk_Constrution.isChecked()==true)
+						pbean.setWhetherConstructionOnPlot("1");
+					else
+						pbean.setWhetherConstructionOnPlot("0");
 
 					pbean.setDetailsOfOwnership(DetailsOfOwnership);
 					pbean.setZone(Zone_id);
@@ -311,7 +456,7 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 					int arg2, long arg3) {
 				if(arg2!=0)
 				{
-					System.out.println(" TEST :::"+((SpinnerItemBean)parent.getItemAtPosition(arg2)).getStrItem());
+					 
 					if((SpinnerItemBean)parent.getItemAtPosition(arg2)!=null)
 					{
 						city=((SpinnerItemBean)parent.getItemAtPosition(arg2)).getStrItem();
@@ -365,30 +510,7 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 					ward_spinner.setAdapter(adapter2);
 				}
 
-
-
-
-
-
-
-
-				/*ArrayList<SpinnerItemBean> ward_itmeanBean=new ArrayList<SpinnerItemBean>();
-				String vaues=(String)jaipurWardMap.get(Zone);
-				String valuesArray[]=	vaues.split(",");
-
-				for(int i=0;i<valuesArray.length;i++){ 
-
-					SpinnerItemBean sib=new SpinnerItemBean();
-					sib.setStrItem(valuesArray[i]);
-
-					ward_itmeanBean.add(sib);
-				} 
-
-				CustomAdapter adapter = new CustomAdapter(DTaxPayerPropertyDetails.this, R.layout.spinner_rows, ward_itmeanBean,getResources());
-				ward_spinner.setAdapter(adapter);
-				 */
-
-
+ 
 
 			}
 
@@ -424,13 +546,11 @@ public class DTaxPayerPropertyDetails extends BaserActinbBar{
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				// TODO Auto-generated method stub
 				TypeOfConstruction=""+position;//parent.getItemAtPosition(position).toString();
 			}
 
 			@Override
 			public void onNothingSelected(AdapterView<?> parent) {
-				// TODO Auto-generated method stub
 
 			}
 		});

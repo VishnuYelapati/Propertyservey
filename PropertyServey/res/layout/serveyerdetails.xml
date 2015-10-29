@@ -115,7 +115,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:background="@drawable/textfiled"
-                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789 0/#-_@"
+                       
                         android:padding="3dp"
                         android:singleLine="true"
                         android:textColor="@color/black" />
