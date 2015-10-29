@@ -543,6 +543,10 @@ public class ProperyBean implements Serializable{
 		return mProperyBean;
 	}
 
+	static public void resetData(){
+		if(mProperyBean!=null)
+			mProperyBean=null;
+	}
 
 	public String getDataProvidedBy() {
 		return dataProvidedBy;

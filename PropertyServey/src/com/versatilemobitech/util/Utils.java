@@ -3,8 +3,6 @@ package com.versatilemobitech.util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import android.view.View;
-
 
 
 public class Utils {

@@ -668,9 +668,23 @@ catch(Exception e)
 				
 				Toast.makeText(getApplicationContext(), "Record successfully saved.", Toast.LENGTH_LONG).show();
 
+				
+				
+				     String username=ProperyBean.getInstance().getUserName();
+						String userId=ProperyBean.getInstance().getUserID();
+				/// Clearing data
+				ProperyBean.resetData();
+				
+				
+				ProperyBean.getInstance().setUserID(userId);
+				ProperyBean.getInstance().setUserName(username);
+				
 				Intent i=new Intent(getApplicationContext(),MainActivity.class);
 				startActivity(i);
 				finish();
+				
+				
+				
 				ActivityCompat.finishAffinity(activity);
 			}
 			else
