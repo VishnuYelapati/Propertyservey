@@ -69,7 +69,7 @@ public class MainActivity extends BaserActinbBar{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 
-		 buildValidate();
+		// buildValidate();
 
 		SharedPreferences preferences=getSharedPreferences("TAB_DATA",MODE_PRIVATE);
 		existingRow=  preferences.getInt("ROW_ID", 0);
